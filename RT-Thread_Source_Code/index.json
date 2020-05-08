@@ -1,0 +1,30 @@
+{
+    "vendor": "RT-Thread",
+    "name": "RT-Thread_Source_Code",
+    "description": "RT-Thread source code releases",
+    "license": "",
+    "releases": [
+        {
+            "version": "nano_v3.1.3",
+            "date": "2020-01-01",
+            "description": "Nano released 3.1.3",
+            "size": "45 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-rthread-nano-source-code/archive/v3.1.3.zip"
+        },
+        {
+            "version": "v4.0.2",
+            "date": "2020-05-08",
+            "description": "released v4.0.2",
+            "size": "100 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-rt-thread-source-code/archive/v4.0.2.zip"
+        },
+        {
+            "version": "latest",
+            "date": "2020-05-08",
+            "description": "rt-thread master branch",
+            "size": "500 MB",
+            "url": "https://github.com/RT-Thread/rt-thread.git",
+            "sha": "master"
+        }
+    ]
+}

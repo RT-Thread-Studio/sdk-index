@@ -1,0 +1,9 @@
+language: shell
+
+notifications:
+  email: false
+
+stage: compile
+script:
+  - python3 indexing.py
+  - cat index_all.json

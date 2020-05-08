@@ -1,0 +1,8 @@
+{
+    "name": "Debugger Support Packages",
+    "description": "RT-Thread Studio Debugger Support Packages",
+    "index": [
+        "J-Link",
+        "ST-Link"
+    ]
+}

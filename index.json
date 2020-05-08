@@ -1,0 +1,12 @@
+{
+    "name": "Studio SDK Manager Index",
+    "version": "1",
+    "description": "RT-Thread Studio SDK Manager Index",
+    "homepage": "https://www.rt-thread.org/",
+    "index": [
+        "RT-Thread_Source_Code",
+        "Chip_Support_Packages",
+        "Tool_Chain",
+        "Debugger"
+    ]
+}

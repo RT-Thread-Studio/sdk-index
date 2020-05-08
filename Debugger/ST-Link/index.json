@@ -1,0 +1,15 @@
+{
+    "vendor": "ST",
+    "name": "ST-LINK_Debugger",
+    "description": "ST-LINK Debugger Support Package",
+    "license": "",
+    "releases": [
+        {
+            "version": "v1.2.0",
+            "date": "2020-05-08",
+            "description": "stlink driver released 1.2.0",
+            "size": "100 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-stlink/archive/v1.2.0.zip"
+        }
+    ]
+}

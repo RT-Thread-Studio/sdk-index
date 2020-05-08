@@ -1,0 +1,7 @@
+{
+    "name": "ToolChain_Support_Packages",
+    "description": "RT-Thread Studio ToolChain Support Packages",
+    "index": [
+        "GNU_Tools_for_ARM_Embedded_Processors"
+    ]
+}
