@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "homepage": {
+            "type": "string"
+        },
+        "children": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "vendor": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["vendor", "name", "description", "license", "releases"]
+                }, {
+                    "type": "object"
+                }, {
+                    "type": "object"
+                }, {
+                    "type": "object"
+                }
+            ]
+        }
+    },
+    "required": ["name", "version", "description", "homepage", "children"]
+}

@@ -11,12 +11,14 @@
 import json
 import logging
 import os
+from jsonschema import validate
+import requests
 
 
 def init_logger():
-    log_format = "%(filename)s %(lineno)d <ignore> %(levelname)s %(message)s "
+    log_format = "%(filename)s %(lineno)d %(levelname)s %(message)s "
     date_format = '%Y-%m-%d  %H:%M:%S %a '
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                         format=log_format,
                         datefmt=date_format,
                         )
@@ -25,6 +27,7 @@ def init_logger():
 class StudioSdkManagerIndex:
     def __init__(self, index):
         self.index_entry_file = index
+        self.index_all = ""
 
     @staticmethod
     def get_json_obj_from_file(file):
@@ -57,13 +60,46 @@ class StudioSdkManagerIndex:
 
     def generate_all_index(self, file_name):
         index_entry = self.walk_all_folder(self, self.index_entry_file)
+        self.index_all = index_entry
         self.write_json_to_file(index_entry, file_name)
+        return index_entry
+
+    def index_schema_check(self, index_content, schema_format):
+        schema = self.get_json_obj_from_file(schema_format)
+        validate(instance=index_content, schema=schema)
+
+    def get_last_index(self):
+        response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
+        last_csp_list = json.loads(response.text)["children"][1]
+        new_csp_list = self.index_all["children"][1]
+        last_csp_list_str = json.dumps(last_csp_list, indent=4)
+        new_csp_list_str = json.dumps(new_csp_list, indent=4)
+
+        last_csp_list = list()
+        for line in last_csp_list_str.splitlines():
+            if line.find(".zip") != -1:
+                url = line.strip()[line.strip().find("https"): line.strip().find(".zip") + 4]
+                last_csp_list.append(url)
+        print(last_csp_list)
+
+        new_csp_list = list()
+        for line in new_csp_list_str.splitlines():
+            if line.find(".zip") != -1:
+                url = line.strip()[line.strip().find("https"): line.strip().find(".zip") + 4]
+                new_csp_list.append(url)
+        print(new_csp_list)
+
+        result = list(set(last_csp_list).difference(set(new_csp_list)))
+        return result
 
 
 def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
-    generate_all_index.generate_all_index("index_all.json")
+    index_content = generate_all_index.generate_all_index("index_all.json")
+    generate_all_index.index_schema_check(index_content, "tools/index_schema.json")
+    logging.info("SDK index update successful.")
+    generate_all_index.get_last_index()
 
 
 if __name__ == "__main__":
