@@ -14,7 +14,24 @@
             "type": "string"
         },
         "children": {
-            "type": "array"
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "vendor": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["vendor", "name", "description", "license", "releases"]
+                }, {
+                    "type": "object"
+                }, {
+                    "type": "object"
+                }, {
+                    "type": "object"
+                }
+            ]
         }
     },
     "required": ["name", "version", "description", "homepage", "children"]

@@ -15,9 +15,9 @@ from jsonschema import validate
 
 
 def init_logger():
-    log_format = "%(filename)s %(lineno)d <ignore> %(levelname)s %(message)s "
+    log_format = "%(filename)s %(lineno)d %(levelname)s %(message)s "
     date_format = '%Y-%m-%d  %H:%M:%S %a '
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                         format=log_format,
                         datefmt=date_format,
                         )
@@ -71,6 +71,7 @@ def main():
     generate_all_index = StudioSdkManagerIndex("index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
     generate_all_index.index_schema_check(index_content, "index_schema.json")
+    logging.info("SDK index update successful.")
 
 
 if __name__ == "__main__":
