@@ -5,5 +5,6 @@ notifications:
 
 stage: compile
 script:
+  - python3 -m pip install jsonschema
   - python3 indexing.py
   - cat index_all.json

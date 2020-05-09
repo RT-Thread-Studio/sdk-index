@@ -11,6 +11,7 @@
 import json
 import logging
 import os
+from jsonschema import validate
 
 
 def init_logger():
@@ -58,12 +59,18 @@ class StudioSdkManagerIndex:
     def generate_all_index(self, file_name):
         index_entry = self.walk_all_folder(self, self.index_entry_file)
         self.write_json_to_file(index_entry, file_name)
+        return index_entry
+
+    def index_schema_check(self, index_content, schema_format):
+        schema = self.get_json_obj_from_file(schema_format)
+        validate(instance=index_content, schema=schema)
 
 
 def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
-    generate_all_index.generate_all_index("index_all.json")
+    index_content = generate_all_index.generate_all_index("index_all.json")
+    generate_all_index.index_schema_check(index_content, "index_schema.json")
 
 
 if __name__ == "__main__":
