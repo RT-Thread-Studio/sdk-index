@@ -70,7 +70,7 @@ def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
-    generate_all_index.index_schema_check(index_content, "index_schema.json")
+    generate_all_index.index_schema_check(index_content, "tools/index_schema.json")
     logging.info("SDK index update successful.")
 
 
