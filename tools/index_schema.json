@@ -1,4 +1,27 @@
 {
+    "definitions": {
+        "rtt_source_releases_schema": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": ["version", "date", "description", "size", "url"]
+        }
+    },
     "type": "object",
     "properties": {
         "name": {
@@ -29,51 +52,16 @@
                             "type": "string"
                         },
                         "releases": {
-                            "definitions": {
-                                "RT-Thread_Source_Code_releases_schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "version": {
-                                            "type": "string"
-                                        },
-                                        "date": {
-                                            "type": "string"
-                                        },
-                                        "description": {
-                                            "type": "string"
-                                        },
-                                        "size": {
-                                            "type": "string"
-                                        },
-                                        "url": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": ["street_address", "city", "state"]
-                                }
-                            },
                             "type": "array",
                             "items": [
                                 {
                                     "type": "object",
-                                    "properties": {
-                                        "version": {
-                                            "type": "string"
-                                        },
-                                        "date": {
-                                            "type": "string"
-                                        },
-                                        "size": {
-                                            "type": "string"
-                                        },
-                                        "url": {
-                                            "type": "string"
-                                        }
-                                    }
+                                    "$ref": "#/definitions/rtt_source_releases_schema"
                                 }
                             ],
                             "additionalItems": {
-                                "type": "object"
+                                "type": "object",
+                                "$ref": "#/definitions/rtt_source_releases_schema"
                             }
                         }
                     },
@@ -90,7 +78,12 @@
                             "type": "string"
                         },
                         "children": {
-                            "type": "array"
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "object"
+                                }
+                            ]
                         }
                     }
                 }, {
