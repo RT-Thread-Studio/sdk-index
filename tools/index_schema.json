@@ -21,18 +21,109 @@
                     "properties": {
                         "vendor": {
                             "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "releases": {
+                            "definitions": {
+                                "RT-Thread_Source_Code_releases_schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "version": {
+                                            "type": "string"
+                                        },
+                                        "date": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "size": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["street_address", "city", "state"]
+                                }
+                            },
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "version": {
+                                            "type": "string"
+                                        },
+                                        "date": {
+                                            "type": "string"
+                                        },
+                                        "size": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ],
+                            "additionalItems": {
+                                "type": "object"
+                            }
                         }
                     },
-                    "required": ["vendor", "name", "description", "license", "releases"]
+                    "required": [
+                        "vendor", "name", "description", "license", "releases"
+                    ]
                 }, {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "children": {
+                            "type": "array"
+                        }
+                    }
                 }, {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "children": {
+                            "type": "array"
+                        }
+                    }
                 }, {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "children": {
+                            "type": "array"
+                        }
+                    }
                 }
             ]
         }
     },
-    "required": ["name", "version", "description", "homepage", "children"]
+    "required": [
+        "name", "version", "description", "homepage", "children"
+    ]
 }
