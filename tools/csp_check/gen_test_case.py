@@ -78,7 +78,7 @@ def get_build_result(cmd_pre, project_name):
 
 
 def csp_test(project_name, json_name):
-
+    print("\\nproject name : {0}".format(project_name))
     begin_time = time.time()
     
     result = get_generate_result(json_name)
