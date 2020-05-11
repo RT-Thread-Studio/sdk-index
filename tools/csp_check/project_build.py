@@ -63,6 +63,9 @@ def csp_build_test():
     # pytest
     os.system("python project_test.py")
 
+    # exit docker
+    os.system("exit")
+
 
 if __name__ == "__main__":
     csp_build_test()
