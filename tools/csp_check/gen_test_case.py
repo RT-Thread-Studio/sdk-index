@@ -50,8 +50,28 @@ def execute_command(cmd_string, cwd=None, shell=True):
     return stdout_str
 
 
-def get_test_result(content):
-    if content.find("Build Failed") != -1:
+def get_generate_result(json_name):
+    cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
+    result = execute_command(cmd)
+    if result.find("FileNotFoundError") != -1:
+        return False
+    else:
+        return True
+
+
+def get_import_result(cmd_pre, project_name):
+    cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
+    result = execute_command(cmd)
+    if result.find("can't be found!") != -1:
+        return False
+    else:
+        return True
+        
+        
+def get_build_result(cmd_pre, project_name):
+    cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
+    result = execute_command(cmd)
+    if result.find("Build Failed") != -1:
         return False
     else:
         return True
@@ -60,27 +80,29 @@ def get_test_result(content):
 def csp_test(project_name, json_name):
 
     begin_time = time.time()
-    cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
-    print("\\ntest case : {0}".format(project_name))
-    execute_command(cmd)
     
+    result = get_generate_result(cmd)
+    if result is False:
+        print("================>Project test fails.")
+        return result
+        
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors " \\
               r"-application org.eclipse.cdt.managedbuilder.core.headlessbuild " \\
               r"-data '/rt-thread/eclipse/workspace/{0}'".format(project_name)
-    cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
-    execute_command(cmd)
+              
+    result = get_import_result(cmd_pre, project_name)
+    if result is False:
+        print("================>Project test fails.")
+        return result
+
+    result = get_build_result(cmd_pre, project_name)
     
-    cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
-    result = execute_command(cmd)
-    print(result)
-    result = get_test_result(result)
-    
-    end_time = time.time()
     if result:
         print("================>Project test success.")
     else:
         print("================>Project test fails.")
         
+    end_time = time.time()    
     print("time = {0} s".format(end_time - begin_time))  
      
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
