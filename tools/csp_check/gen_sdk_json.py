@@ -116,7 +116,7 @@ class ParameterGenerator(object):
 
 
 def gen_sdk_para_json_file(csp_path, output_project_path, rt_thread_src):
-    rtt_nano_path = os.path.join(rt_thread_src, "sdk-rthread-nano-source-code-3.1.3")
+    rtt_nano_path = os.path.join(rt_thread_src, "sdk-rt-thread-nano-source-code-3.1.3")
     rtt_path = os.path.join(rt_thread_src, "sdk-rt-thread-source-code-4.0.2")
     toolchain_name = "gcc"
 

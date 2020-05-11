@@ -21,11 +21,11 @@ def execute_command(cmd_string, cwd=None, shell=True):
     return stdout_str
 
 
-def sdk_ci_test():
+def csp_build_test():
     # work path = /rt-thread/sdk-index/tools/csp_check
 
     # get rt-thread-src
-    execute_command("wget -c https://github.com/RT-Thread-Studio/sdk-rthread-nano-source-code/archive/v3.1.3.zip")
+    execute_command("wget -c https://github.com/RT-Thread-Studio/sdk-rt-thread-nano-source-code/archive/v3.1.3.zip")
     execute_command("unzip {0} -d /rt-thread/rt-thread-src".format("v3.1.3.zip"))
     execute_command("rm -rf v3.1.3.zip")
     execute_command("wget -c https://github.com/RT-Thread-Studio/sdk-rt-thread-source-code/archive/v4.0.2.zip")
@@ -65,4 +65,4 @@ def sdk_ci_test():
 
 
 if __name__ == "__main__":
-    sdk_ci_test()
+    csp_build_test()
