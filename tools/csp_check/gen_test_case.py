@@ -127,7 +127,7 @@ def csp_test(project_name, json_name):
 
 if __name__ == "__main__":
     init_logger()
-    pytest.main(["project_test.py", '-s', '--html=report.html --self-contained-html']) 
+    pytest.main(["project_test.py", '-s', '--html=report.html', '--self-contained-html']) 
 
 """
 
