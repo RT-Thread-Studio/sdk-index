@@ -23,16 +23,6 @@ from email.utils import formatdate
     metavar="user_email",
 )
 @click.option(
-    "--smtp-pwd",
-    "-s",
-    envvar="smtp_pwd",
-    required=False,
-    default=None,
-    type=click.STRING,
-    help="smtp_pwd",
-    metavar="smtp_pwd",
-)
-@click.option(
     "--report-path",
     "-r",
     envvar="report_path",
@@ -42,11 +32,9 @@ from email.utils import formatdate
     help="report_path",
     metavar="report_path",
 )
-def main(user_email, smtp_pwd, report_path):
+def main(user_email, report_path):
     """Configure the project according to the config file."""
     env_dist = os.environ
-    for key in env_dist:
-        print(key + ' : ' + env_dist[key])
     smtp_pwd = env_dist['SMTP_PWD']
     send_email_2_revcer(user_email, smtp_pwd, report_path)
 
