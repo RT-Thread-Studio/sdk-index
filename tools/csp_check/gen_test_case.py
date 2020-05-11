@@ -11,6 +11,8 @@ def find_mcu_in_json_file(json_path):
     parameter_dict = json.loads(data)
     os.mkdir("mcu_config")
     test_numbers = int(len(parameter_dict) * 0.1)
+    if test_numbers > 30:
+        test_numbers = 30
     print("test case numbers : {0}".format(test_numbers))
     mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
     for mcu in mcu_dict:
