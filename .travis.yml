@@ -8,6 +8,7 @@ notifications:
 
 script:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
+  - python3 -m pip install --upgrade pip
   - python3 -m pip install wheel
   - python3 -m pip install jsonschema
   - python3 -m pip install PyEmail
