@@ -1,6 +1,6 @@
 {
-    "vendor": "RT-Thread",
     "name": "RT-Thread_Source_Code",
+    "vendor": "RT-Thread",
     "description": "RT-Thread source code releases",
     "license": "",
     "releases": [

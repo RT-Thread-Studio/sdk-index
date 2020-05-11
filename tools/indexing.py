@@ -11,7 +11,7 @@
 import json
 import logging
 import os
-from jsonschema import validate
+from jsonschema import RefResolver, Draft7Validator, validate
 import requests
 
 
@@ -65,8 +65,25 @@ class StudioSdkManagerIndex:
         return index_entry
 
     def index_schema_check(self, index_content, schema_format):
-        schema = self.get_json_obj_from_file(schema_format)
-        validate(instance=index_content, schema=schema)
+        index_all_schema = self.get_json_obj_from_file(schema_format)
+        rtt_source_releases_schema = self.get_json_obj_from_file("tools/rtt_source_releases_schema.json")
+        rtt_source_schema = self.get_json_obj_from_file("tools/rtt_source_schema.json")
+        csp_schema = self.get_json_obj_from_file("tools/csp_schema.json")
+        csp_dvendor_schema = self.get_json_obj_from_file("tools/csp_dvendor_schema.json")
+        csp_dvendor_package_schema = self.get_json_obj_from_file("tools/csp_dvendor_package_schema.json")
+
+        schema_store = {
+            index_all_schema['$id']: index_all_schema,
+            rtt_source_releases_schema['$id']: rtt_source_releases_schema,
+            rtt_source_schema['$id']: rtt_source_schema,
+            csp_schema['$id']: csp_schema,
+            csp_dvendor_schema['$id']: csp_dvendor_schema,
+            csp_dvendor_package_schema['$id']: csp_dvendor_package_schema
+        }
+
+        resolver = RefResolver.from_schema(rtt_source_releases_schema, store=schema_store)
+        validator = Draft7Validator(index_all_schema, resolver=resolver)
+        validator.validate(index_content)
 
     def get_last_index(self):
         response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
@@ -97,7 +114,7 @@ def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
-    generate_all_index.index_schema_check(index_content, "tools/index_schema.json")
+    generate_all_index.index_schema_check(index_content, "tools/index_all_schema.json")
     logging.info("SDK index update successful.")
     generate_all_index.get_last_index()
 

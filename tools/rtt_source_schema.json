@@ -1,0 +1,35 @@
+{
+    "$id": "rtt_source_schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "vendor": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "releases": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "$ref": "rtt_source_releases_schema.json#"
+                }
+            ],
+            "additionalItems": {
+                "type": "object",
+                "$ref": "rtt_source_releases_schema.json#"
+            }
+        }
+    },
+    "required": [
+        "vendor",
+        "name",
+        "description",
+        "license",
+        "releases"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "$id": "csp_dvendor_package_schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "vendor": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "license": {
+            "type": "string"
+        },
+        "repository": {
+            "type": "string"
+        },
+        "homepage": {
+            "type": "string"
+        },
+        "releases": {
+            "type": "array"
+        }
+    },
+    "required": [
+        "name",
+        "vendor",
+        "description",
+        "license",
+        "repository",
+        "homepage",
+        "releases"
+    ]
+}
