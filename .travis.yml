@@ -12,3 +12,5 @@ script:
   - python3 -m pip install jsonschema
   - python3 tools/indexing.py
   - cat index_all.json
+  - docker pull summergift/csp_test:v1.0
+  - docker run -v "`pwd`:/rt-thread/sdk-index" -it summergift/csp_test:v1.0 bash -c "python /rt-thread/sdk-index/tools/csp_check/csp_check.py"
