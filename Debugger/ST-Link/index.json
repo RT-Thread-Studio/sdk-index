@@ -1,6 +1,6 @@
 {
-    "vendor": "STMicroelectronics",
     "name": "ST-LINK_Debugger",
+    "vendor": "STMicroelectronics",
     "description": "ST-LINK Debugger Support Package",
     "license": "",
     "releases": [

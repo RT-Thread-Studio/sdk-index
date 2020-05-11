@@ -1,6 +1,6 @@
 {
+    "name": "J-Link",
     "vendor": "SEGGER",
-    "name": "J-Link_Debugger",
     "description": "J-Link Debugger Support Package",
     "license": "",
     "releases": [

@@ -1,6 +1,6 @@
 {
-	"vendor": "RealThread",
     "name": "STM32F4",
+    "vendor": "RealThread",
     "description": "STM32F4 Chip Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f4.git",
