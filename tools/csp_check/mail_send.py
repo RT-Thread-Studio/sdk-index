@@ -102,7 +102,6 @@ def send_email_2_revcer(user_email, sender_pw, report_path):
     mail_body = "sync log"
 
     print("User email: %s." % user_email)
-    print(sender_pw)
     mail_report(mail_subject, mail_body, sender_pw, user_email, attachments)
 
 

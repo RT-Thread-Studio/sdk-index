@@ -14,7 +14,7 @@ def find_mcu_in_json_file(json_path):
     if test_numbers > 30:
         test_numbers = 30
     print("test case numbers : {0}".format(test_numbers))
-    mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
+    mcu_dict = dict(random.sample(parameter_dict.items(), 1))
     for mcu in mcu_dict:
         bare_metal_list = {"parameter": parameter_dict[mcu]["parameter"]}
         mcu_json = os.path.join("mcu_config", mcu + ".json")
@@ -127,7 +127,7 @@ def csp_test(project_name, json_name):
 
 if __name__ == "__main__":
     init_logger()
-    os.system("pytest project_test.py -s --html=report.html")
+    pytest.main(["project_test.py", '-s', '--html=report.html --self-contained-html']) 
 
 """
 
