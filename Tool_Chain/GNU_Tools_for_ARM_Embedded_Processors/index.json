@@ -1,7 +1,7 @@
 {
-    "vendor": "ARM",
     "name": "GNU_Tools_for_ARM_Embedded_Processors",
-    "description": "GNU_Tools_for_ARM_Embedded_Processors Tool Chain",
+    "vendor": "ARM",
+    "description": "GNU Tools for ARM Embedded Processors Tool Chain",
     "license": "",
     "releases": [
         {
