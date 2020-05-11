@@ -44,6 +44,10 @@ from email.utils import formatdate
 )
 def main(user_email, smtp_pwd, report_path):
     """Configure the project according to the config file."""
+    env_dist = os.environ
+    for key in env_dist:
+        print(key + ' : ' + env_dist[key])
+    smtp_pwd = env_dist['SMTP_PWD']
     send_email_2_revcer(user_email, smtp_pwd, report_path)
 
 
