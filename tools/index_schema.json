@@ -19,7 +19,13 @@
                     "type": "string"
                 }
             },
-            "required": ["version", "date", "description", "size", "url"]
+            "required": [
+                "version",
+                "date",
+                "description",
+                "size",
+                "url"
+            ]
         }
     },
     "type": "object",
@@ -66,9 +72,14 @@
                         }
                     },
                     "required": [
-                        "vendor", "name", "description", "license", "releases"
+                        "vendor",
+                        "name",
+                        "description",
+                        "license",
+                        "releases"
                     ]
-                }, {
+                },
+                {
                     "type": "object",
                     "properties": {
                         "name": {
@@ -86,7 +97,8 @@
                             ]
                         }
                     }
-                }, {
+                },
+                {
                     "type": "object",
                     "properties": {
                         "name": {
@@ -99,7 +111,8 @@
                             "type": "array"
                         }
                     }
-                }, {
+                },
+                {
                     "type": "object",
                     "properties": {
                         "name": {
@@ -117,6 +130,10 @@
         }
     },
     "required": [
-        "name", "version", "description", "homepage", "children"
+        "name",
+        "version",
+        "description",
+        "homepage",
+        "children"
     ]
 }
