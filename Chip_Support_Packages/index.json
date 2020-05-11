@@ -1,7 +1,7 @@
 {
     "name": "Chip Support Packages",
-    "description": "RT-Thread Studio Chip Support Packages",
+    "description": "Device vendor Chip Support Packages",
     "index": [
-        "RealThread"
+        "STMicroelectronics"
     ]
 }

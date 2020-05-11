@@ -7,7 +7,7 @@
         {
             "version": "v6.30i",
             "date": "2020-05-08",
-            "description": "jlink dirver released v6.30i",
+            "description": "j-link driver released v6.30i",
             "size": "25 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v6.30i.zip"
         }

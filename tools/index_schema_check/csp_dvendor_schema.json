@@ -15,7 +15,11 @@
                     "type": "object",
                     "$ref": "csp_dvendor_package_schema.json#"
                 }
-            ]
+            ],
+            "additionalItems": {
+                "type": "object",
+                "$ref": "csp_dvendor_package_schema.json#"
+            }
         }
     }
 }
