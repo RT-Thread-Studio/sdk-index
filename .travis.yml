@@ -11,6 +11,7 @@ script:
   - python3 -m pip install wheel
   - python3 -m pip install jsonschema
   - python3 -m pip install PyEmail
+  - python3 -m pip install click
   - python3 tools/indexing.py
   - cat index_all.json
   - docker pull summergift/csp_test:v1.0
