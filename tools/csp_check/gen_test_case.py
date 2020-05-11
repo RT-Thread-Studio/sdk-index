@@ -81,9 +81,9 @@ def csp_test(project_name, json_name):
 
     begin_time = time.time()
     
-    result = get_generate_result(cmd)
+    result = get_generate_result(json_name)
     if result is False:
-        print("================>Project test fails.")
+        print("================>Project generate fails.")
         return result
         
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors " \\
@@ -92,15 +92,15 @@ def csp_test(project_name, json_name):
               
     result = get_import_result(cmd_pre, project_name)
     if result is False:
-        print("================>Project test fails.")
+        print("================>Project import fails.")
         return result
 
     result = get_build_result(cmd_pre, project_name)
     
     if result:
-        print("================>Project test success.")
+        print("================>Project build success.")
     else:
-        print("================>Project test fails.")
+        print("================>Project build fails.")
         
     end_time = time.time()    
     print("time = {0} s".format(end_time - begin_time))  
