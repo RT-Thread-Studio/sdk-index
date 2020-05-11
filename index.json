@@ -1,6 +1,6 @@
 {
     "name": "Studio SDK Manager Index",
-    "version": "1",
+    "version": 1,
     "description": "RT-Thread Studio SDK Manager Index",
     "homepage": "https://www.rt-thread.org/",
     "index": [
