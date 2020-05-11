@@ -1,0 +1,28 @@
+{
+    "$id": "rtt_source_releases_schema.json",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "date": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "size": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "version",
+        "date",
+        "description",
+        "size",
+        "url"
+    ]
+}

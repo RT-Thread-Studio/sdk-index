@@ -21,7 +21,17 @@
             "type": "string"
         },
         "releases": {
-            "type": "array"
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "$ref": "csp_dvendor_package_releases_schema.json#"
+                }
+            ],
+            "additionalItems": {
+                "type": "object",
+                "$ref": "csp_dvendor_package_releases_schema.json#"
+            }
         }
     },
     "required": [

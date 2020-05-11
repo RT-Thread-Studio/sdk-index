@@ -6,6 +6,7 @@
 # Change Logs:
 # Date           Author       Notes
 # 2020-05-08     SummerGift   first version
+# 2020-05-11     SummerGift   optimize schema checking
 #
 
 import json
@@ -64,13 +65,17 @@ class StudioSdkManagerIndex:
         self.write_json_to_file(index_entry, file_name)
         return index_entry
 
-    def index_schema_check(self, index_content, schema_format):
-        index_all_schema = self.get_json_obj_from_file(schema_format)
-        rtt_source_releases_schema = self.get_json_obj_from_file("tools/rtt_source_releases_schema.json")
-        rtt_source_schema = self.get_json_obj_from_file("tools/rtt_source_schema.json")
-        csp_schema = self.get_json_obj_from_file("tools/csp_schema.json")
-        csp_dvendor_schema = self.get_json_obj_from_file("tools/csp_dvendor_schema.json")
-        csp_dvendor_package_schema = self.get_json_obj_from_file("tools/csp_dvendor_package_schema.json")
+    def index_schema_check(self, index_content):
+        def get_schema_json_obj(path):
+            return self.get_json_obj_from_file(os.path.join("tools/index_schema_check", path))
+
+        index_all_schema = get_schema_json_obj("index_all_schema.json")
+        rtt_source_schema = get_schema_json_obj("rtt_source_schema.json")
+        rtt_source_releases_schema = get_schema_json_obj("rtt_source_releases_schema.json")
+        csp_schema = get_schema_json_obj("csp_schema.json")
+        csp_dvendor_schema = get_schema_json_obj("csp_dvendor_schema.json")
+        csp_dvendor_package_schema = get_schema_json_obj("csp_dvendor_package_schema.json")
+        csp_dvendor_package_releases_schema = get_schema_json_obj("csp_dvendor_package_releases_schema.json")
 
         schema_store = {
             index_all_schema['$id']: index_all_schema,
@@ -78,7 +83,8 @@ class StudioSdkManagerIndex:
             rtt_source_schema['$id']: rtt_source_schema,
             csp_schema['$id']: csp_schema,
             csp_dvendor_schema['$id']: csp_dvendor_schema,
-            csp_dvendor_package_schema['$id']: csp_dvendor_package_schema
+            csp_dvendor_package_schema['$id']: csp_dvendor_package_schema,
+            csp_dvendor_package_releases_schema['$id']: csp_dvendor_package_releases_schema
         }
 
         resolver = RefResolver.from_schema(rtt_source_releases_schema, store=schema_store)
@@ -114,7 +120,7 @@ def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
-    generate_all_index.index_schema_check(index_content, "tools/index_all_schema.json")
+    generate_all_index.index_schema_check(index_content)
     logging.info("SDK index update successful.")
     generate_all_index.get_last_index()
 
