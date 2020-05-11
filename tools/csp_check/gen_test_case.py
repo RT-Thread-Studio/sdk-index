@@ -71,7 +71,9 @@ def csp_test(project_name, json_name):
     execute_command(cmd)
     
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
-    result = get_test_result(execute_command(cmd))
+    result = execute_command(cmd)
+    print(result)
+    result = get_test_result(result)
     
     end_time = time.time()
     if result:
