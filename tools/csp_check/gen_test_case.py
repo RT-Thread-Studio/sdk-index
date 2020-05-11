@@ -53,6 +53,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
 def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     result = execute_command(cmd)
+    print("generate : {0}".format(result))
     if result.find("FileNotFoundError") != -1:
         return False
     else:
@@ -62,6 +63,7 @@ def get_generate_result(json_name):
 def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
     result = execute_command(cmd)
+    print("import : {0}".format(result))
     if result.find("can't be found!") != -1:
         return False
     else:
@@ -71,6 +73,7 @@ def get_import_result(cmd_pre, project_name):
 def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     result = execute_command(cmd)
+    print("build : {0}".format(result))
     if result.find("Build Failed") != -1:
         return False
     else:
@@ -82,7 +85,7 @@ def csp_test(project_name, json_name):
     begin_time = time.time()
     
     result = get_generate_result(json_name)
-    if result is False:
+    if not result:
         print("================>Project generate fails.")
         return result
         
@@ -91,7 +94,7 @@ def csp_test(project_name, json_name):
               r"-data '/rt-thread/eclipse/workspace/{0}'".format(project_name)
               
     result = get_import_result(cmd_pre, project_name)
-    if result is False:
+    if not result:
         print("================>Project import fails.")
         return result
 
@@ -103,7 +106,7 @@ def csp_test(project_name, json_name):
         print("================>Project build fails.")
         
     end_time = time.time()    
-    print("time = {0} s".format(end_time - begin_time))  
+    print("time = {0}".format(end_time - begin_time))  
      
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
     comp_project = "/rt-thread/workspace/{0}".format(project_name)
