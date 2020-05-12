@@ -13,7 +13,6 @@ def find_mcu_in_json_file(json_path):
     test_numbers = int(len(parameter_dict))
     if test_numbers > 30:
         test_numbers = 30
-    print("test case numbers : {0}".format(test_numbers))
     mcu_dict = dict(random.sample(parameter_dict.items(), 1))
     for mcu in mcu_dict:
         bare_metal_list = {"parameter": parameter_dict[mcu]["parameter"]}
