@@ -48,7 +48,10 @@ def init_logger():
 
              
 def byte_list_to_str(a_list):
-    return [str(i, encoding = "utf-8") for i in a_list]
+    out_str = ''
+    for i in a_list:
+        out_str += str(i, encoding = "utf-8")
+    return out_str
     
           
 def execute_command(cmd_string, cwd=None, shell=True):
