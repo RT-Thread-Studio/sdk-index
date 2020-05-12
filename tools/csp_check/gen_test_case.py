@@ -49,13 +49,11 @@ def init_logger():
                           
 def execute_command(cmd_string, cwd=None, shell=True):
     sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=shell, bufsize=4096)
+                           stdout=subprocess.PIPE, shell=shell, bufsize=4096).stdout
 
     stdout_str = ''
-    while sub.poll() is None:
-        stdout_str += str(sub.stdout.read())
-        time.sleep(0.1)
-    stdout_str = stdout_str.replace("b'", "\n")
+    for out_byte in sub:
+        stdout_str += str(out_byte, encoding = "utf-8")
     return stdout_str
 
 
