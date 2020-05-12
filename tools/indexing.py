@@ -14,7 +14,6 @@ import logging
 import os
 from jsonschema import RefResolver, Draft7Validator
 import requests
-from sync_sdk import is_master_repo, update_sdk_index, sync_csp_packages
 
 
 def init_logger():
@@ -120,6 +119,51 @@ class StudioSdkManagerIndex:
         return result
 
 
+class SdkSyncPackages:
+    def __init__(self, update_list):
+        self.update_list = update_list
+
+    @staticmethod
+    def is_master_repo():
+        if 'IS_MASTER_REPO' in os.environ:
+            return True
+        else:
+            return False
+
+    def sync_csp_packages(self):
+        if self.is_master_repo():
+            logging.info("Ready to sync csp packages")
+        else:
+            logging.info("No need to sync csp packages")
+
+        logging.info(self.update_list)
+
+
+def update_sdk_index(new_index):
+    if 'UPDATE_SDK_INDEX_ADDRESS' in os.environ:
+        logging.info("Begin to update sdk index")
+
+        headers = {
+            "Content-Type": "application/json"
+        }
+
+        try:
+            r = requests.post(os.environ["UPDATE_SDK_INDEX_ADDRESS"],
+                              data=json.dumps(new_index),
+                              headers=headers
+                              )
+
+            if r.status_code == requests.codes.ok:
+                logging.info("Update sdk index successful.")
+            else:
+                logging.error("Error code {0}".format(r.status_code))
+
+        except Exception as e:
+            logging.error('Error message:%s' % e)
+    else:
+        logging.info("No need to update sdk index")
+
+
 def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
@@ -132,7 +176,8 @@ def main():
     update_list = generate_all_index.get_last_index()
 
     # 3. sync updated sdk package
-    sync_csp_packages(update_list)
+    runner = SdkSyncPackages(update_list)
+    runner.sync_csp_packages()
 
     # 4. update sdk index in master branch
     update_sdk_index(index_content)
