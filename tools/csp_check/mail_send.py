@@ -72,7 +72,6 @@ def send_email_2_revcer(user_email, sender_pw, report_path):
     attachments = []
 
     file = report_path
-    print(file)
     if os.path.exists(file):
         attachments.append(file)
 
@@ -80,7 +79,6 @@ def send_email_2_revcer(user_email, sender_pw, report_path):
     mail_subject = "test result"
     mail_body = "sync log"
 
-    print("User email: %s." % user_email)
     mail_report(mail_subject, mail_body, sender_pw, user_email, attachments)
 
 

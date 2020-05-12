@@ -62,7 +62,7 @@ def csp_build_test():
 
     # pytest
     os.system("python project_test.py")
-
+    os.system("rm -rf mcu_config")
     # exit docker
     os.system("exit")
 
