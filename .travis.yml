@@ -12,3 +12,4 @@ script:
   - python3 -m pip install jsonschema
   - python3 tools/indexing.py
   - cat index_all.json
+  - python3 tools/sync_sdk.py
