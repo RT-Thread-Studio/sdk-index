@@ -14,7 +14,7 @@ def find_mcu_in_json_file(json_path):
     if test_numbers > 30:
         test_numbers = 30
     print("test case numbers : {0}".format(test_numbers))
-    mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
+    mcu_dict = dict(random.sample(parameter_dict.items(), 5))
     for mcu in mcu_dict:
         bare_metal_list = {"parameter": parameter_dict[mcu]["parameter"]}
         mcu_json = os.path.join("mcu_config", mcu + ".json")
@@ -83,7 +83,7 @@ def get_import_result(cmd_pre, project_name):
         
         
 def get_build_result(cmd_pre, project_name):
-    cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
+    cmd = cmd_pre + " -cleanBuild '{0}' -Declipse.log.level=ERROR".format(project_name)
     result = execute_command(cmd)
     if result.find("Build Failed") != -1:
         logging.info("\\nbuild result : {0}".format(result))
