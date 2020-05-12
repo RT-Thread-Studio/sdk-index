@@ -105,16 +105,18 @@ class StudioSdkManagerIndex:
             if line.find(".zip") != -1:
                 url = line.strip()[line.strip().find("https"): line.strip().find(".zip") + 4]
                 last_csp_list.append(url)
-        print(last_csp_list)
+        logging.info(last_csp_list)
 
         new_csp_list = list()
         for line in new_csp_list_str.splitlines():
             if line.find(".zip") != -1:
                 url = line.strip()[line.strip().find("https"): line.strip().find(".zip") + 4]
                 new_csp_list.append(url)
-        print(new_csp_list)
+        logging.info(new_csp_list)
 
-        result = list(set(last_csp_list).difference(set(new_csp_list)))
+        result = list(set(new_csp_list).difference(set(last_csp_list)))
+        logging.info(result)
+
         return result
 
 
