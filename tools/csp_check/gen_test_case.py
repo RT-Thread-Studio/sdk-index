@@ -45,15 +45,17 @@ def init_logger():
                         format=log_format,
                         datefmt=date_format,
                         )
-                    
-                          
+
+             
+def byte_list_to_str(a_list):
+    return [str(i, encoding = "utf-8") for i in a_list]
+    
+          
 def execute_command(cmd_string, cwd=None, shell=True):
     sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,
                            stdout=subprocess.PIPE, shell=shell, bufsize=4096).stdout
 
-    stdout_str = ''
-    for out_byte in sub:
-        stdout_str += str(out_byte, encoding = "utf-8")
+    stdout_str = byte_list_to_str(sub)
     return stdout_str
 
 
