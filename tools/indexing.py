@@ -14,7 +14,7 @@ import logging
 import os
 from jsonschema import RefResolver, Draft7Validator, validate
 import requests
-from tools.sync_sdk import is_master_repo
+from sync_sdk import is_master_repo
 
 
 def init_logger():
