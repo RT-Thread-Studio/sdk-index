@@ -34,20 +34,30 @@ file_head = """import os
 import time
 import shutil
 import pytest
+import logging
 
- 
+
+def init_logger():
+    log_format = "%(message)s "
+    date_format = '%Y-%m-%d  %H:%M:%S %a '
+    logging.basicConfig(level=logging.INFO,
+                        format=log_format,
+                        datefmt=date_format,
+                        )
+                        
+
 def csp_test(project_name, json_name):
     generate_result = None
     import_result = None
     build_result = None
     
-    print("\\nproject name : {0}".format(project_name))
+    logging.info("\\nproject name : {0}".format(project_name))
     begin_time = time.time()
     # generate project
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     generate_result = os.system(cmd)
     if generate_result != 0:
-        print("================>Project generate faild.")
+        logging.error("================>Project generate faild.")
         return generate_result
         
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors " \\
@@ -57,17 +67,17 @@ def csp_test(project_name, json_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
     import_result =  os.system(cmd)      
     if import_result != 0:
-        print("================>Project import faild.")
+        logging.error("================>Project import faild.")
         return import_result
     # build project    
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     build_result = os.system(cmd)
-    if result != 0:
-        print("================>Project build faild.")
+    if build_result != 0:
+        logging.error("================>Project build faild.")
     else:
-        print("================>Project test success.")
+        logging.info("================>Project test success.")
         
-    print("time = {0}".format(time.time()  - begin_time))  
+    logging.info("time = {0}".format(time.time()  - begin_time))  
      
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
     comp_project = "/rt-thread/workspace/{0}".format(project_name)
@@ -79,6 +89,7 @@ def csp_test(project_name, json_name):
 
 
 if __name__ == "__main__":
+    init_logger()
     pytest.main(["project_test.py", '--html=report.html', '--self-contained-html']) 
 
 """
