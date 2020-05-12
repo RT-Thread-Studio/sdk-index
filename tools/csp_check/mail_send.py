@@ -1,7 +1,6 @@
 # coding=utf-8
 
 import os
-import click
 import smtplib
 from email import encoders
 from email.header import Header
@@ -11,31 +10,11 @@ from email.mime.text import MIMEText
 from email.utils import formatdate
 
 
-@click.command()
-@click.option(
-    "--user-email",
-    "-y",
-    envvar="user_email",
-    required=False,
-    default=None,
-    type=click.STRING,
-    help="user_email",
-    metavar="user_email",
-)
-@click.option(
-    "--report-path",
-    "-r",
-    envvar="report_path",
-    required=False,
-    default=None,
-    type=click.STRING,
-    help="report_path",
-    metavar="report_path",
-)
-def main(user_email, report_path):
+def main():
     """Configure the project according to the config file."""
-    env_dist = os.environ
-    smtp_pwd = env_dist['SMTP_PWD']
+    smtp_pwd = os.environ['SMTP_PWD']
+    user_email = os.environ['USER_EMAIL']
+    report_path = "report.html"
     send_email_2_revcer(user_email, smtp_pwd, report_path)
 
 
