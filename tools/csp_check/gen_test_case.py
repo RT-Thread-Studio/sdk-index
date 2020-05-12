@@ -14,7 +14,7 @@ def find_mcu_in_json_file(json_path):
     if test_numbers > 30:
         test_numbers = 30
     print("test case numbers : {0}".format(test_numbers))
-    mcu_dict = dict(random.sample(parameter_dict.items(), 1))
+    mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
     for mcu in mcu_dict:
         bare_metal_list = {"parameter": parameter_dict[mcu]["parameter"]}
         mcu_json = os.path.join("mcu_config", mcu + ".json")
@@ -103,9 +103,6 @@ def init_logger():
 
 def csp_test(project_name, json_name):
 
-    logging.info("\\nproject name : {0}".format(project_name))
-    begin_time = time.time()
-    
     result = get_generate_result(json_name)
     if not result:
         logging.info("================>Project generate fails.")
@@ -127,9 +124,6 @@ def csp_test(project_name, json_name):
     else:
         logging.info("================>Project build fails.")
         
-    end_time = time.time()    
-    logging.info("time = {0}".format(end_time - begin_time))  
-     
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
     comp_project = "/rt-thread/workspace/{0}".format(project_name)
 
