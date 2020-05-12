@@ -115,7 +115,7 @@ class StudioSdkManagerIndex:
         logging.info(new_csp_list)
 
         result = list(set(new_csp_list).difference(set(last_csp_list)))
-        logging.info(result)
+        logging.info("packages need test and update: {0}".format(result))
 
         return result
 
