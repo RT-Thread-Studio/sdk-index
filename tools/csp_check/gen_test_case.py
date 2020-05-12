@@ -14,7 +14,7 @@ def find_mcu_in_json_file(json_path):
     if test_numbers > 30:
         test_numbers = 30
     print("test case numbers : {0}".format(test_numbers))
-    mcu_dict = dict(random.sample(parameter_dict.items(), 5))
+    mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
     for mcu in mcu_dict:
         bare_metal_list = {"parameter": parameter_dict[mcu]["parameter"]}
         mcu_json = os.path.join("mcu_config", mcu + ".json")
@@ -46,19 +46,14 @@ def init_logger():
                         datefmt=date_format,
                         )
 
-             
-def byte_list_to_str(a_list):
-    out_str = ''
-    for i in a_list:
-        out_str += str(i, encoding = "utf-8")
-    return out_str
-    
-          
+        
 def execute_command(cmd_string, cwd=None, shell=True):
     sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=shell, bufsize=4096).stdout
-
-    stdout_str = byte_list_to_str(sub)
+                           stdout=subprocess.PIPE, shell=shell, bufsize=4096)
+    stdout_str = ''
+    while sub.poll() is None:
+        stdout_str += str(sub.stdout.read())
+        time.sleep(0.1)
     return stdout_str
 
 
@@ -83,7 +78,7 @@ def get_import_result(cmd_pre, project_name):
         
         
 def get_build_result(cmd_pre, project_name):
-    cmd = cmd_pre + " -cleanBuild '{0}' -Declipse.log.level=ERROR".format(project_name)
+    cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     result = execute_command(cmd)
     if result.find("Build Failed") != -1:
         logging.info("\\nbuild result : {0}".format(result))
@@ -102,7 +97,6 @@ def init_logger():
                         
 
 def csp_test(project_name, json_name):
-
     result = get_generate_result(json_name)
     if not result:
         logging.info("================>Project generate fails.")
