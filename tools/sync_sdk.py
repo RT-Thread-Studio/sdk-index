@@ -13,6 +13,7 @@ def is_master_repo():
 
 def update_sdk_index(new_index):
     if 'UPDATE_SDK_INDEX_ADDRESS' in os.environ:
+        logging.info("Begin to update sdk index")
         try:
             r = requests.post(os.environ["UPDATE_SDK_INDEX_ADDRESS"], data=json.dumps(new_index))
 
@@ -22,4 +23,4 @@ def update_sdk_index(new_index):
         except Exception as e:
             print('Error message:%s' % e)
     else:
-        pass
+        logging.info("No need to update sdk index")

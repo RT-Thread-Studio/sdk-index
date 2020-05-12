@@ -12,9 +12,9 @@
 import json
 import logging
 import os
-from jsonschema import RefResolver, Draft7Validator, validate
+from jsonschema import RefResolver, Draft7Validator
 import requests
-from sync_sdk import is_master_repo
+from sync_sdk import is_master_repo, update_sdk_index
 
 
 def init_logger():
@@ -126,6 +126,8 @@ def main():
     generate_all_index.get_last_index()
     if is_master_repo():
         print("ready to sync csp packages")
+
+    update_sdk_index()
 
 
 if __name__ == "__main__":
