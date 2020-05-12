@@ -41,7 +41,7 @@ def csp_test(project_name, json_name):
     import_result = None
     build_result = None
     
-    project("\\nproject name : {0}".format(project_name))
+    print("\\nproject name : {0}".format(project_name))
     begin_time = time.time()
     # generate project
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
