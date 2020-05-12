@@ -14,7 +14,7 @@ import logging
 import os
 from jsonschema import RefResolver, Draft7Validator
 import requests
-from sync_sdk import is_master_repo, update_sdk_index
+from sync_sdk import is_master_repo, update_sdk_index, sync_csp_packages
 
 
 def init_logger():
@@ -91,6 +91,7 @@ class StudioSdkManagerIndex:
         resolver = RefResolver.from_schema(rtt_source_releases_schema, store=schema_store)
         validator = Draft7Validator(index_all_schema, resolver=resolver)
         validator.validate(index_content)
+        logging.info("SDK index checking successful.")
 
     def get_last_index(self):
         response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
@@ -121,12 +122,17 @@ def main():
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
-    generate_all_index.index_schema_check(index_content)
-    logging.info("SDK index update successful.")
-    generate_all_index.get_last_index()
-    if is_master_repo():
-        print("ready to sync csp packages")
 
+    # 1. sdk index schema checking
+    generate_all_index.index_schema_check(index_content)
+
+    # 2. get packages need to test and sync
+    update_list = generate_all_index.get_last_index()
+
+    # 3. sync updated sdk package
+    sync_csp_packages(update_list)
+
+    # 4. update sdk index in master branch
     update_sdk_index(index_content)
 
 
