@@ -14,6 +14,7 @@ import logging
 import os
 from jsonschema import RefResolver, Draft7Validator, validate
 import requests
+from .sync_sdk import is_master_repo
 
 
 def init_logger():
@@ -123,6 +124,8 @@ def main():
     generate_all_index.index_schema_check(index_content)
     logging.info("SDK index update successful.")
     generate_all_index.get_last_index()
+    if is_master_repo():
+        print("ready to sync csp packages")
 
 
 if __name__ == "__main__":
