@@ -122,6 +122,7 @@ class StudioSdkManagerIndex:
 
 
 def main():
+    print(os.environ['UPDATE_SDK_INDEX_ADDRESS'])
     init_logger()
     generate_all_index = StudioSdkManagerIndex("index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
