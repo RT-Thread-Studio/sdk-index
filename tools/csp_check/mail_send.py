@@ -12,9 +12,8 @@ from email.utils import formatdate
 
 def main():
     """Configure the project according to the config file."""
-    env_list = os.environ
-    smtp_pwd = env_list['SMTP_PWD']
-    user_email = env_list['USER_EMAIL']
+    smtp_pwd = os.environ['SMTP_PWD']
+    user_email = os.environ['USER_EMAIL']
     report_path = "report.html"
     send_email_2_revcer(user_email, smtp_pwd, report_path)
 
@@ -25,8 +24,8 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     smtpHost = 'smtp.ym.163.com'
     smtpPort = '25'
     sslPort = '994'
-    fromMail = 'bot@rt-thread.org'
-    username = 'bot@rt-thread.org'
+    fromMail = os.environ["FROM_EMAIL"]
+    username = os.environ["FROM_EMAIL"]
     toMail = recver
     password = sender_pw
 

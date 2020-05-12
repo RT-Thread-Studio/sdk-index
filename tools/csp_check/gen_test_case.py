@@ -10,7 +10,7 @@ def find_mcu_in_json_file(json_path):
         data = f.read()
     parameter_dict = json.loads(data)
     os.mkdir("mcu_config")
-    test_numbers = int(len(parameter_dict) * 0.1)
+    test_numbers = int(len(parameter_dict))
     if test_numbers > 30:
         test_numbers = 30
     print("test case numbers : {0}".format(test_numbers))
