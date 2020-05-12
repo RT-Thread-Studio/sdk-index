@@ -14,6 +14,7 @@ def main():
     """Configure the project according to the config file."""
     smtp_pwd = os.environ['SMTP_PWD']
     user_email = os.environ['USER_EMAIL']
+    print(os.environ['UPDATE_SDK_INDEX_ADDRESS'])
     report_path = "report.html"
     send_email_2_revcer(user_email, smtp_pwd, report_path)
 
