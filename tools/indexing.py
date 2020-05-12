@@ -127,7 +127,7 @@ def main():
     if is_master_repo():
         print("ready to sync csp packages")
 
-    update_sdk_index()
+    update_sdk_index(index_content)
 
 
 if __name__ == "__main__":
