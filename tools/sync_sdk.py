@@ -11,12 +11,19 @@ def init_logger():
                         )
 
 
+def is_master_repo():
+    sys_environment = os.environ
+    if 'IS_MASTER_REPO' in sys_environment:
+        return True
+    else:
+        return False
+
+
 def main():
-    env_list = os.environ
-    IS_MASTER_REPO = env_list['IS_MASTER_REPO']
-    print(IS_MASTER_REPO)
-    IS_MASTER_REPO = env_list['HELLO']
-    print(IS_MASTER_REPO)
+    init_logger()
+
+    if is_master_repo():
+        print("ready to sync csp packages")
 
 
 if __name__ == "__main__":
