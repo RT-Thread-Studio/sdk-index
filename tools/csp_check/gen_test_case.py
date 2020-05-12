@@ -60,7 +60,7 @@ def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     result = execute_command(cmd)
     if result.find("FileNotFoundError") != -1:
-        # logging.info("\\ngenerate result : {0}".format(result))
+        logging.info("\\ngenerate result : {0}".format(result))
         return False
     else:
         return True
@@ -70,7 +70,7 @@ def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
     result = execute_command(cmd)
     if result.find("can't be found!") != -1:
-        # logging.info("\\nimport result : {0}".format(result))
+        logging.info("\\nimport result : {0}".format(result))
         return False
     else:
         return True
@@ -80,7 +80,7 @@ def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     result = execute_command(cmd)
     if result.find("Build Failed") != -1:
-        # logging.info("\\nbuild result : {0}".format(result))
+        logging.info("\\nbuild result : {0}".format(result))
         return False
     else:
         return True
@@ -128,7 +128,7 @@ def csp_test(project_name, json_name):
 
 if __name__ == "__main__":
     init_logger()
-    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html', '--tb=no']) 
+    pytest.main(["project_test.py", '-q', '-s', '--html=report.html', '--self-contained-html', '--tb=native']) 
 
 """
 
