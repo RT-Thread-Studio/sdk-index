@@ -1,8 +1,26 @@
-
+# -*- coding: UTF-8 -*-
 import json
 import os
 import random
 import textwrap
+
+
+def gen_chip_test_case(test_list_path, mcu_config_path):
+
+    find_mcu_in_json_file(test_list_path)
+    test_case = ''
+
+    for chip_json in os.listdir(mcu_config_path):
+        project_name = chip_json.split(".json")[0]
+        json_path = os.path.join(mcu_config_path, chip_json)
+        test_case_example = """ 
+                def test_{0}():
+                    assert csp_test("{0}", "{1}") is True
+                """.format(project_name, json_path)
+        test_case_format = textwrap.dedent(test_case_example)
+        test_case += "\n" + test_case_format
+    with open("project_test.py", "w") as f:
+        f.write(file_head + test_case)
 
 
 def find_mcu_in_json_file(json_path):
@@ -22,14 +40,8 @@ def find_mcu_in_json_file(json_path):
     os.remove(json_path)
 
 
-def mcu_config_json(dir_path):
-    json_path = None
-    for s in os.listdir(dir_path):
-        yield json_path
-        json_path = os.path.join(dir_path, s)
-
-
-file_head = """import os
+file_head = """# -*- coding: UTF-8 -*-
+import os
 import time
 import shutil
 import pytest
@@ -128,24 +140,6 @@ def csp_test(project_name, json_name):
 
 if __name__ == "__main__":
     init_logger()
-    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html', "--tb=no"]) 
+    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html', "--tb=no", '--capture=sys']) 
     
 """
-
-
-def gen_chip_test_case(test_list_path, mcu_config_path):
-
-    find_mcu_in_json_file(test_list_path)
-    test_case = ''
-
-    for chip_json in os.listdir(mcu_config_path):
-        project_name = chip_json.split(".json")[0]
-        json_path = os.path.join(mcu_config_path, chip_json)
-        test_case_example = """ 
-                def test_{0}():
-                    assert csp_test("{0}", "{1}") is True
-                """.format(project_name, json_path)
-        test_case_format = textwrap.dedent(test_case_example)
-        test_case += "\n" + test_case_format
-    with open("project_test.py", "w") as f:
-        f.write(file_head + test_case)
