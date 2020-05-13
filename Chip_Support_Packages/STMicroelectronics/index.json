@@ -4,6 +4,6 @@
     "description": "STM32 series Chip Support Packages",
     "index": [
         "STM32F4",
-        "STM32F1"
+        "STM32L0"
     ]
 }
