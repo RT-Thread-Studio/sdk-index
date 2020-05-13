@@ -14,7 +14,7 @@ import logging
 import os
 from jsonschema import RefResolver, Draft7Validator
 import requests
-from .package_sync import PackagesSync, get_access_token
+from package_sync import PackagesSync, get_access_token
 
 
 def init_logger():
