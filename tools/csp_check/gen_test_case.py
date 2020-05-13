@@ -75,6 +75,7 @@ def get_generate_result(json_name):
         logging.info("\\ngenerate result : {0}".format(result))
         return False
     else:
+        logging.info("\\ngenerate result : {0}".format(result))
         return True
 
 
@@ -85,6 +86,7 @@ def get_import_result(cmd_pre, project_name):
         logging.info("\\nimport result : {0}".format(result))
         return False
     else:
+        logging.info("\\nimport result : {0}".format(result))
         return True
         
         
@@ -95,6 +97,7 @@ def get_build_result(cmd_pre, project_name):
         logging.info("\\nbuild result : {0}".format(result))
         return False
     else:
+        logging.info("\\nbuild result : {0}".format(result))
         return True
 
 
