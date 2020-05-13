@@ -71,8 +71,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
 def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     result = execute_command(cmd)
-    print("generate_result : {0}".format(result))
-    if result.find("finally exit"):
+    if not result:
         return False
     else:
         return True
