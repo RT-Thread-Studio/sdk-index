@@ -73,7 +73,7 @@ def get_generate_result(json_name):
     result = execute_command(cmd)
     print("generate result : {0}".format(result))
     if not result:
-        print("generate result : {0}".format(result))
+        print("generate err : {0}".format(result))
         return False
     else:
         return True
@@ -84,7 +84,7 @@ def get_import_result(cmd_pre, project_name):
     result = execute_command(cmd)
     print("import result : {0}".format(result))
     if result.find("Create") != -1:
-        print("import result : {0}".format(result))
+        print("import err : {0}".format(result))
         return True
     else:
         return False
@@ -95,7 +95,7 @@ def get_build_result(cmd_pre, project_name):
     result = execute_command(cmd)
     print("build result : {0}".format(result))
     if result.find("Finished building target: rtthread.elf") != -1:
-        print("build result : {0}".format(result))
+        print("build err : {0}".format(result))
         return True
     else:
         return False
