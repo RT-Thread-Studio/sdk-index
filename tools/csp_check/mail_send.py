@@ -25,7 +25,7 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     sslPort = '994'
     fromMail = os.environ["FROM_EMAIL"]
     username = os.environ["FROM_EMAIL"]
-    toMail = recver
+    toMail = recver[1:-1].split(',')
     password = sender_pw
 
     # init mail
@@ -34,7 +34,7 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     message['Subject'] = Header(mail_subject, encoding)
     mail = MIMEText(mail_body.encode(encoding), 'plain', encoding)
     mail['From'] = fromMail
-    mail['To'] = toMail
+    # mail['To'] = toMail
     mail['Date'] = formatdate()
 
     message.attach(mail)
