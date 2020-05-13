@@ -140,8 +140,13 @@ class SdkSyncPackages:
 
         tmp = url.split('/')
         logging.info(tmp)
+        logging.info(tmp[0])
+        logging.info(tmp[1])
+        logging.info(tmp[2])
+        logging.info(tmp[3])
+        logging.info(tmp[4])
 
-        # # 1. get packages repository
+        # 1. get packages repository
         # work_path = r'sync_local_repo/github_mirror'
         # mirror_file = r'sync_local_repo/github_mirror_file'
         # gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
