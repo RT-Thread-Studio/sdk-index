@@ -6,6 +6,11 @@ services:
 notifications:
   email: false
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
+  - tar xvf secrets.tar
+  - ls
+
 script:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
   - python3 -m pip install wheel jsonschema
