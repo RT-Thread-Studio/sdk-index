@@ -147,19 +147,19 @@ class SdkSyncPackages:
         logging.info(tmp[4])
 
         # 1. get packages repository
-        # work_path = r'sync_local_repo/github_mirror'
-        # mirror_file = r'sync_local_repo/github_mirror_file'
-        # gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
-        # mirror_org_name = "RT-Thread-Studio-Mirror"
-        #
-        # token = get_access_token(os.environ["TOKEN_PAYLOAD"])
-        # print("access token  : %s" % token)
-        #
-        # packages_update = PackagesSync(
-        #     work_path, mirror_file, gitee_url, token, mirror_org_name)
-        #
-        # # 2. create new repo in gitee
-        # packages_update.create_repo_in_gitee("sdk-debuger-jlink")
+        work_path = r'sync_local_repo/github_mirror'
+        mirror_file = r'sync_local_repo/github_mirror_file'
+        gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
+        mirror_org_name = "RT-Thread-Studio-Mirror"
+
+        token = get_access_token(os.environ["TOKEN_PAYLOAD"])
+        print("access token  : %s" % token)
+
+        packages_update = PackagesSync(
+            work_path, mirror_file, gitee_url, token, mirror_org_name)
+
+        # 2. create new repo in gitee
+        packages_update.create_repo_in_gitee(tmp[4])
         #
         # # 3. clone package repo and push to gitee
         #
