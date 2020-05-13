@@ -7,7 +7,7 @@ notifications:
   email: false
 
 before_install:
-  - ssh-agent bash
+  - eval $(ssh-agent -s)
   - chmod 600 id_rsa
   - ssh-add id_rsa
   - cp -f known_hosts ~/.ssh
