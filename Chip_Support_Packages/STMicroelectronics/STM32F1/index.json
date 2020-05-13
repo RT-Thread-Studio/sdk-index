@@ -1,10 +1,10 @@
 {
-    "name": "STM32G4",
+    "name": "STM32F1",
     "vendor": "RealThread",
-    "description": "STM32G4 Chip Support Packages",
+    "description": "STM32F1 Chip Support Packages",
     "license": "",
-    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4.git",
-    "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f1.git",
+    "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f1",
     "releases": [
         {
             "version": "v0.1.0",
