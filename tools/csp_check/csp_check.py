@@ -8,6 +8,7 @@ def main():
     os.system("chmod 777 prj_gen")
     os.system("pip install pyyaml")
     os.system("pip install pytest-sugar")
+    os.system("pip install pytest-xdist")
     os.system("python project_build.py")
 
 
