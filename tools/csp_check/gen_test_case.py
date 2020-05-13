@@ -71,6 +71,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
 def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     result = execute_command(cmd)
+    logging.info("\\ngenerate result : {0}".format(result))
     if result.find("FileNotFoundError") != -1:
         logging.info("\\ngenerate result : {0}".format(result))
         return False
@@ -81,6 +82,7 @@ def get_generate_result(json_name):
 def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
     result = execute_command(cmd)
+    logging.info("\\nimport result : {0}".format(result))
     if result.find("can't be found!") != -1:
         logging.info("\\nimport result : {0}".format(result))
         return False
@@ -91,6 +93,7 @@ def get_import_result(cmd_pre, project_name):
 def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     result = execute_command(cmd)
+    logging.info("\\nbuild result : {0}".format(result))
     if result.find("Build Failed") != -1:
         logging.info("\\nbuild result : {0}".format(result))
         return False
