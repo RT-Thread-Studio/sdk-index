@@ -110,7 +110,7 @@ class PackagesSync:
 
         repo_path = os.path.join(org_path, repo_name)
 
-        git_sh_path = os.path.join(os.getcwd(), 'git_get_branch.sh')
+        # git_sh_path = os.path.join(os.getcwd(), 'git_get_branch.sh')
         git_repo_path = os.path.join(org_path, repo_name)
         logging.info(git_repo_path)
 
@@ -125,15 +125,15 @@ class PackagesSync:
 
                 print('git_repo_path : %s' % git_repo_path)
 
-                cmd = r'cp %s .' % git_sh_path
-                self.execute_command(cmd, cwd=git_repo_path)
+                # cmd = r'cp %s .' % git_sh_path
+                # self.execute_command(cmd, cwd=git_repo_path)
 
-                print('======>Start synchronizing multiple branches:')
-                cmd = r'./git_get_branch.sh'
-                if platform.architecture()[1] == 'WindowsPE':
-                    cmd = r'.\git_get_branch.sh'
-                self.execute_command(cmd, cwd=git_repo_path)
-                print('======>Multi-branch synchronization is complete.')
+                # print('======>Start synchronizing multiple branches:')
+                # cmd = r'./git_get_branch.sh'
+                # if platform.architecture()[1] == 'WindowsPE':
+                #     cmd = r'.\git_get_branch.sh'
+                # self.execute_command(cmd, cwd=git_repo_path)
+                # print('======>Multi-branch synchronization is complete.')
 
                 print('======>Start to fetch and pull Multi-branch.')
                 try:
@@ -155,15 +155,15 @@ class PackagesSync:
             logging.info('======>Start to update local package {0} from github.'.format(repo_name))
             logging.info('git_repo_path : {0}'.format(git_repo_path))
 
-            cmd = r'cp -a -f %s .' % git_sh_path
-            self.execute_command(cmd, cwd=git_repo_path)
+            # cmd = r'cp -a -f %s .' % git_sh_path
+            # self.execute_command(cmd, cwd=git_repo_path)
 
             print('======>Start synchronizing multiple branches:')
 
-            cmd = r'./git_get_branch.sh'
-            if platform.architecture()[1] == 'WindowsPE':
-                cmd = r'.\git_get_branch.sh'
-            self.execute_command(cmd, cwd=git_repo_path)
+            # cmd = r'./git_get_branch.sh'
+            # if platform.architecture()[1] == 'WindowsPE':
+            #     cmd = r'.\git_get_branch.sh'
+            # self.execute_command(cmd, cwd=git_repo_path)
 
             print('======>Multi-branch synchronization is complete.')
             print('======>Start to fetch and pull Multi-branch.')
@@ -190,6 +190,7 @@ class PackagesSync:
         cmd = r'git push --mirror --progress -v %s' % git_sslurl
 
         print('cmd: ' + cmd)
+        print("repo_path: " + repo_path)
 
         self.execute_command(cmd, cwd=repo_path)
         print('======>Push done')
