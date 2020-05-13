@@ -14,6 +14,7 @@ import logging
 import os
 from jsonschema import RefResolver, Draft7Validator
 import requests
+from package_sync import PackagesSync, get_access_token
 
 
 def init_logger():
@@ -67,7 +68,7 @@ class StudioSdkManagerIndex:
 
     def index_schema_check(self, index_content):
         def get_schema_json_obj(path):
-            return self.get_json_obj_from_file(os.path.join("tools/index_schema_check", path))
+            return self.get_json_obj_from_file(os.path.join("index_schema_check", path))
 
         index_all_schema = get_schema_json_obj("index_all_schema.json")
         rtt_source_schema = get_schema_json_obj("rtt_source_schema.json")
@@ -120,8 +121,9 @@ class StudioSdkManagerIndex:
 
 
 class SdkSyncPackages:
-    def __init__(self, update_list):
+    def __init__(self, update_list, new_index):
         self.update_list = update_list
+        self.new_index = new_index
 
     @staticmethod
     def is_master_repo():
@@ -130,26 +132,50 @@ class SdkSyncPackages:
         else:
             return False
 
+    def do_sync_csp_packages(self):
+        logging.info("update list: {0}".format(self.update_list))
+
+        url = self.update_list[0]
+        logging.info(url)
+
+        tmp = url.split('/')
+        logging.info(tmp)
+
+        # # 1. get packages repository
+        # work_path = r'sync_local_repo/github_mirror'
+        # mirror_file = r'sync_local_repo/github_mirror_file'
+        # gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
+        # mirror_org_name = "RT-Thread-Studio-Mirror"
+        #
+        # token = get_access_token(os.environ["TOKEN_PAYLOAD"])
+        # print("access token  : %s" % token)
+        #
+        # packages_update = PackagesSync(
+        #     work_path, mirror_file, gitee_url, token, mirror_org_name)
+        #
+        # # 2. create new repo in gitee
+        # packages_update.create_repo_in_gitee("sdk-debuger-jlink")
+        #
+        # # 3. clone package repo and push to gitee
+        #
+        # # 4. packages info register
+
     def sync_csp_packages(self):
         if self.is_master_repo():
             logging.info("Ready to sync csp packages")
+            self.do_sync_csp_packages()
         else:
             logging.info("No need to sync csp packages")
 
-        logging.info(self.update_list)
-
-
-def update_sdk_index(new_index):
-    if 'UPDATE_SDK_INDEX_ADDRESS' in os.environ:
-        logging.info("Begin to update sdk index")
-
+    @staticmethod
+    def do_update_sdk_index(index):
         headers = {
             "Content-Type": "application/json"
         }
 
         try:
             r = requests.post(os.environ["UPDATE_SDK_INDEX_ADDRESS"],
-                              data=json.dumps(new_index),
+                              data=json.dumps(index),
                               headers=headers
                               )
 
@@ -160,13 +186,18 @@ def update_sdk_index(new_index):
 
         except Exception as e:
             logging.error('Error message:%s' % e)
-    else:
-        logging.info("No need to update sdk index")
+
+    def update_sdk_index(self):
+        if 'UPDATE_SDK_INDEX_ADDRESS' in os.environ:
+            logging.info("Begin to update sdk index")
+            self.do_update_sdk_index(self.new_index)
+        else:
+            logging.info("No need to update sdk index")
 
 
 def main():
     init_logger()
-    generate_all_index = StudioSdkManagerIndex("index.json")
+    generate_all_index = StudioSdkManagerIndex("../index.json")
     index_content = generate_all_index.generate_all_index("index_all.json")
 
     # 1. sdk index schema checking
@@ -175,12 +206,10 @@ def main():
     # 2. get packages need to test and sync
     update_list = generate_all_index.get_last_index()
 
-    # 3. sync updated sdk package
-    runner = SdkSyncPackages(update_list)
-    runner.sync_csp_packages()
-
-    # 4. update sdk index in master branch
-    update_sdk_index(index_content)
+    # 3. sync updated sdk package and sdk index
+    sync = SdkSyncPackages(update_list, index_content)
+    sync.sync_csp_packages()
+    sync.update_sdk_index()
 
 
 if __name__ == "__main__":
