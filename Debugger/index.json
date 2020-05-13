@@ -1,5 +1,5 @@
 {
-    "name": "Debugger Support Packages",
+    "name": "Debugger_Support_Packages",
     "description": "RT-Thread Studio Debugger Support Packages",
     "index": [
         "J-Link",
