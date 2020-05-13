@@ -140,10 +140,6 @@ class SdkSyncPackages:
 
         tmp = url.split('/')
         logging.info(tmp)
-        logging.info(tmp[0])
-        logging.info(tmp[1])
-        logging.info(tmp[2])
-        logging.info(tmp[3])
         logging.info(tmp[4])
 
         # 1. get packages repository
@@ -152,18 +148,20 @@ class SdkSyncPackages:
         gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
         mirror_org_name = "RT-Thread-Studio-Mirror"
 
-        token = get_access_token(os.environ["TOKEN_PAYLOAD"])
-        print("access token  : %s" % token)
+        if 'TOKEN_PAYLOAD' in os.environ:
+            logging.info("Find sync token")
+            token = get_access_token(os.environ['TOKEN_PAYLOAD'])
+            packages_update = PackagesSync(
+                work_path, mirror_file, gitee_url, token, mirror_org_name)
 
-        packages_update = PackagesSync(
-            work_path, mirror_file, gitee_url, token, mirror_org_name)
-
-        # 2. create new repo in gitee
-        packages_update.create_repo_in_gitee(tmp[4])
-        #
-        # # 3. clone package repo and push to gitee
-        #
-        # # 4. packages info register
+            # 2. create new repo in gitee
+            packages_update.create_repo_in_gitee(tmp[4])
+            #
+            # # 3. clone package repo and push to gitee
+            #
+            # # 4. packages info register
+        else:
+            logging.info("No sync token")
 
     def sync_csp_packages(self):
         if self.is_master_repo():
