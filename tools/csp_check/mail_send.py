@@ -23,7 +23,7 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     smtpHost = 'smtp.ym.163.com'
     smtpPort = '25'
     sslPort = '994'
-    fromMail = os.environ["FROM_EMAIL"].[:]
+    fromMail = os.environ["FROM_EMAIL"][:]
     print("fromMail: {0}".format(fromMail))
     fromMail = os.environ["FROM_EMAIL"]
     username = os.environ["FROM_EMAIL"]
