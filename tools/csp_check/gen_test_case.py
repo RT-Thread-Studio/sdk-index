@@ -72,7 +72,7 @@ def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     result = execute_command(cmd)
     if not result:
-        logging.info("import result : {0}".format(result))
+        print("import result : {0}".format(result))
         return False
     else:
         return True
@@ -82,7 +82,7 @@ def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
     result = execute_command(cmd)
     if result.find("Create") != -1:
-        logging.info("import result : {0}".format(result))
+        print("import result : {0}".format(result))
         return True
     else:
         return False
@@ -92,7 +92,7 @@ def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     result = execute_command(cmd)
     if result.find("Finished building target: rtthread.elf") != -1:
-        logging.info("import result : {0}".format(result))
+        print("import result : {0}".format(result))
         return True
     else:
         return False
@@ -111,7 +111,7 @@ def csp_test(project_name, json_name):
 
     gen_result = get_generate_result(json_name)
     if not gen_result:
-        logging.info("================>Project generate fails.")
+        print("================>Project generate fails.")
         return gen_result
         
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors " \\
@@ -120,15 +120,15 @@ def csp_test(project_name, json_name):
               
     import_result = get_import_result(cmd_pre, project_name)
     if not import_result:
-        logging.info("================>Project import fails.")
+        print("================>Project import fails.")
         return import_result
 
     build_result = get_build_result(cmd_pre, project_name)
     
     if build_result:
-        logging.info("================>Project build success.")
+        print("================>Project build success.")
     else:
-        logging.info("================>Project build fails.")
+        print("================>Project build fails.")
         
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
     comp_project = "/rt-thread/workspace/{0}".format(project_name)
@@ -141,6 +141,6 @@ def csp_test(project_name, json_name):
 
 if __name__ == "__main__":
     init_logger()
-    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html', '--capture=sys']) 
+    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html']) 
     
 """
