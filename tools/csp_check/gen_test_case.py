@@ -133,7 +133,7 @@ def csp_test(project_name, json_name):
     shutil.rmtree(import_project)
     shutil.rmtree(comp_project)
 
-    return result
+    return build_result
 
 
 if __name__ == "__main__":
