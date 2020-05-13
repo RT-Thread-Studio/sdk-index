@@ -92,18 +92,15 @@ class PackagesSync:
                         git_arr.append(repo_url)
                         self.fetch_packages_from_git(repo_url)
 
-    def fetch_packages_from_git(self, packages_git_path):
-        print('======>Fetch package from git repo :' + packages_git_path)
-        # ['https:', '', 'github.com', 'RT-Thread-packages', 'cJSON.git']
-        tmp = packages_git_path.split('/')
+    def fetch_packages_from_git(self, archive_path):
+        print('======>Fetch package from git repo :' + archive_path)
 
-        # TODO
+        url = archive_path[:archive_path.find("/archive")]
+        git_path = url + ".git"
+        tmp = url.split('/')
         org = tmp[3]
         repo = tmp[4]
-        repo_name = repo.replace('.git', '')
-
-        # 注册码云远程仓库
-        self.create_repo_in_gitee(repo_name)
+        repo_name = repo
 
         # 从 github 上将软件包仓库 clone 到本地来
         org_path = os.path.join(self.mirror_path, org)
@@ -112,19 +109,17 @@ class PackagesSync:
             os.makedirs(org_path)
 
         repo_path = os.path.join(org_path, repo_name)
-        repo_submodule_file_path = os.path.join(repo_path, '.gitmodules')
 
         git_sh_path = os.path.join(os.getcwd(), 'git_get_branch.sh')
         git_repo_path = os.path.join(org_path, repo_name)
         logging.info(git_repo_path)
 
-        # 如果仓库在本地不存在，那么重新克隆仓库并更新 submodule
         if not os.path.exists(repo_path):
             try:
                 print('makdir -pv ' + repo_path)
                 os.makedirs(repo_path)
                 cmd = r'git clone %s %s'
-                cmd = cmd % (packages_git_path, repo_name)
+                cmd = cmd % (git_path, repo_name)
                 print('======>Clone packages %s to local.' % repo_name)
                 self.execute_command(cmd, cwd=org_path)
 
@@ -151,11 +146,6 @@ class PackagesSync:
                     print('error: repo : %s fetch and pull fail, wait for next update.' % repo_name)
                     return
 
-                if os.path.isfile(repo_submodule_file_path):
-                    cmd = r'git submodule init'
-                    self.execute_command(cmd, cwd=repo_path)
-                    cmd = r'git submodule update'
-                    self.execute_command(cmd, cwd=repo_path)
             except Exception as e:
                 logging.error("Error message: {0}.".format(e))
                 print('error: repo : %s clone fail, wait for next update.' % repo_name)
@@ -176,7 +166,6 @@ class PackagesSync:
             self.execute_command(cmd, cwd=git_repo_path)
 
             print('======>Multi-branch synchronization is complete.')
-
             print('======>Start to fetch and pull Multi-branch.')
 
             try:
@@ -192,16 +181,6 @@ class PackagesSync:
                 return
 
             logging.info('======>fetch and pull done.')
-
-            if os.path.isfile(repo_submodule_file_path):
-                cmd = r'git submodule init'
-                self.execute_command(cmd, cwd=repo_path)
-                cmd = r'git submodule update'
-                self.execute_command(cmd, cwd=repo_path)
-
-        # 如果已经下载好的软件包里面有 submodule,那么处理 submodule 的注册和同步
-        if os.path.isfile(repo_submodule_file_path):
-            self.submodule_sync(repo_submodule_file_path, git_sh_path)
 
         # 从本地仓库执行镜像操作到码云仓库中
         git_https_url = "%s/%s.git" % (self.gitee_url, repo_name)
@@ -324,4 +303,3 @@ def packages_info_register(packages_json):
         print('======>Software package registration failed.')
     else:
         logging.info("{0} register successful.".format(package_json_register["name"]))
-

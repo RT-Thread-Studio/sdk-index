@@ -166,12 +166,11 @@ class SdkSyncPackages:
 
             # 2. create new repo in gitee
             packages_update.create_repo_in_gitee(tmp[4])
+
+            # 3. clone package repo and push to gitee
+            packages_update.fetch_packages_from_git(url)
         else:
             logging.info("No sync token")
-
-        # 3. clone package repo and push to gitee
-
-        # 4. packages info register
 
     def sync_csp_packages(self):
         if self.is_master_repo():
