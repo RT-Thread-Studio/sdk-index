@@ -237,11 +237,6 @@ class PackagesSync:
         self.execute_command(cmd, cwd=dirname)
 
     def create_repo_in_gitee(self, repo_name):
-
-        logging.info("Start to sync packages.")
-        token = get_access_token()
-        print("access token  : %s" % token)
-
         print("======>Start to create %s repo in gitee." % repo_name)
         send_data = "access_token=%s&name=%s" % (self.gitee_token, repo_name)
         send_url = "https://gitee.com/api/v5/orgs/%s/repos" % self.mirror_org_name
