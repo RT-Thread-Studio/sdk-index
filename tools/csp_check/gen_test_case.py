@@ -63,7 +63,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
                            stdout=subprocess.PIPE, shell=shell, bufsize=4096)
     stdout_str = ''
     while sub.poll() is None:
-        stdout_str += str(sub.stdout.read())
+        stdout_str += str(sub.stdout.read(), encoding="utf-8")
         time.sleep(0.1)
     return stdout_str
 
@@ -71,38 +71,35 @@ def execute_command(cmd_string, cwd=None, shell=True):
 def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx".format(json_name)
     result = execute_command(cmd)
-    if result.find("can't be found!") != -1:
+    if not result:
         logging.info("\\ngenerate result : {0}".format(result))
         return False
     else:
-        logging.info("\\ngenerate result : {0}".format(result))
         return True
 
 
 def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}"'.format(project_name)
     result = execute_command(cmd)
-    if result.find("WARNING: No Project matched") != -1:
+    if not result:
         logging.info("\\nimport result : {0}".format(result))
         return False
     else:
-        logging.info("\\nimport result : {0}".format(result))
         return True
         
         
 def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}'".format(project_name)
     result = execute_command(cmd)
-    if result.find("Build Failed") != -1:
+    if not result:
         logging.info("\\nbuild result : {0}".format(result))
         return False
     else:
-        logging.info("\\nbuild result : {0}".format(result))
         return True
 
 
 def init_logger():
-    log_format = "%(message)s "
+    log_format = "%(filename)s %(lineno)d %(levelname)s %(message)s "
     date_format = '%Y-%m-%d  %H:%M:%S %a '
     logging.basicConfig(level=logging.INFO,
                         format=log_format,
@@ -144,6 +141,6 @@ def csp_test(project_name, json_name):
 
 if __name__ == "__main__":
     init_logger()
-    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html', "--tb=no", '--capture=sys']) 
+    pytest.main(["project_test.py", '-q', '--html=report.html', '--self-contained-html', '--tb=no', '--capture=sys']) 
     
 """
