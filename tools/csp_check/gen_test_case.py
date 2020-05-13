@@ -108,23 +108,24 @@ def init_logger():
                         
 
 def csp_test(project_name, json_name):
-    result = get_generate_result(json_name)
-    if not result:
+
+    gen_result = get_generate_result(json_name)
+    if not gen_result:
         logging.info("================>Project generate fails.")
-        return result
+        return gen_result
         
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors " \\
               r"-application org.eclipse.cdt.managedbuilder.core.headlessbuild " \\
               r"-data '/rt-thread/eclipse/workspace/{0}'".format(project_name)
               
-    result = get_import_result(cmd_pre, project_name)
-    if not result:
+    import_result = get_import_result(cmd_pre, project_name)
+    if not import_result:
         logging.info("================>Project import fails.")
-        return result
+        return import_result
 
-    result = get_build_result(cmd_pre, project_name)
+    build_result = get_build_result(cmd_pre, project_name)
     
-    if result:
+    if build_result:
         logging.info("================>Project build success.")
     else:
         logging.info("================>Project build fails.")
