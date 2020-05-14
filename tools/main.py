@@ -99,8 +99,8 @@ class StudioSdkManagerIndex:
 
     def get_update_list(self):
         response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
-        last_csp_list = json.loads(response.text)["children"][1]
-        new_csp_list = self.index_all["children"][1]
+        last_csp_list = json.loads(response.text)["children"]
+        new_csp_list = self.index_all["children"]
         last_csp_list_str = json.dumps(last_csp_list, indent=4)
         new_csp_list_str = json.dumps(new_csp_list, indent=4)
 
