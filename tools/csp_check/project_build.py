@@ -16,7 +16,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
 
     stdout_str = ''
     while sub.poll() is None:
-        stdout_str += str(sub.stdout.read())
+        stdout_str += str(sub.stdout.read(), encoding="UTF-8")
         time.sleep(0.1)
 
     return stdout_str
@@ -61,7 +61,7 @@ def csp_build_test():
     # gen mcu_config dir
     gen_chip_test_case("csp_chips.json", "mcu_config")
     # pytest
-    execute_command("python csp_test_case.py")
+    print(execute_command("python csp_test_case.py"))
     execute_command("rm -rf mcu_config")
     # exit docker
     execute_command("exit")
