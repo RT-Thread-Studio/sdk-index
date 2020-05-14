@@ -6,20 +6,7 @@ import subprocess
 import time
 from gen_sdk_json import gen_sdk_para_json_file
 from gen_test_case import gen_chip_test_case
-
-
-def execute_command(cmd_string, cwd=None, shell=True):
-    """Execute the system command at the specified address."""
-
-    sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=shell, bufsize=4096)
-
-    stdout_str = ''
-    while sub.poll() is None:
-        stdout_str += str(sub.stdout.read(), encoding="UTF-8")
-        time.sleep(0.1)
-
-    return stdout_str
+from csp_check import execute_command
 
 
 def csp_build_test():

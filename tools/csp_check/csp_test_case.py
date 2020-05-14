@@ -4,7 +4,7 @@ import pytest
 import shutil
 import subprocess
 import time
-from project_build import execute_command
+from csp_check import execute_command
 
 
 def init_logger():
