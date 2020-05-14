@@ -62,7 +62,7 @@ def csp_build_test():
     gen_chip_test_case("csp_chips.json", "mcu_config")
 
     # pytest
-    os.system("python project_test.py")
+    os.system("python csp_test_case.py")
     os.system("rm -rf mcu_config")
     # exit docker
     os.system("exit")

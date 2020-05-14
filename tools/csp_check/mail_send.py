@@ -20,12 +20,12 @@ def main():
 def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     """Send email to recver by SSL."""
 
-    smtpHost = 'smtp.ym.163.com'
-    smtpPort = '25'
-    sslPort = '994'
-    fromMail = os.environ["FROM_EMAIL"]
-    username = os.environ["FROM_EMAIL"]
-    toMail = recver
+    smtp_host = 'smtp.ym.163.com'
+    smtp_port = '25'
+    ssl_port = '994'
+    from_mail = os.environ["FROM_EMAIL"]
+    user_name = os.environ["FROM_EMAIL"]
+    to_mail = recver
     password = sender_pw
 
     # init mail
@@ -33,8 +33,8 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     message = MIMEMultipart()
     message['Subject'] = Header(mail_subject, encoding)
     mail = MIMEText(mail_body.encode(encoding), 'plain', encoding)
-    mail['From'] = fromMail
-    mail['To'] = toMail
+    mail['From'] = from_mail
+    mail['To'] = to_mail
     mail['Date'] = formatdate()
 
     message.attach(mail)
@@ -46,21 +46,21 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
                 att.set_payload(open(item, 'rb').read())
                 encoders.encode_base64(att)
                 att.add_header(
-                    'Content-Disposition', 'attachment; filename="%s"' % os.path.basename(item))
+                    'Content-Disposition', 'attachment; filename="{0}"'.format(os.path.basename(item)))
                 message.attach(att)
             except Exception as ex:
-                print("===> Exception: %s" % (str(ex)))
+                print("===> Exception: {0}".format(str(ex)))
 
     try:
         # ssl
-        smtp = smtplib.SMTP_SSL(smtpHost, sslPort)
+        smtp = smtplib.SMTP_SSL(smtp_host, ssl_port)
         smtp.ehlo()
-        smtp.login(username, password)
+        smtp.login(user_name, password)
 
         # send mail
         smtp.sendmail(fromMail, toMail, message.as_string())
         smtp.close()
-        print('Email has been sent to %s successfully.' % toMail)
+        print('Email has been sent to {0} successfully.'.format(to_mail))
     except Exception as e:
         print(e)
 
