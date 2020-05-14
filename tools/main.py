@@ -228,6 +228,9 @@ class SdkSyncPackages:
                     repo = tmp[4]
                     replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
                     item['url'] = replace_url
+
+                    if url == "https://github.com/RT-Thread/rt-thread.git":
+                        item['url'] = "https://gitee.com/rtthread/rt-thread.git"
                 else:
                     new_zip_url = url.replace('https://github.com', 'https://gitee.com')
                     tmp = new_zip_url.split('/')
@@ -262,12 +265,12 @@ class SdkSyncPackages:
             logging.info("{0} register successful.".format(package_json_register["name"]))
 
     def do_update_sdk_mirror_server_index(self):
-        folder_walk_result = os.walk("../Chip_Support_Packages")
+        folder_walk_result = os.walk("..")
         for path, d, filelist in folder_walk_result:
             for filename in filelist:
                 if filename == 'index.json':
-                    content = StudioSdkManagerIndex.get_json_obj_from_file(os.path.join(path, filename))
-                    if "releases" in content:
+                    index_content = StudioSdkManagerIndex.get_json_obj_from_file(os.path.join(path, filename))
+                    if "releases" in index_content:
                         self.packages_info_mirror_register(os.path.join(path, filename))
 
     def update_sdk_index(self):
