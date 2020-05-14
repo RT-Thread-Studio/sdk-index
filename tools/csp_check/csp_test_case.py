@@ -12,7 +12,6 @@ if __name__ == "__main__":
 
 
 def csp_test(project_name, json_name):
-    print("test case : {0}".format(project_name))
     gen_result = get_generate_result(json_name)
     if not gen_result:
         print("================>Project generate fails.")
