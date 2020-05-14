@@ -23,7 +23,7 @@ def csp_build_test():
 
     # get sdk
     try:
-        with open('/rt-thread/sdk-index/tools/sdk_url.json', "r") as f:
+        with open('/rt-thread/sdk-index/tools/csp_update_url.json', "r") as f:
             sdk_url = json.loads(f.read())[0]
     except Exception as e:
         print(e)
