@@ -6,7 +6,7 @@
             "type": "string"
         },
         "version": {
-            "type": "string"
+            "type": "integer"
         },
         "description": {
             "type": "string"
