@@ -1,15 +1,17 @@
 # -*- coding: UTF-8 -*-
 import os
+import subprocess
+from project_build import execute_command
 
 
 def main():
-    os.system("apt update && apt -y upgrade && apt -y install unzip")
-    os.chdir("/rt-thread/sdk-index/tools/csp_check")
-    os.system("chmod 777 prj_gen")
-    os.system("pip install pyyaml")
-    os.system("pip install pytest-sugar")
-    os.system("pip install pytest-xdist")
-    os.system("python project_build.py")
+    execute_command("apt update && apt -y upgrade && apt -y install unzip")
+    execute_command("cd /rt-thread/sdk-index/tools/csp_check")
+    execute_command("chmod 777 prj_gen")
+    execute_command("pip install pyyaml")
+    execute_command("pip install pytest-sugar")
+    execute_command("pip install pytest-xdist")
+    execute_command("python project_build.py")
 
 
 if __name__ == '__main__':

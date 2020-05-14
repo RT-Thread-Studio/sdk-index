@@ -4,6 +4,7 @@ import pytest
 import shutil
 import subprocess
 import time
+from project_build import execute_command
 
 
 def init_logger():
@@ -82,13 +83,3 @@ def get_build_result(cmd_pre, project_name):
     else:
         print("build err : {0}".format(result))
         return False
-
-
-def execute_command(cmd_string, cwd=None, shell=True):
-    sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=shell, bufsize=4096)
-    stdout_str = ''
-    while sub.poll() is None:
-        stdout_str += str(sub.stdout.read(), encoding="utf-8")
-        time.sleep(0.1)
-    return stdout_str
