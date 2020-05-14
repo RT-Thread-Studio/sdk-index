@@ -1,3 +1,4 @@
+import os
 import smtplib
 from email import encoders
 from email.header import Header
