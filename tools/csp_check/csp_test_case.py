@@ -17,7 +17,7 @@ def init_logger():
 
 if __name__ == "__main__":
     init_logger()
-    pytest.main(["project_test.py", '--html=report.html', '--self-contained-html', '-n 2'])
+    pytest.main(["csp_test_Case", '--html=report.html', '--self-contained-html', '-n 2'])
 
 
 def csp_test(project_name, json_name):
