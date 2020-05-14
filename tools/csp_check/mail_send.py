@@ -58,7 +58,7 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
         smtp.login(user_name, password)
 
         # send mail
-        smtp.sendmail(fromMail, toMail, message.as_string())
+        smtp.sendmail(from_mail, to_mail, message.as_string())
         smtp.close()
         print('Email has been sent to {0} successfully.'.format(to_mail))
     except Exception as e:
