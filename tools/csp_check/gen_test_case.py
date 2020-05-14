@@ -71,7 +71,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
 def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx 2> /dev/null".format(json_name)
     result = execute_command(cmd)
-    print("generate result : {0}".format(result))
+    # print("generate result : {0}".format(result))
     if result:
         return True
     else:
@@ -82,7 +82,7 @@ def get_generate_result(json_name):
 def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}" 2> /dev/null'.format(project_name)
     result = execute_command(cmd)
-    print("import result : {0}".format(result))
+    # print("import result : {0}".format(result))
     if result.find("Create") != -1:
         return True
     else:
@@ -93,7 +93,7 @@ def get_import_result(cmd_pre, project_name):
 def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}' 2> /dev/null".format(project_name)
     result = execute_command(cmd)
-    print("build result : {0}".format(result))
+    # print("build result : {0}".format(result))
     if result.find("Finished building target: rtthread.elf") != -1:
         return True
     else:
