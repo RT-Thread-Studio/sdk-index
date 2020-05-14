@@ -6,8 +6,12 @@ services:
 notifications:
   email: false
 
+before_install:
+  - chmod a+x before_install.sh
+  - ./before_install.sh
+
 script:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
   - python3 -m pip install wheel jsonschema
-  - python3 tools/indexing.py
+  - cd tools && python3 main.py
   - cat index_all.json
