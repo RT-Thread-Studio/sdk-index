@@ -135,6 +135,10 @@ class SdkSyncPackages:
     def do_sync_csp_packages(self):
         logging.info("update list: {0}".format(self.update_list))
 
+        if len(self.update_list) == 0:
+            logging.info("Update list is empty, no need to sync.")
+            return
+
         url = self.update_list[0]
         logging.info(url)
 
