@@ -7,11 +7,11 @@ notifications:
   email: false
 
 before_install:
-  - chmod a+x before_install.sh
-  - source before_install.sh
+  - chmod a+x before_install.sh && source before_install.sh
 
-script:
+install:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
   - python3 -m pip install wheel jsonschema
-  - cd tools && python3 main.py
-  - cat index_all.json
+
+script:
+  - cd tools && python3 main.py && cat index_all.json
