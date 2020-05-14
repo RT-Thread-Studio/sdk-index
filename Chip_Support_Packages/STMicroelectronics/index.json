@@ -5,6 +5,7 @@
     "index": [
         "STM32F4",
         "STM32G4",
-        "STM32L4"
+        "STM32L4",
+        "STM32G0"
     ]
 }
