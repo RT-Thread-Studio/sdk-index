@@ -24,7 +24,7 @@ if __name__ == "__main__":
 def csp_test(project_name, json_name):
     gen_result = get_generate_result(json_name)
     if not gen_result:
-        logginf.err("================>Project generate fails.")
+        logging.err("================>Project generate fails.")
         return gen_result
 
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors "\
@@ -33,7 +33,7 @@ def csp_test(project_name, json_name):
 
     import_result = get_import_result(cmd_pre, project_name)
     if not import_result:
-        logginf.err("================>Project import fails.")
+        logging.err("================>Project import fails.")
         return import_result
 
     build_result = get_build_result(cmd_pre, project_name)
@@ -41,7 +41,7 @@ def csp_test(project_name, json_name):
     if build_result:
         logging.info("================>Project build success.")
     else:
-        logginf.err("================>Project build fails.")
+        logging.err("================>Project build fails.")
 
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
     comp_project = "/rt-thread/workspace/{0}".format(project_name)
@@ -59,7 +59,7 @@ def get_generate_result(json_name):
     if result:
         return True
     else:
-        logginf.err("\ngenerate result : {0}".format(result))
+        logging.err("\ngenerate result : {0}".format(result))
         return False
 
 
@@ -69,7 +69,7 @@ def get_import_result(cmd_pre, project_name):
     if result.find("Create") != -1:
         return True
     else:
-        logginf.err("\nimport result : {0}".format(result))
+        logging.err("\nimport result : {0}".format(result))
         return False
 
 
@@ -79,5 +79,5 @@ def get_build_result(cmd_pre, project_name):
     if result.find("Finished building target: rtthread.elf") != -1:
         return True
     else:
-        logginf.err("\nbuild result : {0}".format(result))
+        logging.err("\nbuild result : {0}".format(result))
         return False
