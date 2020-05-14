@@ -1,5 +1,15 @@
 # coding=utf-8
-import sys
+#
+# Copyright (c) 2006-2020, RT-Thread Development Team
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# Change Logs:
+# Date           Author       Notes
+# 2020-05-12     SummerGift   first version
+# 2020-05-14     SummerGift   add package sync
+#
+
 import os
 import time
 import subprocess
@@ -36,47 +46,6 @@ class PackagesSync:
 
         return stdout_str
 
-    def fetch_packages(self, package_json_path):
-        """Read the git address information from the json file and download it to the local."""
-
-        logging.info("======>Parse the %s file to get the package information." %
-                     package_json_path[36:])
-        package_json_file = open(package_json_path, 'rb')
-        package_json_content = package_json_file.read()
-
-        try:
-            packages_json = json.loads(package_json_content.decode('utf-8'))
-            json_reg = json.loads(package_json_content.decode('utf-8'))
-        except Exception as e:
-            logging.error("Error message: {0}.".format(e))
-
-        self.packages_info_sync(json_reg)
-
-        git_arr = []
-
-        for item in packages_json['site']:
-            url = item['URL']
-            if url.endswith('.git'):
-                if url in git_arr:
-                    print('======>' + url[19:] +
-                          ' do not need to download it again.')
-                else:
-                    git_arr.append(url)
-                    self.fetch_packages_from_git(url)
-            else:
-                tmp = url.split('/')
-                if tmp[2] == 'github.com' and len(tmp) == 7 and tmp[5] == 'archive':
-                    org = tmp[3]
-                    repo = tmp[4]
-                    repo_url = 'https://github.com/%s/%s.git'
-                    repo_url = repo_url % (org, repo)
-                    if repo_url in git_arr:
-                        print('======>' + repo_url +
-                              ' do not need to download it again.')
-                    else:
-                        git_arr.append(repo_url)
-                        self.fetch_packages_from_git(repo_url)
-
     def fetch_packages_from_git(self, archive_path):
         print('======>Fetch package from git repo :' + archive_path)
 
@@ -92,42 +61,32 @@ class PackagesSync:
             print('makdir -pv ' + org_path)
             os.makedirs(org_path)
 
-        repo_path = os.path.join(org_path, repo_name)
-
-        # git_sh_path = os.path.join(os.getcwd(), 'git_get_branch.sh')
         git_repo_path = os.path.join(org_path, repo_name)
         logging.info(git_repo_path)
 
+        repo_path = os.path.join(org_path, repo_name)
         if not os.path.exists(repo_path):
             try:
                 print('makdir -pv ' + repo_path)
                 os.makedirs(repo_path)
+
                 cmd = r'git clone %s %s'
                 cmd = cmd % (git_path, repo_name)
                 print('======>Clone packages %s to local.' % repo_name)
                 self.execute_command(cmd, cwd=org_path)
-
                 print('git_repo_path : %s' % git_repo_path)
-
-                # cmd = r'cp %s .' % git_sh_path
-                # self.execute_command(cmd, cwd=git_repo_path)
 
                 cmd = r"""git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" 
                 "$remote"; done"""
-
-                # print('======>Start synchronizing multiple branches:')
-                # cmd = r'./git_get_branch.sh'
-                # if platform.architecture()[1] == 'WindowsPE':
-                #     cmd = r'.\git_get_branch.sh'
-
                 self.execute_command(cmd, cwd=git_repo_path)
                 print('======>Multi-branch synchronization is complete.')
-
                 print('======>Start to fetch and pull Multi-branch.')
                 try:
                     cmd = r'git fetch --all'
                     self.execute_command(cmd, cwd=git_repo_path)
                     cmd = r'git pull --all'
+                    self.execute_command(cmd, cwd=git_repo_path)
+                    cmd = r'git fetch --tags'
                     self.execute_command(cmd, cwd=git_repo_path)
                 except Exception as e:
                     logging.error("Error message: {0}.".format(e))
@@ -138,43 +97,12 @@ class PackagesSync:
                 logging.error("Error message: {0}.".format(e))
                 print('error: repo : %s clone fail, wait for next update.' % repo_name)
                 return
-        else:
-            logging.info('======>Start to update local package {0} from github.'.format(repo_name))
-            logging.info('git_repo_path : {0}'.format(git_repo_path))
-
-            # cmd = r'cp -a -f %s .' % git_sh_path
-            # self.execute_command(cmd, cwd=git_repo_path)
-
-            print('======>Start synchronizing multiple branches:')
-
-            # cmd = r'./git_get_branch.sh'
-            # if platform.architecture()[1] == 'WindowsPE':
-            #     cmd = r'.\git_get_branch.sh'
-            # self.execute_command(cmd, cwd=git_repo_path)
-
-            print('======>Multi-branch synchronization is complete.')
-            print('======>Start to fetch and pull Multi-branch.')
-
-            try:
-                cmd = r'git fetch --all'
-                self.execute_command(cmd, cwd=git_repo_path)
-                cmd = r'git pull --all'
-                self.execute_command(cmd, cwd=git_repo_path)
-                cmd = r'git fetch --tags'
-                self.execute_command(cmd, cwd=git_repo_path)
-            except Exception as e:
-                logging.error("Error message: {0}.".format(e))
-                print('error: repo : %s fetch and pull fail, wait for next update.' % repo_name)
-                return
-
-            logging.info('======>fetch and pull done.')
 
         git_https_url = "%s/%s.git" % (self.gitee_url, repo_name)
         git_ssl_url = self.https_url_to_ssh_url(git_https_url)
 
         print('======>Start to push local package %s to gitee.' % repo_name)
         cmd = r'git push --mirror --progress -v %s' % git_ssl_url
-
         print('cmd: ' + cmd)
         print("repo_path: " + repo_path)
 

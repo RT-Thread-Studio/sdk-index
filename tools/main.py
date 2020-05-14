@@ -1,3 +1,4 @@
+# coding=utf-8
 #
 # Copyright (c) 2006-2020, RT-Thread Development Team
 #
