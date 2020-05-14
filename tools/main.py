@@ -120,7 +120,8 @@ class StudioSdkManagerIndex:
 
         result = list(set(new_csp_list).difference(set(last_csp_list)))
         logging.info("packages need test and update: {0}".format(result))
-
+        with open("csp_update_url.json", "w") as f:
+            f.write(str(json.dumps(result, indent=4)))
         return result
 
 
