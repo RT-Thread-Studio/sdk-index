@@ -97,7 +97,7 @@ class StudioSdkManagerIndex:
         validator.validate(index_content)
         logging.info("SDK index checking successful.")
 
-    def get_last_index(self):
+    def get_update_list(self):
         response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
         last_csp_list = json.loads(response.text)["children"][1]
         new_csp_list = self.index_all["children"][1]
@@ -128,12 +128,6 @@ class SdkSyncPackages:
     def __init__(self, update_list, new_index):
         self.update_list = update_list
         self.new_index = new_index
-
-    @staticmethod
-    def get_json_obj_from_file(file):
-        with open(file, 'r') as f:
-            content = f.read()
-        return json.loads(content)
 
     @staticmethod
     def is_master_repo():
@@ -272,7 +266,7 @@ class SdkSyncPackages:
         for path, d, filelist in folder_walk_result:
             for filename in filelist:
                 if filename == 'index.json':
-                    content = self.get_json_obj_from_file(os.path.join(path, filename))
+                    content = StudioSdkManagerIndex.get_json_obj_from_file(os.path.join(path, filename))
                     if "releases" in content:
                         self.packages_info_mirror_register(os.path.join(path, filename))
 
@@ -296,7 +290,7 @@ def main():
     generate_all_index.index_schema_check(index_content)
 
     # 2. get packages need to test and sync
-    update_list = generate_all_index.get_last_index()
+    update_list = generate_all_index.get_update_list()
 
     # 3. sync updated sdk package and sdk index
     sync = SdkSyncPackages(update_list, index_content)
