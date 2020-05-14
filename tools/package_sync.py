@@ -8,7 +8,6 @@ import urllib.error
 import urllib.parse
 import json
 import requests
-import platform
 import logging
 
 
@@ -26,14 +25,13 @@ class PackagesSync:
     @staticmethod
     def execute_command(cmdstring, cwd=None, timeout=None, shell=True):
         if shell:
-            cmdstring_list = cmdstring
+            cmd_string_list = cmdstring
 
-        sub = subprocess.Popen(cmdstring_list, cwd=cwd, stdin=subprocess.PIPE,
+        sub = subprocess.Popen(cmd_string_list, cwd=cwd, stdin=subprocess.PIPE,
                                stdout=subprocess.PIPE, shell=shell, bufsize=4096)
 
         stdout_str = ''
         while sub.poll() is None:
-            # stdout_str += sub.stdout.read()
             time.sleep(0.1)
 
         return stdout_str
@@ -52,43 +50,30 @@ class PackagesSync:
         except Exception as e:
             logging.error("Error message: {0}.".format(e))
 
-        # 将软件包信息注册到服务器
         self.packages_info_sync(json_reg)
 
         git_arr = []
 
         for item in packages_json['site']:
             url = item['URL']
-
-            # 如果下载地址是一个 git 地址，那么从 git 上将软件包 clone 下来
             if url.endswith('.git'):
-                if url in git_arr:  # 如果 URL 已经被下载过，那么就提示已经被更新
+                if url in git_arr:
                     print('======>' + url[19:] +
                           ' do not need to download it again.')
                 else:
-                    # 如果没有被下载过，那么将下载链接加入到 git_arr 中，并克隆这个仓库
                     git_arr.append(url)
                     self.fetch_packages_from_git(url)
             else:
-                # 下载地址是一个文件，不是一个以 git 为结尾的下载地址
-                # self.fetch_packages_archive(URL)
-                # [u'https:', u'', u'github.com', u'RT-Thread-packages', u'cJSON', u'archive', u'v1.0.1.zip']
-                # [u'https:', u'', u'github.com', u'RT-Thread-packages', u'samples-1.0.0.zip']
                 tmp = url.split('/')
-                # 如果是一个 git 的 release 版本 zip 包
                 if tmp[2] == 'github.com' and len(tmp) == 7 and tmp[5] == 'archive':
-                    # print 'is github.com archive, try sync git'
-                    # # 那么去同步这个 git 仓库
                     org = tmp[3]
                     repo = tmp[4]
                     repo_url = 'https://github.com/%s/%s.git'
                     repo_url = repo_url % (org, repo)
-                    # print('repo_url: ' + repo_url)
-                    if repo_url in git_arr:  # 如果已经被下载了，那么就提示已经被更新
+                    if repo_url in git_arr:
                         print('======>' + repo_url +
                               ' do not need to download it again.')
                     else:
-                        # 没有被下载，就克隆这个仓库
                         git_arr.append(repo_url)
                         self.fetch_packages_from_git(repo_url)
 
@@ -102,7 +87,6 @@ class PackagesSync:
         repo = tmp[4]
         repo_name = repo
 
-        # 从 github 上将软件包仓库 clone 到本地来
         org_path = os.path.join(self.mirror_path, org)
         if not os.path.exists(org_path):
             print('makdir -pv ' + org_path)
@@ -128,12 +112,16 @@ class PackagesSync:
                 # cmd = r'cp %s .' % git_sh_path
                 # self.execute_command(cmd, cwd=git_repo_path)
 
+                cmd = r"""git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" 
+                "$remote"; done"""
+
                 # print('======>Start synchronizing multiple branches:')
                 # cmd = r'./git_get_branch.sh'
                 # if platform.architecture()[1] == 'WindowsPE':
                 #     cmd = r'.\git_get_branch.sh'
-                # self.execute_command(cmd, cwd=git_repo_path)
-                # print('======>Multi-branch synchronization is complete.')
+
+                self.execute_command(cmd, cwd=git_repo_path)
+                print('======>Multi-branch synchronization is complete.')
 
                 print('======>Start to fetch and pull Multi-branch.')
                 try:
@@ -151,7 +139,6 @@ class PackagesSync:
                 print('error: repo : %s clone fail, wait for next update.' % repo_name)
                 return
         else:
-            # 如果本地已经有这个仓库,那么对仓库执行强制同步操作更新软件包，并更新子模块
             logging.info('======>Start to update local package {0} from github.'.format(repo_name))
             logging.info('git_repo_path : {0}'.format(git_repo_path))
 
@@ -182,12 +169,11 @@ class PackagesSync:
 
             logging.info('======>fetch and pull done.')
 
-        # 从本地仓库执行镜像操作到码云仓库中
         git_https_url = "%s/%s.git" % (self.gitee_url, repo_name)
-        git_sslurl = self.https_url_to_ssh_url(git_https_url)
+        git_ssl_url = self.https_url_to_ssh_url(git_https_url)
 
         print('======>Start to push local package %s to gitee.' % repo_name)
-        cmd = r'git push --mirror --progress -v %s' % git_sslurl
+        cmd = r'git push --mirror --progress -v %s' % git_ssl_url
 
         print('cmd: ' + cmd)
         print("repo_path: " + repo_path)
@@ -205,16 +191,15 @@ class PackagesSync:
         if not path.startswith('https://github.com/'):
             print('not github.com archive')
             return
+
         new_path = path.replace('https://github.com', self.mirror_file)
-        # print(new_path)
-        # print('dirname: ' + os.path.dirname(new_path))
-        dirname = os.path.dirname(new_path)
-        if not os.path.exists(dirname):
-            print('makdir -pv ' + dirname)
-            os.makedirs(dirname)
+        dir_name = os.path.dirname(new_path)
+        if not os.path.exists(dir_name):
+            print('makdir -pv ' + dir_name)
+            os.makedirs(dir_name)
         cmd = r'wget -c ' + path
         print('cmd: ' + cmd)
-        self.execute_command(cmd, cwd=dirname)
+        self.execute_command(cmd, cwd=dir_name)
 
     def create_repo_in_gitee(self, repo_name):
         print("======>Start to create %s repo in gitee." % repo_name)
