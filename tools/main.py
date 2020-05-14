@@ -99,8 +99,8 @@ class StudioSdkManagerIndex:
 
     def get_update_list(self):
         response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
-        last_csp_list = json.loads(response.text)["children"][1]
-        new_csp_list = self.index_all["children"][1]
+        last_csp_list = json.loads(response.text)["children"]
+        new_csp_list = self.index_all["children"]
         last_csp_list_str = json.dumps(last_csp_list, indent=4)
         new_csp_list_str = json.dumps(new_csp_list, indent=4)
 
@@ -228,6 +228,9 @@ class SdkSyncPackages:
                     repo = tmp[4]
                     replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
                     item['url'] = replace_url
+
+                    if url == "https://github.com/RT-Thread/rt-thread.git":
+                        item['url'] = "https://gitee.com/rtthread/rt-thread.git"
                 else:
                     new_zip_url = url.replace('https://github.com', 'https://gitee.com')
                     tmp = new_zip_url.split('/')
@@ -236,7 +239,7 @@ class SdkSyncPackages:
                     file_replace_url = '/'.join(tmp)
                     item['url'] = file_replace_url
 
-        logging.info(package_json_register)
+        logging.debug(package_json_register)
 
         payload_register = {
             "packages": [{}
@@ -262,12 +265,12 @@ class SdkSyncPackages:
             logging.info("{0} register successful.".format(package_json_register["name"]))
 
     def do_update_sdk_mirror_server_index(self):
-        folder_walk_result = os.walk("../Chip_Support_Packages")
+        folder_walk_result = os.walk("..")
         for path, d, filelist in folder_walk_result:
             for filename in filelist:
                 if filename == 'index.json':
-                    content = StudioSdkManagerIndex.get_json_obj_from_file(os.path.join(path, filename))
-                    if "releases" in content:
+                    index_content = StudioSdkManagerIndex.get_json_obj_from_file(os.path.join(path, filename))
+                    if "releases" in index_content:
                         self.packages_info_mirror_register(os.path.join(path, filename))
 
     def update_sdk_index(self):
