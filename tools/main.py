@@ -13,9 +13,12 @@
 import json
 import logging
 import os
+import urllib.request
+import urllib.error
+import urllib.parse
 from jsonschema import RefResolver, Draft7Validator
 import requests
-from package_sync import PackagesSync, get_access_token
+from package_sync import PackagesSync
 
 
 def init_logger():
@@ -127,6 +130,12 @@ class SdkSyncPackages:
         self.new_index = new_index
 
     @staticmethod
+    def get_json_obj_from_file(file):
+        with open(file, 'r') as f:
+            content = f.read()
+        return json.loads(content)
+
+    @staticmethod
     def is_master_repo():
         if 'IS_MASTER_REPO' in os.environ:
             return True
@@ -146,10 +155,10 @@ class SdkSyncPackages:
         tmp = url.split('/')
         logging.info(tmp[4])
 
-        # 1. get packages repository
+        # get packages repository
         work_path = r'sync_local_repo/github_mirror'
         mirror_file = r'sync_local_repo/github_mirror_file'
-        gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
+        mirror_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
         mirror_org_name = "RT-Thread-Studio-Mirror"
 
         if 'username' in os.environ:
@@ -165,14 +174,14 @@ class SdkSyncPackages:
                                                                                                     client_id,
                                                                                                     client_secret)
 
-            token = get_access_token(payload)
+            token = PackagesSync.get_access_token(payload)
             packages_update = PackagesSync(
-                work_path, mirror_file, gitee_url, token, mirror_org_name)
+                work_path, mirror_file, mirror_url, token, mirror_org_name)
 
-            # 2. create new repo in gitee
+            # create new repo in mirror
             packages_update.create_repo_in_gitee(tmp[4])
 
-            # 3. clone package repo and push to gitee
+            # clone repo and push
             packages_update.fetch_packages_from_git(url)
         else:
             logging.info("No sync token")
@@ -185,7 +194,7 @@ class SdkSyncPackages:
             logging.info("No need to sync csp packages")
 
     @staticmethod
-    def do_update_sdk_index(index):
+    def do_update_sdk_ide_index(index):
         headers = {
             "Content-Type": "application/json"
         }
@@ -204,10 +213,76 @@ class SdkSyncPackages:
         except Exception as e:
             logging.error('Error message:%s' % e)
 
+    @staticmethod
+    def packages_info_mirror_register(packages_json_file):
+        with open(packages_json_file, 'rb') as f:
+            json_content = f.read()
+
+        try:
+            package_json_register = json.loads(json_content.decode('utf-8'))
+        except Exception as e:
+            logging.error("Error message: {0}.".format(e))
+
+        package_json_register["name"] = "RT-Thread_Studio_" + package_json_register["name"]
+
+        for item in package_json_register['releases']:
+            url = item['url']
+
+            if url.startswith('https://github.com/'):
+                if url.endswith('.git'):
+                    tmp = url.split('/')
+                    repo = tmp[4]
+                    replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
+                    item['url'] = replace_url
+                else:
+                    new_zip_url = url.replace('https://github.com', 'https://gitee.com')
+                    tmp = new_zip_url.split('/')
+                    tmp[3] = "RT-Thread-Studio-Mirror"
+                    tmp[5] = 'repository/archive'
+                    file_replace_url = '/'.join(tmp)
+                    item['url'] = file_replace_url
+
+        logging.info(package_json_register)
+
+        payload_register = {
+            "packages": [{}
+                         ]
+        }
+
+        payload_register["packages"][0] = package_json_register
+
+        try:
+            data = json.dumps(payload_register).encode("utf-8")
+        except Exception as e:
+            logging.error("Error message: {0}.".format(e))
+
+        try:
+            request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, {
+                'content-type': 'application/json'})
+            response = urllib.request.urlopen(request)
+            resp = response.read()
+        except Exception as e:
+            logging.error("Error message: {0}.".format(e))
+            print('======>Software package registration failed.')
+        else:
+            logging.info("{0} register successful.".format(package_json_register["name"]))
+
+    def do_update_sdk_mirror_server_index(self):
+        folder_walk_result = os.walk("../Chip_Support_Packages")
+        for path, d, filelist in folder_walk_result:
+            for filename in filelist:
+                if filename == 'index.json':
+                    content = self.get_json_obj_from_file(os.path.join(path, filename))
+                    if "releases" in content:
+                        self.packages_info_mirror_register(os.path.join(path, filename))
+
     def update_sdk_index(self):
         if 'UPDATE_SDK_INDEX_ADDRESS' in os.environ:
-            logging.info("Begin to update sdk index")
-            self.do_update_sdk_index(self.new_index)
+            logging.info("Begin to update sdk IDE index")
+            self.do_update_sdk_ide_index(self.new_index)
+
+            logging.info("Begin to update sdk mirror server index")
+            self.do_update_sdk_mirror_server_index()
         else:
             logging.info("No need to update sdk index")
 
