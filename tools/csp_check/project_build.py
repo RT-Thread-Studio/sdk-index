@@ -9,9 +9,6 @@ from csp_check import execute_command
 
 
 def csp_build_test():
-    # work path = /rt-thread/sdk-index/tools/csp_check
-
-    # get rt-thread-src
     execute_command("wget -c https://github.com/RT-Thread-Studio/sdk-rt-thread-nano-source-code/archive/v3.1.3.zip")
     execute_command("unzip {0} -d /rt-thread/rt-thread-src".format("v3.1.3.zip"))
     execute_command("rm -rf v3.1.3.zip")
@@ -21,7 +18,6 @@ def csp_build_test():
     execute_command("cp eclipse.py /rt-thread/rt-thread-src/sdk-rt-thread-nano-source-code-3.1.3/tools")
     execute_command("cp eclipse.py /rt-thread/rt-thread-src/sdk-rt-thread-source-code-4.0.2/tools")
 
-    # get sdk
     try:
         with open('/rt-thread/sdk-index/tools/csp_update_url.json', "r") as f:
             sdk_url = json.loads(f.read())[0]
@@ -41,15 +37,10 @@ def csp_build_test():
             csp_path = os.path.join('/rt-thread', sdk_path)
             break
 
-    # gen project json file
     gen_sdk_para_json_file(csp_path, "/rt-thread/workspace", "/rt-thread/rt-thread-src")
-
-    # gen mcu_config dir
     gen_chip_test_case("csp_chips.json", "mcu_config")
-    # pytest
     os.system("python csp_test_case.py")
     execute_command("rm -rf mcu_config")
-    # exit docker
     execute_command("exit")
 
 

@@ -45,7 +45,6 @@ def csp_test(project_name, json_name):
 def get_generate_result(json_name):
     cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx 2> /dev/null".format(json_name)
     result = execute_command(cmd)
-    # print("generate result : {0}".format(result))
     if result:
         return True
     else:

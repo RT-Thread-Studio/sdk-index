@@ -10,14 +10,14 @@ from email.utils import formatdate
 
 def main():
     """Configure the project according to the config file."""
-    try:
+    if 'SMTP_PWD' in os.environ and 'USER_EMAIL' in os.environ and "FROM_EMAIL" in os.environ:
         smtp_pwd = os.environ['SMTP_PWD']
         user_email = os.environ['USER_EMAIL']
-    except Exception as e:
-        print(e)
-        exit(1)
-    report_path = "report.html"
-    send_email_2_revcer(user_email, smtp_pwd, report_path)
+        report_path = "report.html"
+        send_email_2_revcer(user_email, smtp_pwd, report_path)
+    else:
+        print("Can't send email.")
+        print("Please set env 'SMTP_PWD', 'USER_EMAIL', 'FROM_EMAIL'.")
 
 
 def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
@@ -26,12 +26,10 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     smtp_host = 'smtp.ym.163.com'
     smtp_port = '25'
     ssl_port = '994'
-    try:
-        from_mail = os.environ["FROM_EMAIL"]
-        user_name = os.environ["FROM_EMAIL"]
-    except Exception as e:
-        print(e)
-        exit(1)
+
+    from_mail = os.environ["FROM_EMAIL"]
+    user_name = os.environ["FROM_EMAIL"]
+
     to_mail = recver
     password = sender_pw
 
@@ -67,18 +65,18 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
         # send mail
         smtp.sendmail(from_mail, to_mail, message.as_string())
         smtp.close()
-        print('Email has been sent to {0} successfully.'.format(to_mail))
+        print('\nEmail has been sent successfully.')
     except Exception as e:
-        print(e)
+        print("\nError message : {0}".format(e))
 
     try:
         with open("report.html", "r") as f:
             report_cont = f.read()
         if report_cont.find("failed results-table-row") != -1:
-            print("CI test failed!")
+            print("\nCI test failed!")
             exit(1)
     except Exception as e:
-        print(e)
+        print("\nError message : {0}".format(e))
         exit(1)
 
 
