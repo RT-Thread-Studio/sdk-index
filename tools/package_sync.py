@@ -148,72 +148,19 @@ class PackagesSync:
         except Exception as e:
             logging.error("Error message: {0}.".format(e))
 
+    @classmethod
+    def get_access_token(cls, token_payload):
+        try:
+            r = requests.post(
+                "https://gitee.com/oauth/token", data=token_payload)
 
-def get_access_token(token_payload):
-    try:
-        r = requests.post(
-            "https://gitee.com/oauth/token", data=token_payload)
+            if r.status_code == requests.codes.ok:
+                package_info = json.loads(r.text)
+                return package_info['access_token']
 
-        if r.status_code == requests.codes.ok:
-            package_info = json.loads(r.text)
-            return package_info['access_token']
-
-    except Exception as e:
-        logging.error("Error message: {0}.".format(e))
-        print('get access token fail')
+        except Exception as e:
+            logging.error("Error message: {0}.".format(e))
+            print('get access token fail')
 
 
-def packages_info_register(packages_json):
-    with open(packages_json, 'rb') as f:
-        json_content = f.read()
 
-    try:
-        package_json_register = json.loads(json_content.decode('utf-8'))
-    except Exception as e:
-        logging.error("Error message: {0}.".format(e))
-
-    logging.info(package_json_register)
-
-    package_json_register["name"] = "RT-Thread_Studio_" + package_json_register["name"]
-
-    for item in package_json_register['releases']:
-        url = item['url']
-
-        if url.startswith('https://github.com/'):
-            if url.endswith('.git'):
-                tmp = url.split('/')
-                repo = tmp[4]
-                replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
-                item['url'] = replace_url
-            else:
-                new_zip_url = url.replace('https://github.com', 'https://gitee.com')
-                tmp = new_zip_url.split('/')
-                tmp[3] = "RT-Thread-Studio-Mirror"
-                tmp[5] = 'repository/archive'
-                file_replace_url = '/'.join(tmp)
-                item['url'] = file_replace_url
-
-    print(package_json_register)
-
-    payload_register = {
-        "packages": [{}
-                     ]
-    }
-
-    payload_register["packages"][0] = package_json_register
-
-    try:
-        data = json.dumps(payload_register).encode("utf-8")
-    except Exception as e:
-        logging.error("Error message: {0}.".format(e))
-
-    try:
-        request = urllib.request.Request("http://packages.rt-thread.org/packages", data, {
-            'content-type': 'application/json'})
-        response = urllib.request.urlopen(request)
-        resp = response.read()
-    except Exception as e:
-        logging.error("Error message: {0}.".format(e))
-        print('======>Software package registration failed.')
-    else:
-        logging.info("{0} register successful.".format(package_json_register["name"]))
