@@ -24,7 +24,7 @@ if __name__ == "__main__":
 def csp_test(project_name, json_name):
     gen_result = get_generate_result(json_name)
     if not gen_result:
-        print("================>Project generate fails.")
+        logginf.err("================>Project generate fails.")
         return gen_result
 
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors "\
@@ -33,15 +33,15 @@ def csp_test(project_name, json_name):
 
     import_result = get_import_result(cmd_pre, project_name)
     if not import_result:
-        print("================>Project import fails.")
+        logginf.err("================>Project import fails.")
         return import_result
 
     build_result = get_build_result(cmd_pre, project_name)
 
     if build_result:
-        print("================>Project build success.")
+        logging.info("================>Project build success.")
     else:
-        print("================>Project build fails.")
+        logginf.err("================>Project build fails.")
 
     import_project = "/rt-thread/eclipse/workspace/{0}".format(project_name)
     comp_project = "/rt-thread/workspace/{0}".format(project_name)
@@ -59,27 +59,25 @@ def get_generate_result(json_name):
     if result:
         return True
     else:
-        print("generate err : {0}".format(result))
+        logginf.err("\ngenerate result : {0}".format(result))
         return False
 
 
 def get_import_result(cmd_pre, project_name):
     cmd = cmd_pre + ' -import "file:/rt-thread/workspace/{0}" 2> /dev/null'.format(project_name)
     result = execute_command(cmd)
-    # print("import result : {0}".format(result))
     if result.find("Create") != -1:
         return True
     else:
-        print("import err : {0}".format(result))
+        logginf.err("\nimport result : {0}".format(result))
         return False
 
 
 def get_build_result(cmd_pre, project_name):
     cmd = cmd_pre + " -cleanBuild '{0}' 2> /dev/null".format(project_name)
     result = execute_command(cmd)
-    # print("build result : {0}".format(result))
     if result.find("Finished building target: rtthread.elf") != -1:
         return True
     else:
-        # print("build err : {0}".format(result))
+        logginf.err("\nbuild result : {0}".format(result))
         return False
