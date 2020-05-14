@@ -239,7 +239,7 @@ class SdkSyncPackages:
                     file_replace_url = '/'.join(tmp)
                     item['url'] = file_replace_url
 
-        logging.info(package_json_register)
+        logging.debug(package_json_register)
 
         payload_register = {
             "packages": [{}
