@@ -1,4 +1,3 @@
-import os
 import smtplib
 from email import encoders
 from email.header import Header
@@ -74,12 +73,13 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     try:
         with open("report.html", "r") as f:
             report_cont = f.read()
-            if report_cont.find("failed results-table-row") != -1:
-                print("CI test failed!")
-                exit(1)
+        if report_cont.find("failed results-table-row") != -1:
+            print("CI test failed!")
+            exit(1)
     except Exception as e:
         print(e)
         exit(1)
+
 
 def send_email_2_revcer(user_email, sender_pw, report_path):
     """send email to recver."""

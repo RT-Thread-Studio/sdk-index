@@ -1,7 +1,7 @@
 {
     "name": "STM32G4",
     "vendor": "RealThread",
-    "description": "STM32F4 Chip Support Packages",
+    "description": "STM32G4 Chip Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4.git",
     "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4",
