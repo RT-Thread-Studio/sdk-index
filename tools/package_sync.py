@@ -70,7 +70,6 @@ class PackagesSync:
                 "$remote"; done"""
                 self.execute_command(cmd, cwd=git_repo_path)
                 print('======>Multi-branch synchronization is complete.')
-
                 print('======>Start to fetch and pull Multi-branch.')
                 try:
                     cmd = r'git fetch --all'
@@ -86,43 +85,12 @@ class PackagesSync:
                 logging.error("Error message: {0}.".format(e))
                 print('error: repo : %s clone fail, wait for next update.' % repo_name)
                 return
-        else:
-            logging.info('======>Start to update local package {0} from github.'.format(repo_name))
-            logging.info('git_repo_path : {0}'.format(git_repo_path))
-
-            # cmd = r'cp -a -f %s .' % git_sh_path
-            # self.execute_command(cmd, cwd=git_repo_path)
-
-            print('======>Start synchronizing multiple branches:')
-
-            # cmd = r'./git_get_branch.sh'
-            # if platform.architecture()[1] == 'WindowsPE':
-            #     cmd = r'.\git_get_branch.sh'
-            # self.execute_command(cmd, cwd=git_repo_path)
-
-            print('======>Multi-branch synchronization is complete.')
-            print('======>Start to fetch and pull Multi-branch.')
-
-            try:
-                cmd = r'git fetch --all'
-                self.execute_command(cmd, cwd=git_repo_path)
-                cmd = r'git pull --all'
-                self.execute_command(cmd, cwd=git_repo_path)
-                cmd = r'git fetch --tags'
-                self.execute_command(cmd, cwd=git_repo_path)
-            except Exception as e:
-                logging.error("Error message: {0}.".format(e))
-                print('error: repo : %s fetch and pull fail, wait for next update.' % repo_name)
-                return
-
-            logging.info('======>fetch and pull done.')
 
         git_https_url = "%s/%s.git" % (self.gitee_url, repo_name)
         git_ssl_url = self.https_url_to_ssh_url(git_https_url)
 
         print('======>Start to push local package %s to gitee.' % repo_name)
         cmd = r'git push --mirror --progress -v %s' % git_ssl_url
-
         print('cmd: ' + cmd)
         print("repo_path: " + repo_path)
 
