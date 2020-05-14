@@ -60,7 +60,7 @@ def csp_build_test():
 
     # gen mcu_config dir
     gen_chip_test_case("csp_chips.json", "mcu_config")
-
+    os.system("cat csp_test_case.py")
     # pytest
     os.system("python csp_test_case.py")
     os.system("rm -rf mcu_config")
