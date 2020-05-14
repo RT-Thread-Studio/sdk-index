@@ -86,6 +86,8 @@ class PackagesSync:
                     self.execute_command(cmd, cwd=git_repo_path)
                     cmd = r'git pull --all'
                     self.execute_command(cmd, cwd=git_repo_path)
+                    cmd = r'git fetch --tags'
+                    self.execute_command(cmd, cwd=git_repo_path)
                 except Exception as e:
                     logging.error("Error message: {0}.".format(e))
                     print('error: repo : %s fetch and pull fail, wait for next update.' % repo_name)
