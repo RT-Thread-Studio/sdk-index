@@ -28,6 +28,7 @@ def init_logger():
                         format=log_format,
                         datefmt=date_format,
                         )
+    coloredlogs.install(level='INFO')
 
 
 class StudioSdkManagerIndex:
@@ -122,10 +123,10 @@ class StudioSdkManagerIndex:
     @staticmethod
     def csp_to_test(csp_result):
         if len(csp_result) is not 1:
-            logging.info("You commit {0} csp packages at one time.".format(len(csp_result)))
-            logging.info("But you can commit only one csp package once, so you should modify the index you commit.")
-            logging.info("Please check the list following:")
-            logging.info(csp_result)
+            logging.error("You commit {0} csp packages at one time.".format(len(csp_result)))
+            logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
+            logging.error("Please check the list following:")
+            logging.error(csp_result)
             exit(1)
 
         with open("csp_update_url.json", "w") as f:
