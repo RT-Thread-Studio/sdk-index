@@ -122,7 +122,8 @@ class StudioSdkManagerIndex:
     @staticmethod
     def csp_to_test(csp_result):
         if len(csp_result) is not 1:
-            print("You can commit only one csp package once, please modify the index you commit.")
+            logging.info("You can commit only one csp package once, please modify the index you commit.")
+            logging.info(csp_result)
             exit(1)
 
         with open("csp_update_url.json", "w") as f:
