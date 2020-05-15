@@ -12,7 +12,6 @@
 
 import json
 import logging
-import coloredlogs
 import os
 import requests
 import urllib.error
@@ -29,7 +28,6 @@ def init_logger():
                         format=log_format,
                         datefmt=date_format,
                         )
-    coloredlogs.install(level='INFO')
 
 
 class StudioSdkManagerIndex:
