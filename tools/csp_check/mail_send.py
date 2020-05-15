@@ -26,7 +26,6 @@ def main():
             exit(1)
     except Exception as e:
         print("\nError message : {0}.".format(e))
-        exit(1)
 
 
 def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
