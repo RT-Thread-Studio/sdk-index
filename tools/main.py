@@ -122,7 +122,8 @@ class StudioSdkManagerIndex:
     @staticmethod
     def csp_to_test(csp_result):
         if len(csp_result) is not 1:
-            logging.info("You can commit only one csp package once, please modify the index you commit.")
+            logging.info("You can commit only one csp package once, so you should modify the index you commit.")
+            logging.info("Please check the list following:")
             logging.info(csp_result)
             exit(1)
 
