@@ -13,16 +13,16 @@
 import json
 import logging
 import os
-import urllib.request
+import requests
 import urllib.error
 import urllib.parse
+import urllib.request
 from jsonschema import RefResolver, Draft7Validator
-import requests
 from package_sync import PackagesSync
 
 
 def init_logger():
-    log_format = "%(filename)s %(lineno)d %(levelname)s %(message)s "
+    log_format = "[%(filename)s %(lineno)d %(levelname)s] %(message)s "
     date_format = '%Y-%m-%d  %H:%M:%S %a '
     logging.basicConfig(level=logging.INFO,
                         format=log_format,
@@ -97,10 +97,8 @@ class StudioSdkManagerIndex:
         validator.validate(index_content)
         logging.info("SDK index checking successful.")
 
-    def get_update_list(self):
-        response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
-        last_csp_list = json.loads(response.text)["children"]
-        new_csp_list = self.index_all["children"]
+    @staticmethod
+    def get_differ_from_index(last_csp_list, new_csp_list):
         last_csp_list_str = json.dumps(last_csp_list, indent=4)
         new_csp_list_str = json.dumps(new_csp_list, indent=4)
 
@@ -119,9 +117,39 @@ class StudioSdkManagerIndex:
         logging.info(new_csp_list)
 
         result = list(set(new_csp_list).difference(set(last_csp_list)))
-        logging.info("packages need test and update: {0}".format(result))
+        return result
+
+    @staticmethod
+    def csp_to_test(csp_result):
+        
+        if len(csp_result) is 0:
+            logging.info("No need to test chip support package.")
+            return
+
+        if len(csp_result) is not 1:
+            logging.error("You commit {0} csp packages at one time.".format(len(csp_result)))
+            logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
+            logging.error("Please check the list following:")
+            logging.error(csp_result)
+            exit(1)
+
         with open("csp_update_url.json", "w") as f:
-            f.write(str(json.dumps(result, indent=4)))
+            f.write(str(json.dumps(csp_result, indent=4)))
+
+    def get_update_list(self):
+        response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
+
+        # write csp need to be test to file
+        csp_last_csp_list = json.loads(response.text)["children"][1]
+        csp_new_csp_list = self.index_all["children"][1]
+        csp_result = self.get_differ_from_index(csp_last_csp_list, csp_new_csp_list)
+        self.csp_to_test(csp_result)
+
+        # sdk package need to be update and sync
+        last_csp_list = json.loads(response.text)["children"]
+        new_csp_list = self.index_all["children"]
+        result = self.get_differ_from_index(last_csp_list, new_csp_list)
+        logging.info("packages need test and update: {0}".format(result))
         return result
 
 

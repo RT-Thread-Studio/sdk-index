@@ -1,8 +1,6 @@
 import json
 import os
 import re
-import subprocess
-import time
 from gen_sdk_json import gen_sdk_para_json_file
 from gen_test_case import gen_chip_test_case
 from csp_check import execute_command
@@ -22,7 +20,7 @@ def csp_build_test():
         with open('/rt-thread/sdk-index/tools/csp_update_url.json', "r") as f:
             sdk_url = json.loads(f.read())[0]
     except Exception as e:
-        print(e)
+        print("\nError message : {0}.".format(e))
         exit(1)
 
     execute_command("wget -c {0}".format(sdk_url))

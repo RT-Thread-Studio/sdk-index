@@ -1,9 +1,5 @@
-import logging
-import os
 import pytest
 import shutil
-import subprocess
-import time
 from csp_check import execute_command
 
 
