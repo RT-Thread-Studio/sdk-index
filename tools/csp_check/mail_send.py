@@ -18,6 +18,7 @@ def main():
     else:
         print("Can't send email.")
         print("Please set env 'SMTP_PWD', 'USER_EMAIL', 'FROM_EMAIL'.")
+        exit(1)
 
 
 def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
