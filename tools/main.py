@@ -121,6 +121,11 @@ class StudioSdkManagerIndex:
 
     @staticmethod
     def csp_to_test(csp_result):
+        
+        if len(csp_result) is 0:
+            logging.info("No need to test chip support package.")
+            exit(1)
+
         if len(csp_result) is not 1:
             logging.error("You commit {0} csp packages at one time.".format(len(csp_result)))
             logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
