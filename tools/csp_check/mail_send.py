@@ -16,8 +16,16 @@ def main():
         report_path = "report.html"
         send_email_2_revcer(user_email, smtp_pwd, report_path)
     else:
-        print("Can't send email.")
-        print("Please set env 'SMTP_PWD', 'USER_EMAIL', 'FROM_EMAIL'.")
+        print("Can't send email, Please set env 'SMTP_PWD', 'USER_EMAIL', 'FROM_EMAIL'.")
+
+    try:
+        with open("report.html", "r") as f:
+            report_cont = f.read()
+        if report_cont.find("failed results-table-row") != -1:
+            print("\nChip support package test failed, please check it and repair!")
+            exit(1)
+    except Exception as e:
+        print("\nError message : {0}.".format(e))
         exit(1)
 
 
@@ -68,17 +76,8 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
         smtp.close()
         print('\nEmail has been sent successfully.')
     except Exception as e:
-        print("\nError message : {0}".format(e))
+        print("\nError message : {0}.".format(e))
 
-    try:
-        with open("report.html", "r") as f:
-            report_cont = f.read()
-        if report_cont.find("failed results-table-row") != -1:
-            print("\nCI test failed!")
-            exit(1)
-    except Exception as e:
-        print("\nError message : {0}".format(e))
-        exit(1)
 
 
 def send_email_2_revcer(user_email, sender_pw, report_path):
