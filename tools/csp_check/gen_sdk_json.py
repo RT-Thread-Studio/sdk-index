@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 import json
-import logging
 import os
 import yaml
 from pathlib import Path
@@ -84,15 +83,7 @@ class ParameterGenerator(object):
         chip_test_list = dict()
 
         for subs in self.__fetch_obj_in_dict(self.series_dict, ["sub_series"]):
-            # if not Path(subs['sub_series_name']).exists():
-            #     os.mkdir(subs['sub_series_name'])
-
             for chip in subs["chips"]:
-                chip_folder_path = Path(subs['sub_series_name']).joinpath(chip["chip_name"])
-
-                # if not chip_folder_path.exists():
-                #     os.mkdir(chip_folder_path)
-
                 for project_type in ["bare_metal", "rtt_nano", "rtt"]:
                     main_c_file_tmp = Template(para_json_tmp)
                     wstrs = main_c_file_tmp.substitute(csp_path=Path(self.csp_path).as_posix(),

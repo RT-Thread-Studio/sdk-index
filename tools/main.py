@@ -22,7 +22,7 @@ from package_sync import PackagesSync
 
 
 def init_logger():
-    log_format = "%(filename)s %(lineno)d %(levelname)s %(message)s "
+    log_format = "[%(filename)s %(lineno)d %(levelname)s] %(message)s "
     date_format = '%Y-%m-%d  %H:%M:%S %a '
     logging.basicConfig(level=logging.INFO,
                         format=log_format,
