@@ -17,6 +17,7 @@ def main():
         send_email_2_revcer(user_email, smtp_pwd, report_path)
     else:
         print("Can't send email, Please set env 'SMTP_PWD', 'USER_EMAIL', 'FROM_EMAIL'.")
+        return
 
     try:
         with open("report.html", "r") as f:
@@ -65,18 +66,14 @@ def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
                 print("===> Exception: {0}".format(str(ex)))
 
     try:
-        # ssl
         smtp = smtplib.SMTP_SSL(smtp_host, ssl_port)
         smtp.ehlo()
         smtp.login(user_name, password)
-
-        # send mail
         smtp.sendmail(from_mail, to_mail, message.as_string())
         smtp.close()
         print('\nEmail has been sent successfully.')
     except Exception as e:
         print("\nError message : {0}.".format(e))
-
 
 
 def send_email_2_revcer(user_email, sender_pw, report_path):
@@ -88,7 +85,7 @@ def send_email_2_revcer(user_email, sender_pw, report_path):
     if os.path.exists(file):
         attachments.append(file)
 
-    # subject and body
+    # addach subject and body
     mail_subject = "test result"
     mail_body = "sync log"
 
