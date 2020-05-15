@@ -12,6 +12,7 @@
 
 import json
 import logging
+import coloredlogs
 import os
 import requests
 import urllib.error
