@@ -1,7 +1,6 @@
-# -*- coding: UTF-8 -*-
-import json
 import os
 import yaml
+import json
 from pathlib import Path
 from string import Template
 
@@ -45,7 +44,11 @@ class ParameterGenerator(object):
         self.rtt_path = rtt_path
         self.output_project_path = output_project_path
         self.series_dict = None
+        self.sub_series_dict = None
+        self.chip_dict = None
         self.pack_dict = None
+        self.cpu_info = None
+        self.cpu_name = None
         self.__dsc2dict()
 
     def __dsc2dict(self):
@@ -54,7 +57,7 @@ class ParameterGenerator(object):
         for file in os.listdir(self.csp_path):
             if ".yaml" in file:
                 desc_file_path = file
-                with open(self.csp_path.joinpath(desc_file_path), mode='r', encoding="UTF8") as f:
+                with open(self.csp_path.joinpath(desc_file_path), mode='r', encoding="utf-8") as f:
                     data = f.read()
                 pack_dict = yaml.load(data, Loader=yaml.FullLoader)
                 break
@@ -62,7 +65,7 @@ class ParameterGenerator(object):
             for file in os.listdir(self.csp_path):
                 if ".json" in file:
                     desc_file_path = file
-                    with open(self.csp_path.joinpath(desc_file_path), mode='r') as f:
+                    with open(self.csp_path.joinpath(desc_file_path), mode='r', encoding="utf-8") as f:
                         data = f.read()
                     pack_dict = json.loads(data)
                     break
@@ -71,6 +74,56 @@ class ParameterGenerator(object):
         else:
             return False
         return True
+
+    def get_cpu_name(self):
+
+        if "cpu_info" in self.series_dict.keys():
+            if isinstance(self.series_dict["cpu_info"], list):
+                return self.series_dict["cpu_info"][0]["cpu_name"]
+
+        elif "cpu_info" in self.sub_series_dict.keys():
+            if isinstance(self.sub_series_dict["cpu_info"], list):
+                return self.sub_series_dict["cpu_info"][0]["cpu_name"]
+
+        elif "cpu_info" in self.chip_dict.keys():
+            if isinstance(self.chip_dict["cpu_info"], list):
+                return self.chip_dict["cpu_info"][0]["cpu_name"]
+
+        return None
+
+    def find__core_dict(self, item_in):
+        if isinstance(item_in, dict):
+            return item_in
+        else:
+            for dict_item in item_in:
+                if dict_item["cpu_name"] == self.cpu_name:
+                    return dict_item
+            return None
+
+    def arch_info(self):
+        cpu_info = {}
+        if self.cpu_name:
+            if "cpu_info" in self.series_dict.keys():
+                series_cpu_info = self.find__core_dict(self.series_dict["cpu_info"])
+                cpu_info.update(series_cpu_info)
+            if "cpu_info" in self.sub_series_dict.keys():
+                sub_series_cpu_info = self.find__core_dict(self.sub_series_dict["cpu_info"])
+                cpu_info.update(sub_series_cpu_info)
+            if "cpu_info" in self.chip_dict.keys():
+                chip_cpu_info = self.find__core_dict(self.chip_dict["cpu_info"])
+                cpu_info.update(chip_cpu_info)
+        else:
+            if "cpu_info" in self.series_dict.keys():
+                series_cpu_info = self.series_dict["cpu_info"]
+                cpu_info.update(series_cpu_info)
+            if "cpu_info" in self.sub_series_dict.keys():
+                sub_series_cpu_info = self.sub_series_dict["cpu_info"]
+                cpu_info.update(sub_series_cpu_info)
+            if "cpu_info" in self.chip_dict.keys():
+                chip_cpu_info = self.chip_dict["cpu_info"]
+                cpu_info.update(chip_cpu_info)
+        self.cpu_info = cpu_info
+        return cpu_info
 
     @staticmethod
     def __fetch_obj_in_dict(dict_obj, index_list):
@@ -83,7 +136,14 @@ class ParameterGenerator(object):
         chip_test_list = dict()
 
         for subs in self.__fetch_obj_in_dict(self.series_dict, ["sub_series"]):
+            # find sub_series
+            self.sub_series_dict = subs
+
             for chip in subs["chips"]:
+                self.chip_dict = chip
+                self.cpu_name = self.get_cpu_name()
+                self.arch_info()
+
                 for project_type in ["bare_metal", "rtt_nano", "rtt"]:
                     main_c_file_tmp = Template(para_json_tmp)
                     wstrs = main_c_file_tmp.substitute(csp_path=Path(self.csp_path).as_posix(),
@@ -94,15 +154,15 @@ class ParameterGenerator(object):
                                                        sub_series_name=subs['sub_series_name'],
                                                        chip_name=chip["chip_name"],
                                                        uart_name="uart1",
-                                                       tx_name="pa9",
-                                                       rx_name="pa10",
-                                                       clock=subs["cpu_info"]["max_clock"][:-6],
+                                                       tx_name="a9",
+                                                       rx_name="a10",
+                                                       clock=self.cpu_info["max_clock"][:-6],
                                                        project_name=chip["chip_name"] + project_type,
                                                        output_project_path=Path(self.output_project_path).as_posix())
 
                     dict_lit = json.loads(wstrs)
-                    chip_test_list[dict_lit["parameter"]["chip_name"] +
-                                   dict_lit["parameter"]["project_type"]] = dict_lit
+                    chip_test_list[
+                        dict_lit["parameter"]["chip_name"] + dict_lit["parameter"]["project_type"]] = dict_lit
 
         return chip_test_list
 
