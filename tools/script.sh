@@ -1,4 +1,4 @@
-cd tools && python3 main.py || travis_terminate 1
+python3 main.py || travis_terminate 1
 
 if [ -z "$IS_MASTER_REPO" ]
 then
