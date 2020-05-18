@@ -7,12 +7,13 @@ notifications:
   email: false
 
 before_install:
-  - chmod a+x tools/before_install.sh && source tools/before_install.sh
+  - repo_root = $(pwd)
+  - cd $repo_root/tools && chmod a+x before_install.sh && source before_install.sh
 
 install:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
   - python3 -m pip install wheel jsonschema PyEmail
 
 script:
-  - chmod a+x tools/script.sh && source tools/script.sh
+  - cd $repo_root/tools && chmod a+x script.sh && source script.sh
 
