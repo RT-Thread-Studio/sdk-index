@@ -1,2 +1,3 @@
 # sdk-index
-index for SDK Manager
+index for SDK Manager sync
+
