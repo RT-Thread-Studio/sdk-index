@@ -6,6 +6,7 @@
         "STM32F4",
         "STM32G4",
         "STM32L4",
-        "STM32F7"
+        "STM32F7",
+        "STM32H7"
     ]
 }
