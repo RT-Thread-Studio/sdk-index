@@ -8,17 +8,6 @@ from email.mime.text import MIMEText
 from email.utils import formatdate
 
 
-def check_report_html():
-    try:
-        with open("report.html", "r") as f:
-            report_cont = f.read()
-        if report_cont.find("failed results-table-row") != -1:
-            print("Chip support package test failed, please check it and repair!")
-            exit(1)
-    except Exception as err:
-        print("Error message : {0}.".format(err))
-
-
 def mail_report(mail_subject, mail_body, sender_pw, recver, attachments=[]):
     """Send email to recver by SSL."""
 
@@ -89,12 +78,20 @@ def send_mail_to_user():
         print("Can't send email, Please set env 'SMTP_PWD', 'USER_EMAIL', 'FROM_EMAIL'.")
 
 
+def check_report_html():
+    try:
+        with open("report.html", "r") as f:
+            report_cont = f.read()
+        if report_cont.find("failed results-table-row") != -1:
+            print("Chip support package test failed, please check it and repair!")
+            exit(1)
+    except Exception as err:
+        print("Error message : {0}.".format(err))
+
+
 def main():
-    if 'IS_MASTER_REPO' in os.environ:
-        print("No need to show CSP checking result.")
-    else:
-        send_mail_to_user()
-        check_report_html()
+    send_mail_to_user()
+    check_report_html()
 
 
 if __name__ == '__main__':
