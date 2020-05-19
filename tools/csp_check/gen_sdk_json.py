@@ -1,6 +1,7 @@
 import os
 import yaml
 import json
+import logging
 from pathlib import Path
 from string import Template
 
@@ -24,6 +25,15 @@ para_json_tmp = """
    "output_project_path": "$output_project_path"
    }
 }"""
+
+
+def init_logger():
+    log_format = "[%(filename)s %(lineno)d %(levelname)s] %(message)s "
+    date_format = '%Y-%m-%d  %H:%M:%S %a '
+    logging.basicConfig(level=logging.INFO,
+                        format=log_format,
+                        datefmt=date_format,
+                        )
 
 
 class ParameterGenerator(object):
@@ -168,15 +178,19 @@ class ParameterGenerator(object):
 
 
 def gen_sdk_para_json_file(csp_path, output_project_path, rt_thread_src):
+    init_logger()
     rtt_nano_path = os.path.join(rt_thread_src, "sdk-rt-thread-nano-source-code-3.1.3")
     rtt_path = os.path.join(rt_thread_src, "sdk-rt-thread-source-code-4.0.2")
     toolchain_name = "gcc"
-
-    para_generator = ParameterGenerator(csp_path,
-                                        toolchain_name,
-                                        rtt_nano_path,
-                                        rtt_path,
-                                        output_project_path)
-    test_list = para_generator.walk_csp_chips()
-    with open("csp_chips.json", "w", encoding="UTF8") as f:
-        f.write(str(json.dumps(test_list, indent=4)))
+    try:
+        para_generator = ParameterGenerator(csp_path,
+                                            toolchain_name,
+                                            rtt_nano_path,
+                                            rtt_path,
+                                            output_project_path)
+        test_list = para_generator.walk_csp_chips()
+        with open("csp_chips.json", "w", encoding="UTF8") as f:
+            f.write(str(json.dumps(test_list, indent=4)))
+    except Exception as e:
+        logging.error("\nError message : {0}.".format(e))
+        exit(1)
