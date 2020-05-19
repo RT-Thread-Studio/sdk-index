@@ -1,0 +1,16 @@
+{
+    "name": "STM32F1",
+    "vendor": "RealThread",
+    "description": "STM32F1 Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f1",
+    "releases": [
+        {
+            "version": "v0.1.0",
+            "date": "2020-05-19",
+            "description": "released v0.1.0",
+            "size": "100 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f1/archive/v0.1.0.zip"
+        }
+    ]
+}
