@@ -1,6 +1,7 @@
 import os
 import yaml
 import json
+import logging
 from pathlib import Path
 from string import Template
 
@@ -24,6 +25,15 @@ para_json_tmp = """
    "output_project_path": "$output_project_path"
    }
 }"""
+
+
+def init_logger():
+    log_format = "[%(filename)s %(lineno)d %(levelname)s] %(message)s "
+    date_format = '%Y-%m-%d  %H:%M:%S %a '
+    logging.basicConfig(level=logging.INFO,
+                        format=log_format,
+                        datefmt=date_format,
+                        )
 
 
 class ParameterGenerator(object):
@@ -143,7 +153,27 @@ class ParameterGenerator(object):
                 self.chip_dict = chip
                 self.cpu_name = self.get_cpu_name()
                 self.arch_info()
-
+                ui_dict = dict()
+                if "ui" in self.chip_dict.keys():
+                    if isinstance(self.chip_dict["ui"], list):
+                        ui_dict = self.chip_dict["ui"][0]
+                    else:
+                        ui_dict = self.chip_dict["ui"]
+                elif "ui" in self.sub_series_dict.keys():
+                    if isinstance(self.sub_series_dict["ui"], list):
+                        ui_dict = self.sub_series_dict["ui"][0]
+                    else:
+                        ui_dict = self.sub_series_dict["ui"]
+                elif "ui" in self.series_dict.keys():
+                    if isinstance(self.series_dict["ui"], list):
+                        ui_dict = self.series_dict["ui"][0]
+                    else:
+                        ui_dict = self.series_dict["ui"]
+                else:
+                    logging.error("csp format wrong")
+                uart_name = ui_dict["uart"]["default_value"]
+                tx_pin = ui_dict["tx_pin"]["default_value"]
+                rx_pin = ui_dict["rx_pin"]["default_value"]
                 for project_type in ["bare_metal", "rtt_nano", "rtt"]:
                     main_c_file_tmp = Template(para_json_tmp)
                     wstrs = main_c_file_tmp.substitute(csp_path=Path(self.csp_path).as_posix(),
@@ -153,9 +183,9 @@ class ParameterGenerator(object):
                                                        project_type=project_type,
                                                        sub_series_name=subs['sub_series_name'],
                                                        chip_name=chip["chip_name"],
-                                                       uart_name="uart1",
-                                                       tx_name="a9",
-                                                       rx_name="a10",
+                                                       uart_name=uart_name,
+                                                       tx_name=tx_pin,
+                                                       rx_name=rx_pin,
                                                        clock=self.cpu_info["max_clock"][:-6],
                                                        project_name=chip["chip_name"] + project_type,
                                                        output_project_path=Path(self.output_project_path).as_posix())
@@ -168,15 +198,19 @@ class ParameterGenerator(object):
 
 
 def gen_sdk_para_json_file(csp_path, output_project_path, rt_thread_src):
+    init_logger()
     rtt_nano_path = os.path.join(rt_thread_src, "sdk-rt-thread-nano-source-code-3.1.3")
     rtt_path = os.path.join(rt_thread_src, "sdk-rt-thread-source-code-4.0.2")
     toolchain_name = "gcc"
-
-    para_generator = ParameterGenerator(csp_path,
-                                        toolchain_name,
-                                        rtt_nano_path,
-                                        rtt_path,
-                                        output_project_path)
-    test_list = para_generator.walk_csp_chips()
-    with open("csp_chips.json", "w", encoding="UTF8") as f:
-        f.write(str(json.dumps(test_list, indent=4)))
+    try:
+        para_generator = ParameterGenerator(csp_path,
+                                            toolchain_name,
+                                            rtt_nano_path,
+                                            rtt_path,
+                                            output_project_path)
+        test_list = para_generator.walk_csp_chips()
+        with open("csp_chips.json", "w", encoding="UTF8") as f:
+            f.write(str(json.dumps(test_list, indent=4)))
+    except Exception as e:
+        logging.error("\nError message : {0}.".format(e))
+        exit(1)
