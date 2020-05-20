@@ -153,7 +153,27 @@ class ParameterGenerator(object):
                 self.chip_dict = chip
                 self.cpu_name = self.get_cpu_name()
                 self.arch_info()
-
+                ui_dict = dict()
+                if "ui" in self.chip_dict.keys():
+                    if isinstance(self.chip_dict["ui"], list):
+                        ui_dict = self.chip_dict["ui"][0]
+                    else:
+                        ui_dict = self.chip_dict["ui"]
+                elif "ui" in self.sub_series_dict.keys():
+                    if isinstance(self.sub_series_dict["ui"], list):
+                        ui_dict = self.sub_series_dict["ui"][0]
+                    else:
+                        ui_dict = self.sub_series_dict["ui"]
+                elif "ui" in self.series_dict.keys():
+                    if isinstance(self.series_dict["ui"], list):
+                        ui_dict = self.series_dict["ui"][0]
+                    else:
+                        ui_dict = self.series_dict["ui"]
+                else:
+                    logging.error("csp format wrong")
+                uart_name = ui_dict["uart"]["default_value"]
+                tx_pin = ui_dict["tx_pin"]["default_value"]
+                rx_pin = ui_dict["rx_pin"]["default_value"]
                 for project_type in ["bare_metal", "rtt_nano", "rtt"]:
                     main_c_file_tmp = Template(para_json_tmp)
                     wstrs = main_c_file_tmp.substitute(csp_path=Path(self.csp_path).as_posix(),
@@ -163,9 +183,9 @@ class ParameterGenerator(object):
                                                        project_type=project_type,
                                                        sub_series_name=subs['sub_series_name'],
                                                        chip_name=chip["chip_name"],
-                                                       uart_name="uart1",
-                                                       tx_name="a9",
-                                                       rx_name="a10",
+                                                       uart_name=uart_name,
+                                                       tx_name=tx_pin,
+                                                       rx_name=rx_pin,
                                                        clock=self.cpu_info["max_clock"][:-6],
                                                        project_name=chip["chip_name"] + project_type,
                                                        output_project_path=Path(self.output_project_path).as_posix())
