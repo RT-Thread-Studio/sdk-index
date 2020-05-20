@@ -18,12 +18,10 @@ def execute_command(cmd_string, cwd=None, shell=True):
 
 
 def main():
-    execute_command("apt update && apt -y upgrade && apt -y install unzip 1> /dev/null")
+    execute_command("apt update && apt -y upgrade && apt -y install unzip")
     os.chdir("/rt-thread/sdk-index/tools/csp_check")
-    execute_command("chmod 777 prj_gen 1> /dev/null")
-    execute_command("pip install pyyaml 1> /dev/null")
-    execute_command("pip install pytest-sugar 1> /dev/null")
-    execute_command("pip install pytest-xdist 1> /dev/null")
+    execute_command("chmod 777 prj_gen")
+    execute_command("pip install pyyaml pytest-sugar pytest-parallel")
     os.system("python project_build.py")
 
 
