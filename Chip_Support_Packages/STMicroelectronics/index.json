@@ -9,6 +9,9 @@
         "STM32F7",
         "STM32H7",
         "STM32F1",
-        "STM32F2"
+        "STM32F2",
+        "STM32L0",
+        "STM32F0",
+        "STM32G0"
     ]
 }
