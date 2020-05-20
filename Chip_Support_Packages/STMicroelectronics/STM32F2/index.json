@@ -1,0 +1,16 @@
+{
+    "name": "STM32F2",
+    "vendor": "RealThread",
+    "description": "STM32F2 Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f2",
+    "releases": [
+        {
+            "version": "v0.1.0",
+            "date": "2020-05-20",
+            "description": "released v0.1.0",
+            "size": "45 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f2/archive/v0.1.0.zip"
+        }
+    ]
+}
