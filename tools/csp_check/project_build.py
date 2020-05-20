@@ -44,8 +44,6 @@ def get_rt_thread_source_code():
     execute_command("wget -O /rt-thread/released.zip {0}".format(released_url))
     execute_command("unzip {0} -d /rt-thread/rt-thread-src".format("/rt-thread/released.zip"))
     execute_command("rm -rf /rt-thread/released.zip")
-    execute_command("cp eclipse.py /rt-thread/rt-thread-src/sdk-rt-thread-nano-source-code-3.1.3/tools")
-    execute_command("cp eclipse.py /rt-thread/rt-thread-src/sdk-rt-thread-source-code-4.0.2/tools")
 
 
 def csp_build_test():
