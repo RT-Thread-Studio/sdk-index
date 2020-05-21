@@ -3,7 +3,8 @@
     "vendor": "RealThread",
     "description": "STM32H7 Chip Support Packages",
     "license": "",
-    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32h7",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32h7.git",
+    "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32h7",
     "releases": [
         {
             "version": "v0.1.1",
