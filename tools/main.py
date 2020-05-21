@@ -17,7 +17,7 @@ import requests
 import urllib.error
 import urllib.parse
 import urllib.request
-from jsonschema import RefResolver, Draft7Validator
+from jsonschema import RefResolver, Draft7Validator, FormatChecker
 from package_sync import PackagesSync
 
 
@@ -93,7 +93,7 @@ class StudioSdkManagerIndex:
         }
 
         resolver = RefResolver.from_schema(rtt_source_releases_schema, store=schema_store)
-        validator = Draft7Validator(index_all_schema, resolver=resolver)
+        validator = Draft7Validator(index_all_schema, resolver=resolver, format_checker=FormatChecker())
         validator.validate(index_content)
         logging.info("SDK index checking successful.")
 
