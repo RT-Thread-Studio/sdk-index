@@ -4,7 +4,6 @@
     "description": "STM32F4 Chip Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f4.git",
-    "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f4",
     "releases": [
         {
             "version": "v0.1.1",
