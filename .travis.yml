@@ -12,7 +12,7 @@ before_install:
 
 install:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel maven -y
-  - travis_wait 30 mvn install
+  - cd .. && travis_wait mvn install
   - python3 -m pip install wheel jsonschema PyEmail
 
 script:
