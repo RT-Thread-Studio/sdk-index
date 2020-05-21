@@ -3,19 +3,26 @@
     "type": "object",
     "properties": {
         "version": {
-            "type": "string"
+            "type": "string",
+            "minLength" : 6,
+            "pattern": "^v[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$"
         },
         "date": {
-            "type": "string"
+            "type": "string",
+            "maxLength" : 10,
+            "format": "date"
         },
         "description": {
             "type": "string"
         },
         "size": {
-            "type": "string"
+            "type": "string",
+            "minLength" : 4,
+            "pattern": "^[0-9]{1,} MB$"
         },
         "url": {
-            "type": "string"
+            "type": "string",
+            "pattern" : "^http[^\\s]*$"
         }
     },
     "required": [
