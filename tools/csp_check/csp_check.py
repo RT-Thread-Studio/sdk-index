@@ -19,8 +19,8 @@ def execute_command(cmd_string, cwd=None, shell=True):
 
 def main():
     execute_command("apt update && apt -y upgrade && apt -y install unzip")
-    execute_command("chmod a+x keep_alive.sh")
     os.chdir("/rt-thread/sdk-index/tools/csp_check")
+    execute_command("chmod 777 keep_alive.sh")
     execute_command("chmod 777 prj_gen")
     execute_command("pip install pyyaml pytest-sugar pytest-parallel")
     os.system("python project_build.py")
