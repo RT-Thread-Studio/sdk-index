@@ -60,7 +60,7 @@ def generate_and_import_project(json_path, mcu_config_path):
               r"-data '/rt-thread/eclipse/workspace'"
     cmd = cmd_pre + ' -importAll "file:/rt-thread/workspace" 2> /dev/null'
 
-    os.system("./keep_alive.sh &")
+    # os.system("./keep_alive.sh &")
     logging.info("Project import start.")
     begin_time = time.time()
     os.system(cmd)
