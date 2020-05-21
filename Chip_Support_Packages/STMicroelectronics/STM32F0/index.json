@@ -3,7 +3,7 @@
     "vendor": "RealThread",
     "description": "STM32F0 Chip Support Packages",
     "license": "",
-    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f0",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f0.git",
     "releases": [
         {
             "version": "v0.1.0",

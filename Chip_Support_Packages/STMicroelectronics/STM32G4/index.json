@@ -4,15 +4,7 @@
     "description": "STM32G4 Chip Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4.git",
-    "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4",
     "releases": [
-        {
-            "version": "v0.1.0",
-            "date": "2020-05-08",
-            "description": "released v0.1.0",
-            "size": "55 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g4/archive/v0.1.0.zip"
-        },
         {
             "version": "v0.1.1",
             "date": "2020-05-20",
