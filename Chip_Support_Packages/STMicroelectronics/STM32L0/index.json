@@ -4,7 +4,6 @@
     "description": "STM32L0 Chip Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0.git",
-    "homepage": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0",
     "releases": [
         {
             "version": "v0.1.2",
