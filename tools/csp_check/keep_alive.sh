@@ -2,6 +2,6 @@
 
 while true
 do
-    echo "\n"
+    echo -e "\n"
     sleep 5m
 done
