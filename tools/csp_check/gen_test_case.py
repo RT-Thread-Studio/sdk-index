@@ -58,7 +58,7 @@ def generate_and_import_project(json_path, mcu_config_path):
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors "\
               r"-application org.eclipse.cdt.managedbuilder.core.headlessbuild " \
               r"-data '/rt-thread/eclipse/workspace'"
-    cmd = cmd_pre + ' -importAll "file:/rt-thread/workspace"'
+    cmd = cmd_pre + ' -importAll "file:/rt-thread/workspace" 2> /dev/null'
 
     os.system("./keep_alive.sh &")
     logging.info("Project import start.")
