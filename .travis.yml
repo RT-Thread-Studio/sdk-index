@@ -14,6 +14,6 @@ install:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
   - python3 -m pip install wheel jsonschema PyEmail
 
-script: travis_wait 30 mvn script
+script:
   - cd $repo_root/tools && chmod a+x script.sh && source script.sh
 
