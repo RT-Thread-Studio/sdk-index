@@ -30,8 +30,8 @@ def find_mcu_in_json_file(json_path, mcu_config_path):
     parameter_dict = json.loads(data)
     os.mkdir(mcu_config_path)
     test_numbers = int(len(parameter_dict))
-    if test_numbers > 10:
-        test_numbers = 10
+    if test_numbers > 30:
+        test_numbers = 30
     mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
 
     for mcu in mcu_dict:
@@ -60,7 +60,7 @@ def generate_and_import_project(json_path, mcu_config_path):
               r"-data '/rt-thread/eclipse/workspace'"
     cmd = cmd_pre + ' -importAll "file:/rt-thread/workspace" 2> /dev/null'
 
-    # os.system("./keep_alive.sh &")
+    os.system("./keep_alive.sh &")
     logging.info("Project import start.")
     begin_time = time.time()
     os.system(cmd)
