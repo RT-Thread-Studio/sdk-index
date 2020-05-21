@@ -2,6 +2,6 @@
 
 while true
 do
-    echo "\n"
-    sleep 5m
+    date
+    sleep 1m
 done
