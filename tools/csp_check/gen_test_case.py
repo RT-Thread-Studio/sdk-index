@@ -62,8 +62,10 @@ def generate_and_import_project(json_path, mcu_config_path):
 
     logging.info("Project import start.")
     begin_time = time.time()
-    execute_command("./keep_alive.sh &")
+    # start keep alive sh and import project
+    cmd += "&& ./keep_alive.sh &"
     os.system(cmd)
+    # stop keep alive sh
     execute_command("pkill ./keep_alive.sh")
     logging.info("Project import end. time consuming : {0}.".format(time.time() - begin_time))
 
