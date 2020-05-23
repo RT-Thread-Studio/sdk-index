@@ -67,7 +67,13 @@ def generate_and_import_project(json_path, mcu_config_path):
 
 
 def get_generate_result(csp_json_path):
-    cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx 2> /dev/null".format(csp_json_path)
-    result = execute_command(cmd)
-    if not result:
-        logging.error("\nGenerate failed : {0}".format(result))
+    cmd = r"./prj_gen --csp_project=true --csp_parameter_file={0} -n xxx 2> generate.log".format(csp_json_path)
+    execute_command(cmd)
+    try:
+        with open("generate.log", "r") as f:
+            log_info = f.readlines()
+    except Exception as e:
+        print("Error message : {0}".format(e))
+    for line in log_info:
+        if line.find("Error") != -1 or line.find("error") != -1 or line.find("ERROR") != -1:
+            logging.error(line)
