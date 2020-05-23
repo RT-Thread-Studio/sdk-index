@@ -27,9 +27,9 @@ def get_rt_thread_source_code():
     nano_url = None
     released_url = None
     for release in sourcr_releases:
-        if release["description"].find("Nano") != -1:
+        if release["description"].find("Nano released 3.1.3") != -1:
             nano_url = release["url"]
-        if release["description"].find("released") != -1:
+        if release["description"].find("released v4.0.2") != -1:
             released_url = release["url"]
     if not nano_url:
         logging.error("Can't find nano source url, please check RT-Thread_Source_Code/index.json file.")
