@@ -9,22 +9,27 @@ from csp_check import execute_command
 
 
 if __name__ == "__main__":
-    print("=================> Projects build start.")
+    print("=================> Project build start.")
     begin_time = time.time()
     pytest.main(["csp_test_case.py", '--html=report.html', '--self-contained-html'])
     execute_command("rm -rf /rt-thread/eclipse/workspace")
-    print("=================> Projects build end, time consuming : {0}.".format(time.time() - begin_time))
+    print("=================> Project build end, time consuming : {0}.".format(time.time() - begin_time))
 
 
 def get_build_result(cmd_pre, project_name):
-    cmd = cmd_pre + " -cleanBuild '{0}' 2> /dev/null".format(project_name)
-    result = execute_command(cmd)
-    with open("log.txt", 'w') as f:
-        f.write(result)
 
+    project_path = os.path.join("/rt-thread/workspace", project_name)
+    if not os.path.exists(project_path):
+        print("Error : {0} not exit.".format(project_path))
+        return False
+
+    cmd = cmd_pre + " -cleanBuild '{0}' 1>build.log 2>/dev/null".format(project_name)
+    execute_command(cmd)
     build_result = judge_build_result()
+
     project_path = os.path.join("/rt-thread/workspace", project_name)
     execute_command("rm -rf {0}".format(project_path))
+
     return build_result
 
 
@@ -37,7 +42,7 @@ def csp_test(project_name):
 
 def judge_build_result():
     try:
-        with open("log.txt",'r') as f:
+        with open("build.log",'r') as f:
             log_info = f.readlines()
     except Exception as e:
         print("Error message : {0}".format(e))
@@ -52,5 +57,5 @@ def judge_build_result():
         if line.find("Finished building target: rtthread.elf") != -1:
             build_result = True
             break
-    execute_command("rm -rf log.txt")
+    execute_command("rm -rf build.log")
     return build_result
