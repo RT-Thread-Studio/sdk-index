@@ -5,7 +5,7 @@
         "version": {
             "type": "string",
             "minLength" : 6,
-            "pattern": "^v[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$"
+            "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$"
         },
         "date": {
             "type": "string",
