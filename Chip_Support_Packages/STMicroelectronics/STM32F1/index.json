@@ -11,6 +11,13 @@
             "description": "released v0.1.7",
             "size": "68 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f1/archive/0.1.7.zip"
+        },
+        {
+            "version": "0.1.8",
+            "date": "2020-05-26",
+            "description": "released v0.1.8",
+            "size": "52 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f1/archive/0.1.8.zip"
         }
     ]
 }
