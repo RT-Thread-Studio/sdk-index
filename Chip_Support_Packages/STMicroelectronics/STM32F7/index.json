@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f7.git",
     "releases": [
         {
+            "version": "0.1.9",
+            "date": "2020-06-23",
+            "description": "released v0.1.9",
+            "size": "74 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32f7/archive/0.1.9.zip"
+        },
+        {
             "version": "0.1.7",
             "date": "2020-05-25",
             "description": "released v0.1.7",
