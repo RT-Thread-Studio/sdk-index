@@ -1,0 +1,8 @@
+{
+    "name": "AT32 Series Chip Support Packages",
+    "dvendor": "ArteryTek",
+    "description": "AT32 series Chip Support Packages",
+    "index": [
+        "AT32F4"
+    ]
+}
