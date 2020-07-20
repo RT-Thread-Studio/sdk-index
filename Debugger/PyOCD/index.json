@@ -1,0 +1,15 @@
+{
+    "name": "PyOCD",
+    "vendor": "RealThread",
+    "description": "PyOCD GDB Server Support Package",
+    "license": "",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-07-20",
+            "description": "PyOCD support debugging with DAP-Link debugger",
+            "size": "753 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.1.0.zip"
+        }
+    ]
+}
