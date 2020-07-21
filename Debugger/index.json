@@ -3,6 +3,7 @@
     "description": "RT-Thread Studio Debugger Support Packages",
     "index": [
         "J-Link",
-        "ST-Link"
+        "ST-Link",
+        "PyOCD"
     ]
 }
