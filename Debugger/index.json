@@ -5,6 +5,6 @@
         "J-Link",
         "ST-Link",
         "PyOCD",
-        "Qemu"
+        "QEMU"
     ]
 }
