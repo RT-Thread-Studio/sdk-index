@@ -1,0 +1,15 @@
+{
+    "name": "QEMU",
+    "vendor": "RealThread",
+    "description": "QEMU Support Package",
+    "license": "",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-07-22",
+            "description": "QEMU support debugging with emulator and virtualizer",
+            "size": "34 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-qemu/archive/0.1.0.zip"
+        }
+    ]
+}

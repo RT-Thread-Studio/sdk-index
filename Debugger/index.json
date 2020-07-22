@@ -4,6 +4,7 @@
     "index": [
         "J-Link",
         "ST-Link",
-        "PyOCD"
+        "PyOCD",
+        "Qemu"
     ]
 }
