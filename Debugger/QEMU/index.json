@@ -4,7 +4,7 @@
     "description": "QEMU Support Package",
     "license": "",
     "releases": [
-    	{
+        {
             "version": "0.1.0",
             "date": "2020-07-22",
             "description": "QEMU support debugging with emulator and virtualizer",
