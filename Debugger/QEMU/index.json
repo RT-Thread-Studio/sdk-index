@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "4.2.0",
+            "date": "2020-07-27",
+            "description": "QEMU support debugging with emulator and virtualizer",
+            "size": "31 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-qemu/archive/4.2.0.zip"
+        },
+        {
             "version": "0.1.0",
             "date": "2020-07-22",
             "description": "QEMU support debugging with emulator and virtualizer",
