@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0.git",
     "releases": [
         {
+            "version": "0.2.1",
+            "date": "2020-08-10",
+            "description": "Fixed lpuart remap error in drv_usart.c.",
+            "size": "75 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0/archive/0.2.1.zip"
+        },
+        {
             "version": "0.2.0",
             "date": "2020-08-10",
             "description": "Fixed LPUART remap error.",
