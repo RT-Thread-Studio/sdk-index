@@ -1,0 +1,16 @@
+{
+    "name": "STM32L475-ATK-PANDORA",
+    "vendor": "RealThread",
+    "description": "STM32L475 IoT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l475-atk-pandora.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-08-29",
+            "description": "released v0.1.0",
+            "size": "11 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l475-atk-pandora/archive/0.1.0.zip"
+        }
+    ]
+}

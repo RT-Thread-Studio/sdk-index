@@ -1,0 +1,8 @@
+{
+    "name": "STM32 Series Board Support Packages",
+    "dvendor": "STMicroelectronics",
+    "description": "STM32 series Board Support Packages",
+    "index": [
+        "STM32L475-ATK-PANDORA"
+    ]
+}
