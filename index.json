@@ -6,6 +6,7 @@
     "index": [
         "RT-Thread_Source_Code",
         "Chip_Support_Packages",
+        "Board_Support_Packages",
         "Tool_Chain",
         "Debugger"
     ]
