@@ -1,6 +1,6 @@
 {
-    "name": "Chip_Support_Packages",
-    "description": "Device vendor Chip Support Packages",
+    "name": "Board_Support_Packages",
+    "description": "Device vendor Board Support Packages",
     "index": [
         "STMicroelectronics"
     ]
