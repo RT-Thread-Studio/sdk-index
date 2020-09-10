@@ -1,0 +1,15 @@
+{
+    "name": "RISC-V-GCC",
+    "vendor": "ARM",
+    "description": "RISC-V-GCC Tool Chain",
+    "license": "",
+    "releases": [
+        {
+            "version": "10.1.0",
+            "date": "2020-09-10",
+            "description": "released v10.1.0",
+            "size": "80.7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-RISC-V-GCC/archive/10.1.0.zip"
+        }
+    ]
+}
