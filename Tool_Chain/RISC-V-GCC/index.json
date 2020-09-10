@@ -1,6 +1,6 @@
 {
     "name": "RISC-V-GCC",
-    "vendor": "ARM",
+    "vendor": "RISC-V",
     "description": "RISC-V-GCC Tool Chain",
     "license": "",
     "releases": [
