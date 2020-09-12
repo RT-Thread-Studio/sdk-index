@@ -3,6 +3,7 @@
     "dvendor": "STMicroelectronics",
     "description": "STM32 series Board Support Packages",
     "index": [
+        "STM32F407-ATK-EXPLORER",
         "STM32F410-ST-NUCLEO",
         "STM32F411-ST-NUCLEO",
         "STM32F411-WEACT-MINIF4",
