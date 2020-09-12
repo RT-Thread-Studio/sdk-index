@@ -1,8 +1,0 @@
-{
-    "name": "ARM Board Support Packages",
-    "dvendor": "ARM",
-    "description": "ARM Board Support Packages",
-    "index": [
-        "QEMU-VEXPRESS-A9"
-    ]
-}
