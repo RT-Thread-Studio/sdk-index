@@ -2,6 +2,8 @@
     "name": "Board_Support_Packages",
     "description": "Device vendor Board Support Packages",
     "index": [
-        "STMicroelectronics"
+        "STMicroelectronics",
+        "ARM",
+        "Nuclei"
     ]
 }

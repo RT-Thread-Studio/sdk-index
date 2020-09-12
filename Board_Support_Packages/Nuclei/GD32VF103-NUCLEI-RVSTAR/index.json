@@ -1,0 +1,16 @@
+{
+    "name": "GD32VF103-NUCLEI-RVSTAR",
+    "vendor": "RealThread",
+    "description": "GD32VF103-NUCLEI-RVSTAR Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32vf103-nuclei-rvstar.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-09-12",
+            "description": "v0.1.0 release",
+            "size": "3 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32vf103-nuclei-rvstar/archive/0.1.0.zip"
+        }
+    ]
+}
