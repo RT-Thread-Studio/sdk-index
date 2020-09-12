@@ -5,6 +5,7 @@
     "index": [
         "STM32F103-DOFLY-M3S",
         "STM32F103-YF-UFAN",
+        "STM32F401-ST-NUCLEO",
         "STM32F405-SMDZ-BREADFRUIT",
         "STM32F407-ATK-EXPLORER",
         "STM32F410-ST-NUCLEO",
