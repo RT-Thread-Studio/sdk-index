@@ -3,9 +3,10 @@
     "dvendor": "STMicroelectronics",
     "description": "STM32 series Board Support Packages",
     "index": [
-        "STM32L475-ATK-PANDORA",
-        "STM32F767-ATK-APOLLO",
         "STM32F429-ATK-APOLLO",
-        "STM32F429-FIRE-CHALLENGER"
+        "STM32F429-FIRE-CHALLENGER",
+        "STM32F429-ST-DISCO",
+        "STM32F767-ATK-APOLLO",
+        "STM32L475-ATK-PANDORA"
     ]
 }
