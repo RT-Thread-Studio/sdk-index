@@ -3,6 +3,7 @@
     "dvendor": "STMicroelectronics",
     "description": "STM32 series Board Support Packages",
     "index": [
+        "STM32F411-ST-NUCLEO",
         "STM32F411-WEACT-MINIF4",
         "STM32F429-ATK-APOLLO",
         "STM32F429-FIRE-CHALLENGER",
