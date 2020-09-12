@@ -1,0 +1,16 @@
+{
+    "name": "STM32F411-WEACT-MINIF4",
+    "vendor": "RealThread",
+    "description": "STM32F411-WEACT-MINIF4 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-weact-minif4.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-09-12",
+            "description": "released v0.1.0",
+            "size": "12 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-weact-minif4/archive/0.1.0.zip"
+        }
+    ]
+}
