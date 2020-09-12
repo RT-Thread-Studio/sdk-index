@@ -1,0 +1,16 @@
+{
+    "name": "STM32F407-ATK-EXPLORER",
+    "vendor": "RealThread",
+    "description": "STM32F407-ATK-EXPLORER Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-atk-explorer.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-09-12",
+            "description": "released v0.1.0",
+            "size": "19 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-atk-explorer/archive/0.1.0.zip"
+        }
+    ]
+}
