@@ -1,0 +1,16 @@
+{
+    "name": "STM32F405-SMDZ-BREADFRUIT",
+    "vendor": "RealThread",
+    "description": "STM32F405-SMDZ-BREADFRUIT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f405-smdz-breadfruit.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-09-12",
+            "description": "released v0.1.0",
+            "size": "8 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f405-smdz-breadfruit/archive/0.1.0.zip"
+        }
+    ]
+}
