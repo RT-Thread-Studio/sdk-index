@@ -1,0 +1,8 @@
+{
+    "name": "NUCLEI Board Support Packages",
+    "dvendor": "NUCLEI",
+    "description": "NUCLEI Board Support Packages",
+    "index": [
+        "GD32VF103-NUCLEI-RVSTAR"
+    ]
+}
