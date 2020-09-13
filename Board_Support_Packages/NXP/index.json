@@ -3,6 +3,7 @@
     "dvendor": "NXP",
     "description": "NXP Board Support Packages",
     "index": [
-        "IMXRT1052-NXP-EVK"
+        "IMXRT1052-NXP-EVK",
+        "IMXRT1064-NXP-EVK"
     ]
 }
