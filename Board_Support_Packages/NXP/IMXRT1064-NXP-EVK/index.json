@@ -1,0 +1,16 @@
+{
+    "name": "IMXRT1064-NXP-EVK",
+    "vendor": "RealThread",
+    "description": "IMXRT1064-NXP-EVK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-imxrt1064-nxp-evk.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2020-09-13",
+            "description": "v0.1.0 release",
+            "size": "10 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-imxrt1064-nxp-evk/archive/0.1.0.zip"
+        }
+    ]
+}
