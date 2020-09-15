@@ -6,11 +6,11 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-st-nucleo.git",
     "releases": [
         {
-            "version": "0.1.0",
-            "date": "2020-09-12",
-            "description": "released v0.1.0",
+            "version": "0.1.1",
+            "date": "2020-09-15",
+            "description": "released v0.1.1",
             "size": "12 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-st-nucleo/archive/0.1.0.zip"
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-st-nucleo/archive/0.1.1.zip"
         }
     ]
 }
