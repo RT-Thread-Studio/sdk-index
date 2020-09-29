@@ -107,25 +107,25 @@ class StudioSdkManagerIndex:
             if line.find(".zip") != -1:
                 url = line.strip()[line.strip().find("https"): line.strip().find(".zip") + 4]
                 last_csp_list.append(url)
-        logging.info(last_csp_list)
+        logging.debug(last_csp_list)
 
         new_csp_list = list()
         for line in new_csp_list_str.splitlines():
             if line.find(".zip") != -1:
                 url = line.strip()[line.strip().find("https"): line.strip().find(".zip") + 4]
                 new_csp_list.append(url)
-        logging.info(new_csp_list)
+        logging.debug(new_csp_list)
 
         result = list(set(new_csp_list).difference(set(last_csp_list)))
         return result
 
     @staticmethod
     def csp_to_test(csp_result):
-        
+
         if len(csp_result) is 0:
             logging.info("No need to test chip support package.")
             return
-
+        # limit commit times
         if len(csp_result) is not 1:
             logging.error("You commit {0} csp packages at one time.".format(len(csp_result)))
             logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
@@ -133,23 +133,50 @@ class StudioSdkManagerIndex:
             logging.error(csp_result)
             exit(1)
 
+        logging.info("csp update : {0}".format(csp_result))
         with open("csp_update_url.json", "w") as f:
             f.write(str(json.dumps(csp_result, indent=4)))
+
+    @staticmethod
+    def bsp_to_test(bsp_result):
+        if len(bsp_result) is 0:
+            logging.info("No need to test board support package.")
+            return
+        # limit commit times
+        if len(bsp_result) is not 1:
+            logging.error("You commit {0} csp packages at one time.".format(len(bsp_result)))
+            logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
+            logging.error("Please check the list following:")
+            logging.error(bsp_result)
+            exit(1)
+
+        logging.info("bsp update : {0}".format(bsp_result))
+        with open("bsp_update_url.json", "w") as f:
+            f.write(str(json.dumps(bsp_result, indent=4)))
 
     def get_update_list(self):
         response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
 
-        # write csp need to be test to file
+        # check chip update information
         csp_last_csp_list = json.loads(response.text)["children"][1]
         csp_new_csp_list = self.index_all["children"][1]
         csp_result = self.get_differ_from_index(csp_last_csp_list, csp_new_csp_list)
         self.csp_to_test(csp_result)
 
+        # check board update information
+        bsp_last_bsp_list = json.loads(response.text)["children"][2]
+        bsp_new_bsp_list = self.index_all["children"][2]
+        bsp_result = self.get_differ_from_index(bsp_last_bsp_list, bsp_new_bsp_list)
+        self.bsp_to_test(bsp_result)
+
         # sdk package need to be update and sync
-        last_csp_list = json.loads(response.text)["children"]
-        new_csp_list = self.index_all["children"]
-        result = self.get_differ_from_index(last_csp_list, new_csp_list)
-        logging.info("packages need test and update: {0}".format(result))
+        last_sdk_list = json.loads(response.text)["children"]
+        new_sdk_list = self.index_all["children"]
+        result = self.get_differ_from_index(last_sdk_list, new_sdk_list)
+        if len(result) == 0:
+            logging.info("no packages need test and update: {0}".format(result))
+        else:
+            logging.info("packages need test and update: {0}".format(result))
         return result
 
 
@@ -211,10 +238,10 @@ class SdkSyncPackages:
 
     def sync_csp_packages(self):
         if self.is_master_repo():
-            logging.info("Ready to sync csp packages")
+            logging.info("Ready to sync csp or bsp packages")
             self.do_sync_csp_packages()
         else:
-            logging.info("No need to sync csp packages")
+            logging.info("No need to sync csp or bsp packages")
 
     @staticmethod
     def do_update_sdk_ide_index(index):
