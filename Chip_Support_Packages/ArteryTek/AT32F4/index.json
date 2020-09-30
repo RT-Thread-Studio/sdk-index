@@ -6,25 +6,18 @@
     "repository": "https://github.com/ArteryTek/sdk-csp-at32f4.git",
     "releases": [
         {
+            "version": "0.0.4",
+            "date": "2020-09-30",
+            "description": "released v0.0.4, fixed svd path error",
+            "size": "24 MB",
+            "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.0.4.zip"
+        },
+        {
             "version": "0.0.3",
             "date": "2020-08-03",
             "description": "released v0.0.3, Update yaml_version for corresponding to the release version. If not, may be svd path error",
             "size": "24 MB",
             "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.0.3.zip"
-        },
-        {
-            "version": "0.0.2",
-            "date": "2020-08-03",
-            "description": "released v0.0.2",
-            "size": "24 MB",
-            "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.0.2.zip"
-        },
-        {
-            "version": "0.0.1",
-            "date": "2020-07-06",
-            "description": "released v0.0.1",
-            "size": "24 MB",
-            "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.0.1.zip"
         }
     ]
 }
