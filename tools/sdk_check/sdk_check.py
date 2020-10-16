@@ -20,10 +20,18 @@ def init_logger():
 
 def main():
     init_logger()
-
     os.chdir("/rt-thread/sdk-index/tools/sdk_check")
-    # update system env
-    execute_command("chmod 777 prj_gen")
+    # get oss package
+    execute_command('wget -nv https://realthread-download.oss-cn-hangzhou.aliyuncs.com/rt-studio/backend/rt-studio-backend.zip')
+    execute_command("unzip rt-studio-backend.zip")
+    result = execute_command("ls -al /rt-thread/sdk-index/tools/sdk_check")
+    logging.info("ls -al /tools/sdk_check {0}".format(result))
+
+    if os.path.exists("/rt-thread/sdk-index/tools/sdk_check/prj_gen"):
+        execute_command("chmod 777 prj_gen")
+    else:
+        logging.error("can't find prj_gen!")
+        sys.exit(1)
 
     result = execute_command("ls -al /rt-thread/sdk-index/tools/sdk_check")
     logging.debug("ls -al tools/sdk_check : {0}".format(result))
