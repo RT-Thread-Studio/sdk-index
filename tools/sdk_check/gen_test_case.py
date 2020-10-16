@@ -5,6 +5,7 @@ import time
 import random
 import logging
 import textwrap
+import subprocess
 from pathlib import Path
 from check_tools import execute_command
 
@@ -16,7 +17,8 @@ def gen_sdk_test_case(json_path, mcu_config_path):
         project_name = config_json.split(".json")[0]
         test_case_example = """
                 def test_{0}():
-                    assert csp_test("{0}") is True
+                    print("Build Project: {0}")
+                    assert build_test("{0}") is True
                 """.format(project_name)
         test_case_format = textwrap.dedent(test_case_example)
         test_case += "\n" + test_case_format
@@ -24,7 +26,7 @@ def gen_sdk_test_case(json_path, mcu_config_path):
 
         execute_command("rm -rf {0}".format(config_json_path))
     with open("sdk_test_case.py", "a") as f:
-        f.write(test_case)
+        f.write(test_case + '\n')
 
 
 def find_mcu_in_json_file(json_path, mcu_config_path):
@@ -33,8 +35,8 @@ def find_mcu_in_json_file(json_path, mcu_config_path):
     parameter_dict = json.loads(data)
     os.mkdir(mcu_config_path)
     test_numbers = int(len(parameter_dict))
-    if test_numbers > 100:
-        test_numbers = 100
+    if test_numbers > 80:
+        test_numbers = 80
     mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
 
     for mcu in mcu_dict:
@@ -65,7 +67,7 @@ def generate_and_import_project(json_path, mcu_config_path):
 
     logging.info("Project import start.")
     begin_time = time.time()
-    os.system(cmd)
+    subprocess.call(cmd, shell=True)
     logging.info("Project import end. time consuming : {0}.".format(time.time() - begin_time))
 
 
@@ -78,6 +80,8 @@ def get_generate_result(csp_json_path):
 
     logging.debug("project_json_info: {0}".format(check_type))
     logging.debug("json path : {0}".format(csp_json_path))
+    result = execute_command("cat {0}".format(csp_json_path))
+    logging.debug("cat {0} : {1}".format(csp_json_path, result))
 
     before = os.getcwd()
     log_path = os.path.join(before, "generate.log")
@@ -97,7 +101,7 @@ def get_generate_result(csp_json_path):
             cmd = r"{0} --bsp_project=true --bsp_parameter_file={1} -n xxx 2> {2}".format(real_prj_gen_path, csp_json_path, log_path)
     else:
         logging.error("Error env : {0}".format(prj_gen_path))
-        execute_command('exit')
+        sys.exit(1)
 
     execute_command(cmd)
     os.chdir(before)
@@ -106,7 +110,7 @@ def get_generate_result(csp_json_path):
         with open(log_path, "r") as f:
             log_info = f.readlines()
     except Exception as e:
-        print("Error message : {0}".format(e))
+        logging.error("Error message : {0}".format(e))
     else:
         for line in log_info:
             if line.find("Error") != -1 or line.find("error") != -1 or line.find("ERROR") != -1:

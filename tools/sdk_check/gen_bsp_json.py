@@ -76,7 +76,7 @@ class SdkIndex(object):
                         if not rt_studio_repo_path.joinpath(package["package_relative_path"]).exists():
                             os.makedirs(rt_studio_repo_path.joinpath(package["package_relative_path"]))
                         os.chdir(rt_studio_repo_path.joinpath(package["package_relative_path"]))
-                        execute_command('git clone ' + url)
+                        execute_command(cmd)
                         os.chdir(before)
                 else:
                     zip_name = url.split("/")[-1]
@@ -85,7 +85,7 @@ class SdkIndex(object):
 
                     # create dir
                     os.makedirs(pack_folder)
-                    cmd = "wget -O " + str(zip_path.as_posix()) + " " + url
+                    cmd = "wget -nv -O " + str(zip_path.as_posix()) + " " + url
                     logging.info(cmd)
                     if self.is_in_linux:
                         execute_command(cmd)
@@ -115,7 +115,7 @@ class SdkIndex(object):
                 pack_folder = rt_studio_repo_path.joinpath(package["package_relative_path"])
                 os.makedirs(pack_folder)
                 zip_path = pack_folder.joinpath(zip_name)
-                cmd = "wget -O " + str(zip_path.as_posix()) + " " + url
+                cmd = "wget -nv -O " + str(zip_path.as_posix()) + " " + url
                 logging.info(cmd)
                 if self.is_in_linux:
                     execute_command(cmd)
