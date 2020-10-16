@@ -11,6 +11,13 @@
             "description": "v0.1.0 release",
             "size": "3 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32vf103-nuclei-rvstar/archive/0.1.0.zip"
+        },
+        {
+            "version": "0.1.1",
+            "date": "2020-09-12",
+            "description": "v0.1.0 release",
+            "size": "3 MB",
+            "url": "https://github.com/thread-liu/sdk-bsp-gd32vf103-nuclei-rvstar/archive/0.1.1.zip"
         }
     ]
 }
