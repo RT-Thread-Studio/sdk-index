@@ -26,7 +26,7 @@ def main():
     execute_command("chmod 777 prj_gen")
 
     result = execute_command("ls -al /rt-thread/sdk-index/tools/sdk_check")
-    logging.info("ls -al tools/sdk_check : {0}".format(result))
+    logging.debug("ls -al tools/sdk_check : {0}".format(result))
 
     # get update csp url
     try:
@@ -50,7 +50,7 @@ def main():
         sys.exit(0)
     except Exception as e:
         logging.error("Error message : {0}.".format(e))
-        sys.exit(1)
+        sys.exit(0)
 
 
 if __name__ == "__main__":
