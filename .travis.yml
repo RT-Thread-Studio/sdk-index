@@ -3,6 +3,9 @@ language: shell
 services:
   - docker
 
+git:
+  depth: 1
+
 notifications:
   email: false
 
@@ -12,8 +15,7 @@ before_install:
 
 install:
   - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
-  - python3 -m pip install wheel jsonschema PyEmail
+  - python3 -m pip install wheel jsonschema
 
 script:
   - cd $repo_root/tools && chmod a+x script.sh && source script.sh
-

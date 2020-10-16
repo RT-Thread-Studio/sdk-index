@@ -10,9 +10,9 @@
 # 2020-05-11     SummerGift   optimize schema checking
 #
 
+import os
 import json
 import logging
-import os
 import requests
 import urllib.error
 import urllib.parse
@@ -122,11 +122,11 @@ class StudioSdkManagerIndex:
     @staticmethod
     def csp_to_test(csp_result):
 
-        if len(csp_result) is 0:
+        if len(csp_result) == 0:
             logging.info("No need to test chip support package.")
             return
         # limit commit times
-        if len(csp_result) is not 1:
+        if len(csp_result) != 1:
             logging.error("You commit {0} csp packages at one time.".format(len(csp_result)))
             logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
             logging.error("Please check the list following:")
@@ -139,11 +139,11 @@ class StudioSdkManagerIndex:
 
     @staticmethod
     def bsp_to_test(bsp_result):
-        if len(bsp_result) is 0:
+        if len(bsp_result) == 0:
             logging.info("No need to test board support package.")
             return
         # limit commit times
-        if len(bsp_result) is not 1:
+        if len(bsp_result) != 1:
             logging.error("You commit {0} csp packages at one time.".format(len(bsp_result)))
             logging.error("But you can commit only one csp package once, so you should modify the index you commit.")
             logging.error("Please check the list following:")

@@ -1,17 +1,14 @@
 # -*- coding: UTF-8 -*-
 import os
-import json
 import time
 import pytest
-import shutil
-import random
-from csp_check import execute_command
+from check_tools import execute_command
 
 
-if __name__ == "__main__":
+def exec_test_case():
     print("=================> Project build start.")
     begin_time = time.time()
-    pytest.main(["sdk_test_case.py", '--html=report.html', '--self-contained-html'])
+    pytest.main(["sdk_test_case.py", '--html=report.html', '--self-contained-html', '-s'])
     execute_command("rm -rf /rt-thread/eclipse/workspace")
     print("=================> Project build end, time consuming : {0}.".format(time.time() - begin_time))
 
@@ -33,7 +30,8 @@ def get_build_result(cmd_pre, project_name):
     return build_result
 
 
-def csp_test(project_name):
+def build_test(project_name):
+
     cmd_pre = r"/rt-thread/eclipse/eclipse -nosplash --launcher.suppressErrors "\
               r"-application org.eclipse.cdt.managedbuilder.core.headlessbuild " \
               r"-data '/rt-thread/eclipse/workspace'"
@@ -59,3 +57,7 @@ def judge_build_result():
             break
     execute_command("rm -rf build.log")
     return build_result
+
+
+if __name__ == "__main__":
+    exec_test_case()
