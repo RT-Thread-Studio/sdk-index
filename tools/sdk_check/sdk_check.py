@@ -18,6 +18,7 @@ def init_logger():
                         )
 
 
+
 def main():
     init_logger()
     os.chdir("/rt-thread/sdk-index/tools/sdk_check")
@@ -42,8 +43,8 @@ def main():
             sdk_url = json.loads(f.read())[0]
         # csp ci check
         logging.info("csp check test URL : {0}".format(sdk_url))
+
         exec_csp_test_case()
-        # exec csp test case complate, exit
         sys.exit(0)
     except Exception as e:
         logging.warning("warning message : {0}.".format(e))
