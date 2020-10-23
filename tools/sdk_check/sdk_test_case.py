@@ -8,7 +8,7 @@ from check_tools import execute_command
 def exec_test_case():
     print("=================> Project build start.")
     begin_time = time.time()
-    pytest.main(["sdk_test_case.py", '--html=report.html', '--self-contained-html', '-s'])
+    pytest.main(["sdk_test_case.py", '--html=report.html', '--self-contained-html'])
     execute_command("rm -rf /rt-thread/eclipse/workspace")
     print("=================> Project build end, time consuming : {0}.".format(time.time() - begin_time))
 
