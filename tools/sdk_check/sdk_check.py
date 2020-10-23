@@ -41,9 +41,7 @@ def main():
     try:
         with open('/rt-thread/sdk-index/tools/csp_update_url.json', "r") as f:
             sdk_url = json.loads(f.read())[0]
-        # csp ci check
         logging.info("csp check test URL : {0}".format(sdk_url))
-
         exec_csp_test_case()
         sys.exit(0)
     except Exception as e:
@@ -53,7 +51,6 @@ def main():
     try:
         with open('/rt-thread/sdk-index/tools/bsp_update_url.json', "r") as f:
             sdk_url = json.loads(f.read())[0]
-        # bsp ci chck
         logging.info("bsp check test URL : {0}".format(sdk_url))
         exec_bsp_test_case()
         sys.exit(0)
