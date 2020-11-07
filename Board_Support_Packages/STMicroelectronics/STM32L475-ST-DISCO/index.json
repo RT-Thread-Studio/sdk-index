@@ -1,0 +1,16 @@
+{
+    "name": "STM32L475-ST-DISCO",
+    "vendor": "RealThread",
+    "description": "STM32L475 Discovery Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l475-st-discovery.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2020-11-07",
+            "description": "first release",
+            "size": "11 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l475-st-discovery/archive/1.0.0.zip"
+        }
+    ]
+}
