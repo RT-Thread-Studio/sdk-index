@@ -5,6 +5,7 @@
         "ARM",
         "GigaDevice",
         "NXP",
-        "STMicroelectronics"
+        "STMicroelectronics",
+        "Other"
     ]
 }
