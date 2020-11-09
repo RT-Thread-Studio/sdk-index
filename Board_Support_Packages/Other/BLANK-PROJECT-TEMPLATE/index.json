@@ -1,0 +1,16 @@
+{
+    "name": "BLANK-PROJECT-TEMPLATE",
+    "vendor": "RealThread",
+    "description": "BLANK-PROJECT-TEMPLATE Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-blank-project.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2020-11-09",
+            "description": "v1.0.0 release",
+            "size": "1 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-blank-project/archive/1.0.0.zip"
+        }
+    ]
+}
