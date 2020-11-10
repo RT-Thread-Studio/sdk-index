@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import json
 import time
@@ -15,11 +16,12 @@ def gen_sdk_test_case(json_path, mcu_config_path):
     test_case = ''
     for config_json in os.listdir(mcu_config_path):
         project_name = config_json.split(".json")[0]
+        new_project_name = re.sub(r"[\#\*\-\/\(\)\[\]\ ]", "_", project_name)
         test_case_example = """
                 def test_{0}():
                     print("Build Project: {0}")
                     assert build_test("{0}") is True
-                """.format(project_name)
+                """.format(new_project_name)
         test_case_format = textwrap.dedent(test_case_example)
         test_case += "\n" + test_case_format
         config_json_path = os.path.join(mcu_config_path, config_json)
