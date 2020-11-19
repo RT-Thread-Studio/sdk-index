@@ -260,6 +260,16 @@ class SdkSyncPackages:
             else:
                 logging.error("Error code {0}".format(r.status_code))
 
+            r = requests.post(os.environ["UPDATE_SDK_ABROAD_INDEX_ADDRESS"],
+                              data=json.dumps(index),
+                              headers=headers
+                              )
+
+            if r.status_code == requests.codes.ok:
+                logging.info("Update abroad sdk index successful.")
+            else:
+                logging.error("Error code {0}".format(r.status_code))
+
         except Exception as e:
             logging.error('Error message:%s' % e)
 
