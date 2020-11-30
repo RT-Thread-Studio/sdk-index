@@ -3,6 +3,7 @@
     "description": "RT-Thread Studio ToolChain Support Packages",
     "index": [
         "GNU_Tools_for_ARM_Embedded_Processors",
-        "RISC-V-GCC"
+        "RISC-V-GCC",
+        "ARM-LINUX-MUSLEABI"
     ]
 }
