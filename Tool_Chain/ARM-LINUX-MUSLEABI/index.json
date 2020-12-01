@@ -1,7 +1,7 @@
 {
     "name": "ARM-LINUX-MUSLEABI",
     "vendor": "ARM",
-    "description": "GNU Tools for ARM Embedded Processors Tool Chain",
+    "description": "RT-Thread Smart Tool Chain",
     "license": "",
     "releases": [
         {
@@ -10,6 +10,13 @@
             "description": "released v7.3.0，support RT-Thread Smart",
             "size": "58 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-arm-linux-musleabi/archive/7.3.0.zip"
+        },
+        {
+            "version": "7.3.0.1",
+            "date": "2020-12-01",
+            "description": "released v7.3.0.1，support RT-Thread Smart",
+            "size": "58 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-arm-linux-musleabi/archive/7.3.0.1.zip"
         }
     ]
 }
