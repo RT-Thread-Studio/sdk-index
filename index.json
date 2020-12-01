@@ -8,6 +8,7 @@
         "Chip_Support_Packages",
         "Board_Support_Packages",
         "Tool_Chain",
-        "Debugger"
+        "Debugger",
+        "ThirdParty_Support_Packages"
     ]
 }

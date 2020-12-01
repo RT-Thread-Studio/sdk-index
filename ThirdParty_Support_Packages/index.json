@@ -1,0 +1,7 @@
+{
+    "name": "ThirdParty_Support_Packages",
+    "description": "ThirdParty Support Packages",
+    "index": [
+        "PlatformIO"
+    ]
+}
