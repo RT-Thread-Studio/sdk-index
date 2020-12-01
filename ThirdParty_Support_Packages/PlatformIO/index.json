@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio.git",
     "releases": [
         {
+            "version": "5.0.3.1",
+            "date": "2020-12-01",
+            "description": "PlatformIO Core 5.0.3.1",
+            "size": "297 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio/archive/5.0.3.1.zip"
+        },
+        {
             "version": "5.0.3",
             "date": "2020-12-01",
             "description": "PlatformIO Core 5.0.3",
