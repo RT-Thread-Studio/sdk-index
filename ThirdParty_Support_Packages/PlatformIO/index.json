@@ -1,0 +1,16 @@
+{
+    "name": "PlatformIO",
+    "vendor": "RealThread",
+    "description": "PlatformIO-Core Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio.git",
+    "releases": [
+        {
+            "version": "5.0.3",
+            "date": "2020-12-01",
+            "description": "PlatformIO Core 5.0.3",
+            "size": "635 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio/archive/5.0.3.zip"
+        }
+    ]
+}
