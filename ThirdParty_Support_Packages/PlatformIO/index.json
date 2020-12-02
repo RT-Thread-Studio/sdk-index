@@ -11,20 +11,6 @@
             "description": "PlatformIO Core, need RT-Thread Studio >= 2.0.0",
             "size": "298 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio/archive/5.0.3.3.zip"
-        },
-        {
-            "version": "5.0.3.2",
-            "date": "2020-12-01",
-            "description": "PlatformIO Core, need RT-Thread Studio >= 2.0.0",
-            "size": "297 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio/archive/5.0.3.2.zip"
-        },
-        {
-            "version": "5.0.3.1",
-            "date": "2020-12-01",
-            "description": "PlatformIO Core 5.0.3.1",
-            "size": "297 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-thirdparty-platformio/archive/5.0.3.1.zip"
         }
     ]
 }
