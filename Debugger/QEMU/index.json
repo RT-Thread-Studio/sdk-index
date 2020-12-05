@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "4.2.0.3",
+            "date": "2020-12-05",
+            "description": "add network support.",
+            "size": "38 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-qemu/archive/4.2.0.3.zip"
+        },
+        {
             "version": "4.2.0.2",
             "date": "2020-09-24",
             "description": "add sdio support.",
