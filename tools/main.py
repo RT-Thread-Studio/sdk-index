@@ -184,7 +184,6 @@ class SdkSyncPackages:
     def __init__(self, update_list, new_index):
         self.update_list = update_list
         self.new_index = new_index
-        print(list(str(os.environ["MIRROR_REG_URL"])))
 
     @staticmethod
     def is_master_repo():
@@ -238,12 +237,9 @@ class SdkSyncPackages:
             logging.info("No sync token")
 
     def sync_csp_packages(self):
-        if self.is_master_repo():
-            logging.info("Ready to sync csp or bsp packages")
-            self.do_sync_csp_packages()
-        else:
-            logging.info("No need to sync csp or bsp packages")
-
+        logging.info("Ready to sync csp or bsp packages")
+        self.do_sync_csp_packages()
+        
     @staticmethod
     def do_update_sdk_ide_index(index):
         headers = {
@@ -324,8 +320,6 @@ class SdkSyncPackages:
             request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, {
                 'content-type': 'application/json'})
             response = urllib.request.urlopen(request)
-            print("---------------------------------------mirror info---------------------------------------")
-            print(list(str(request.full_url)))
             resp = response.read()
         except Exception as e:
             logging.error("Error message: {0}.".format(e))
@@ -351,7 +345,7 @@ class SdkSyncPackages:
             self.do_update_sdk_mirror_server_index()
         else:
             logging.info("No need to update sdk index")
-
+            
 
 def main():
     init_logger()
@@ -366,8 +360,11 @@ def main():
 
     # 3. sync updated sdk package and sdk index
     sync = SdkSyncPackages(update_list, index_content)
-    sync.sync_csp_packages()
-    sync.update_sdk_index()
+    if sync.is_master_repo():
+        sync.sync_csp_packages()
+        sync.update_sdk_index()
+    else:
+        logging.info("No need to sync csp or bsp packages")
 
 
 if __name__ == "__main__":
