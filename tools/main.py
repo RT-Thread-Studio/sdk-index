@@ -184,7 +184,6 @@ class SdkSyncPackages:
     def __init__(self, update_list, new_index):
         self.update_list = update_list
         self.new_index = new_index
-        print(list(str(os.environ["MIRROR_REG_URL"])))
 
     @staticmethod
     def is_master_repo():
@@ -324,8 +323,6 @@ class SdkSyncPackages:
             request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, {
                 'content-type': 'application/json'})
             response = urllib.request.urlopen(request)
-            print("---------------------------------------mirror info---------------------------------------")
-            print(list(str(request.full_url)))
             resp = response.read()
         except Exception as e:
             logging.error("Error message: {0}.".format(e))
