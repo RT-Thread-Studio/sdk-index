@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-qemu-vexpress-a9.git",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2020-12-11",
+            "description": "fixbug:qemu debug initial fail",
+            "size": "16 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-qemu-vexpress-a9/archive/1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2020-12-11",
             "description": "add rt-thread smart kernel support",
