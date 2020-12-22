@@ -7,7 +7,7 @@
     "releases": [
         {
             "version": "0.1.8",
-            "date": "2020-02-22",
+            "date": "2020-12-22",
             "description": "released v0.1.8, add stm32g0xx.h in bord.h",
             "size": "39 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g0/archive/0.1.8.zip"
