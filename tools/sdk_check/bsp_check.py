@@ -30,13 +30,13 @@ def exec_bsp_test_case():
 
     # find bsp path
     real_bsp_path = None
-    for dir in os.listdir("/rt-thread/rt-thread-bsp"):
-        if dir.find("sdk-bsp") != -1:
-            real_bsp_path = os.path.join("/rt-thread/rt-thread-bsp", dir)
-            logging.info("bsp path : {0}".format(real_bsp_path))
-            break
-    if real_bsp_path is None:
-        logging.error("can't find bsp path, please check it!")
+    rt_thread_bsp_dir = os.listdir("/rt-thread/rt-thread-bsp")
+    if len(rt_thread_bsp_dir) != 1:
+        logging.error("Please check the zip : {0}".format(bsp_update_url))
+        sys.exit(1)
+    real_bsp_path = os.path.join("/rt-thread/rt-thread-bsp", rt_thread_bsp_dir[0])
+    logging.info("bsp path : {0}".format(real_bsp_path))
+
     board_path = "/RT-ThreadStudio/repo/Extract/Board_Support_Packages/RealThread/board/0.1.1/"
     do_copy_folder(real_bsp_path, board_path)
     gen_bsp_sdk_json(board_path, "/rt-thread/sdk-index/", "/rt-thread/workspace/")
