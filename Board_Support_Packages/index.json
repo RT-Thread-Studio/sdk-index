@@ -3,6 +3,7 @@
     "description": "Device vendor Board Support Packages",
     "index": [
         "ARM",
+        "Bluetrum",
         "GigaDevice",
         "NXP",
         "STMicroelectronics",
