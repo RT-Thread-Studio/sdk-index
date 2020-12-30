@@ -1,0 +1,16 @@
+{
+    "name": "AB32VG1-AB-PROUGEN",
+    "vendor": "Bluetrum",
+    "description": "AB32VG1-AB-PROUGEN Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/BLUETRUM/Bluetrum_AB32VG1-ab-prougen.git",
+    "releases": [
+        {
+            "version": "1.0.1",
+            "date": "2020-12-30",
+            "description": "v1.0.1 release",
+            "size": "4 MB",
+            "url": "https://github.com/BLUETRUM/Bluetrum_AB32VG1-ab-prougen/archive/v1.0.1.zip"
+        }
+    ]
+}
