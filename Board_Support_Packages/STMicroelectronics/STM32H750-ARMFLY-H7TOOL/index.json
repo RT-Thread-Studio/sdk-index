@@ -1,0 +1,16 @@
+{
+    "name": "STM32H750-ARMFLY-H7TOOL",
+    "vendor": "RealThread",
+    "description": "STM32H750-ARMFLY-H7TOOL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-armfly-h7tool.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-03",
+            "description": "released v1.0.0",
+            "size": "28 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-armfly-h7tool/archive/1.0.0.zip"
+        }
+    ]
+}
