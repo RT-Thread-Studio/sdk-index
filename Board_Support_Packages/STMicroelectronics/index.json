@@ -3,6 +3,7 @@
     "dvendor": "STMicroelectronics",
     "description": "STM32 series Board Support Packages",
     "index": [
+        "STM32F091-ST-NUCLEO",
         "STM32F103-DOFLY-M3S",
         "STM32F103-YF-UFAN",
         "STM32F401-ST-NUCLEO",
