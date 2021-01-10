@@ -1,0 +1,16 @@
+{
+    "name": "STM32F103-UNKNOWN-BLUEPILL",
+    "vendor": "RealThread",
+    "description": "STM32F103-UNKNOWN-BLUEPILL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-unknown-bluepill.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-10",
+            "description": "released v1.0.0",
+            "size": "4 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-unknown-bluepill/archive/1.0.0.zip"
+        }
+    ]
+}
