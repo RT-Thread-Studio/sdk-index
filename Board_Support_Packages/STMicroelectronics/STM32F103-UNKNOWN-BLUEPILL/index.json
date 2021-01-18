@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-unknown-bluepill.git",
     "releases": [
         {
+            "version": "1.1.0",
+            "date": "2021-01-18",
+            "description": "released v1.1.0",
+            "size": "15 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-unknown-bluepill/archive/1.1.0.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2021-01-10",
             "description": "released v1.0.0",
