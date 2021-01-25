@@ -6,6 +6,13 @@
     "repository": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2021-01-25",
+            "description": "add sdio support",
+            "size": "4 MB",
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2020-12-30",
             "description": "v1.0.1 release",
