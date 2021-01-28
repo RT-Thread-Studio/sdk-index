@@ -1,0 +1,16 @@
+{
+    "name": "TM4C123G-TI-LAUNCHPAD",
+    "vendor": "RealThread",
+    "description": "TM4C123G-TI-LAUNCHPAD Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-tm4c123bsp.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-28",
+            "description": "v1.0.0 release",
+            "size": "11 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-tm4c123bsp/archive/1.0.0.zip"
+        }
+    ]
+}
