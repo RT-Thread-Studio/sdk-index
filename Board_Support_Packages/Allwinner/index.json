@@ -1,0 +1,8 @@
+{
+    "name": "Allwinner Board Support Packages",
+    "dvendor": "Allwinner",
+    "description": "Allwinner Board Support Packages",
+    "index": [
+        "ARM9-ALLWINNER-TINA"
+    ]
+}

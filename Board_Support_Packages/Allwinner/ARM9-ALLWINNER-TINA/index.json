@@ -1,0 +1,16 @@
+{
+    "name": "ARM9-ALLWINNER-TINA",
+    "vendor": "RealThread",
+    "description": "ARM9-ALLWINNER-TINA Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-allwinner_tina.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-28",
+            "description": "v1.0.0 release",
+            "size": "2 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-allwinner_tina/archive/1.0.0.zip"
+        }
+    ]
+}
