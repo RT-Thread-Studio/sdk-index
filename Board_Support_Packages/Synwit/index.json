@@ -1,0 +1,8 @@
+{
+    "name": "Synwit Board Support Packages",
+    "dvendor": "Synwit",
+    "description": "Synwit Board Support Packages",
+    "index": [
+        "SWM320VET7-SYNWIT-SWXT"
+    ]
+}

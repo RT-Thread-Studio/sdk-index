@@ -1,0 +1,16 @@
+{
+    "name": "SWM320VET7-SYNWIT-SWXT",
+    "vendor": "RealThread",
+    "description": "SWM320VET7-SYNWIT-SWXT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-swm320-lq100.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-28",
+            "description": "v1.0.0 release",
+            "size": "10 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-swm320-lq100/archive/1.0.0.zip"
+        }
+    ]
+}
