@@ -1,0 +1,16 @@
+{
+    "name": "STM32F427-DJI-ROBOMASTER",
+    "vendor": "RealThread",
+    "description": "STM32F427-DJI-ROBOMASTER Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f427-robomaster-a.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-28",
+            "description": "released v1.0.0",
+            "size": "9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f427-robomaster-a/archive/1.0.0.zip"
+        }
+    ]
+}
