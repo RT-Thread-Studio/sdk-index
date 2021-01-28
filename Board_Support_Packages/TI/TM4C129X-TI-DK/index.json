@@ -1,0 +1,16 @@
+{
+    "name": "TM4C129X-TI-DK",
+    "vendor": "RealThread",
+    "description": "TM4C129X-TI-DK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-tm4c129x.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-28",
+            "description": "v1.0.0 release",
+            "size": "10 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-tm4c129x/archive/1.0.0.zip"
+        }
+    ]
+}
