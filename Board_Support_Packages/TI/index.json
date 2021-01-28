@@ -3,6 +3,7 @@
     "dvendor": "TI",
     "description": "TI Board Support Packages",
     "index": [
+        "TM4C123G-TI-LAUNCHPAD",
         "TM4C129X-TI-DK"
     ]
 }
