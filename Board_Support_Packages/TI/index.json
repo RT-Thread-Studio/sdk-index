@@ -1,0 +1,8 @@
+{
+    "name": "TI Board Support Packages",
+    "dvendor": "TI",
+    "description": "TI Board Support Packages",
+    "index": [
+        "TM4C129X-TI-DK"
+    ]
+}
