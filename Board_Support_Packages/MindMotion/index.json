@@ -1,0 +1,8 @@
+{
+    "name": "MindMotion Board Support Packages",
+    "dvendor": "MindMotion",
+    "description": "MindMotion Board Support Packages",
+    "index": [
+        "MM32L373PF-MM-MM32-MINIBOARD"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "MM32L373PF-MM-MM32-MINIBOARD",
+    "vendor": "RealThread",
+    "description": "MM32L373PF-MM-MM32-MINIBOARD Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-mm32l3xx.git",
+    "releases": [
+        {
+            "version": "1.0.1",
+            "date": "2021-01-29",
+            "description": "v1.0.0 release",
+            "size": "18 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-mm32l3xx/archive/1.0.1.zip"
+        }
+    ]
+}
