@@ -1,0 +1,16 @@
+{
+    "name": "RP2040-RASPBERRYPI-PICO",
+    "vendor": "RealThread",
+    "description": "RP2040-RASPBERRYPI-PICO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-rp2040-raspberry-pico.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-01-30",
+            "description": "v1.0.0 release",
+            "size": "156 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-rp2040-raspberry-pico/archive/1.0.0.zip"
+        }
+    ]
+}
