@@ -1,0 +1,8 @@
+{
+    "name": "RaspberryPi Board Support Packages",
+    "dvendor": "RaspberryPi",
+    "description": "RaspberryPi Board Support Packages",
+    "index": [
+        "RP2040-RASPBERRYPI-PICO"
+    ]
+}
