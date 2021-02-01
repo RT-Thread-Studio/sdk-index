@@ -1,0 +1,16 @@
+{
+    "name": "AT91SAM9260-MICROCHIP-EVA",
+    "vendor": "RealThread",
+    "description": "AT91SAM9260-MICROCHIP-EVA Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-at91sam9260.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-01",
+            "description": "v1.0.0 release",
+            "size": "5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-at91sam9260/archive/1.0.0.zip"
+        }
+    ]
+}
