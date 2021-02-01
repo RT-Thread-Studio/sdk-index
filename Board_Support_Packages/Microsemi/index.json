@@ -1,0 +1,8 @@
+{
+    "name": "Microsemi Board Support Packages",
+    "dvendor": "Microsemi",
+    "description": "Microsemi Board Support Packages",
+    "index": [
+        "M2S010-MICROSEMI-BD"
+    ]
+}
