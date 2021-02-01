@@ -3,6 +3,7 @@
     "dvendor": "ArteryTek",
     "description": "ArteryTek Board Support Packages",
     "index": [
-        "AT32F403A-AT-START"
+        "AT32F403A-AT-START",
+        "AT32F407-AT-START"
     ]
 }
