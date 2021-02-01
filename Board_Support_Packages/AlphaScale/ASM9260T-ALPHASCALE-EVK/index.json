@@ -1,0 +1,16 @@
+{
+    "name": "ASM9260T-ALPHASCALE-EVK",
+    "vendor": "RealThread",
+    "description": "ASM9260T-ALPHASCALE-EVK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-asm9260t.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-01",
+            "description": "v1.0.0 release",
+            "size": "1 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-asm9260t/archive/1.0.0.zip"
+        }
+    ]
+}
