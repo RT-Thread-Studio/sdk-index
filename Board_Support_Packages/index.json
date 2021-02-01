@@ -3,6 +3,7 @@
     "description": "Device vendor Board Support Packages",
     "index": [
         "Allwinner",
+        "AlphaScale",
         "ARM",
         "Bluetrum",
         "GigaDevice",

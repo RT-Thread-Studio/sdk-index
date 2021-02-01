@@ -1,0 +1,8 @@
+{
+    "name": "AlphaScale Board Support Packages",
+    "dvendor": "AlphaScale",
+    "description": "AlphaScale Board Support Packages",
+    "index": [
+        "ASM9260T-ALPHASCALE-EVK"
+    ]
+}
