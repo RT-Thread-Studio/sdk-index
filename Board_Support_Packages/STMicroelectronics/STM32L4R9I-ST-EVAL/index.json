@@ -1,0 +1,16 @@
+{
+    "name": "STM32L4R9I-ST-EVAL",
+    "vendor": "RealThread",
+    "description": "STM32L4R9I-ST-EVAL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l4r9-st-eval.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-02",
+            "description": "released v1.0.0",
+            "size": "10 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l4r9-st-eval/archive/1.0.0.zip"
+        }
+    ]
+}
