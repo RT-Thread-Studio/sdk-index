@@ -1,0 +1,16 @@
+{
+    "name": "STM32F429-ARMFLY-V6",
+    "vendor": "RealThread",
+    "description": "STM32F429-ARMFLY-V6 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f429-armfly-v6.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-02",
+            "description": "released v1.0.0",
+            "size": "48 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f429-armfly-v6/archive/1.0.0.zip"
+        }
+    ]
+}
