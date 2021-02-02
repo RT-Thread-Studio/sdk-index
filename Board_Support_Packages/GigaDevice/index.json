@@ -3,6 +3,7 @@
     "dvendor": "GigaDevice",
     "description": "GigaDevice Board Support Packages",
     "index": [
+        "GD32F103C-GD-EVAL",
         "GD32VF103-NUCLEI-RVSTAR"
     ]
 }
