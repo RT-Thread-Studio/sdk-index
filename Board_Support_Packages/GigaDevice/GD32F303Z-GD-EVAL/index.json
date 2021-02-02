@@ -1,0 +1,16 @@
+{
+    "name": "GD32F303Z-GD-EVAL",
+    "vendor": "RealThread",
+    "description": "GD32F303Z-GD-EVAL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32303e-eval.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-02",
+            "description": "v1.0.0 release",
+            "size": "14 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32303e-eval/archive/1.0.0.zip"
+        }
+    ]
+}
