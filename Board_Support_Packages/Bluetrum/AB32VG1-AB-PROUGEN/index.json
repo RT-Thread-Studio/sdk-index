@@ -6,6 +6,13 @@
     "repository": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen.git",
     "releases": [
         {
+            "version": "1.0.3",
+            "date": "2021-02-01",
+            "description": "add i2c pwm tim wdt support",
+            "size": "5 MB",
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/1.0.3.zip"
+        },
+        {
             "version": "1.0.2",
             "date": "2021-01-25",
             "description": "add sdio support",
