@@ -1,0 +1,16 @@
+{
+    "name": "LPC1114-NXP-EVAL",
+    "vendor": "RealThread",
+    "description": "LPC1114-NXP-EVAL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-lpc1114.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-03",
+            "description": "v1.0.0 release",
+            "size": "3 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-lpc1114/archive/1.0.0.zip"
+        }
+    ]
+}
