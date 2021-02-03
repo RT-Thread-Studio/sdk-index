@@ -1,0 +1,16 @@
+{
+    "name": "LPC408X-RT-BOARD",
+    "vendor": "RealThread",
+    "description": "LPC408X-RT-BOARD Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-lpc408x.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-03",
+            "description": "released v1.0.0",
+            "size": "6 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-lpc408x/archive/1.0.1.zip"
+        }
+    ]
+}

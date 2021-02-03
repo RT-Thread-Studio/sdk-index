@@ -5,6 +5,7 @@
     "index": [
         "IMXRT1052-NXP-EVK",
         "IMXRT1064-NXP-EVK",
-        "LPC1114-NXP-EVAL"
+        "LPC1114-NXP-EVAL",
+        "LPC408X-RT-BOARD"
     ]
 }
