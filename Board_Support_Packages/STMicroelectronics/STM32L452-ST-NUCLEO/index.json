@@ -1,0 +1,16 @@
+{
+    "name": "STM32L452-ST-NUCLEO",
+    "vendor": "RealThread",
+    "description": "STM32L452-ST-NUCLEO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l452-st-nucleo.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-04",
+            "description": "released v1.0.0",
+            "size": "21 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l452-st-nucleo/archive/1.0.0.zip"
+        }
+    ]
+}
