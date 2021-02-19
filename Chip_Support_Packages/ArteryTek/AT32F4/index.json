@@ -6,6 +6,13 @@
     "repository": "https://github.com/ArteryTek/sdk-csp-at32f4.git",
     "releases": [
         {
+            "version": "0.0.7",
+            "date": "2021-02-18",
+            "description": "released v0.0.7, add can and on-chip-flash drivers, fixed c++ compile error",
+            "size": "24 MB",
+            "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.0.7.zip"
+        },
+        {
             "version": "0.0.6",
             "date": "2020-11-05",
             "description": "released v0.0.6, update libraries version to v1.2.6",
