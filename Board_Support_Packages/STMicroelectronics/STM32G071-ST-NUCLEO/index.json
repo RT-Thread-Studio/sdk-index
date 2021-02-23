@@ -1,0 +1,16 @@
+{
+    "name": "STM32G071-ST-NUCLEO",
+    "vendor": "RealThread",
+    "description": "STM32G071-ST-NUCLEO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32g071-st-nucleo.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-23",
+            "description": "released v1.0.0",
+            "size": "5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32g071-st-nucleo/archive/1.0.0.zip"
+        }
+    ]
+}
