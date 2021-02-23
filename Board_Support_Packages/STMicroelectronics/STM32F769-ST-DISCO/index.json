@@ -1,0 +1,16 @@
+{
+    "name": "STM32F769-ST-DISCO",
+    "vendor": "RealThread",
+    "description": "STM32F769-ST-DISCO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f769-st-disco.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-23",
+            "description": "released v1.0.0",
+            "size": "7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f769-st-disco/archive/1.0.0.zip"
+        }
+    ]
+}
