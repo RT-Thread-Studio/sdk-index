@@ -1,0 +1,16 @@
+{
+    "name": "STM32L053-ST-NUCLEO",
+    "vendor": "RealThread",
+    "description": "STM32L053-ST-NUCLEO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l053-st-nucleo.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-02-23",
+            "description": "released v1.0.0",
+            "size": "6 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l053-st-nucleo/archive/1.0.0.zip"
+        }
+    ]
+}
