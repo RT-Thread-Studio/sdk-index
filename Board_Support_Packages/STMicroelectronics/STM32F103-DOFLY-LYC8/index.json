@@ -1,0 +1,16 @@
+{
+    "name": "STM32F103-DOFLY-LYC8",
+    "vendor": "RealThread",
+    "description": "STM32F103-DOFLY-LYC8 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-dofly-lyc8.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2020-03-17",
+            "description": "released v1.0.0",
+            "size": "13 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-dofly-lyc8/archive/1.0.0.zip"
+        }
+    ]
+}
