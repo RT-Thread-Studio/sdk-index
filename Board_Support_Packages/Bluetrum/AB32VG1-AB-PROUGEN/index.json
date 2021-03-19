@@ -6,6 +6,13 @@
     "repository": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen.git",
     "releases": [
         {
+            "version": "1.0.4",
+            "date": "2021-03-19",
+            "description": "add adc rtc support",
+            "size": "5 MB",
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/1.0.4.zip"
+        },
+        {
             "version": "1.0.3",
             "date": "2021-02-01",
             "description": "add i2c pwm tim wdt support",
