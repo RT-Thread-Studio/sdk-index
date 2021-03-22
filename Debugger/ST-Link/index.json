@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "1.6.0",
+            "date": "2021-03-22",
+            "description": "st-link driver released 1.6.0",
+            "size": "16 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-stlink/archive/1.6.0.zip"
+        },
+        {
             "version": "1.4.0",
             "date": "2020-10-20",
             "description": "st-link driver released 1.4.0",
