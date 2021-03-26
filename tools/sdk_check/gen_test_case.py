@@ -100,7 +100,7 @@ def get_generate_result(csp_json_path):
             logging.debug("bsp prj_gen path : {}".format(prj_gen_path))
             os.chdir(Path(prj_gen_path))
             real_prj_gen_path = os.path.join(prj_gen_path, "prj_gen")
-            cmd = r"{0} --bsp_project=true --bsp_parameter_file={1} -n xxx 2> {2}".format(real_prj_gen_path, csp_json_path, log_path)
+            cmd = r"{0} --bsp_project=true --bsp_parameter_file={1} -n xxx".format(real_prj_gen_path, csp_json_path, log_path)
     else:
         logging.error("Error env : {0}".format(prj_gen_path))
         sys.exit(1)
