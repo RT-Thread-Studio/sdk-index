@@ -6,6 +6,13 @@
     "repository": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen.git",
     "releases": [
         {
+            "version": "1.0.5",
+            "date": "2021-04-09",
+            "description": "add heap size",
+            "size": "5 MB",
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/1.0.5.zip"
+        },
+        {
             "version": "1.0.4",
             "date": "2021-03-19",
             "description": "add adc rtc support",
