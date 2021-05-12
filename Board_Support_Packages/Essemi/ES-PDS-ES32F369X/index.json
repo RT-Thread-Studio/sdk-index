@@ -1,0 +1,16 @@
+{
+    "name": "ES-PDS-ES32F369X",
+    "vendor": "RealThread",
+    "description": "ES-PDS-ES32F369X Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f369x.git",
+    "releases": [
+        {
+            "version": "0.0.1",
+            "date": "2021-04-22",
+            "description": "released v0.0.1, the first version",
+            "size": "14 MB",
+            "url": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f369x/archive/1.0.0.zip"
+        }
+    ]
+}
