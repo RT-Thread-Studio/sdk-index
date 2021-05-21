@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-realthread-artpi.git",
     "releases": [
         {
+            "version": "1.2.1",
+            "date": "2021-05-21",
+            "description": "released v1.2.1",
+            "size": "328 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-realthread-artpi/archive/1.2.1.zip"
+        },
+        {
             "version": "1.2.0",
             "date": "2021-04-20",
             "description": "released v1.2.0",
