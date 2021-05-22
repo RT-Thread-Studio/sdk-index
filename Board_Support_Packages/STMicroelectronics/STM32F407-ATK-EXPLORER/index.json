@@ -11,6 +11,13 @@
             "description": "released v0.1.1",
             "size": "19 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-atk-explorer/archive/0.1.1.zip"
+        },
+        {
+            "version": "0.1.3",
+            "date": "2020-09-15",
+            "description": "released v0.1.2",
+            "size": "19 MB",
+            "url": "https://github.com/thread-liu/sdk-bsp-stm32f407-atk-explorer/archive/0.1.3.zip"
         }
     ]
 }
