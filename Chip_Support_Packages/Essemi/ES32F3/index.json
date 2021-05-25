@@ -6,11 +6,11 @@
     "repository": "https://github.com/liuhy-2020/sdk-csp-es32f3.git",
     "releases": [
         {
-            "version": "0.0.1",
+            "version": "1.0.0",
             "date": "2021-04-22",
-            "description": "released v0.0.1, the first version",
+            "description": "released v1.0.0, the first version",
             "size": "40 MB",
-            "url": "https://github.com/liuhy-2020/sdk-csp-es32f3/archive/0.0.1.zip"
+            "url": "https://github.com/liuhy-2020/sdk-csp-es32f3/archive/refs/tags/v1.0.0.zip"
         }
     ]
 }
