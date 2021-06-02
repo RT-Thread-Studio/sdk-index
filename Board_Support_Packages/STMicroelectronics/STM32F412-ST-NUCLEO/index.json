@@ -1,0 +1,19 @@
+{
+    "name": "STM32F412-ST-NUCLEO",
+    "vendor": "RealThread",
+    "description": "STM32F412-ST-NUCLEO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f412-st-nucleo.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-05-25",
+            "description": "released v1.0.0",
+            "size": "17.6 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f412-st-nucleo/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
+
+
+
