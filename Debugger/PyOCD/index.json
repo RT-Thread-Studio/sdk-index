@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "0.1.2",
+            "date": "2020-09-23",
+            "description": "Add Essemi MCU packs",
+            "size": "87.2 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.1.2.zip"
+        },
+        {
             "version": "0.1.1",
             "date": "2020-09-23",
             "description": "Add AT32F4xx support",
