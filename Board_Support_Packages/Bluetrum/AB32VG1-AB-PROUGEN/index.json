@@ -6,6 +6,13 @@
     "repository": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen.git",
     "releases": [
         {
+            "version": "1.0.7",
+            "date": "2021-06-22",
+            "description": "add romfs mnt",
+            "size": "5 MB",
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/1.0.7.zip"
+        },
+        {
             "version": "1.0.6",
             "date": "2021-05-13",
             "description": "add fmrx",
