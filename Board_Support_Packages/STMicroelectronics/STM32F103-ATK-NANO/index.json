@@ -1,0 +1,16 @@
+{
+    "name": "STM32F103-ATK-NANO",
+    "vendor": "RealThread",
+    "description": "STM32F103-ATK-NANO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-atk-nano",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-07-01",
+            "description": "released v1.0.0",
+            "size": "26.5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-atk-nano/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
