@@ -1,0 +1,16 @@
+{
+    "name": "STM32F103-FIRE-ARBITRARY",
+    "vendor": "RealThread",
+    "description": "STM32F103-FIRE-ARBITRARY Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-fire-arbitrary",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-07-01",
+            "description": "released v1.0.0",
+            "size": "12 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-fire-arbitrary/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
