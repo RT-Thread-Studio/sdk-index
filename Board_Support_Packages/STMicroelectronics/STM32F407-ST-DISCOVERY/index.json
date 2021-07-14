@@ -1,0 +1,16 @@
+{
+    "name": "STM32F407-ST-DISCOVERY",
+    "vendor": "RealThread",
+    "description": "STM32F407-ST-DISCOVERY Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-st-discovery",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-07-01",
+            "description": "released v1.0.0",
+            "size": "14.8 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-st-discovery/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
