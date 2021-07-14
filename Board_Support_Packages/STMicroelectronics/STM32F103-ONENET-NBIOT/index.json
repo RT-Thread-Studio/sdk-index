@@ -1,0 +1,16 @@
+{
+    "name": "STM32F103-ONENET-NBIOT",
+    "vendor": "RealThread",
+    "description": "STM32F103-ONENET-NBIOT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-onenet-nbiot",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-07-01",
+            "description": "released v1.0.0",
+            "size": "13.7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-onenet-nbiot/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
