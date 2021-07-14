@@ -6,14 +6,7 @@
     "releases": [
         {
             "version": "6.80d2",
-            "date": "2021-07-07",
-            "description": "j-link driver released v6.80d3",
-            "size": "57.1 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/V6.80d2.zip"
-        },
-        {
-            "version": "6.80d2",
-            "date": "2021-07-07",
+            "date": "2021-07-08",
             "description": "j-link driver released v6.80d2",
             "size": "57.1 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/V6.80d2.zip"
