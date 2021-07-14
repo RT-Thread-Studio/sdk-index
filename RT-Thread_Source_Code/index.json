@@ -26,6 +26,14 @@
             "size": "32 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-rt-thread-nano-source-code/archive/3.1.3.zip"
         },
+	{
+            "version": "nano-v3.1.5",
+            "date": "2021-06-29",
+            "description": "Nano released v3.1.5",
+            "isnano": true,
+            "size": "31 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-rt-thread-nano-source-code/archive/v3.1.5.zip"
+        },
         {
             "version": "lts-v3.1.4",
             "date": "2020-05-14",
