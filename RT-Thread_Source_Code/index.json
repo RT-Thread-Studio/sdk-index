@@ -42,6 +42,13 @@
             "url": "https://github.com/RT-Thread-Studio/sdk-rt-thread-source-code/archive/3.1.4.zip"
         },
         {
+            "version": "lts-v3.1.5",
+            "date": "2021-07-22",
+            "description": "LTS released v3.1.5",
+            "size": "64 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-rt-thread-source-code/archive/v3.1.5.zip"
+        },
+        {
             "version": "latest",
             "date": "2020-05-08",
             "description": "rt-thread master branch",
