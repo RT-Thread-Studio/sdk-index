@@ -5,13 +5,13 @@
     "license": "",
     "releases": [
         {
-            "version": "7.3.0.3",
-            "date": "2021-06-29",
-            "description": "released v7.3.0.3, adjust directory structure",
+            "version": "7.3.0.4",
+            "date": "2021-07-22",
+            "description": "released v7.3.0.4, adjust directory structure",
             "size": "53 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-arm-linux-musleabi/archive/7.3.0.3.zip"
+            "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-arm-linux-musleabi/archive/7.3.0.4.zip"
         },
-	{
+	    {
             "version": "7.3.0.2",
             "date": "2020-12-02",
             "description": "released v7.3.0.2, support RT-Thread Smart",
