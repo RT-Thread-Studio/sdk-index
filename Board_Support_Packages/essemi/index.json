@@ -1,0 +1,9 @@
+{
+    "name": "essemi Board Support Packages",
+    "dvendor": "essemi",
+    "description": "essemi Board Support Packages",
+    "index": [
+        "ES-PDS-ES32F0654",
+        "ES-PDS-ES32F369X"
+    ]
+}
