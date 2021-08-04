@@ -1,8 +1,0 @@
-{
-    "name": "Essemi Board Support Packages",
-    "dvendor": "Essemi",
-    "description": "Essemi Board Support Packages",
-    "index": [
-        "ES-PDS-ES32F369X"
-    ]
-}
