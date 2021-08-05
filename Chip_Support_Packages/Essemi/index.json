@@ -1,8 +1,0 @@
-{
-    "name": "ES32 Series Chip Support Packages",
-    "dvendor": "Essemi",
-    "description": "ES32 series Chip Support Packages",
-    "index": [
-        "ES32F3"
-    ]
-}
