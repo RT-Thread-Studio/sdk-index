@@ -6,6 +6,13 @@
     "repository": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen.git",
     "releases": [
         {
+            "version": "1.0.8",
+            "date": "2021-08-10",
+            "description": "Optimizing uart and rtc driver",
+            "size": "5 MB",
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/1.0.8.zip"
+        },
+        {
             "version": "1.0.7",
             "date": "2021-06-22",
             "description": "add romfs mnt",
