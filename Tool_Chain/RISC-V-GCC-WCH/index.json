@@ -5,9 +5,9 @@
     "license": "",
     "releases": [
         {
-            "version": "8.2.0",
+            "version": "WCH_8.2.0",
             "date": "2021-09-07",
-            "description": "released v1.0.0",
+            "description": "only for WCH released v1.0.0",
             "size": "213 MB",
             "url": "https://github.com/NanjingQinheng/sdk-toolchain-RISC-V-GCC-WCH/archive/refs/tags/V1.0.0.zip"
         }
