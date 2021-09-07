@@ -11,8 +11,8 @@
             "size": "80.7 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-RISC-V-GCC/archive/10.1.0.zip"
         }
-    ]
-    ,"releases": [
+    ],
+    "releases": [
         {
             "version": "WCH_8.2.0",
             "date": "2021-09-07",
