@@ -4,7 +4,7 @@
     "index": [
         "GNU_Tools_for_ARM_Embedded_Processors",
         "RISC-V-GCC",
-		"RISC-V-GCC-WCH",
+	"RISC-V-GCC-WCH",
         "ARM-LINUX-MUSLEABI"
     ]
 }
