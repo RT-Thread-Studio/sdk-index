@@ -12,13 +12,13 @@
             "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-RISC-V-GCC/archive/10.1.0.zip"
         }
     ]
-    "releases": [
+    ,"releases": [
         {
             "version": "WCH_8.2.0",
             "date": "2021-09-07",
             "description": "only for WCH released v1.0.0",
             "size": "213 MB",
-            "url": "https://github.com/NanjingQinheng/sdk-toolchain-RISC-V-GCC-WCH/archive/refs/tags/V1.0.0.zip"
+            "url": "https://github.com/NanjingQinheng/sdk-toolchain-RISC-V-GCC-WCH/archive/V1.0.0.zip"
         }
     ]
 }
