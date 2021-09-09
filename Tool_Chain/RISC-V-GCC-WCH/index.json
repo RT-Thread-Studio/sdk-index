@@ -1,6 +1,6 @@
 {
-    "name": "RISC-V-GCC-WCH""",
-    "vendor": "RISC-V-WCH",
+    "name": "RISC-V-GCC-WCH",
+    "vendor": "WCH",
     "description": "RISC-V-GCC Tool Chain only for WCH",
     "license": "",
     "releases": [
