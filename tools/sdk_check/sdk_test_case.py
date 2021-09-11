@@ -48,14 +48,13 @@ def judge_build_result():
 
     build_result = False
     for line in log_info:
-        # if (line.find('error') != -1) or (line.find("Error") != -1):
-        #     print(line)
-        # if (line.find("region `ROM' overflowed") != -1) or (line.find("region `RAM' overflowed") != -1):
-        #     print(line)
-        # if line.find("Finished building target: rtthread.elf") != -1:
-        #     build_result = True
-            # break
-        print(log_info)
+        if (line.find('error') != -1) or (line.find("Error") != -1):
+            print(line)
+        if (line.find("region `ROM' overflowed") != -1) or (line.find("region `RAM' overflowed") != -1):
+            print(line)
+        if line.find("Finished building target: rtthread.elf") != -1:
+            build_result = True
+            break
     execute_command("rm -rf build.log")
     return build_result
 
