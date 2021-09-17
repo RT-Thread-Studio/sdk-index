@@ -1,0 +1,16 @@
+{
+    "name": "ES32F3",
+    "vendor": "essemi",
+    "description": "ES32F3 Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/liuhy-2020/sdk-csp-es32f3.git",
+    "releases": [
+        {
+            "version": "1.0.1",
+            "date": "2021-09-01",
+            "description": "released v1.0.1, update drivers and Libraries.",
+            "size": "41 MB",
+            "url": "https://github.com/liuhy-2020/sdk-csp-es32f3/archive/refs/tags/v1.0.1.zip"
+        }
+    ]
+}

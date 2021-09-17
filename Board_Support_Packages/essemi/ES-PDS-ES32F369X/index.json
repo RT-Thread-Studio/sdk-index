@@ -1,0 +1,16 @@
+{
+    "name": "ES-PDS-ES32F369X",
+    "vendor": "essemi",
+    "description": "ES-PDS-ES32F369X Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f369x.git",
+    "releases": [
+        {
+            "version": "1.0.1",
+            "date": "2021-09-01",
+            "description": "released v1.0.1, update drivers and Libraries.",
+            "size": "24 MB",
+            "url": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f369x/archive/refs/tags/v1.0.1.zip"
+        }
+    ]
+}
