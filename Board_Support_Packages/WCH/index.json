@@ -1,0 +1,8 @@
+{
+    "name": "CH32 Series Board Support Packages",
+    "dvendor": "WCH",
+    "description": "CH32 series Board Support Packages",
+    "index": [
+        "sdk-bsp-ch32v307v-r0"
+    ]
+}
