@@ -3,6 +3,7 @@
     "dvendor": "Synwit",
     "description": "Synwit Board Support Packages",
     "index": [
-        "SWM320VET7-SYNWIT-SWXT"
+        "SWM320VET7-SYNWIT-SWXT",
+        "SWDM_LQ64_32SRE04"
     ]
 }
