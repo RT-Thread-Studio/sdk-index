@@ -1,0 +1,16 @@
+{
+    "name": "STM32L476-LSD4RF-TEST2002",
+    "vendor": "Lierda",
+    "description": "STM32L476-LSD4RF-TEST2002 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/Forest-Rain/sdk-bsp-stm32l476-lsd4rf-test2002.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-10-08",
+            "description": "released v1.0.0",
+            "size": "101 MB",
+            "url": "https://github.com/Forest-Rain/sdk-bsp-stm32l476-lsd4rf-test2002/archive/v1.0.0.zip"
+        }
+    ]
+}
