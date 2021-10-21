@@ -7,7 +7,7 @@
     "releases": [
         {
             "version": "0.0.1",
-            "date": "2021-09-01",
+            "date": "2021-10-21",
             "description": "released v0.0.1, he first version.",
             "size": "8 MB",
             "url": "https://github.com/liuhy-2020/sdk-csp-es32f0/archive/refs/tags/v0.0.1.zip"
