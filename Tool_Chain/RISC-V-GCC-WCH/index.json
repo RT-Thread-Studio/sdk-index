@@ -1,0 +1,15 @@
+{
+    "name": "RISC-V-GCC-WCH",
+    "vendor": "WCH",
+    "description": "RISC-V-GCC Tool Chain only for WCH",
+    "license": "",
+    "releases": [
+        {
+            "version": "8.2.0",
+            "date": "2021-09-07",
+            "description": "only for WCH released v1.0.0",
+            "size": "213 MB",
+            "url": "https://github.com/NanjingQinheng/sdk-toolchain-RISC-V-GCC-WCH/archive/V1.0.0.zip"
+        }
+    ]
+}

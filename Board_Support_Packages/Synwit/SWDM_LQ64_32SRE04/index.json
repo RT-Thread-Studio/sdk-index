@@ -1,0 +1,16 @@
+{
+    "name": "SWDM_LQ64_32SRE04",
+    "vendor": "SYNWIT",
+    "description": "SWDM_LQ64_32SRE04 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/Synwit-Co-Ltd/sdk-bsp-swm320.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-09-13",
+            "description": "v1.0.0 release",
+            "size": "11 MB",
+            "url": "https://github.com/Synwit-Co-Ltd/sdk-bsp-swm320/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}

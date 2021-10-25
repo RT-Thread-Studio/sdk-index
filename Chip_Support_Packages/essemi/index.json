@@ -1,8 +1,9 @@
 {
     "name": "ES32 Series Chip Support Packages",
-    "dvendor": "Essemi",
+    "dvendor": "essemi",
     "description": "ES32 series Chip Support Packages",
     "index": [
+        "ES32F0",
         "ES32F3"
     ]
 }

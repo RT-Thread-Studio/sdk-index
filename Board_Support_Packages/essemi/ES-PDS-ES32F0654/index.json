@@ -1,0 +1,16 @@
+{
+    "name": "ES-PDS-ES32F0654",
+    "vendor": "essemi",
+    "description": "ES-PDS-ES32F0654 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f0654.git",
+    "releases": [
+        {
+            "version": "0.0.1",
+            "date": "2021-09-01",
+            "description": "released v0.0.1, the first version.",
+            "size": "14 MB",
+            "url": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f0654/archive/refs/tags/v0.0.1.zip"
+        }
+    ]
+}
