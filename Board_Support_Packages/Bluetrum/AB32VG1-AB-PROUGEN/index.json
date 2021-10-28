@@ -9,7 +9,7 @@
             "date": "2021-10-11",
             "description": "convert uintxx_t to rt_uintxx_t",
             "size": "5 MB",
-            "url": "https://github.com/ErikChanGit/sdk-bsp-ab32vg1-ab-prougen/archive/v1.0.9.zip"
+            "url": "https://github.com/BLUETRUM/sdk-bsp-ab32vg1-ab-prougen/archive/refs/tags/1.0.9-fix.zip"
         },
         {
             "version": "1.0.8",
