@@ -6,11 +6,11 @@
     "repository": "https://github.com/liuhy-2020/sdk-csp-es32f3.git",
     "releases": [
         {
-            "version": "1.0.2",
-            "date": "2021-10-21",
-            "description": "released v1.0.2. fix bugs and add es32f365x.",
+            "version": "1.0.3",
+            "date": "2021-11-04",
+            "description": "released v1.0.3. fix bug.",
             "size": "41 MB",
-            "url": "https://github.com/liuhy-2020/sdk-csp-es32f3/archive/refs/tags/v1.0.2.zip"
+            "url": "https://github.com/liuhy-2020/sdk-csp-es32f3/archive/refs/tags/v1.0.3.zip"
         }
     ]
 }
