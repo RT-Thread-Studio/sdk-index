@@ -6,6 +6,13 @@
     "repository": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f369x.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2021-11-10",
+            "description": "released v1.0.2, fix bug.",
+            "size": "24 MB",
+            "url": "https://github.com/liuhy-2020/sdk-bsp-es-pds-es32f369x/archive/refs/tags/v1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2021-09-01",
             "description": "released v1.0.1, update drivers and Libraries.",
