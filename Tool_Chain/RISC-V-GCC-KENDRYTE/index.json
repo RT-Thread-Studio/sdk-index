@@ -1,0 +1,13 @@
+{
+    "name": "RISC-V-GCC-KENDRYTE",
+    "vendor": "KENDRYTE",
+    "description": "RISC-V-KENDRYTE Tool Chain only for KENDRYTE",
+    "license": "",
+    "releases": [{
+        "version": "8.3.0",
+        "date": "2021-11-11",
+        "description": "Init RISC-V-KENDRYTE Tool Chain",
+        "size": "1.37 GB",
+        "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-riscv-kendryte/archive/v8.3.0.zip"
+    }]
+}
