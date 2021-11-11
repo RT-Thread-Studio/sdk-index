@@ -5,6 +5,7 @@
         "J-Link",
         "ST-Link",
         "PyOCD",
-        "QEMU"
+        "QEMU",
+        "OpenOCD-KENDRYTE"
     ]
 }

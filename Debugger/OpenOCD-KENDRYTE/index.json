@@ -1,0 +1,13 @@
+{
+    "name": "OpenOCD-KENDRYTE",
+    "vendor": "KENDRYTE",
+    "description": "OpenOCD-KENDRYTE Debugger only for KENDRYTE",
+    "license": "",
+    "releases": [{
+        "version": "0.2.3",
+        "date": "2021-11-11",
+        "description": "Init OpenOCD-KENDRYTE Debugger",
+        "size": "43.5 MB",
+        "url": "https://github.com/RT-Thread-Studio/sdk-debugger-openocd-kendryte/archive/v0.2.3.zip"
+    }]
+}
