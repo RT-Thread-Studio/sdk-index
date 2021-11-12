@@ -1,0 +1,8 @@
+{
+    "name": "KENDRYTE Board Support Packages",
+    "dvendor": "KENDRYTE",
+    "description": "KENDRYTE Board Support Packages",
+    "index": [
+        "K210-RT-DRACO"
+    ]
+}
