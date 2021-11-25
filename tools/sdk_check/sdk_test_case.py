@@ -52,6 +52,8 @@ def judge_build_result():
             print(line)
         if (line.find("region `ROM' overflowed") != -1) or (line.find("region `RAM' overflowed") != -1):
             print(line)
+		if (line.find("smart") != -1):
+            print(line)
         if line.find("Finished building target: rtthread.elf") != -1:
             build_result = True
             break
