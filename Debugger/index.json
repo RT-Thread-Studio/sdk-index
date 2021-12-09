@@ -6,6 +6,7 @@
         "ST-Link",
         "PyOCD",
         "QEMU",
-        "OpenOCD-KENDRYTE"
+        "OpenOCD-KENDRYTE",
+        "WCH-LINK_Debugger"
     ]
 }
