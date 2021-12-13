@@ -59,6 +59,6 @@
         "STM32L496-ST-NUCLEO",
         "STM32WB55-ST-NUCLEO",
         "STM32WL55-ST-NUCLEO",
-        "stm32g474-st-nucleo"
+        "STM32G474-ST-NUCLEO"
     ]
 }
