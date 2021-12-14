@@ -6,6 +6,13 @@
     "repository": "https://github.com/NanjingQinheng/sdk-bsp-ch32v307v-r0.git",
     "releases": [
         {
+            "version": "1.0.4",
+            "date": "2021-12-14",
+            "description": "released v1.0.4",
+            "size": "22 MB",
+            "url": "https://github.com/NanjingQinheng/sdk-bsp-ch32v307v-r0/archive/refs/tags/V1.0.4.zip"
+        },       
+        {
             "version": "1.0.3",
             "date": "2021-12-10",
             "description": "released v1.0.3",
