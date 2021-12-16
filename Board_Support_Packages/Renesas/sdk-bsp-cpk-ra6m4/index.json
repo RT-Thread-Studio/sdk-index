@@ -1,0 +1,16 @@
+{
+    "name": "CPK-RA6M4",
+    "vendor": "RealThread",
+    "description": "CPK-RA6M4 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-12-15",
+            "description": "released 1.0.0",
+            "size": "58.4 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
