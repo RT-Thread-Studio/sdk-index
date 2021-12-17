@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "v7.50a",
+            "date": "2020-12-17",
+            "description": "j-link driver released v7.50a",
+            "size": "57 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v7.50a.zip"
+        },
+        {
             "version": "6.80d2",
             "date": "2020-07-06",
             "description": "j-link driver released v6.80d2",
