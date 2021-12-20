@@ -1,0 +1,16 @@
+{
+    "name": "ES32W3",
+    "vendor": "essemi",
+    "description": "ES32W3 Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/liuhy-2020/sdk-csp-es32w3.git",
+    "releases": [
+        {
+            "version": "0.0.1",
+            "date": "2021-12-20",
+            "description": "the first version.",
+            "size": "16 MB",
+            "url": "https://github.com/liuhy-2020/sdk-csp-es32w3/archive/refs/tags/v0.0.1.zip"
+        }
+    ]
+}
