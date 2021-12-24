@@ -4,11 +4,20 @@
     "description": "K210-RT-DRACO Board Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
-    "releases": [{
-        "version": "1.0.0",
-        "date": "2021-11-12",
-        "description": "released v1.0.0",
-        "size": "25.7 MB",
-        "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/v1.0.0.zip"
-    }]
+    "releases": [
+        {
+            "version": "1.0.1",
+            "date": "2021-12-24",
+            "description": "released v1.0.1",
+            "size": "14.9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/v1.0.1.zip"
+        },
+        {
+            "version": "1.0.0",
+            "date": "2021-11-12",
+            "description": "released v1.0.0",
+            "size": "25.7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/v1.0.0.zip"
+        }
+    ]
 }
