@@ -1,0 +1,8 @@
+{
+    "name": "NuMicro Series Board Support Packages",
+    "dvendor": "Nuvoton",
+    "description": "Nuvoton NuMicro series Board Support Packages",
+    "index": [
+        "NUMAKER-M2354"
+    ]
+}
