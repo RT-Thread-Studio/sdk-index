@@ -3,6 +3,7 @@
     "dvendor": "Nuvoton",
     "description": "Nuvoton NuMicro series Board Support Packages",
     "index": [
-        "NUMAKER-M2354"
+        "NUMAKER-M2354",
+        "NUMAKER-PFM-M487"
     ]
 }
