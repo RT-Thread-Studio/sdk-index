@@ -1,0 +1,8 @@
+{
+    "name": "ATSAM Chip Support Packages",
+    "dvendor": "Microchip",
+    "description": "Microchip ATSAM series Chip Support Packages",
+    "index": [
+        "ATSAMD21"
+    ]
+}

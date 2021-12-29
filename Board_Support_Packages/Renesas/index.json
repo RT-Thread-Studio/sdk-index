@@ -1,0 +1,8 @@
+{
+    "name": "Renesas Series Board Support Packages",
+    "dvendor": "Renesas",
+    "description": "Renesas series Board Support Packages",
+    "index": [
+        "sdk-bsp-cpk-ra6m4"
+    ]
+}

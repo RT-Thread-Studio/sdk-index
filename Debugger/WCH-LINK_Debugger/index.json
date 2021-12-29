@@ -1,0 +1,22 @@
+{
+    "name": "WCH-LINK_Debugger",
+    "vendor": "WCH",
+    "description": "WCH-LINK_Debugger",
+    "license": "",
+    "releases": [
+        {
+            "version": "1.0.2",
+            "date": "2021-12-10",
+            "description": "WCH-LINK_Debugger",
+            "size": "789 KB",
+            "url": "https://github.com/NanjingQinheng/WCH-Link/archive/refs/tags/V1.0.2.zip"
+        },
+        {
+            "version": "1.0.0",
+            "date": "2021-12-09",
+            "description": "WCH-LINK_Debugger",
+            "size": "634 KB",
+            "url": "https://github.com/NanjingQinheng/WCH-Link/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
