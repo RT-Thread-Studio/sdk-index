@@ -7,7 +7,7 @@
         "version": "1.0.0",
         "date": "2021-12-29",
         "description": "Init OpenOCD-Nuvoton Debugger",
-        "size": "14 MB",
+        "size": "15 MB",
         "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.0.zip"
     }]
 }
