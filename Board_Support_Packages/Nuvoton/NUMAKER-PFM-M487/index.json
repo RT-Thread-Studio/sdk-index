@@ -3,14 +3,14 @@
     "vendor": "Nuvoton",
     "description": "NUMAKER-PFM-M487 Board Support Packages",
     "license": "",
-    "repository": "https://github.com/wugensheng-code/sdk-bsp-numaker-pfm-m487.git",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-pfm-m487.git",
     "releases": [
         {
             "version": "1.0.0",
             "date": "2021-12-08",
             "description": "released v1.0.0",
             "size": "3 MB",
-            "url": "https://github.com/wugensheng-code/sdk-bsp-numaker-pfm-m487/archive/refs/tags/v1.1.0.zip"
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-pfm-m487/archive/v1.0.0.zip"
         }
     ]
 }
