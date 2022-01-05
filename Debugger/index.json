@@ -7,7 +7,6 @@
         "PyOCD",
         "QEMU",
         "OpenOCD-KENDRYTE",
-        "WCH-LINK_Debugger",
-        "OpenOCD-Nuvoton"
+        "WCH-LINK_Debugger"
     ]
 }
