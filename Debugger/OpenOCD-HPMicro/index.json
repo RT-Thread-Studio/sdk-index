@@ -1,0 +1,13 @@
+{
+    "name": "OpenOCD-HPMicro",
+    "vendor": "HPMicro",
+    "description": "OpenOCD-HPMicro Debugger for SoCs from HPMicro Semiconductor",
+    "license": "",
+    "releases": [{
+        "version": "0.1.0",
+        "date": "2021-01-17",
+        "description": "Initial OpenOCD-HPMicro Debugger Support",
+        "size": "9 MB",
+        "url": "https://github.com/hpmicro/rtt-debugger-support-package/archive/v0.1.0.zip"
+    }]
+}
