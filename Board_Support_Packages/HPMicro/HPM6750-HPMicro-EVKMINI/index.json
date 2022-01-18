@@ -1,0 +1,16 @@
+{
+    "name": "HPM6750-HPMicro-EVKMINI",
+    "vendor": "HPMicro",
+    "description": "HPM6750EVKMINI Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini.git",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2022-01-18",
+            "description": "released v0.1.0",
+            "size": "30 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v0.1.0.zip"
+        }
+    ]
+}
