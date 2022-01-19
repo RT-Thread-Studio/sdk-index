@@ -6,7 +6,7 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l4.git",
     "releases": [
         {
-            "version": "0.2.1",
+            "version": "0.2.2",
             "date": "2020-01-18",
             "description": "released v0.2.1",
             "size": "107 MB",
