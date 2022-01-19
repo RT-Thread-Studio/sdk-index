@@ -1,0 +1,8 @@
+{
+    "name": "HPM6000 Series Board Support Packages",
+    "dvendor": "HPMicro",
+    "description": "HPM6000 series Board Support Packages",
+    "index": [
+        "HPM6750-HPMicro-EVKMINI"
+    ]
+}

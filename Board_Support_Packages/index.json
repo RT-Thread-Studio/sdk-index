@@ -22,6 +22,7 @@
         "Nations",
         "Renesas",
         "Nuvoton",
+        "HPMicro",
         "Other"
     ]
 }
