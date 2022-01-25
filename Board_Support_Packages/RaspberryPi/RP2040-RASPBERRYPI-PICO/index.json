@@ -18,6 +18,13 @@
             "description": "v1.0.5 release",
             "size": "156 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-bsp-rp2040-raspberry-pico/archive/1.0.5.zip"
+        },
+        {
+            "version": "1.0.6",
+            "date": "2022-01-25",
+            "description": "v1.0.6 release：add lvgl support.",
+            "size": "149 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-rp2040-raspberry-pico/archive/1.0.6.zip"
         }
     ]
 }
