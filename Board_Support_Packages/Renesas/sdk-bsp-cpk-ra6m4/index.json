@@ -6,11 +6,11 @@
     "repository": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4.git",
     "releases": [
         {
-            "version": "1.0.0",
-            "date": "2021-12-15",
-            "description": "released 1.0.0",
-            "size": "58.4 MB",
-            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.0.0.zip"
+            "version": "1.0.1",
+            "date": "2022-01-05",
+            "description": "released v1.0.1, Fix problems that cannot be debug",
+            "size": "58 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.0.1.zip"
         }
     ]
 }

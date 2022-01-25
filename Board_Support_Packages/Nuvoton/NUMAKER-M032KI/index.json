@@ -7,9 +7,9 @@
     "releases": [
         {
             "version": "1.0.0",
-            "date": "2021-12-08",
+            "date": "2022-1-14",
             "description": "released v1.0.0",
-            "size": "3 MB",
+            "size": "4 MB",
             "url": "https://github.com/wosayttn/sdk-bsp-numaker-m032ki/archive/v1.0.0.zip"
         }
     ]

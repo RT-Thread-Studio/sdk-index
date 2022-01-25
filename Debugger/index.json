@@ -8,6 +8,7 @@
         "QEMU",
         "OpenOCD-KENDRYTE",
         "WCH-LINK_Debugger",
-        "OpenOCD-Nuvoton"
+        "OpenOCD-Nuvoton",
+        "OpenOCD-HPMicro"
     ]
 }
