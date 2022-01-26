@@ -1,0 +1,16 @@
+{
+    "name": "NK-RTU980",
+    "vendor": "Nuvoton",
+    "description": "NK-RTU980 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-nk-rtu980.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-1-26",
+            "description": "released v1.0.0",
+            "size": "8 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-rtu980/archive/v1.0.0.zip"
+        }
+    ]
+}
