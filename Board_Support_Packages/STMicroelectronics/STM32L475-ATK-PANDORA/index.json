@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l475-atk-pandora.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2022-01-27",
+            "description": "Upgrade driver,add a example for WIFI",
+            "size": "23.1 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32l475-atk-pandora/archive/1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2021-06-03",
             "description": "Upgrade driver,add a example for WIFI",
