@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32g431-st-nucleo.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2022-01-27",
+            "description": "released v1.0.2",
+            "size": "6 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32g431-st-nucleo/archive/1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2022-01-25",
             "description": "released v1.0.1",
