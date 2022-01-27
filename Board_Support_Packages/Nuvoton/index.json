@@ -3,6 +3,8 @@
     "dvendor": "Nuvoton",
     "description": "Nuvoton NuMicro series Board Support Packages",
     "index": [
+        "NK-RTU980",
+        "NK-980IOT",
         "NUMAKER-PFM-M487",
         "NUMAKER-M2354",
         "NUMAKER-IOT-M487",
