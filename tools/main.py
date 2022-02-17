@@ -119,7 +119,7 @@ class StudioSdkManagerIndex:
         deleted_list = list(set(last_csp_list).difference(new_csp_list))
         if len(deleted_list) != 0:
             logging.info("Please do not delete the old release: "+str(deleted_list))
-            exit(0)
+            exit(1)
 
         incleased_list = list(set(new_csp_list).difference(set(last_csp_list)))
         return incleased_list
