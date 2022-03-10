@@ -1,0 +1,8 @@
+{
+    "name": "N32G45X Series Board Support Packages",
+    "dvendor": "Nations",
+    "description": "N32G45X series Board Support Packages",
+    "index": [
+        "n32g45xvl-stb"
+    ]
+}
