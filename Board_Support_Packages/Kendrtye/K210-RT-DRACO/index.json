@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
     "releases": [
         {
+            "version": "1.0.3",
+            "date": "2022-03-11",
+            "description": "add dependencies for toolchain and debugger",
+            "size": "14.9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.3.zip"
+        },
+        {
             "version": "1.0.2",
             "date": "2021-1-21",
             "description": "released v1.0.2",
