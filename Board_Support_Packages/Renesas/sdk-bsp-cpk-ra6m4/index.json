@@ -11,6 +11,13 @@
             "description": "released v1.0.1, Fix problems that cannot be debug",
             "size": "58 MB",
             "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.0.1.zip"
+        },
+        {
+            "version": "1.2.0",
+            "date": "2022-03-11",
+            "description": "Support FSP 3.5.0; Support RT-Thread 4.1.0;",
+            "size": "50 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.2.0.zip"
         }
     ]
 }
