@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-qemu-vexpress-a9.git",
     "releases": [
         {
+            "version": "1.0.6",
+            "date": "2022-03-15",
+            "description": "change che default path to relative path in debug setting",
+            "size": "22.2 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-qemu-vexpress-a9/archive/1.0.6.zip"
+        },
+        {
             "version": "1.0.5",
             "date": "2021-11-23",
             "description": "change che default path to relative path in debug setting",
