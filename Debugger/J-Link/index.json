@@ -7,28 +7,28 @@
         {
             "version": "v7.50a",
             "date": "2020-12-17",
-            "description": "j-link driver released v7.50a",
+            "description": "Added Support Renesas-RW007 download and debugging",
             "size": "57 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v7.50a.zip"
         },
         {
             "version": "6.80d2",
             "date": "2020-07-06",
-            "description": "j-link driver released v6.80d2",
+            "description": "Added support for Synwit SWM320 download algorithm",
             "size": "57 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/6.80d2.zip"
         },
         {
             "version": "6.80d",
             "date": "2020-07-06",
-            "description": "j-link driver released v6.80d",
+            "description": "Added support ArteryTek debugging",
             "size": "57 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/6.80d.zip"
         },
         {
             "version": "6.30i",
             "date": "2020-05-08",
-            "description": "j-link driver released v6.30i",
+            "description": "Added support j-link debugger",
             "size": "41 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/6.30i.zip"
         }
