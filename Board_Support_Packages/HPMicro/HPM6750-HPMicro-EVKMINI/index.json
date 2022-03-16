@@ -6,9 +6,16 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini.git",
     "releases": [
         {
+            "version": "0.3.0",
+            "date": "2022-03-16",
+            "description": "Integrated SDK v0.8.0, support sdcard, usb-hid, serial_v2, pwm, flashdb",
+            "size": "120 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v0.3.0.zip"
+        },
+        {
             "version": "0.2.1",
             "date": "2022-02-18",
-            "description": "Integrated SDK v0.2.1, supported ethernet, added 4 examples",
+            "description": "Integrated SDK v0.7.1, supported ethernet, added 4 examples",
             "size": "70 MB",
             "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v0.2.1.zip"
         },
