@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f405-smdz-breadfruit.git",
     "releases": [
         {
+            "version": "0.1.1",
+            "date": "2022-03-17",
+            "description": "Support RT-Thread 4.0.5",
+            "size": "8 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f405-smdz-breadfruit/archive/v0.1.1.zip"
+        },
+        {
             "version": "0.1.0",
             "date": "2020-09-12",
             "description": "released v0.1.0",
