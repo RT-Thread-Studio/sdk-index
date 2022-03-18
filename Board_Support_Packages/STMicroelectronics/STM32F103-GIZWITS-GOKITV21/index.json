@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-gizwits-gokitv21",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2022-03-17",
+            "description": "Support RT-Thread 4.0.5",
+            "size": "25 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-gizwits-gokitv21/archive/refs/tags/1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2021-07-01",
             "description": "released v1.0.0",
