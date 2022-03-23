@@ -1,0 +1,8 @@
+{
+    "name": "Geehy Board Support Packages",
+    "dvendor": "Geehy",
+    "description": "Geehy Board Support Packages",
+    "index": [
+        "APM32F103ZE-GEEHY-MINI"
+    ]
+}
