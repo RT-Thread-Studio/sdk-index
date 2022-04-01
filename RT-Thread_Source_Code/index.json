@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "4.1.0",
+            "date": "2022-04-01",
+            "description": "https://github.com/RT-Thread/rt-thread/releases/tag/v4.1.0",
+            "size": "141 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-rt-thread-source-code/archive/v4.1.0.zip"
+        },
+        {
             "version": "4.0.5",
             "date": "2022-01-10",
             "description": "https://github.com/RT-Thread/rt-thread/releases/tag/v4.0.5",
