@@ -1,7 +1,7 @@
 {
-    "name": "MicroChip Board Support Packages",
-    "dvendor": "MicroChip",
-    "description": "MicroChip Board Support Packages",
+    "name": "Microchip Board Support Packages",
+    "dvendor": "Microchip",
+    "description": "Microchip Board Support Packages",
     "index": [
         "AT91SAM9260-MICROCHIP-EVA"
     ]
