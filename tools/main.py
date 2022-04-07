@@ -322,8 +322,8 @@ class SdkSyncPackages:
             logging.error("Error message: {0}.".format(e))
 
         try:
-            request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, {
-                'content-type': 'application/json'})
+            headers = {'content-type': 'application/json', 'Rt-Token':os.environ['MIRROR_REG_TOKEN']}
+            request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, headers=headers)
             response = urllib.request.urlopen(request)
             resp = response.read()
         except Exception as e:
