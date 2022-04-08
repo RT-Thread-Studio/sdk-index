@@ -216,20 +216,9 @@ class SdkSyncPackages:
         mirror_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
         mirror_org_name = "RT-Thread-Studio-Mirror"
 
-        if 'username' in os.environ:
+        if 'GITEE_TOKEN' in os.environ:
             logging.info("Find sync token")
-            username = os.environ['username']
-            password = os.environ['password']
-            client_id = os.environ['client_id']
-            client_secret = os.environ['client_secret']
-
-            payload = 'grant_type=password&username={0}&password={1}&client_id={2}' \
-                      '&client_secret={3}&scope=' \
-                      'user_info projects pull_requests issues notes keys hook groups gists'.format(username, password,
-                                                                                                    client_id,
-                                                                                                    client_secret)
-
-            token = PackagesSync.get_access_token(payload)
+            token = os.environ['GITEE_TOKEN']
             packages_update = PackagesSync(
                 work_path, mirror_file, mirror_url, token, mirror_org_name)
 
