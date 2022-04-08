@@ -147,20 +147,3 @@ class PackagesSync:
             print(resp)
         except Exception as e:
             logging.error("Error message: {0}.".format(e))
-
-    @classmethod
-    def get_access_token(cls, token_payload):
-        try:
-            r = requests.post(
-                "https://gitee.com/oauth/token", data=token_payload)
-
-            if r.status_code == requests.codes.ok:
-                package_info = json.loads(r.text)
-                return package_info['access_token']
-
-        except Exception as e:
-            logging.error("Error message: {0}.".format(e))
-            print('get access token fail')
-
-
-
