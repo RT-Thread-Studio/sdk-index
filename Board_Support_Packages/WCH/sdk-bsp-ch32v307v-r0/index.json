@@ -1,13 +1,20 @@
 {
-    "name": "CH32V307V-R0",
+    "name": "CH32V307V-R1",
     "vendor": "RealThread",
-    "description": "CH32V307V-R0 Board Support Packages",
+    "description": "CH32V307V-R1 Board Support Packages",
     "license": "",
     "repository": "https://github.com/NanjingQinheng/sdk-bsp-ch32v307v-r0.git",
     "releases": [
         {
+            "version": "1.0.6",
+            "date": "2022-4-11",
+            "description": "released v1.0.6",
+            "size": "22 MB",
+            "url": "https://github.com/wozijige/sdk-bsp-ch32v307v-r1/archive/refs/tags/V1.0.6.zip"
+        }, 
+        {
             "version": "1.0.5",
-            "date": "2021-12-16",
+            "date": "2021-1-16",
             "description": "released v1.0.5",
             "size": "22 MB",
             "url": "https://github.com/NanjingQinheng/sdk-bsp-ch32v307v-r0/archive/refs/tags/V1.0.5.zip"
