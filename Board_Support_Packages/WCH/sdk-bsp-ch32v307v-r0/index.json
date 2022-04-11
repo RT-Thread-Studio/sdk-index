@@ -1,6 +1,6 @@
 {
     "name": "CH32V307V-R1",
-    "vendor": "RealThread",
+    "vendor": "WCH",
     "description": "CH32V307V-R1 Board Support Packages",
     "license": "",
     "repository": "https://github.com/NanjingQinheng/sdk-bsp-ch32v307v-r0.git",
