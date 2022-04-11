@@ -3,7 +3,7 @@
     "vendor": "WCH",
     "description": "CH32V307V-R1 Board Support Packages",
     "license": "",
-    "repository": "https://github.com/NanjingQinheng/sdk-bsp-ch32v307v-r0.git",
+    "repository": "https://github.com/wozijige/sdk-bsp-ch32v307v-r1.git",
     "releases": [
         {
             "version": "1.0.6",
