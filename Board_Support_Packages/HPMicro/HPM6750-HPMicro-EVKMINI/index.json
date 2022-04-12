@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini.git",
     "releases": [
         {
+            "version": "0.4.0",
+            "date": "2022-04-11",
+            "description": "Integrated SDK v0.9.0, supported hwtimer,watchdog",
+            "size": "121 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v0.4.0.zip"
+        },
+        {
             "version": "0.3.0",
             "date": "2022-03-16",
             "description": "Integrated SDK v0.8.0, support sdcard, usb-hid, serial_v2, pwm, flashdb",
