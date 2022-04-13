@@ -160,7 +160,7 @@ class StudioSdkManagerIndex:
             f.write(str(json.dumps(bsp_result, indent=4)))
 
     def get_update_list(self):
-        response = requests.get("https://www.rt-thread.org/studio/sdkmanager/get/index")
+        response = requests.get("https://api.rt-thread.org/studio/sdkmanager/get/index")
 
         # check chip update information
         csp_last_csp_list = json.loads(response.text)["children"][1]
@@ -233,7 +233,7 @@ class SdkSyncPackages:
     def sync_csp_packages(self):
         logging.info("Ready to sync csp or bsp packages")
         self.do_sync_csp_packages()
-        
+
     @staticmethod
     def do_update_sdk_ide_index(index):
         headers = {
@@ -339,7 +339,6 @@ class SdkSyncPackages:
             self.do_update_sdk_mirror_server_index()
         else:
             logging.info("No need to update sdk index")
-            
 
 def main():
     init_logger()
@@ -359,7 +358,6 @@ def main():
         sync.update_sdk_index()
     else:
         logging.info("No need to sync csp or bsp packages")
-
 
 if __name__ == "__main__":
     main()
