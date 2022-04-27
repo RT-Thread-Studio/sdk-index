@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-at32f403a-at-start.git",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2022-04-26",
+            "description": "Support RT-Thread 4.1.0",
+            "size": "4 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-at32f403a-at-start/archive/1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2021-02-01",
             "description": "v1.0.0 release",
