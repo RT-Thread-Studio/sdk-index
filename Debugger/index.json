@@ -9,6 +9,7 @@
         "OpenOCD-KENDRYTE",
         "WCH-LINK_Debugger",
         "OpenOCD-Nuvoton",
-        "OpenOCD-HPMicro"
+        "OpenOCD-HPMicro",
+        "OpenOCD-Nuclei"
     ]
 }
