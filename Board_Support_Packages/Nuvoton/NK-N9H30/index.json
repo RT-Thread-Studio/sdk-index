@@ -1,0 +1,16 @@
+{
+    "name": "NK-N9H30",
+    "vendor": "Nuvoton",
+    "description": "NK-N9H30 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-nk-n9h30.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-5-4",
+            "description": "LVGL-8.2 envoirement",
+            "size": "30 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-n9h30/archive/v1.0.0.zip"
+        }
+    ]
+}
