@@ -3,11 +3,13 @@
     "vendor": "NuClei",
     "description": "OpenOCD-Nuclei Debugger only for NuClei series",
     "license": "",
-    "releases": [{
-        "version": "2022.04",
-        "date": "2022-05-04",
-        "description": "Nuclei released 2022.04 version",
-        "size": "3.9 MB",
-        "url": "https://codeload.github.com/riscv-mcu/riscv-openocd/zip/refs/tags/2022.04"
-    }]
+    "releases": [
+        {
+            "version": "2022.04",
+            "date": "2022-05-04",
+            "description": "Nuclei released 2022.04 version",
+            "size": "3.9 MB",
+            "url": "https://github.com/riscv-mcu/riscv-openocd/archive/2022.04.zip"
+        }
+    ]
 }
