@@ -9,7 +9,7 @@
             "date": "2022-05-04",
             "description": "Nuclei released 2022.04 version",
             "size": "1.9 MB",
-            "url": "https://codeload.github.com/riscv-mcu/riscv-gnu-toolchain/zip/refs/tags/2022.04"
+            "url": "https://github.com/riscv-mcu/riscv-gnu-toolchain/archive/2022.04.zip"
         }
     ]
 }
