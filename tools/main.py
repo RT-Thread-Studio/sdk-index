@@ -203,32 +203,32 @@ class SdkSyncPackages:
         if len(self.update_list) == 0:
             logging.info("Update list is empty, no need to sync.")
             return
+        for url in self.update_list:
+        #url = self.update_list[0]
+            logging.info(url)
 
-        url = self.update_list[0]
-        logging.info(url)
+            tmp = url.split('/')
+            logging.info(tmp[4])
 
-        tmp = url.split('/')
-        logging.info(tmp[4])
+            # get packages repository
+            work_path = r'sync_local_repo/github_mirror'
+            mirror_file = r'sync_local_repo/github_mirror_file'
+            mirror_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
+            mirror_org_name = "RT-Thread-Studio-Mirror"
 
-        # get packages repository
-        work_path = r'sync_local_repo/github_mirror'
-        mirror_file = r'sync_local_repo/github_mirror_file'
-        mirror_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
-        mirror_org_name = "RT-Thread-Studio-Mirror"
+            if 'GITEE_TOKEN' in os.environ:
+                logging.info("Find sync token")
+                token = os.environ['GITEE_TOKEN']
+                packages_update = PackagesSync(
+                    work_path, mirror_file, mirror_url, token, mirror_org_name)
 
-        if 'GITEE_TOKEN' in os.environ:
-            logging.info("Find sync token")
-            token = os.environ['GITEE_TOKEN']
-            packages_update = PackagesSync(
-                work_path, mirror_file, mirror_url, token, mirror_org_name)
+                # create new repo in mirror
+                packages_update.create_repo_in_gitee(tmp[4])
 
-            # create new repo in mirror
-            packages_update.create_repo_in_gitee(tmp[4])
-
-            # clone repo and push
-            packages_update.fetch_packages_from_git(url)
-        else:
-            logging.info("No sync token")
+                # clone repo and push
+                packages_update.fetch_packages_from_git(url)
+            else:
+                logging.info("No sync token")
 
     def sync_csp_packages(self):
         logging.info("Ready to sync csp or bsp packages")
