@@ -38,13 +38,16 @@ class PackagesSync:
         if shell:
             cmd_string_list = cmdstring
 
-        sub = subprocess.Popen(cmd_string_list, cwd=cwd, stdin=subprocess.PIPE,
+        sub = subprocess.Popen(cmd_string_list, cwd=cwd, stdin=subprocess.PIPE,stderr=subprocess.STDOUT,
                                stdout=subprocess.PIPE, shell=shell, bufsize=4096)
 
         stdout_str = ''
         while sub.poll() is None:
+            out= sub.stdout.readline().strip().decode('gbk')
             time.sleep(0.1)
-
+            logging.info(out)
+            if('fatal:' in out):
+                stdout_str=out
         return stdout_str
 
     def fetch_packages_from_git(self, archive_path):
@@ -74,9 +77,9 @@ class PackagesSync:
                 cmd = r'git clone %s %s'
                 cmd = cmd % (git_path, repo_name)
                 print('======>Clone packages %s to local.' % repo_name)
-                outClone = self.execute_command(cmd, cwd=org_path)
+                outCloneErr = self.execute_command(cmd, cwd=org_path)
                 print('git_repo_path : %s' % git_repo_path)
-                if('fatal:' in outClone):
+                if(len(outCloneErr)>0):
                     print('error: repo : %s clone fail, wait for next update.' % repo_name)
                     raise Exception('======>Clone failed')
                 cmd = r"""git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" 
@@ -88,10 +91,10 @@ class PackagesSync:
                     cmd = r'git fetch --all'
                     self.execute_command(cmd, cwd=git_repo_path)
                     cmd = r'git pull --all'
-                    outPull= self.execute_command(cmd, cwd=git_repo_path)
+                    outPullErr= self.execute_command(cmd, cwd=git_repo_path)
                     cmd = r'git fetch --tags'
                     self.execute_command(cmd, cwd=git_repo_path)
-                    if('fatal:' in outPull):
+                    if(len(outPullErr)>0):
                         print('error: repo : %s pull fail, wait for next update.' % repo_name)
                         raise Exception('======>Pull failed')
                 except Exception as e:
@@ -112,8 +115,8 @@ class PackagesSync:
         print('cmd: ' + cmd)
         print("repo_path: " + repo_path)
 
-        outPush= self.execute_command(cmd, cwd=repo_path)
-        if('fatal:' in outPush):
+        outPushErr= self.execute_command(cmd, cwd=repo_path)
+        if(len(outPushErr)>0):
             print('error: repo : %s push fail, wait for next update.' % repo_name)
             raise Exception('======>Push failed')
         else:
