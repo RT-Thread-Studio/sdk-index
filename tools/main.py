@@ -19,7 +19,7 @@ import urllib.parse
 import urllib.request
 from jsonschema import RefResolver, Draft7Validator, FormatChecker
 from package_sync import PackagesSync
-
+import time
 
 def init_logger():
     log_format = "[%(filename)s %(lineno)d %(levelname)s] %(message)s "
@@ -349,15 +349,41 @@ def main():
     generate_all_index.index_schema_check(index_content)
 
     # 2. get packages need to test and sync
+    # if locked waiting until unlock or 30min later
+    count=0
+    while (get_merge_lock()=='true' and count<=30):
+        logging.info("Merge is locked retrying in 10Secs...")
+        time.sleep(10)
+        count=count+1
+    if(count>30):
+        logging.info("Merge is locked more than 5min,skip the lock")
+    
     update_list = generate_all_index.get_update_list()
-
     # 3. sync updated sdk package and sdk index
     sync = SdkSyncPackages(update_list, index_content)
     if sync.is_master_repo():
-        sync.sync_csp_packages()
-        sync.update_sdk_index()
+        set_merge_lock('true')
+        logging.info("Merge Lock")
+        try:
+            sync.sync_csp_packages()
+            sync.update_sdk_index()
+            set_merge_lock('false')
+            logging.info("Merge Unlock")
+        except Exception as e:
+            logging.error("Error message: {0}.".format(e))
+            set_merge_lock('false')
+            logging.info("Merge Unlock")
+            exit(1)
     else:
         logging.info("No need to sync csp or bsp packages")
+
+def get_merge_lock():
+    response = requests.get("https://api.rt-thread.org/studio/sdkmanager/mergelock")
+    return response.text
+
+def set_merge_lock(val):
+    response = requests.get("https://api.rt-thread.org/studio/sdkmanager/mergelock/{0}".format(val))
+    return response.text
 
 if __name__ == "__main__":
     main()
