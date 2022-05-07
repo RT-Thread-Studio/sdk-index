@@ -356,7 +356,7 @@ def main():
         time.sleep(10)
         count=count+1
     if(count>30):
-        logging.info("Merge is locked more than 30 miniutes,skip the lock")
+        logging.info("Merge is locked more than 5min,skip the lock")
     
     update_list = generate_all_index.get_update_list()
     # 3. sync updated sdk package and sdk index
@@ -364,10 +364,16 @@ def main():
     if sync.is_master_repo():
         set_merge_lock('true')
         logging.info("Merge Lock")
-        sync.sync_csp_packages()
-        sync.update_sdk_index()
-        set_merge_lock('false')
-        logging.info("Merge Unlock")
+        try:
+            sync.sync_csp_packages()
+            sync.update_sdk_index()
+            set_merge_lock('false')
+            logging.info("Merge Unlock")
+        except Exception as e:
+            logging.error("Error message: {0}.".format(e))
+            set_merge_lock('false')
+            logging.info("Merge Unlock")
+            exit(1)
     else:
         logging.info("No need to sync csp or bsp packages")
 
