@@ -20,7 +20,7 @@ def get_build_result(cmd_pre, project_name):
         print("Error : {0} not exit.".format(project_path))
         return False
 
-    cmd = cmd_pre + " -cleanBuild '{0}' 1>build.log 2>/dev/null".format(project_name)
+    cmd = cmd_pre + " -cleanBuild all 1>build.log 2>/dev/null"
     execute_command(cmd)
     build_result = judge_build_result()
 
