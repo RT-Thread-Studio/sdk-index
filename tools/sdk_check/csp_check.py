@@ -52,7 +52,10 @@ def exec_csp_test_case():
         logging.error("\nError message : {0}.".format(e))
         sys.exit(1)
 
-    execute_command("wget -nv -O /rt-thread/rt-thread-csp.zip {0}".format(sdk_url))
+    err= execute_command("wget -nv -O /rt-thread/rt-thread-csp.zip {0}".format(sdk_url))
+    if len(err)>0:
+        logging.error("downloadFailed : {0}{1}".format(err,sdk_url))
+        sys.exit(1)
     execute_command("unzip -o /rt-thread/rt-thread-csp.zip -d /rt-thread/rt-thread-csp")
     execute_command("rm -rf /rt-thread/rt-thread-csp.zip")
     rt_thread_csp_dir = os.listdir("/rt-thread/rt-thread-csp")
