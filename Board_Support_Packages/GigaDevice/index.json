@@ -6,6 +6,7 @@
         "GD32F103C-GD-EVAL",
         "GD32F303Z-GD-EVAL",
         "GD32F450Z-GD-EVAL",
+        "GD32VF103V-GD-EVAL",
         "GD32VF103-NUCLEI-RVSTAR"
     ]
 }
