@@ -59,17 +59,19 @@ def main():
         with open('/rt-thread/sdk-index/tools/bsp_update_url.json', "r") as f:
             sdk_url = json.loads(f.read())[0]
 
-        bsp_ignore = os.path.join(os.getcwd(), ".bspignore")
+        logging.info("bsp check test URL : {0}".format(sdk_url))
+
+        bsp_ignore = os.path.join(os.getcwd(), "bspignore.json")
         if os.path.exists(bsp_ignore) is False:
             start_exec_bsp_test_case(sdk_url)
 
         # if bsp_ignore exists    
         with open(bsp_ignore, 'r') as f:
-            log_info = f.readlines()
-        for line in log_info:
-            if "RT-Thread-Studio/{0}/archive".format(line.strip()) in sdk_url:
-                logging.info("{0} is ignored, please check in /tools/sdk_check/.bspignore".format(line))
-                sys.exit(0)
+            ignores = json.loads(f.read())
+            for ignore in ignores:
+                if ignore in sdk_url:
+                    logging.info("{0} is ignored, please check in /tools/sdk_check/bspignore".format(ignore))
+                    sys.exit(0)
 
         start_exec_bsp_test_case(sdk_url)
     except Exception as e:
