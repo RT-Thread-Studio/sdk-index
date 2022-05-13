@@ -15,7 +15,10 @@ def exec_bsp_test_case():
     with open('/rt-thread/sdk-index/tools/bsp_update_url.json', "r") as f:
         bsp_update_url = json.loads(f.read())[0]
 
-    execute_command("wget -nv -O /rt-thread/bsp.zip {0}".format(bsp_update_url))
+    err= execute_command("wget -nv -O /rt-thread/bsp.zip {0}".format(bsp_update_url))
+    if len(err)>0:
+        logging.error("downloadFailed : {0}{1}".format(err,bsp_update_url))
+        sys.exit(1)
     execute_command("unzip {0} -d /rt-thread/rt-thread-bsp".format("/rt-thread/bsp.zip"))
     execute_command("rm -rf /rt-thread/bsp.zip")
     prj_path = "/RT-ThreadStudio/plugins/gener/gener/"

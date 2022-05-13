@@ -8,11 +8,14 @@ import subprocess
 def execute_command(cmd_string, cwd=None, shell=True):
     """Execute the system command at the specified address."""
 
-    sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,
+    sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
                            stdout=subprocess.PIPE, shell=shell, bufsize=4096)
 
     stdout_str = ''
     while sub.poll() is None:
+        err= sub.stderr.read()
+        if len(err)>0:
+            return err
         stdout_str += str(sub.stdout.read(), encoding="UTF-8")
         time.sleep(0.1)
 
