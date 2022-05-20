@@ -7,7 +7,7 @@
     "releases": [
         {
             "version": "1.0.7",
-            "date": "2022-5-13",
+            "date": "2022-5-20",
             "description": "released v1.0.7",
             "size": "21.7 MB",
             "url": "https://github.com/wozijige/sdk-bsp-ch32v307v-r1/archive/refs/tags/V1.0.7.zip"
