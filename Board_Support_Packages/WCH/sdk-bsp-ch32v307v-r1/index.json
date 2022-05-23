@@ -5,7 +5,7 @@
     "license": "",
     "repository": "https://github.com/wozijige/sdk-bsp-ch32v307v-r1.git",
     "releases": [
-            {
+        {
             "version": "1.0.8",
             "date": "2022-5-23",
             "description": "released v1.0.8",
