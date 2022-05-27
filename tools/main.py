@@ -371,7 +371,7 @@ def main():
             logging.info("Merge Unlock")
         except Exception as e:
             logging.error("Error message: {0}.".format(e))
-            set_merge_lock('false')
+            #set_merge_lock('false')
             logging.info("Merge Unlock")
             exit(1)
     else:
