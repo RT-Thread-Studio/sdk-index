@@ -46,7 +46,7 @@ class PackagesSync:
             out= sub.stdout.readline().strip().decode('gbk')
             time.sleep(0.1)
             logging.info(out)
-            if('fatal:' in out):
+            if('fatal:' in out or 'disconnect:' in out or 'error:' in out):
                 stdout_str=out
         return stdout_str
 
