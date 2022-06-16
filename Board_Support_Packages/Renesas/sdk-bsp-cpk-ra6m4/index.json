@@ -6,9 +6,16 @@
     "repository": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4.git",
     "releases": [
         {
+            "version": "1.2.2",
+            "date": "2022-06-16",
+            "description": "Specify the ARM tool link path address",
+            "size": "38 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.2.2.zip"
+        },
+        {
             "version": "1.2.1",
             "date": "2022-03-12",
-        "description": "Specify the ARM tool link path address",
+            "description": "Specify the ARM tool link path address",
             "size": "50 MB",
             "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.2.1.zip"
         },
