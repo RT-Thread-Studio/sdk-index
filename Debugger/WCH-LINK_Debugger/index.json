@@ -4,6 +4,13 @@
     "description": "WCH-LINK_Debugger",
     "license": "",
     "releases": [
+                {
+            "version": "1.0.4",
+            "date": "2022-6-21",
+            "description": "WCH-LINK_Debugger",
+            "size": "10.06MB",
+            "url": "https://github.com/wozijige/WCH-Link/archive/refs/tags/1.0.4.zip"
+        },
         {
             "version": "1.0.3",
             "date": "2022-4-12",
