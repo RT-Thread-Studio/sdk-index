@@ -1,0 +1,15 @@
+{
+    "name": "RISC-V-GCC-RV32",
+    "vendor": "RISC-V",
+    "description": "RISC-V-GCC Tool Chain for RV32",
+    "license": "",
+    "releases": [
+        {
+            "version": "2022-04-12",
+            "date": "2022-07-04",
+            "description": "RISC-V GCC 11.1.0 for RV32, built on 2022/04/12",
+            "size": "107 MB",
+            "url": "https://github.com/helloeagleyang/riscv32-gnu-toolchain-win/archive/2022.04.12.zip"
+        }
+    ]
+}
