@@ -1,0 +1,8 @@
+{
+    "name": "XHSC Series Board Support Packages",
+    "dvendor": "XHSC",
+    "description": "XHSC series Board Support Packages",
+    "index": [
+        "ev_f460_lq100_rev2.0"
+    ]
+}
