@@ -1,0 +1,16 @@
+{
+    "name": "ev_f460_lq100_rev2.0",
+    "vendor": "XHSC",
+    "description": "ev_f460_lq100_rev2.0 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ev_f460_lq100_rev2.0",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-07-15",
+            "description": "released v1.0.0",
+            "size": "10 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ev_f460_lq100_rev2.0/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
