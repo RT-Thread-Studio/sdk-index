@@ -1,0 +1,16 @@
+{
+    "name": "ev_f4a0_lq176_rev1.0",
+    "vendor": "XHSC",
+    "description": "ev_f4a0_lq176_rev1.0 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ev_f4a0_lq176_rev1.0",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-07-15",
+            "description": "released v1.0.0",
+            "size": "9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ev_f4a0_lq176_rev1.0/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
