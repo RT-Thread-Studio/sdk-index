@@ -1,0 +1,16 @@
+{
+    "name": "APM32F407IG-GEEHY-MINI",
+    "vendor": "Geehy",
+    "description": "APM32F407IG-GEEHY-MINI Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/Aligagago/sdk-bsp-apm32f407ig-geehy-mini.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-07-29",
+            "description": "v1.0.0 release",
+            "size": "5 MB",
+            "url": "https://github.com/Aligagago/sdk-bsp-apm32f407ig-geehy-mini/archive/refs/tags/v1.0.0.zip"
+        }
+    ]
+}
