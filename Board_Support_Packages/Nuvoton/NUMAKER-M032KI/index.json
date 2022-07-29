@@ -11,6 +11,13 @@
             "description": "released v1.0.0",
             "size": "4 MB",
             "url": "https://github.com/wosayttn/sdk-bsp-numaker-m032ki/archive/v1.0.0.zip"
+        },
+        {
+            "version": "1.0.1",
+            "date": "2022-7-28",
+            "description": "Add dependency description",
+            "size": "4 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m032ki/archive/v1.0.1.zip"
         }
     ]
 }
