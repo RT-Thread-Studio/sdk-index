@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
     "releases": [
         {
+            "version": "1.0.6",
+            "date": "2022-08-2",
+            "description": "Improve device drivers, MPY and etc.",
+            "size": "20.5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.6.zip"
+        },
+        {
             "version": "1.0.4",
             "date": "2022-05-26",
             "description": "add MicroPython extend-modules for Camera, Image, RT-AK and etc.",
