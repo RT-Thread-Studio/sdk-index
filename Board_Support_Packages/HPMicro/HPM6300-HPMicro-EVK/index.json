@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6300evk.git",
     "releases": [
         {
+            "version": "0.7.0",
+            "date": "2022-08-01",
+            "description": "Integrated hpm_sdk v0.12.1, implemented i2c driver, bugfixes and improvements",
+            "size": "40 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6300evk/archive/v0.7.0.zip"
+        },
+        {
             "version": "0.6.0",
             "date": "2022-06-22",
             "description": "First BSP release for HPM6300EVK",
