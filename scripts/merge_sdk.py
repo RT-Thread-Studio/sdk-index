@@ -22,7 +22,7 @@ def submit_index(prIndex):
         sys.exit(1)
 def main():
     logging.getLogger().setLevel(logging.INFO)
-    index=generate_all_index("/rt-thread/sdk-index/index.json")
+    index=generate_all_index("../index.json")
     submit_index(index)
     
 if __name__ == "__main__":
