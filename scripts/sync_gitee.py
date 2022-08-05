@@ -8,7 +8,7 @@ import sys
 import urllib.request
 import urllib.error
 import urllib.parse
-from sdk_index_gen import do_update_sdk_mirror_server_index
+from sdk_index_gen import do_update_sdk_mirror_server_index,generate_all_index
 from common_util import execute_command
 from ci_config import INDEX_SERVER_URL
 
@@ -18,6 +18,7 @@ gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
 mirror_org_name = "RT-Thread-Studio-Mirror"
 
 packages_index = None
+
 
 def gitee_token():
     if 'GITEE_TOKEN' in os.environ:
@@ -133,6 +134,7 @@ def main():
     diff=getPkgs2Sync()
     logging.info("new-pkgs:"+diff)
     arr= json.loads(diff)
+    # for new gitee-index-sync
     for url in arr:
         tmp = url.split('/')
         repoName=tmp[4]
@@ -143,16 +145,46 @@ def main():
                 create_repo_in_gitee(repoName)
                 # clone repo and push
                 fetch_packages_from_git(url)
-                # just for old gitee-index-sync
-                do_update_sdk_mirror_server_index()
             except Exception as e:
                 logging.error(e)
                 continue
         else:
             logging.info("No sync token")
 
+    # just for old gitee-index-sync---to be removed in future 
+    new_index=generate_all_index("../index.json")
+    do_update_sdk_ide_index(new_index)
+    do_update_sdk_mirror_server_index()
 
 
+def do_update_sdk_ide_index(index):
+        headers = {
+            "Content-Type": "application/json"
+        }
+
+        try:
+            r = requests.post(os.environ["UPDATE_SDK_INDEX_ADDRESS"],
+                              data=json.dumps(index),
+                              headers=headers
+                              )
+
+            if r.status_code == requests.codes.ok:
+                logging.info("Update sdk index successful.")
+            else:
+                logging.error("Error code {0}".format(r.status_code))
+
+            r = requests.post(os.environ["UPDATE_SDK_ABROAD_INDEX_ADDRESS"],
+                              data=json.dumps(index),
+                              headers=headers
+                              )
+
+            if r.status_code == requests.codes.ok:
+                logging.info("Update abroad sdk index successful.")
+            else:
+                logging.error("Error code {0}".format(r.status_code))
+
+        except Exception as e:
+            logging.error('Error message:%s' % e)
 
 if __name__ == "__main__":
     main()

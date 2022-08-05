@@ -50,6 +50,8 @@ jobs:
             MIRROR_REG_URL: ${{ secrets.MIRROR_REG_URL }} 
             MIRROR_REG_TOKEN: ${{ secrets.MIRROR_REG_TOKEN }} 
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+            UPDATE_SDK_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_INDEX_ADDRESS }}
+            UPDATE_SDK_ABROAD_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_ABROAD_INDEX_ADDRESS }}
           if: ${{ github.event_name == 'pull_request' }}
           run: |
             cd ${{ github.workspace }}/scripts
