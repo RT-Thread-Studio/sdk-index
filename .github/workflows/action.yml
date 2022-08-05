@@ -49,6 +49,7 @@ jobs:
             RUN_ID: ${{ github.run_id }}
           if: ${{ github.event_name == 'pull_request' }}
           run: |
+            GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
             cd ${{ github.workspace }}
             docker pull realthread/sdk_index:latest
             docker run -v "`pwd`:/rt-thread/sdk-index" -i realthread/sdk_index:latest bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/check_sdk.py ${{ github.run_id }}"
