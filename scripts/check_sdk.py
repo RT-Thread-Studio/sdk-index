@@ -1,13 +1,24 @@
 
 import subprocess
-import os
-#os.chdir("/rt-thread/sdk-index/scripts/sdk_check")
-subprocess.Popen("apt-get update && apt-get -y upgrade", cwd=None, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=True)
-subprocess.Popen("python -m pip install --upgrade pip", cwd=None, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=True)
-subprocess.Popen("pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio", cwd=None, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=True)
+import time
+import logging
+logging.getLogger().setLevel(logging.INFO)
+
+def execute_command(cmd_string, cwd=None, shell=True):
+    sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
+                           stdout=subprocess.PIPE, shell=shell, bufsize=4096)
+    stdout_str = ''
+    while sub.poll() is None:
+        err= sub.stderr.read()
+        stdout_str += str(sub.stdout.read(), encoding="UTF-8")
+        if len(err)>0:
+            raise Exception(err)
+        time.sleep(0.1)
+    return stdout_str
+
+logging.info(execute_command("apt-get update && apt-get -y upgrade"))
+logging.info(execute_command("python -m pip install --upgrade pip"))
+logging.info(execute_command("pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio"))
 
 
 import os
@@ -197,7 +208,7 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
     clear_dir(workspace)
 
 def main():
-    logging.getLogger().setLevel(logging.INFO)
+    
     init_dir()
     index=generate_all_index("/rt-thread/sdk-index/index.json")
     #check schema
