@@ -127,7 +127,7 @@ def check_pkgs():
                     content=f.read()
                     map = yaml.load(content,Loader=yaml.FullLoader)
                     
-                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages':
+                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and map['pkg_type']==3:
                         os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
                         if "ToolChain_Support_Packages" not in str(map):
                             pkg_vendor=map['pkg_vendor']
@@ -137,12 +137,30 @@ def check_pkgs():
                         else:
                             #skip this bsp
                             logging.info("\n message : {0}. has thirdparty toolchain pkgs dependency. ci skipped".format(filename))
-                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages':
+                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages' and map['type']==1:
                         os.environ['SDK_CHECK_TYPE'] = 'csp_check'
                         check_csp(path)
                     else:
-                        logging.info("\n message : {0}.is not a bsp or csp pkg. ci skipped".format(filename))
+                        logging.info("\n message : {0}.is not support. ci skipped".format(filename))
                         sys.exit(0)
+
+def check_report_html(dir):
+    os.chdir(dir)
+    if os.path.exists("report.html") is not True:
+        print("report.html file not exits")
+        return 0
+        
+    try:
+        with open("report.html", "r") as f:
+            report_cont = f.read()
+        if report_cont.find("failed results-table-row") != -1:
+            print("chip or board support package test failed, please check it and repair!")
+            return 1
+    except Exception as err:
+        print("Error message : {0}.".format(err))
+        return 1
+
+    return 0
 
 def check_csp(csp_dir):
     logging.info("start-check-csp--"+csp_dir)
@@ -183,6 +201,7 @@ def check_csp(csp_dir):
     gen_sdk_test_case(csp_dir)
     subprocess.call("python "+csp_dir+"/sdk_test_case.py", shell=True)
     clear_dir(workspace)
+    sys.exit(check_report_html(csp_dir))
 
 def check_bsp(temp_bsp_dir,vendor,name,version):
     logging.info("start-check-bsp--"+temp_bsp_dir)
@@ -207,6 +226,7 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
     gen_sdk_test_case(studio_bsp_dir)
     subprocess.call("python "+studio_bsp_dir+"/sdk_test_case.py", shell=True)
     clear_dir(workspace)
+    sys.exit(check_report_html(studio_bsp_dir))
 
 def main():
     print(sys.argv)
