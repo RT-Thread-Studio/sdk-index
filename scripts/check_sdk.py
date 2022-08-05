@@ -210,7 +210,7 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
 
 def main():
     print(sys.argv)
-    #os.environ['RUN_ID']=sys.argv[0]
+    os.environ['RUN_ID']=sys.argv[1]
     init_dir()
     index=generate_all_index("/rt-thread/sdk-index/index.json")
     #check schema
