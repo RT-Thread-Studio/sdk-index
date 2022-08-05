@@ -45,7 +45,7 @@ def onSyncCompelete(repo_name):
         logging.error(e)
 
 def checkGitActionIsError(e):
-    return 'fatal:' in e or 'disconnect:' in e or 'error:' in e
+    return 'fatal:' in str(e) or 'disconnect:' in str(e) or 'error:' in str(e) or 'Error' in str(e)
 
 def fetch_packages_from_git(zip_url):
         print('======>Fetch package from git repo :' + zip_url)
@@ -89,6 +89,8 @@ def fetch_packages_from_git(zip_url):
         except Exception as e:
             if(checkGitActionIsError(e)):
                 logging.error('error: %s clone failed, wait for next update.' % repo_name)
+            else:
+                logging.info(e)
 
         git_https_url = "%s/%s.git" % (gitee_url, repo_name)
         git_ssl_url = https_url_to_ssh_url(git_https_url)
@@ -105,6 +107,7 @@ def fetch_packages_from_git(zip_url):
             if(checkGitActionIsError(e)):
                 logging.error("error: push failed {0}.".format(e))
             else:
+                logging.info(e)
                 print('======>Push done')
                 onSyncCompelete(repo_name)
 

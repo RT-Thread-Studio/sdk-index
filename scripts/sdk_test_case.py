@@ -22,7 +22,8 @@ def exec_test_case(dir):
     print("=================> Project build start.")
     begin_time = time.time()
     script=os.path.join(dir,"sdk_test_case.py")
-    pytest.main([script, '--html=report.html', '--self-contained-html'])
+    report=os.path.join(dir,"report.html")
+    pytest.main([script, '--html='+report, '--self-contained-html'])
     execute_command("rm -rf /rt-thread/eclipse/workspace")
     print("=================> Project build end, time consuming : {0}.".format(time.time() - begin_time))
 
