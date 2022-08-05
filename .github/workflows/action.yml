@@ -34,7 +34,8 @@ jobs:
             pip install requests wheel jsonschema wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio
         #配置ssh及环境变量
         - name: Config Github SSH
-          shell: bash  
+          shell: bash
+          if: ${{ github.ref == 'refs/heads/master' }}  
           env:
             GITEE_PRIVATE_KEY: ${{ secrets.SSH_SECRET_GITEE }}
           run: |
