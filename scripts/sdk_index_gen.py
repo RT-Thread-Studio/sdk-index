@@ -46,10 +46,7 @@ def packages_info_mirror_register(packages_json_file):
         with open(packages_json_file, 'rb') as f:
             json_content = f.read()
 
-        try:
-            package_json_register = json.loads(json_content.decode('utf-8'))
-        except Exception as e:
-            logging.error("Error message1: {0}.".format(e))
+        package_json_register = json.loads(json_content.decode('utf-8'))
 
         package_json_register["name"] = "RT-Thread_Studio_" + package_json_register["name"]
 
@@ -79,21 +76,14 @@ def packages_info_mirror_register(packages_json_file):
 
         payload_register["packages"][0] = package_json_register
 
-        try:
-            data = json.dumps(payload_register).encode("utf-8")
-        except Exception as e:
-            logging.error("Error message2: {0}.".format(e))
+        data = json.dumps(payload_register).encode("utf-8")
 
-        try:
-            headers = {'content-type': 'application/json', 'Rt-Token':os.environ['MIRROR_REG_TOKEN']}
-            request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, headers=headers)
-            response = urllib.request.urlopen(request)
-            resp = response.read()
-        except Exception as e:
-            logging.error("Error message3: {0}.".format(e))
-            print('======>Software package registration failed.')
-        else:
-            logging.info("{0} register successful.".format(package_json_register["name"]))
+        headers = {'content-type': 'application/json', 'Rt-Token':os.environ['MIRROR_REG_TOKEN']}
+        request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, headers=headers)
+        response = urllib.request.urlopen(request)
+        resp = response.read()
+        logging.info("{0} register successful.".format(package_json_register["name"]))
+        
 
 #for old sync type
 def do_update_sdk_mirror_server_index():
@@ -103,4 +93,9 @@ def do_update_sdk_mirror_server_index():
                 if filename == 'index.json':
                     index_content = get_json_obj_from_file(os.path.join(path, filename))
                     if "releases" in index_content:
-                        packages_info_mirror_register(os.path.join(path, filename))
+                        try:
+                            packages_info_mirror_register(os.path.join(path, filename))
+                        except Exception as e:
+                            logging.error("Error message3: {0}.".format(e))
+                            print('======>Software package registration failed.')
+                        
