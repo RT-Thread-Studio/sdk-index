@@ -51,7 +51,7 @@ jobs:
           run: |
             cd ${{ github.workspace }}
             docker pull realthread/sdk_index:latest
-            docker run -v "`pwd`:/rt-thread/sdk-index" -i realthread/sdk_index:latest bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/check_sdk.py"
+            docker run -v "`pwd`:/rt-thread/sdk-index" -i realthread/sdk_index:latest bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/check_sdk.py ${{ github.run_id }}"
         #如果是MERGE直接更新Github-SDKINDEX
         - name: Update-Github-Sdk-Index
           shell: bash

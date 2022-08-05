@@ -42,7 +42,8 @@ def run_id():
 
 def pr_index(prIndex):
     try:
-        prid = run_id()  #"20220730"
+        prid = run_id()
+        logging.info("pr_id:"+prid)
         headers={"Content-Type":"application/json; charset=UTF-8"}
         url=INDEX_SERVER_URL+"/pr/"+prid
         response = requests.post(url,data=json.dumps(prIndex),headers=headers,timeout=60)
@@ -52,7 +53,7 @@ def pr_index(prIndex):
             logging.info("request-snapshot-Compeleted: {0}.".format(url))
             return json.loads(response.text)
     except Exception as e:
-        logging.error("request-snapshot-Failed: {0}.".format(url))
+        logging.error("request-snapshot-Failed.")
         logging.error(e)
         sys.exit(1)
 
@@ -208,7 +209,8 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
     clear_dir(workspace)
 
 def main():
-    
+    print(sys.argv)
+    #os.environ['RUN_ID']=sys.argv[0]
     init_dir()
     index=generate_all_index("/rt-thread/sdk-index/index.json")
     #check schema
