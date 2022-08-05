@@ -11,6 +11,7 @@ import urllib.parse
 from sdk_index_gen import do_update_sdk_mirror_server_index
 from common_util import execute_command
 from ci_config import INDEX_SERVER_URL
+
 mirror_path = r'sync_local_repo/github_mirror'
 mirror_file = r'sync_local_repo/github_mirror_file'
 gitee_url = 'https://gitee.com/RT-Thread-Studio-Mirror'
