@@ -88,6 +88,7 @@ def packages_info_mirror_register(packages_json_file):
 #for old sync type
 def do_update_sdk_mirror_server_index():
         folder_walk_result = os.walk("..")
+        err=''
         for path, d, filelist in folder_walk_result:
             for filename in filelist:
                 if filename == 'index.json':
@@ -96,6 +97,8 @@ def do_update_sdk_mirror_server_index():
                         try:
                             packages_info_mirror_register(os.path.join(path, filename))
                         except Exception as e:
-                            logging.error("Error message3: {0}.".format(e))
-                            print('======>Software package registration failed.')
+                            if err!="Error message3: {0}.".format(e):
+                                err="Error message3: {0}.".format(e)
+        if err!='':
+            print('======>Software package registration failed.')
                         

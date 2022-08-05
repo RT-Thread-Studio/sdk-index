@@ -161,7 +161,6 @@ def do_update_sdk_ide_index(index):
         headers = {
             "Content-Type": "application/json"
         }
-
         try:
             r = requests.post(os.environ["UPDATE_SDK_INDEX_ADDRESS"],
                               data=json.dumps(index),
