@@ -18,7 +18,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
 
 logging.info(execute_command("apt-get update && apt-get -y upgrade"))
 logging.info(execute_command("python -m pip install --upgrade pip"))
-logging.info(execute_command("pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio"))
+logging.info(execute_command("pip install requests wget pyyaml jsonschema pytest pytest-sugar pytest-html rt-thread-studio"))
 
 
 import os
