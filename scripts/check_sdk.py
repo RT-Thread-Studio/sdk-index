@@ -127,7 +127,7 @@ def check_pkgs():
                     content=f.read()
                     map = yaml.load(content,Loader=yaml.FullLoader)
                     
-                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and map['pkg_type']==3:
+                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and 'yaml_version' in map.keys()  and map['yaml_version']==3:
                         os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
                         if "ToolChain_Support_Packages" not in str(map):
                             pkg_vendor=map['pkg_vendor']
@@ -141,8 +141,8 @@ def check_pkgs():
                         os.environ['SDK_CHECK_TYPE'] = 'csp_check'
                         check_csp(path)
                     else:
-                        logging.info("\n message : {0}.is not support. ci skipped".format(filename))
-                        sys.exit(0)
+                        logging.info("\n message : {0}. yaml_version is not support. ci skipped".format(filename))
+
 
 def check_report_html(dir):
     os.chdir(dir)
