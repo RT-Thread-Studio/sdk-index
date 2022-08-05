@@ -70,10 +70,10 @@ def init_dir():
         os.mkdir(download_dir)
     if not os.path.exists(tempdir_folder):
         os.mkdir(tempdir_folder)
-    # logging.info(execute_command("apt-get update && apt-get -y upgrade"))
-    # logging.info(execute_command("python -m pip install --upgrade pip"))
-    # logging.info(execute_command(
-    #     "pip install wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio"))
+    logging.info(execute_command("apt-get update && apt-get -y upgrade"))
+    logging.info(execute_command("python -m pip install --upgrade pip"))
+    logging.info(execute_command(
+        "pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio"))
 
 
 def prepare_pkgs(changed_pkg_urls):
