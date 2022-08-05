@@ -12,7 +12,7 @@ def execute_command(cmd_string, cwd=None, shell=True):
         err= sub.stderr.read()
         stdout_str += str(sub.stdout.read(), encoding="UTF-8")
         if len(err)>0:
-            raise Exception(err)
+            logging.info(err)
         time.sleep(0.1)
     return stdout_str
 
