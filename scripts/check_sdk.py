@@ -128,9 +128,8 @@ def check_pkgs():
                     map = yaml.load(content,Loader=yaml.FullLoader)
                     
                     if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages':
-                        temp= str(map['template_projects'])
-                        if "ToolChain_Support_Packages" not in temp:
-                            os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
+                        os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
+                        if "ToolChain_Support_Packages" not in str(map):
                             pkg_vendor=map['pkg_vendor']
                             pkg_name=map['board']['name']
                             pkg_version=map['pkg_version']
