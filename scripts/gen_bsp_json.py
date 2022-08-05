@@ -50,6 +50,8 @@ class SdkIndex(object):
                             git_clone_retry(url,latest_folder)
                 else:
                     version = os.path.splitext(url.split("/")[-1])[0]
+                    if 'v' in version:
+                        version=version.replace('v','')
                     pack_folder = rt_studio_repo_path.joinpath(package["package_relative_path"])
                     if not os.path.exists(pack_folder):
                         download_retry(url,pack_folder,"rtt-src.zip")

@@ -28,6 +28,7 @@ jobs:
         - name: Install Python Tools
           shell: bash
           run: |
+            echo ${{ github.repository }}
             sudo apt-get update
             sudo apt-get install python3-pip python3-setuptools python3-wheel -y
             sudo python -m pip install --upgrade pip
@@ -39,6 +40,7 @@ jobs:
           env:
             GITEE_PRIVATE_KEY: ${{ secrets.SSH_SECRET_GITEE }}
           run: |
+            echo ${{ github.repository }}
             mkdir -p ~/.ssh/
             echo "$GITEE_PRIVATE_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
@@ -50,6 +52,7 @@ jobs:
             RUN_ID: ${{ github.run_id }}
           if: ${{ github.event_name == 'pull_request' }}
           run: |
+            echo ${{ github.repository }}
             cd ${{ github.workspace }}
             docker pull realthread/sdk_index:latest
             docker run -v "`pwd`:/rt-thread/sdk-index" -i realthread/sdk_index:latest bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/check_sdk.py ${{ github.run_id }}"
@@ -58,7 +61,7 @@ jobs:
           shell: bash
           env:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-          if: ${{ github.ref != 'refs/heads/master' && github.event_name == 'push' }} 
+          if: ${{ github.repository == 'RT-Thread-Studio/sdk-index' && github.ref == 'refs/heads/master' && github.event_name == 'push' }} 
           run: |
             echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts
@@ -72,7 +75,7 @@ jobs:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
             UPDATE_SDK_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_INDEX_ADDRESS }}
             UPDATE_SDK_ABROAD_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_ABROAD_INDEX_ADDRESS }}
-          if: ${{ github.ref != 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
+          if: ${{ github.repository == 'RT-Thread-Studio/sdk-index' && github.ref == 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
           run: |
             echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts

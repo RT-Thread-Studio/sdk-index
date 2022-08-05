@@ -55,6 +55,8 @@ def git_clone_retry(url,dir,retry=10):
 def download_retry(url,dir,file_name,retry=10):
     success=0
     count=0
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     full_path=os.path.join(os.path.dirname(dir), file_name)
     while (count<=retry and success==0 ):
         count=count+1
@@ -73,7 +75,9 @@ def download_retry(url,dir,file_name,retry=10):
         raise Exception("download failed "+str(retry)+" times")
 
 def file_merge_unzip(zip_file,target_dir):
-    logging.info("unzip:"+zip_file+"---to:"+target_dir+zip_file)
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+    logging.info("unzip:"+zip_file+"---to:"+target_dir)
     #execute_command("unzip -o "+zip_file+" -d "+target_dir)
     zipObj= zipfile.ZipFile(zip_file)
     zipObj.extractall(target_dir)
