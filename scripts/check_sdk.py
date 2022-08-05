@@ -1,7 +1,7 @@
 
 import subprocess
 import os
-os.chdir("/rt-thread/sdk-index/scripts/sdk_check")
+#os.chdir("/rt-thread/sdk-index/scripts/sdk_check")
 subprocess.Popen("apt-get update && apt-get -y upgrade", cwd=None, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
                            stdout=subprocess.PIPE, shell=True)
 subprocess.Popen("python -m pip install --upgrade pip", cwd=None, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
