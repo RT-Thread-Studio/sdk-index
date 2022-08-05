@@ -54,10 +54,11 @@ class SdkIndex(object):
                     if not os.path.exists(pack_folder):
                         download_retry(url,pack_folder,"rtt-src.zip")
                         folder= "/RT-ThreadStudio/repo/Extract/RT-Thread_Source_Code/RT-Thread/"#pack_folder.parent.as_posix()+"/"
-                        file_merge_unzip(os.path.join(folder,"rtt-src.zip"),folder)
+                        file_merge_unzip(os.path.join(pack_folder,"rtt-src.zip"),folder)
                         os.chdir(folder)
                         execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
                         execute_command("rm -f {0}".format("rtt-src.zip"))
+                        execute_command("ls")
             else:
                 pass
 

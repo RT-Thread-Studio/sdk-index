@@ -77,7 +77,7 @@ def download_retry(url,dir,file_name,retry=10):
 def file_merge_unzip(zip_file,target_dir):
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
-    logging.info("unzip:"+zip_file+"---to:"+target_dir+zip_file)
+    logging.info("unzip:"+zip_file+"---to:"+target_dir)
     #execute_command("unzip -o "+zip_file+" -d "+target_dir)
     zipObj= zipfile.ZipFile(zip_file)
     zipObj.extractall(target_dir)
