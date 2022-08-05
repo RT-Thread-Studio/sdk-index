@@ -70,7 +70,7 @@ def download_retry(url,dir,file_name,retry=10):
         except Exception as e:
             logging.error(e)
             logging.info("download failed "+ str(count)+" retry ...")
-            #time.sleep(10)
+            time.sleep(10)
     if(count>retry and not success):
         raise Exception("download failed "+str(retry)+" times")
 
@@ -78,16 +78,17 @@ def file_merge_unzip(zip_file,target_dir):
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
     logging.info("unzip:"+zip_file+"---to:"+target_dir)
-    #execute_command("unzip -o "+zip_file+" -d "+target_dir)
     zipObj= zipfile.ZipFile(zip_file)
     zipObj.extractall(target_dir)
     zipObj.close()
-    logging.info("unzip:"+zip_file+"---to:"+target_dir+"---compeleted")
+    logging.info("unzip:"+zip_file+"---compeleted")
 
 def do_merge_copy(src_dir, dst_dir):
     if not os.path.exists(src_dir):
         raise Exception("ERROR: Can’t get resource {0}, please check the resource.".format(src_dir))
 
+    if not os.path.exists(dst_dir):
+        os.makedirs(dst_dir)
     try:
         execute_command("\cp -rf {0} {1}".format(src_dir,dst_dir))
     except Exception as e:
