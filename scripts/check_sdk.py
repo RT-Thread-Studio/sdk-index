@@ -127,7 +127,7 @@ def check_pkgs():
                     content=f.read()
                     map = yaml.load(content,Loader=yaml.FullLoader)
                     
-                    if 'pkg_type' in map.keys and map['pkg_type']=='Board_Support_Packages':
+                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages':
                         temp= str(map['template_projects'])
                         if "ToolChain_Support_Packages" not in temp:
                             os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
@@ -138,7 +138,7 @@ def check_pkgs():
                         else:
                             #skip this bsp
                             logging.info("\n message : {0}. has thirdparty toolchain pkgs dependency. ci skipped".format(filename))
-                    elif 'type' in map.keys and map['type']=='Chip_Support_Packages':
+                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages':
                         os.environ['SDK_CHECK_TYPE'] = 'csp_check'
                         check_csp(path)
                     else:
