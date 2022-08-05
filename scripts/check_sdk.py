@@ -137,7 +137,7 @@ def check_pkgs():
                         else:
                             #skip this bsp
                             logging.info("\n message : {0}. has thirdparty toolchain pkgs dependency. ci skipped".format(filename))
-                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages' and map['type']==1:
+                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages' and 'yaml_version' in map.keys() and map['yaml_version']==1:
                         os.environ['SDK_CHECK_TYPE'] = 'csp_check'
                         check_csp(path)
                     else:
