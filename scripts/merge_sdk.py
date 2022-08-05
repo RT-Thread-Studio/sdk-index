@@ -23,7 +23,8 @@ def submit_index(prIndex):
 def main():
     logging.getLogger().setLevel(logging.INFO)
     index=generate_all_index("../index.json")
-    submit_index(index)
+    if 'GITEE_TOKEN' in os.environ:
+        submit_index(index)
     
 if __name__ == "__main__":
     main()

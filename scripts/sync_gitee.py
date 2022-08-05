@@ -44,6 +44,9 @@ def onSyncCompelete(repo_name):
     except Exception as e:
         logging.error(e)
 
+def checkGitActionIsError(e):
+    return 'fatal:' in e or 'disconnect:' in e or 'error:' in e
+
 def fetch_packages_from_git(zip_url):
         print('======>Fetch package from git repo :' + zip_url)
 
@@ -84,8 +87,8 @@ def fetch_packages_from_git(zip_url):
             cmd = r'git fetch --tags'
             execute_command(cmd, cwd=git_repo_path)
         except Exception as e:
-            logging.error("Error message: {0}.".format(e))
-            logging.error('error: %s clone failed, wait for next update.' % repo_name)
+            if(checkGitActionIsError(e)):
+                logging.error('error: %s clone failed, wait for next update.' % repo_name)
 
         git_https_url = "%s/%s.git" % (gitee_url, repo_name)
         git_ssl_url = https_url_to_ssh_url(git_https_url)
@@ -97,12 +100,16 @@ def fetch_packages_from_git(zip_url):
         try:
             execute_command(cmd, cwd=repo_path)
             print('======>Push done')
-            #new gitee-url-sync
             onSyncCompelete(repo_name)
         except Exception as e:
-            logging.error("Error message: {0}.".format(e))
+            if(checkGitActionIsError(e)):
+                logging.error("error: push failed {0}.".format(e))
+            else:
+                print('======>Push done')
+                onSyncCompelete(repo_name)
 
 
+    
 def https_url_to_ssh_url(http_url):
         ssh_url = http_url.replace("https://gitee.com/", "git@gitee.com:")
         return ssh_url
@@ -125,7 +132,7 @@ def create_repo_in_gitee(repo_name):
             print(resp)
         except Exception as e:
             #continue
-            logging.error("Error message: {0}.".format(e))
+            logging.info(" create repo failed:  message: {0}.".format(e))
 
 
 def main():

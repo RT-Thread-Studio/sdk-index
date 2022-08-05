@@ -35,6 +35,7 @@ jobs:
         #配置ssh及环境变量
         - name: Config Github SSH
           shell: bash
+          if: ${{ github.ref == 'refs/heads/master' }}  
           env:
             GITEE_PRIVATE_KEY: ${{ secrets.SSH_SECRET_GITEE }}
           run: |
@@ -56,9 +57,10 @@ jobs:
         - name: Update-Github-Sdk-Index
           shell: bash
           env:
-            RUN_ID: ${{ github.run_id }}
-          if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }} 
+            GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          if: ${{ github.ref != 'refs/heads/master' && github.event_name == 'push' }} 
           run: |
+            echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts
             python merge_sdk.py
         #如果是定时任务直接检查github和gitee并进行同步并更新sdk-index-server
@@ -70,8 +72,9 @@ jobs:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
             UPDATE_SDK_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_INDEX_ADDRESS }}
             UPDATE_SDK_ABROAD_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_ABROAD_INDEX_ADDRESS }}
-          if: ${{ github.ref == 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
+          if: ${{ github.ref != 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
           run: |
+            echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts
             python sync_gitee.py
 
