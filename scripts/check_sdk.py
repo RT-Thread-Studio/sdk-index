@@ -1,10 +1,10 @@
 
 import subprocess
 import os
-os.chdir("/rt-thread/sdk-index/tools/sdk_check")
-subprocess.Popen("apt-get update && apt-get -y upgrade")
-subprocess.Popen("python -m pip install --upgrade pip")
-subprocess.Popen("pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio")
+
+subprocess.check_call("apt-get update && apt-get -y upgrade")
+subprocess.check_call("python -m pip install --upgrade pip")
+subprocess.check_call("pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio")
 
 
 import os
