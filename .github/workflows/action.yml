@@ -58,7 +58,7 @@ jobs:
           shell: bash
           env:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-          if: ${{ github.ref != 'refs/heads/master' && github.event_name == 'push' }} 
+          if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }} 
           run: |
             echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts
@@ -72,7 +72,7 @@ jobs:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
             UPDATE_SDK_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_INDEX_ADDRESS }}
             UPDATE_SDK_ABROAD_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_ABROAD_INDEX_ADDRESS }}
-          if: ${{ github.ref != 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
+          if: ${{ github.ref == 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
           run: |
             echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts
