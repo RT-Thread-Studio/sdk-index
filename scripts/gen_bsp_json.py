@@ -52,10 +52,10 @@ class SdkIndex(object):
                     version = os.path.splitext(url.split("/")[-1])[0]
                     pack_folder = rt_studio_repo_path.joinpath(package["package_relative_path"])
                     if not os.path.exists(pack_folder):
-                        download_retry(url,pack_folder,"rtt-src.zip")
                         folder= "/RT-ThreadStudio/repo/Extract/RT-Thread_Source_Code/RT-Thread/"#pack_folder.parent.as_posix()+"/"
-                        file_merge_unzip(os.path.join(pack_folder,"rtt-src.zip"),folder)
+                        download_retry(url,folder,"rtt-src.zip")
                         os.chdir(folder)
+                        file_merge_unzip(os.path.join(folder,"rtt-src.zip"),folder)
                         execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
                         execute_command("rm -f {0}".format("rtt-src.zip"))
                         execute_command("ls")
