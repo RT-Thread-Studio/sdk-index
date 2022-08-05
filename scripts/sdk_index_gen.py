@@ -49,7 +49,7 @@ def packages_info_mirror_register(packages_json_file):
         try:
             package_json_register = json.loads(json_content.decode('utf-8'))
         except Exception as e:
-            logging.error("Error message: {0}.".format(e))
+            logging.error("Error message1: {0}.".format(e))
 
         package_json_register["name"] = "RT-Thread_Studio_" + package_json_register["name"]
 
@@ -73,11 +73,8 @@ def packages_info_mirror_register(packages_json_file):
                     file_replace_url = '/'.join(tmp)
                     item['url'] = file_replace_url
 
-        logging.debug(package_json_register)
-
         payload_register = {
-            "packages": [{}
-                         ]
+            "packages": [{}]
         }
 
         payload_register["packages"][0] = package_json_register
@@ -85,7 +82,7 @@ def packages_info_mirror_register(packages_json_file):
         try:
             data = json.dumps(payload_register).encode("utf-8")
         except Exception as e:
-            logging.error("Error message: {0}.".format(e))
+            logging.error("Error message2: {0}.".format(e))
 
         try:
             headers = {'content-type': 'application/json', 'Rt-Token':os.environ['MIRROR_REG_TOKEN']}
@@ -93,7 +90,7 @@ def packages_info_mirror_register(packages_json_file):
             response = urllib.request.urlopen(request)
             resp = response.read()
         except Exception as e:
-            logging.error("Error message: {0}.".format(e))
+            logging.error("Error message3: {0}.".format(e))
             print('======>Software package registration failed.')
         else:
             logging.info("{0} register successful.".format(package_json_register["name"]))
