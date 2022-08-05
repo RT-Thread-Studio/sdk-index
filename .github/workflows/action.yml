@@ -42,25 +42,7 @@ jobs:
             echo "$GITEE_PRIVATE_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
             ssh-keyscan -t rsa gitee.com >> ~/.ssh/known_hosts
-        #如果是PR直接检查提交的资源是否能正常编译
-        - name: Generate-Import-Compile-Test
-          shell: bash
-          env:
-            RUN_ID: ${{ github.run_id }}
-          if: ${{ github.event_name == 'pull_request' }}
-          run: |
-            cd ${{ github.workspace }}
-            docker pull realthread/sdk_index:latest
-            docker run -v "`pwd`:/rt-thread/sdk-index" -i realthread/sdk_index:latest bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/check_sdk.py ${{ github.run_id }}"
-        #如果是MERGE直接更新Github-SDKINDEX
-        - name: Update-Github-Sdk-Index
-          shell: bash
-          env:
-            RUN_ID: ${{ github.run_id }}
-          if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }} 
-          run: |
-            cd ${{ github.workspace }}/scripts
-            python merge_sdk.py
+        
         #如果是定时任务直接检查github和gitee并进行同步并更新sdk-index-server
         - name: Sync-Gitee-Mirror
           shell: bash
@@ -70,7 +52,7 @@ jobs:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
             UPDATE_SDK_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_INDEX_ADDRESS }}
             UPDATE_SDK_ABROAD_INDEX_ADDRESS: ${{ secrets.UPDATE_SDK_ABROAD_INDEX_ADDRESS }}
-          if: ${{ github.ref == 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
+          if: ${{ github.event_name == 'pull_request' }}
           run: |
             cd ${{ github.workspace }}/scripts
             python sync_gitee.py
