@@ -1,0 +1,66 @@
+{
+    "$id": "index_all_schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "integer"
+        },
+        "description": {
+            "type": "string"
+        },
+        "homepage": {
+            "type": "string"
+        },
+        "children": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "$ref": "rtt_source_schema.json#"
+                },
+                {
+                    "type": "object",
+                    "$ref": "csp_schema.json#"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "children": {
+                            "type": "array"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "children": {
+                            "type": "array"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "required": [
+        "name",
+        "version",
+        "description",
+        "homepage",
+        "children"
+    ]
+}
