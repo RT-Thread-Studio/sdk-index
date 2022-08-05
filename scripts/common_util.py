@@ -55,6 +55,8 @@ def git_clone_retry(url,dir,retry=10):
 def download_retry(url,dir,file_name,retry=10):
     success=0
     count=0
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     full_path=os.path.join(os.path.dirname(dir), file_name)
     while (count<=retry and success==0 ):
         count=count+1
