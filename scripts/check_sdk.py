@@ -1,10 +1,11 @@
+import logging
+logging.getLogger().setLevel(logging.INFO)
 logging.info(execute_command("apt-get update && apt-get -y upgrade"))
 logging.info(execute_command("python -m pip install --upgrade pip"))
 logging.info(execute_command("pip install requests wget pyyaml pytest pytest-sugar pytest-html rt-thread-studio"))
 
 import os
 import json
-import logging
 import subprocess
 import requests
 import sys
@@ -190,7 +191,7 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
     clear_dir(workspace)
 
 def main():
-    logging.getLogger().setLevel(logging.INFO)
+    
     init_dir()
     index=generate_all_index("/rt-thread/sdk-index/index.json")
     #check schema
