@@ -26,6 +26,8 @@ def rename_dir_file(dir,old,new):
     execute_command("mv {0} {1}".format(old,new))
 
 def clear_dir(dir):
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     os.chdir(dir)
     execute_command("rm -rf *")
 
