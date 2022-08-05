@@ -57,7 +57,7 @@ jobs:
           shell: bash
           env:
             RUN_ID: ${{ github.run_id }}
-          if: ${{  github.event_name == 'push' }} 
+          if: ${{ github.ref != 'refs/heads/master' && github.event_name == 'push' }} 
           run: |
             cd ${{ github.workspace }}/scripts
             python merge_sdk.py
@@ -68,7 +68,7 @@ jobs:
             MIRROR_REG_URL: ${{ secrets.MIRROR_REG_URL }} 
             MIRROR_REG_TOKEN: ${{ secrets.MIRROR_REG_TOKEN }} 
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-          if: ${{ ( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
+          if: ${{ github.ref != 'refs/heads/master' &&( github.event_name == 'schedule' || (github.event_name == 'push' && success() ) ) }} 
           run: |
             cd ${{ github.workspace }}/scripts
             python sync_gitee.py
