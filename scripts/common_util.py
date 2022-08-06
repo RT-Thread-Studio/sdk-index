@@ -87,8 +87,6 @@ def do_merge_copy(src_dir, dst_dir):
     if not os.path.exists(src_dir):
         raise Exception("ERROR: Can’t get resource {0}, please check the resource.".format(src_dir))
 
-    if not os.path.exists(dst_dir):
-        os.makedirs(dst_dir)
     try:
         execute_command("\cp -rf {0} {1}".format(src_dir,dst_dir))
     except Exception as e:
