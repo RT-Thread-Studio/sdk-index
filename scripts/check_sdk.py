@@ -127,7 +127,7 @@ def check_pkgs():
                     content=f.read()
                     map = yaml.load(content,Loader=yaml.FullLoader)
                     
-                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and map['pkg_type']==3:
+                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and 'yaml_version' in map.keys()  and map['yaml_version']==3:
                         os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
                         if "ToolChain_Support_Packages" not in str(map):
                             pkg_vendor=map['pkg_vendor']
@@ -137,12 +137,12 @@ def check_pkgs():
                         else:
                             #skip this bsp
                             logging.info("\n message : {0}. has thirdparty toolchain pkgs dependency. ci skipped".format(filename))
-                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages' and map['type']==1:
+                    elif 'type' in map.keys() and map['type']=='Chip_Support_Packages' and 'yaml_version' in map.keys() and map['yaml_version']==1:
                         os.environ['SDK_CHECK_TYPE'] = 'csp_check'
                         check_csp(path)
                     else:
-                        logging.info("\n message : {0}.is not support. ci skipped".format(filename))
-                        sys.exit(0)
+                        logging.info("\n message : {0}. yaml_version is not support. ci skipped".format(filename))
+
 
 def check_report_html(dir):
     os.chdir(dir)
@@ -201,7 +201,9 @@ def check_csp(csp_dir):
     gen_sdk_test_case(csp_dir)
     subprocess.call("python "+csp_dir+"/sdk_test_case.py", shell=True)
     clear_dir(workspace)
-    sys.exit(check_report_html(csp_dir))
+    if check_report_html(csp_dir)==1:
+        sys.exit(1)
+    
 
 def check_bsp(temp_bsp_dir,vendor,name,version):
     logging.info("start-check-bsp--"+temp_bsp_dir)
@@ -226,7 +228,8 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
     gen_sdk_test_case(studio_bsp_dir)
     subprocess.call("python "+studio_bsp_dir+"/sdk_test_case.py", shell=True)
     clear_dir(workspace)
-    sys.exit(check_report_html(studio_bsp_dir))
+    if check_report_html(studio_bsp_dir)==1:
+        sys.exit(1)
 
 def main():
     print(sys.argv)
@@ -250,7 +253,7 @@ def main():
             #check the pkg
             check_pkgs()
     else:
-        logging.info("Please do not delete the old release: "+str(removes))
+        logging.info("Please do not delete the old release if it`s still necessary,contact the repository admin to merge: "+str(removes))
         sys.exit(1)
     
 if __name__ == "__main__":
