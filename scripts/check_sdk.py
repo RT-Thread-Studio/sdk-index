@@ -127,7 +127,7 @@ def check_pkgs():
                     content=f.read()
                     map = yaml.load(content,Loader=yaml.FullLoader)
                     
-                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and 'yaml_version' in map.keys()  and map['yaml_version']==3:
+                    if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and 'yaml_version' in map.keys():
                         os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
                         if "ToolChain_Support_Packages" not in str(map):
                             pkg_vendor=map['pkg_vendor']
