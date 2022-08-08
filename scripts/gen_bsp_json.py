@@ -50,11 +50,11 @@ class SdkIndex(object):
                         version=version.replace('v','')
                     version_folder=rtt_src_PATH+version
                     if not os.path.exists(version_folder):
-                        download_retry(url,rtt_src_PATH,"rtt-src.zip")
-                        file_merge_unzip(os.path.join(rtt_src_PATH,"rtt-src.zip"),rtt_src_PATH)
+                        download_retry(url,rtt_src_PATH,version)
+                        file_merge_unzip(os.path.join(rtt_src_PATH,version),rtt_src_PATH)
                         os.chdir(rtt_src_PATH)
                         execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
-                        execute_command("rm -f {0}".format("rtt-src.zip"))
+                        execute_command("rm -f {0}".format(version))
             else:
                 pass
 
