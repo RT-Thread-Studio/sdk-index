@@ -24,7 +24,7 @@
             "date": "2022-03-01",
             "description": "Support RT-Thread 4.0.5",
             "size": "23.8 MB",
-            "url": "https://github.com/ErikChanGit/sdk-bsp-stm32f407-atk-explorer/archive/0.1.2.zip"
+            "url": "https://github.com/ErikChanGit/sdk-bsp-stm32f407-atk-explorer/archive/v0.1.2.zip"
         },
         {
             "version": "0.1.1",
