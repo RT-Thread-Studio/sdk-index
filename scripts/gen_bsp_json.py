@@ -34,30 +34,25 @@ class SdkIndex(object):
             return ""
 
     def download_all_external_package(self, external_package_list):
-        rt_studio_install_path = Path("/RT-ThreadStudio")
-        rt_studio_repo_path = rt_studio_install_path.joinpath("repo/Extract")
+        rtt_src_PATH = "/RT-ThreadStudio/repo/Extract/RT-Thread_Source_Code/RT-Thread/"
         for package in external_package_list:
             if package["package_type"] == "RT-Thread_Source_Code":
                 index_file_path = self.get_rtt_source_code_index_file_from_package()
                 url = self.get_url_from_index_file(index_file_path, package["package_version"])
                 if package["package_version"] == "latest":
-                    if self.is_in_linux:
-                        if not rt_studio_repo_path.joinpath(package["package_relative_path"]).exists():
-                            os.makedirs(rt_studio_repo_path.joinpath(package["package_relative_path"]))
-                        latest_folder=rt_studio_repo_path.joinpath(package["package_relative_path"])
-                        if not os.path.exists(latest_folder):
-                            os.makedirs(latest_folder)
-                            git_clone_retry(url,latest_folder)
+                    latest_folder=rtt_src_PATH+"latest"
+                    if not os.path.exists(latest_folder):
+                        os.makedirs(latest_folder)
+                        git_clone_retry(url,latest_folder)    
                 else:
                     version = os.path.splitext(url.split("/")[-1])[0]
                     if 'v' in version:
                         version=version.replace('v','')
-                    pack_folder = rt_studio_repo_path.joinpath(package["package_relative_path"])
-                    folder=pack_folder.parent.as_posix()+"/"
-                    if not os.path.exists(pack_folder):
-                        download_retry(url,folder,"rtt-src.zip")
-                        file_merge_unzip(os.path.join(folder,"rtt-src.zip"),folder)
-                        os.chdir(folder)
+                    version_folder=rtt_src_PATH+version
+                    if not os.path.exists(version_folder):
+                        download_retry(url,rtt_src_PATH,"rtt-src.zip")
+                        file_merge_unzip(os.path.join(rtt_src_PATH,"rtt-src.zip"),rtt_src_PATH)
+                        os.chdir(rtt_src_PATH)
                         execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
                         execute_command("rm -f {0}".format("rtt-src.zip"))
             else:
