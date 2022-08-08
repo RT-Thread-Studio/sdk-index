@@ -2,7 +2,7 @@ import os
 import json
 import logging
 from pathlib import Path
-from common_util import clear_dir, execute_command, git_clone_retry
+from common_util import clear_dir, execute_command, git_clone
 from rt_thread_studio import bsp_parser
 from rt_thread_studio import bsp_checker
 from common_util import download_retry
@@ -43,7 +43,7 @@ class SdkIndex(object):
                     latest_folder=rtt_src_PATH+"latest"
                     if not os.path.exists(latest_folder):
                         os.makedirs(latest_folder)
-                        git_clone_retry(url,latest_folder)    
+                        git_clone(url,latest_folder)    
                 else:
                     version = os.path.splitext(url.split("/")[-1])[0]
                     if 'v' in version:

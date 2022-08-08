@@ -31,25 +31,16 @@ def clear_dir(dir):
     os.chdir(dir)
     execute_command("rm -rf *")
 
-def git_clone_retry(url,dir,retry=10):
-    success=0
-    count=0
-    while (count<=retry and success==0 ):
-        count=count+1
-        if os.path.exists(dir):
-            clear_dir(dir)
-        try:
-            cmd = 'git clone ' + url
-            os.chdir(dir)
-            execute_command(cmd)
-            logging.info(cmd+"---compeleted")
-            success=1
-        except Exception as e:
-            logging.error(e)
-            logging.info("git clone failed "+ str(count)+" retry ...")
-            #time.sleep(10)
-    if(count>retry and not success):
-        raise Exception("git clone failed "+str(retry)+" times")
+def git_clone(url,dir):
+    if os.path.exists(dir):
+        clear_dir(dir)
+    try:
+        cmd = 'git clone ' + url
+        os.chdir(dir)
+        execute_command(cmd)
+        logging.info(cmd+"---compeleted")
+    except Exception as e:
+        logging.info(e)
 
 
 def download_retry(url,dir,file_name,retry=10):
