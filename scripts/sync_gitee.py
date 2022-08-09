@@ -45,7 +45,12 @@ def onSyncCompelete(repo_name):
         logging.error(e)
 
 def checkGitActionIsError(e):
-    return 'fatal:' in str(e) or 'disconnect:' in str(e) or 'error:' in str(e) or 'Error' in str(e)
+    msg=str(e)
+    if 'receive.denyDeleteCurrent' in msg:
+        #ignore this error
+        return False
+    else:
+        return 'fatal:' in msg or 'disconnect:' in msg or 'error:' in msg or 'Error' in msg
 
 def fetch_packages_from_git(zip_url):
         print('======>Fetch package from git repo :' + zip_url)
