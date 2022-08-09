@@ -47,7 +47,6 @@ class SdkIndex(object):
         #bsp_pkg_PATH="/RT-ThreadStudio/repo/Extract/Board_Support_Packages/"
         csp_pkg_PATH="/RT-ThreadStudio/repo/Extract/Chip_Support_Packages/"
         for package in external_package_list:
-            
             if package["package_type"] == "RT-Thread_Source_Code":
                 index_file_path = self.get_rtt_source_code_index_file_from_package()
                 url = self.get_url_from_index_file(index_file_path, package["package_version"])
@@ -58,14 +57,20 @@ class SdkIndex(object):
                         git_clone(url,latest_folder)    
                 else:
                     version = package["package_version"]
+                    versionNo=version
+                    repo_name=url.split("/")[4]
+                    if "lts-v" in version:
+                        versionNo=version.replace('lts-v','')
+                    if "nano-v" in version:
+                        versionNo=version.replace('nano-v','')
                     version_folder=rtt_src_PATH+version
                     if not os.path.exists(version_folder):
                         file_name=version+".zip"
                         download_retry(url,rtt_src_PATH,file_name)
                         file_merge_unzip(os.path.join(rtt_src_PATH,file_name),rtt_src_PATH)
                         os.chdir(rtt_src_PATH)
-                        execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
-
+                        execute_command("mv {0} {1}".format(repo_name+"-"+versionNo,version))
+                        
             elif package["package_type"] == "Chip_Support_Packages":
                 chip_name=package["package_name"]
                 index_file_path = self.get_csp_index_file_from_package(chip_name)
