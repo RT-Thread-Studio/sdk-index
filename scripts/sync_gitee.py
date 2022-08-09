@@ -46,7 +46,7 @@ def onSyncCompelete(repo_name):
 
 def checkGitActionIsError(e):
     msg=str(e)
-    if 'receive.denyDeleteCurrent' in msg or 'deleting the current branch is denied' in msg:
+    if 'receive.denyDeleteCurrent' in msg:
         #ignore this error
         return False
     else:
