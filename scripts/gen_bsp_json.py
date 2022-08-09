@@ -24,6 +24,15 @@ class SdkIndex(object):
     def get_rtt_source_code_index_file_from_package(self):
         return self.sdk_index_root_path.joinpath("RT-Thread_Source_Code", "index.json")
 
+    def get_csp_index_file_from_package(self,package_name):
+        list=os.walk("/rt-thread/sdk-index/Chip_Support_Packages")
+        for path,dirs,files in list:
+            for dir in dirs:
+                if package_name==dir:
+                    for index in files:
+                        if index=="index.json":
+                            return os.path.join(path,dir,index)
+
     def get_url_from_index_file(self, index_file, package_version):
         with open(index_file, "r") as f:
             index_dict = json.loads(f.read())
@@ -35,6 +44,8 @@ class SdkIndex(object):
 
     def download_all_external_package(self, external_package_list):
         rtt_src_PATH = "/RT-ThreadStudio/repo/Extract/RT-Thread_Source_Code/RT-Thread/"
+        #bsp_pkg_PATH="/RT-ThreadStudio/repo/Extract/Board_Support_Packages/"
+        csp_pkg_PATH="/RT-ThreadStudio/repo/Extract/Chip_Support_Packages/"
         for package in external_package_list:
             if package["package_type"] == "RT-Thread_Source_Code":
                 index_file_path = self.get_rtt_source_code_index_file_from_package()
@@ -45,16 +56,37 @@ class SdkIndex(object):
                         os.makedirs(latest_folder)
                         git_clone(url,latest_folder)    
                 else:
-                    version = os.path.splitext(url.split("/")[-1])[0]
-                    if 'v' in version:
-                        version=version.replace('v','')
+                    version = package["package_version"]
+                    versionNo=version
+                    repo_name=url.split("/")[4]
+                    if "lts-v" in version:
+                        versionNo=version.replace('lts-v','')
+                    if "nano-v" in version:
+                        versionNo=version.replace('nano-v','')
                     version_folder=rtt_src_PATH+version
                     if not os.path.exists(version_folder):
                         file_name=version+".zip"
                         download_retry(url,rtt_src_PATH,file_name)
                         file_merge_unzip(os.path.join(rtt_src_PATH,file_name),rtt_src_PATH)
                         os.chdir(rtt_src_PATH)
-                        execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
+                        execute_command("mv {0} {1}".format(repo_name+"-"+versionNo,version))
+                        
+            elif package["package_type"] == "Chip_Support_Packages":
+                chip_name=package["package_name"]
+                index_file_path = self.get_csp_index_file_from_package(chip_name)
+                vendor_name=package["package_vendor"]
+                version = package["package_version"]
+                url = self.get_url_from_index_file(index_file_path, package["package_version"])
+                version_folder=csp_pkg_PATH+"{0}/{1}/{2}/".format(vendor_name,chip_name,version)
+                if not os.path.exists(version_folder):
+                    file_name=version+".zip"
+                    pkg_PATH=csp_pkg_PATH+"{0}/{1}/".format(vendor_name,chip_name)
+                    download_retry(url,pkg_PATH,file_name)
+                    file_merge_unzip(os.path.join(pkg_PATH,file_name),pkg_PATH)
+                    os.chdir(pkg_PATH)
+                    repo_name=url.split("/")[4]
+                    execute_command("mv {0} {1}".format(repo_name+"-"+version,version))
+
             else:
                 pass
 
