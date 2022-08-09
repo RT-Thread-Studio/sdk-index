@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f429-st-disco.git",
     "releases": [
         {
+            "version": "0.1.2",
+            "date": "2022-07-12",
+            "description": "released v0.1.2",
+            "size": "18 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f429-st-disco/archive/0.1.2.zip"
+        },
+        {
             "version": "0.1.0",
             "date": "2020-09-12",
             "description": "released v0.1.0",

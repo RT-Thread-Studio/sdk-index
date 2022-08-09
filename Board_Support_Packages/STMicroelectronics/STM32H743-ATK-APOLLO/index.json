@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h743-atk-apollo.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2022-07-09",
+            "description": "1.0.2",
+            "size": "27 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h743-atk-apollo/archive/1.0.2.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2020-11-09",
             "description": "first release",
