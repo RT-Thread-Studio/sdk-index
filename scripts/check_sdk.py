@@ -126,7 +126,7 @@ def check_pkgs():
                 with open(yaml_file, 'r', encoding='utf-8') as f:
                     content=f.read()
                     map = yaml.load(content,Loader=yaml.FullLoader)
-                    
+                    fix_error_values(yaml_file,content)
                     if 'pkg_type' in map.keys() and map['pkg_type']=='Board_Support_Packages' and 'yaml_version' in map.keys():
                         os.environ['SDK_CHECK_TYPE'] = 'bsp_check'
                         if "ToolChain_Support_Packages" not in str(map):
@@ -203,7 +203,12 @@ def check_csp(csp_dir):
     clear_dir(workspace)
     if check_report_html(csp_dir)==1:
         sys.exit(1)
-    
+
+def fix_error_values(yaml_file,content):
+    content=content.replace("libcpu/Sconscript","libcpu/SConscript")#fix windows paths
+    map = yaml.load(content,Loader=yaml.FullLoader)
+    with open(yaml_file, "w") as f:
+        yaml.dump(map, f)    
 
 def check_bsp(temp_bsp_dir,vendor,name,version):
     logging.info("start-check-bsp--"+temp_bsp_dir)
