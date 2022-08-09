@@ -24,7 +24,7 @@ class SdkIndex(object):
     def get_rtt_source_code_index_file_from_package(self):
         return self.sdk_index_root_path.joinpath("RT-Thread_Source_Code", "index.json")
 
-    def get_csp_url_from_package(self,package_name):
+    def get_csp_index_file_from_package(self,package_name):
         list=os.walk("/rt-thread/sdk-index/Chip_Support_Packages")
         for path,dirs,files in list:
             for dir in dirs:
@@ -47,6 +47,7 @@ class SdkIndex(object):
         #bsp_pkg_PATH="/RT-ThreadStudio/repo/Extract/Board_Support_Packages/"
         csp_pkg_PATH="/RT-ThreadStudio/repo/Extract/Chip_Support_Packages/"
         for package in external_package_list:
+            
             if package["package_type"] == "RT-Thread_Source_Code":
                 index_file_path = self.get_rtt_source_code_index_file_from_package()
                 url = self.get_url_from_index_file(index_file_path, package["package_version"])
@@ -64,9 +65,10 @@ class SdkIndex(object):
                         file_merge_unzip(os.path.join(rtt_src_PATH,file_name),rtt_src_PATH)
                         os.chdir(rtt_src_PATH)
                         execute_command("mv {0} {1}".format("sdk-rt-thread-source-code-"+version,version))
+
             elif package["package_type"] == "Chip_Support_Packages":
                 chip_name=package["package_name"]
-                index_file_path = self.get_csp_url_from_package(chip_name)
+                index_file_path = self.get_csp_index_file_from_package(chip_name)
                 vendor_name=package["package_vendor"]
                 version = package["package_version"]
                 url = self.get_url_from_index_file(index_file_path, package["package_version"])
