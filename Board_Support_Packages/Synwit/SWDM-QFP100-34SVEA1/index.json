@@ -1,7 +1,7 @@
 {
-    "name": "SWDM_QFP100_34SVEA1",
+    "name": "SWDM-QFP100-34SVEA1",
     "vendor": "SYNWIT",
-    "description": "SWDM_QFP100_34SVEA1 Board Support Packages",
+    "description": "SWDM-QFP100-34SVEA1 Board Support Packages",
     "license": "",
     "repository": "https://github.com/Synwit-Co-Ltd/sdk-bsp-swm341.git",
     "releases": [

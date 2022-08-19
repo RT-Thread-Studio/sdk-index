@@ -4,7 +4,7 @@
     "description": "Synwit Board Support Packages",
     "index": [
         "SWDM_LQ64_32SRE04",
-        "SWDM_QFP100_34SVEA1",
+        "SWDM-QFP100-34SVEA1",
         "SWM320VET7-SYNWIT-SWXT"
     ]
 }
