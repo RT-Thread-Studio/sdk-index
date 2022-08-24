@@ -6,11 +6,11 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
     "releases": [
         {
-            "version": "1.0.7",
+            "version": "1.0.8",
             "date": "2022-08-24",
             "description": "add OpenMV and some mpy driver.",
             "size": "22.0 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.7.zip"
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.8.zip"
         },
         {
             "version": "1.0.6",
