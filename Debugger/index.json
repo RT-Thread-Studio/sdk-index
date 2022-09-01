@@ -10,6 +10,7 @@
         "WCH-LINK_Debugger",
         "OpenOCD-Nuvoton",
         "OpenOCD-HPMicro",
-        "OpenOCD-Nuclei"
+        "OpenOCD-Nuclei",
+        "OpenOCD-INFINEON"
     ]
 }
