@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "v7.80a",
+            "date": "2022-09-19",
+            "description": "Added support J-Link Software V7.80a",
+            "size": "87 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v7.80a.zip"
+        },
+        {
             "version": "v7.50a",
             "date": "2020-12-17",
             "description": "Added Support Renesas-RW007 download and debugging",
