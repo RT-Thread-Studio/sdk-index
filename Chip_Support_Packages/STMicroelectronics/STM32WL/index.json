@@ -6,11 +6,11 @@
     "repository": "https://github.com/zyk6271/sdk-csp-stm32wl.git",
     "releases": [
         {
-            "version": "0.2.4",
-            "date": "2022-07-12",
-            "description": "released v0.2.4",
-            "size": "23.7 MB",
-            "url": "https://github.com/zyk6271/sdk-csp-stm32wl/archive/refs/tags/0.2.4.zip"
+            "version": "0.2.5",
+            "date": "2022-10-08",
+            "description": "released v0.2.5",
+            "size": "24.0 MB",
+            "url": "https://github.com/zyk6271/sdk-csp-stm32wl/archive/refs/tags/0.2.5.zip"
         }
     ]
 }
