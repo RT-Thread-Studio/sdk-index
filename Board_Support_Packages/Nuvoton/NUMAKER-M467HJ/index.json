@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M467HJ",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M467HJ Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m467hj.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-9-6",
+            "description": "released v1.0.0",
+            "size": "13 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m467hj/archive/v1.0.0.zip"
+        }
+    ]
+}

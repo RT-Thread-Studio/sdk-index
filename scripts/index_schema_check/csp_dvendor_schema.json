@@ -1,0 +1,25 @@
+{
+    "$id": "csp_dvendor_schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "children": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "$ref": "csp_dvendor_package_schema.json#"
+                }
+            ],
+            "additionalItems": {
+                "type": "object",
+                "$ref": "csp_dvendor_package_schema.json#"
+            }
+        }
+    }
+}

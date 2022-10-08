@@ -6,10 +6,11 @@
         "ST-Link",
         "PyOCD",
         "QEMU",
-        "OpenOCD-KENDRYTE",
+        "OpenOCD-Kendryte",
         "WCH-LINK_Debugger",
         "OpenOCD-Nuvoton",
         "OpenOCD-HPMicro",
-        "OpenOCD-Nuclei"
+        "OpenOCD-Nuclei",
+        "OpenOCD-Infineon"
     ]
 }

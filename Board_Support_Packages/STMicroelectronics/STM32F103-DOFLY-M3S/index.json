@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-dofly-m3s.git",
     "releases": [
         {
+            "version": "0.1.2",
+            "date": "2022-08-05",
+            "description": "add 4.1.0",
+            "size": "11 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f103-dofly-m3s/archive/0.1.2.zip"
+        },
+        {
             "version": "0.1.1",
             "date": "2020-09-12",
             "description": "fixbug:lost features list in chinese",

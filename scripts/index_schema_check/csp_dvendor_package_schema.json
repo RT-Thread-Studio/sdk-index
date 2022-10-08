@@ -1,0 +1,42 @@
+{
+    "$id": "csp_dvendor_package_schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "vendor": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "license": {
+            "type": "string"
+        },
+        "repository": {
+            "type": "string"
+        },
+        "releases": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "$ref": "csp_dvendor_package_releases_schema.json#"
+                }
+            ],
+            "additionalItems": {
+                "type": "object",
+                "$ref": "csp_dvendor_package_releases_schema.json#"
+            }
+        }
+    },
+    "required": [
+        "name",
+        "vendor",
+        "description",
+        "license",
+        "repository",
+        "releases"
+    ]
+}

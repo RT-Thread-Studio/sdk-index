@@ -1,0 +1,35 @@
+{
+    "$id": "csp_dvendor_package_releases_schema.json",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "string",
+            "minLength" : 5,
+            "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$"
+        },
+        "date": {
+            "type": "string",
+            "maxLength" : 10,
+            "format": "date"
+        },
+        "description": {
+            "type": "string"
+        },
+        "size": {
+            "type": "string",
+            "minLength" : 4,
+            "pattern": "^[0-9]{1,} MB$"
+        },
+        "url": {
+            "type": "string",
+            "pattern" : "^http[^\\s]*$"
+        }
+    },
+    "required": [
+        "version",
+        "date",
+        "description",
+        "size",
+        "url"
+    ]
+}
