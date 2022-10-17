@@ -6,6 +6,13 @@
     "repository": "https://github.com/NationsHuanghanbin/sdk-bsp-n32g45xvl-stb.git",
     "releases": 
 		{
+            "version": "1.0.7",
+            "date": "2022-10-17",
+            "description": "released v1.0.7",
+            "size": "11 MB",
+            "url": "https://github.com/NationsHuanghanbin/sdk-bsp-n32g45xvl-stb/archive/refs/tags/1.0.7.zip"
+        },
+		{
             "version": "1.0.6",
             "date": "2022-7-15",
             "description": "released v1.0.6",
