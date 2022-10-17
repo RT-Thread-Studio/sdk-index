@@ -4,7 +4,7 @@
     "description": "n32l40xcl-stb Board Support Packages",
     "license": "",
     "repository": "https://github.com/NationsHuanghanbin/sdk-bsp-n32l40xcl-stb",
-    "releases": 
+    "releases": [
         {
             "version": "1.0.0",
             "date": "2022-10-17",
