@@ -1,0 +1,16 @@
+{
+    "name": "STM32WL",
+    "vendor": "RealThread",
+    "description": "STM32WL Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/zyk6271/sdk-csp-stm32wl.git",
+    "releases": [
+        {
+            "version": "0.2.5",
+            "date": "2022-10-08",
+            "description": "released v0.2.5",
+            "size": "24.0 MB",
+            "url": "https://github.com/zyk6271/sdk-csp-stm32wl/archive/refs/tags/0.2.5.zip"
+        }
+    ]
+}
