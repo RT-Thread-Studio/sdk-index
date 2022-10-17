@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f412-st-nucleo.git",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2022-03-17",
+            "description": "Support RT-Thread 4.0.5",
+            "size": "34 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f412-st-nucleo/archive/v1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2021-05-25",
             "description": "released v1.0.0",
@@ -14,6 +21,3 @@
         }
     ]
 }
-
-
-

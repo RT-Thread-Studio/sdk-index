@@ -1,0 +1,15 @@
+{
+    "name": "NuMicro Series Board Support Packages",
+    "dvendor": "Nuvoton",
+    "description": "Nuvoton NuMicro series Board Support Packages",
+    "index": [
+        "NK-N9H30",
+        "NK-RTU980",
+        "NK-980IOT",
+        "NUMAKER-PFM-M487",
+        "NUMAKER-M2354",
+        "NUMAKER-IOT-M487",
+        "NUMAKER-M032KI",
+        "NUMAKER-M467HJ"
+    ]
+}

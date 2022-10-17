@@ -1,0 +1,16 @@
+{
+    "name": "GD32VF103V-GD-EVAL",
+    "vendor": "Blta",
+    "description": "GD32VF103V-GD-EVAL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/blta/sdk-bsp-gd32vf103v-eval.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-05-10",
+            "description": "v1.0.0 release",
+            "size": "24.6 MB",
+            "url": "https://github.com/blta/sdk-bsp-gd32vf103v-eval/archive/v1.0.0.zip"
+        }
+    ]
+}

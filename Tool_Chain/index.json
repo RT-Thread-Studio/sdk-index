@@ -6,6 +6,8 @@
         "RISC-V-GCC",
         "ARM-LINUX-MUSLEABI",
         "RISC-V-GCC-WCH",
-        "RISC-V-GCC-KENDRYTE"
+        "RISC-V-GCC-KENDRYTE",
+        "RISC-V-GCC-NUCLEI",
+        "RISC-V-GCC-RV32"
     ]
 }

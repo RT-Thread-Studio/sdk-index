@@ -1,0 +1,23 @@
+{
+    "name": "CH32V103R-EVT",
+    "vendor": "WCH",
+    "description": "CH32V103R-EVT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/blta/sdk-bsp-ch32v103r-evt.git",
+    "releases": [
+        {
+            "version": "1.0.1",
+            "date": "2022-05-01",
+            "description": "support WCH-Link",
+            "size": "16 MB",
+            "url": "https://github.com/blta/sdk-bsp-ch32v103r-evt/archive/refs/tags/v1.0.1.zip"
+        },
+        {
+            "version": "1.0.0",
+            "date": "2022-04-07",
+            "description": "released v1.0.0",
+            "size": "36 MB",
+            "url": "https://github.com/blta/sdk-bsp-ch32v103r-evt/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}

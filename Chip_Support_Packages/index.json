@@ -3,6 +3,8 @@
     "description": "Device vendor Chip Support Packages",
     "index": [
         "ArteryTek",
+        "Geehy",
+        "Microchip",
         "STMicroelectronics",
         "essemi"
     ]

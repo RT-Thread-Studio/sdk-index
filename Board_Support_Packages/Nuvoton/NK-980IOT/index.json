@@ -1,0 +1,30 @@
+{
+    "name": "NK-980IOT",
+    "vendor": "Nuvoton",
+    "description": "NK-980IOT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-nk-980iot.git",
+    "releases": [
+        {
+            "version": "1.0.2",
+            "date": "2022-05-20",
+            "description": "update:fix issues",
+            "size": "5 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-980iot/archive/v1.0.2.zip"
+        },
+        {
+            "version": "1.0.1",
+            "date": "2022-04-6",
+            "description": "update:add jlink svd configuration",
+            "size": "10 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-980iot/archive/v1.0.1.zip"
+        },
+        {
+            "version": "1.0.0",
+            "date": "2022-1-25",
+            "description": "released v1.0.0",
+            "size": "9 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-980iot/archive/v1.0.0.zip"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "ATSAMD21",
+    "vendor": "Microchip",
+    "description": "ATSAMD21 Chip Support Packages",
+    "license": "MIT License",
+    "repository": "https://github.com/FlyerInk/sdk-csp-atsamd21.git",
+    "releases": [
+        {
+            "version": "0.1.1",
+            "date": "2021-12-13",
+            "description": "RT-Thread Studio SDK CSP for Microchip ATSAMD21A Version 0.1.1",
+            "size": "11.5 MB",
+            "url": "https://github.com/FlyerInk/sdk-csp-atsamd21/archive/0.1.1.zip"
+        },
+        {
+            "version": "0.1.2",
+            "date": "2021-12-30",
+            "description": "RT-Thread Studio SDK CSP for Microchip ATSAMD21A Version 0.1.2",
+            "size": "11.5 MB",
+            "url": "https://github.com/FlyerInk/sdk-csp-atsamd21/archive/0.1.2.zip"
+        }
+    ]
+}

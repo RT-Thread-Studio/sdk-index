@@ -1,0 +1,22 @@
+{
+    "name": "OpenOCD-Nuclei",
+    "vendor": "NuClei",
+    "description": "OpenOCD-Nuclei Debugger only for NuClei series",
+    "license": "",
+    "releases": [
+        {
+            "version": "2022.05",
+            "date": "2022-05-07",
+            "description": "It is 2022.04 version still,prebuilt version",
+            "size": "3.4 MB",
+            "url": "https://github.com/blta/sdk-debugger-openocd-nuclei/archive/2022.04.zip"
+        },
+        {
+            "version": "2022.04",
+            "date": "2022-05-04",
+            "description": "Nuclei released 2022.04 version",
+            "size": "3.9 MB",
+            "url": "https://github.com/riscv-mcu/riscv-openocd/archive/2022.04.zip"
+        }
+    ]
+}

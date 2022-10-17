@@ -7,6 +7,7 @@
         "ARM",
         "ArteryTek",
         "Bluetrum",
+        "Geehy",
         "GigaDevice",
         "Kendrtye",
         "MicroChip",
@@ -20,6 +21,10 @@
         "WCH",
         "essemi",
         "Nations",
+        "Renesas",
+        "Nuvoton",
+        "HPMicro",
+        "XHSC",
         "Other"
     ]
 }

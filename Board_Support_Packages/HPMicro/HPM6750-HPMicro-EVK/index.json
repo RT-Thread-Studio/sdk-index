@@ -1,0 +1,23 @@
+{
+    "name": "HPM6750-HPMicro-EVK",
+    "vendor": "HPMicro",
+    "description": "HPM6750EVK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evk.git",
+    "releases": [
+        {
+            "version": "0.7.0",
+            "date": "2022-08-01",
+            "description": "Integrated hpm_sdk v0.12.1, added i2c example, usb_host_msc_udisk, bugfixes and improvements",
+            "size": "98 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evk/archive/v0.7.0.zip"
+        },
+        {
+            "version": "0.5.0",
+            "date": "2022-05-26",
+            "description": "First BSP release for HPM6750EVK",
+            "size": "120 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evk/archive/v0.5.0.zip"
+        }
+    ]
+}

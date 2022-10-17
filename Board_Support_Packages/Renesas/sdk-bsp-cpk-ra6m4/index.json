@@ -1,0 +1,44 @@
+{
+    "name": "CPK-RA6M4",
+    "vendor": "RealThread",
+    "description": "CPK-RA6M4 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4.git",
+    "releases": [
+        {
+            "version": "1.3.3",
+            "date": "2022-07-26",
+            "description": "Add a hardware IIC driver. Add the MCUBOOT example project",
+            "size": "39 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.3.3.zip"
+        },
+        {
+            "version": "1.2.2",
+            "date": "2022-06-16",
+            "description": "Specify the ARM tool link path address",
+            "size": "38 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.2.2.zip"
+        },
+        {
+            "version": "1.2.1",
+            "date": "2022-03-12",
+            "description": "Specify the ARM tool link path address",
+            "size": "50 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.2.1.zip"
+        },
+        {
+            "version": "1.2.0",
+            "date": "2022-03-11",
+            "description": "Support FSP 3.5.0; Support RT-Thread 4.1.0;",
+            "size": "50 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.2.0.zip"
+        },
+        {
+            "version": "1.0.1",
+            "date": "2022-01-05",
+            "description": "released v1.0.1, Fix problems that cannot be debug",
+            "size": "58 MB",
+            "url": "https://github.com/ShermanShao/sdk-bsp-cpk-ra6m4/archive/refs/tags/1.0.1.zip"
+        }
+    ]
+}

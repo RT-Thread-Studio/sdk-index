@@ -1,0 +1,16 @@
+{
+    "name": "STM32F103-100ASK-PRO",
+    "vendor": "100ASK",
+    "description": "STM32F103-100ASK-PRO Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/100ask-Alen/sdk-bsp-stm32f103-100ask-pro.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-06-10",
+            "description": "released v1.0.0",
+            "size": "50.4 MB",
+            "url": "https://github.com/100ask-Alen/sdk-bsp-stm32f103-100ask-pro/archive/refs/tags/version.zip"
+        }
+    ]
+}

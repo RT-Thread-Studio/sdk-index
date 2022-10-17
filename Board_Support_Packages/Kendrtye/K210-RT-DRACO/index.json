@@ -4,11 +4,62 @@
     "description": "K210-RT-DRACO Board Support Packages",
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
-    "releases": [{
-        "version": "1.0.0",
-        "date": "2021-11-12",
-        "description": "released v1.0.0",
-        "size": "25.7 MB",
-        "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/v1.0.0.zip"
-    }]
+    "releases": [
+        {
+            "version": "1.0.9",
+            "date": "2022-09-08",
+            "description": "RT-AK added dynamic model loading function.",
+            "size": "22.1 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.9.zip"
+        },
+        {
+            "version": "1.0.8",
+            "date": "2022-08-24",
+            "description": "add OpenMV and some mpy driver.",
+            "size": "22.0 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.8.zip"
+        },
+        {
+            "version": "1.0.6",
+            "date": "2022-08-2",
+            "description": "Improve device drivers, MPY and etc.",
+            "size": "20.5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.6.zip"
+        },
+        {
+            "version": "1.0.4",
+            "date": "2022-05-26",
+            "description": "add MicroPython extend-modules for Camera, Image, RT-AK and etc.",
+            "size": "20.4 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.4.zip"
+        },
+        {
+            "version": "1.0.3",
+            "date": "2022-03-11",
+            "description": "add dependencies for toolchain and debugger",
+            "size": "14.9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.3.zip"
+        },
+        {
+            "version": "1.0.2",
+            "date": "2021-1-21",
+            "description": "released v1.0.2",
+            "size": "14.9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/1.0.2.zip"
+        },
+        {
+            "version": "1.0.1",
+            "date": "2021-12-24",
+            "description": "released v1.0.1",
+            "size": "14.9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/v1.0.1.zip"
+        },
+        {
+            "version": "1.0.0",
+            "date": "2021-11-12",
+            "description": "released v1.0.0",
+            "size": "25.7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/v1.0.0.zip"
+        }
+    ]
 }

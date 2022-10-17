@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "11.1.0",
+            "date": "2022-04-27",
+            "description": "released v11.1.0",
+            "size": "130 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-RISC-V-GCC/archive/11.1.0.zip"
+        },
+        {
             "version": "10.1.0",
             "date": "2020-09-10",
             "description": "released v10.1.0",

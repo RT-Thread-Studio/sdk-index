@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32103c-eval.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2022-04-26",
+            "description": "Support RT-Thread 4.1.0",
+            "size": "2 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-gd32103c-eval/archive/1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2021-02-02",
             "description": "v1.0.1 release",

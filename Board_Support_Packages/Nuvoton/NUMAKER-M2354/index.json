@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M2354",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M2354 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m2354.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-1-14",
+            "description": "released v1.0.0",
+            "size": "4 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m2354/archive/v1.0.0.zip"
+        }
+    ]
+}

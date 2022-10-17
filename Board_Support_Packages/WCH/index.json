@@ -3,6 +3,7 @@
     "dvendor": "WCH",
     "description": "CH32 series Board Support Packages",
     "index": [
-        "sdk-bsp-ch32v307v-r0"
+        "sdk-bsp-ch32v307v-r1",
+        "sdk-bsp-ch32v103r-evt"
     ]
 }

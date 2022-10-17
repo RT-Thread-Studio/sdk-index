@@ -1,0 +1,29 @@
+{
+    "name": "OpenOCD-Nuvoton",
+    "vendor": "Nuvoton",
+    "description": "OpenOCD-Nuvoton Debugger only for Nuvoton NuMicro series",
+    "license": "",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2021-12-29",
+            "description": "Init OpenOCD-Nuvoton Debugger",
+            "size": "15 MB",
+            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.0.zip"
+        },
+        {
+            "version": "1.0.1",
+            "date": "2022-07-28",
+            "description": "Sync to nu-link_fw7380",
+            "size": "15 MB",
+            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.1.zip"
+        },
+        {
+            "version": "1.0.2",
+            "date": "2022-8-2",
+            "description": "Fix for GDB load command",
+            "size": "15 MB",
+            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.2.zip"
+        }
+    ]
+}
