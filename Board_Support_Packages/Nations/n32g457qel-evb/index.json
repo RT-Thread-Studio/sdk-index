@@ -1,0 +1,16 @@
+{
+    "name": "n32g457qel-evb",
+    "vendor": "Nations",
+    "description": "n32g457qel-evb Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/NationsHuanghanbin/sdk-bsp-n32g457qel-evb",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-10-17",
+            "description": "released v1.0.0",
+            "size": "11 MB",
+            "url": "https://github.com/NationsHuanghanbin/sdk-bsp-n32g457qel-evb/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "n32g45xcl-stb",
+    "vendor": "Nations",
+    "description": "n32g45xcl-stb Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/NationsHuanghanbin/sdk-bsp-n32g45xcl-stb",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-10-17",
+            "description": "released v1.0.0",
+            "size": "11 MB",
+            "url": "https://github.com/NationsHuanghanbin/sdk-bsp-n32g45xcl-stb/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
