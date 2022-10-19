@@ -5,6 +5,13 @@
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
     "releases": [
+         {
+            "version": "1.0.10",
+            "date": "2022-10-19",
+            "description": "RT-AK modified the dynamic model loading function and its using guide.",
+            "size": "80.9 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/v1.0.10.zip"
+        },
         {
             "version": "1.0.9",
             "date": "2022-09-08",
