@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-IOT-M467",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-IOT-M467 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-iot-m467.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-10-24",
+            "description": "released v1.0.0",
+            "size": "25 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker--iot-m467/archive/v1.0.0.zip"
+        }
+    ]
+}
