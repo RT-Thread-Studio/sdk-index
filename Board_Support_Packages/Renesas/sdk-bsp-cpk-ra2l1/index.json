@@ -1,0 +1,16 @@
+{
+    "name": "CPK-RA2L1",
+    "vendor": "RealThread",
+    "description": "CPK-RA2L1 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-cpk-ra2l1.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-10-31",
+            "description": "released v1.0.0, support ra2l1",
+            "size": "22.7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-cpk-ra2l1/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
