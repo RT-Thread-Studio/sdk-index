@@ -3,6 +3,7 @@
     "dvendor": "Renesas",
     "description": "Renesas series Board Support Packages",
     "index": [
-        "sdk-bsp-cpk-ra6m4"
+        "sdk-bsp-cpk-ra6m4",
+        "sdk-bsp-cpk-ra2l1"
     ]
 }
