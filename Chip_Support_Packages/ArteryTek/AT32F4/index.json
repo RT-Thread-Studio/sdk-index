@@ -6,6 +6,13 @@
     "repository": "https://github.com/ArteryTek/sdk-csp-at32f4.git",
     "releases": [
         {
+            "version": "0.1.0",
+            "date": "2022-11-08",
+            "description": "released v0.1.0, add at32f413 series",
+            "size": "31 MB",
+            "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.1.0.zip"
+        },
+        {
             "version": "0.0.9",
             "date": "2022-10-14",
             "description": "released v0.0.9, update emac and usart driver, add at32f415 series",
