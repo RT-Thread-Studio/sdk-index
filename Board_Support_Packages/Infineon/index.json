@@ -1,0 +1,8 @@
+{
+    "name": "Infineon Board Support Packages",
+    "dvendor": "Infineon",
+    "description": "Infineon Board Support Packages",
+    "index": [
+        "PSOC62-IFX-PROTO-KIT"
+    ]
+}

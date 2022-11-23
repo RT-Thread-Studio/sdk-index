@@ -1,0 +1,16 @@
+{
+    "name": "PSOC62-IFX-PROTO-KIT",
+    "vendor": "Infineon",
+    "description": "PSOC62-IFX-PROTO-KIT Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-psoc62-ifx-proto-kit.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-11-23",
+            "description": "released v1.0.0",
+            "size": "25.7 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-psoc62-ifx-proto-kit/archive/1.0.0.zip"
+        }
+    ]
+}
