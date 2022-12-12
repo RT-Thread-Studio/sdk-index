@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-numaker-hmi-ma35d1.git",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2022-12-12",
+            "description": "released v1.0.1",
+            "size": "53 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-hmi-ma35d1/archive/v1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2022-10-20",
             "description": "released v1.0.0",
