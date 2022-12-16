@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-nk-n9h30.git",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2022-12-16",
+            "description": "LVGL-8.3 envoirement",
+            "size": "36 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-n9h30/archive/v1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2022-5-4",
             "description": "LVGL-8.2 envoirement",
