@@ -7,7 +7,7 @@
     "releases": [
         {
             "version": "1.0.2",
-            "date": "2022-12-27,
+            "date": "2022-12-27",
             "description": "Add UART flush",
             "size": "16 MB",
             "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d1/archive/v1.0.2.zip"
