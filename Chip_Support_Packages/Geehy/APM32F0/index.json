@@ -1,0 +1,16 @@
+{
+    "name": "APM32F0",
+    "vendor": "Geehy",
+    "description": "APM32F0 Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/Aligagago/sdk-csp-apm32f0.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2022-01-16",
+            "description": "released v1.0.0",
+            "size": "24 MB",
+            "url": "https://github.com/Aligagago/sdk-csp-apm32f0/archive/refs/tags/v1.0.0.zip"
+        }
+    ]
+}

@@ -4,6 +4,7 @@
     "description": "APM32 series Chip Support Packages",
     "index": [
         "APM32F1",
-        "APM32F4"
+        "APM32F4",
+        "APM32F0"
     ]
 }
