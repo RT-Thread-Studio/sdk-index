@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6300evk.git",
     "releases": [
         {
+            "version": "1.0.0",
+            "date": "2023-01-31",
+            "description": "Integrated hpm_sdk v1.0.0, upgraded rt-thread to v4.1.0, added usb demos, ethernet demos, bugfixes and improvements",
+            "size": "43 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6300evk/archive/v1.0.0.zip"
+        },
+        {
             "version": "0.7.0",
             "date": "2022-08-01",
             "description": "Integrated hpm_sdk v0.12.1, implemented i2c driver, bugfixes and improvements",
