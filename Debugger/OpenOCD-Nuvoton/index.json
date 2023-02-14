@@ -24,6 +24,13 @@
             "description": "Fix for GDB load command",
             "size": "15 MB",
             "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.2.zip"
+        },
+        {
+            "version": "1.0.3",
+            "date": "2023-2-14",
+            "description": "Sync to 0.10.022.0",
+            "size": "15 MB",
+            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.3.zip"
         }
     ]
 }
