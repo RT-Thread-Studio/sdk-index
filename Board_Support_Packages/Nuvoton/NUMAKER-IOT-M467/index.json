@@ -11,6 +11,13 @@
             "description": "released v1.0.0",
             "size": "25 MB",
             "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-m467/archive/v1.0.0.zip"
+        },
+        {
+            "version": "1.0.1",
+            "date": "2023-2-15",
+            "description": "released v1.0.1",
+            "size": "25 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-m467/archive/v1.0.1.zip"
         }
     ]
 }
