@@ -3,14 +3,14 @@
     "vendor": "Geehy",
     "description": "APM32F1 Chip Support Packages",
     "license": "",
-    "repository": "https://github.com/stevetong459/sdk-csp-apm32f1.git",
+    "repository": "https://github.com/luobeihai/sdk-csp-apm32f1.git",
     "releases": [
         {
-            "version": "1.0.0",
-            "date": "2022-03-24",
-            "description": "released v1.0.0",
+            "version": "1.0.1",
+            "date": "2023-03-10",
+            "description": "released v1.0.1, fix some bug, and update rtt driver",
             "size": "24 MB",
-            "url": "https://github.com/stevetong459/sdk-csp-apm32f1/archive/refs/tags/v1.0.0.zip"
+            "url": "https://github.com/luobeihai/sdk-csp-apm32f1/archive/refs/tags/v1.0.1.zip"
         }
     ]
 }

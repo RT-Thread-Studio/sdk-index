@@ -3,14 +3,14 @@
     "vendor": "Geehy",
     "description": "APM32F103ZE-GEEHY-MINI Board Support Packages",
     "license": "",
-    "repository": "https://github.com/stevetong459/sdk-bsp-apm32f103ze-geehy-mini.git",
+    "repository": "https://github.com/luobeihai/sdk-bsp-apm32f103ze-geehy-mini.git",
     "releases": [
         {
-            "version": "1.0.0",
-            "date": "2022-03-23",
-            "description": "v1.0.0 release",
+            "version": "1.0.1",
+            "date": "2023-03-10",
+            "description": "v1.0.1 release, and update rtt driver",
             "size": "12 MB",
-            "url": "https://github.com/stevetong459/sdk-bsp-apm32f103ze-geehy-mini/archive/refs/tags/v1.0.0.zip"
+            "url": "https://github.com/luobeihai/sdk-bsp-apm32f103ze-geehy-mini/archive/refs/tags/v1.0.1.zip"
         }
     ]
 }

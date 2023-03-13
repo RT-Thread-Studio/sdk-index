@@ -1,0 +1,16 @@
+{
+    "name": "APM32F407ZG-GEEHY-EVAL",
+    "vendor": "Geehy",
+    "description": "APM32F407ZG-GEEHY-EVAL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/luobeihai/sdk-bsp-apm32f407zg-geehy-eval.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2023-03-10",
+            "description": "v1.0.0 release",
+            "size": "12 MB",
+            "url": "https://github.com/luobeihai/sdk-bsp-apm32f407zg-geehy-eval/archive/refs/tags/v1.0.0.zip"
+        }
+    ]
+}
