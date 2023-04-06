@@ -12,11 +12,11 @@
             "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v7.80a.zip"
         },
 		{
-            "version": "v7.50b",
-            "date": "2023-3-16",
+            "version": "v7.52",
+            "date": "2023-4-6",
             "description": "Added Support For ART-PI Board",
-            "size": "57 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v7.50b.zip"
+            "size": "85 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v7.52.zip"
         },
         {
             "version": "v7.50a",
