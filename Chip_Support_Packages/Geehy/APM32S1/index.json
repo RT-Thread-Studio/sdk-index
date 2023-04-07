@@ -1,0 +1,16 @@
+{
+    "name": "APM32S1",
+    "vendor": "Geehy",
+    "description": "APM32S1 Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/luobeihai/sdk-csp-apm32s1.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2023-04-07",
+            "description": "released v1.0.0",
+            "size": "24 MB",
+            "url": "https://github.com/luobeihai/sdk-csp-apm32s1/archive/refs/tags/v1.0.0.zip"
+        }
+    ]
+}

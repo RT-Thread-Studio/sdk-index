@@ -1,0 +1,16 @@
+{
+    "name": "APM32S103VB-GEEHY-MINI",
+    "vendor": "Geehy",
+    "description": "APM32S103VB-GEEHY-MINI Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/luobeihai/sdk-bsp-apm32s103vb-geehy-mini.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2023-04-07",
+            "description": "v1.0.0 release",
+            "size": "8 MB",
+            "url": "https://github.com/luobeihai/sdk-bsp-apm32s103vb-geehy-mini/archive/refs/tags/v1.0.0.zip"
+        }
+    ]
+}

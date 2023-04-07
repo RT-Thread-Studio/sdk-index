@@ -5,6 +5,8 @@
     "index": [
         "APM32F1",
         "APM32F4",
-        "APM32F0"
+        "APM32F0",
+        "APM32E1",
+        "APM32S1"
     ]
 }
