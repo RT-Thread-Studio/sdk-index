@@ -5,6 +5,13 @@
     "license": "",
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-draco.git",
     "releases": [
+        {
+            "version": "1.0.11",
+            "date": "2023-04-27",
+            "description": "based on rt-thread v4.1.1 and update functions.",
+            "size": "22.5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-draco/archive/refs/tags/v1.0.11.zip"
+        },
          {
             "version": "1.0.10",
             "date": "2022-10-19",
