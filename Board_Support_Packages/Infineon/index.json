@@ -4,6 +4,6 @@
     "description": "Infineon Board Support Packages",
     "index": [
         "PSOC62-IFX-PROTO-KIT",
-        "CY8C624-INFINEON-EVALUATIONKIT"
+        "PSOC62-IFX-EVAL-KIT"
     ]
 }
