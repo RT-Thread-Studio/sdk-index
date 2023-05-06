@@ -3,7 +3,7 @@
     "vendor": "RealThread",
     "description": "STM32WL55-ST-NUCLEO Board Support Packages",
     "license": "MIT License",
-    "repository": "https://github.com/JeremyWoo2016/sdk-bsp-stm32wl55-rt-thread/releases/tag/1.0.0",
+    "repository": "https://github.com/JeremyWoo2016/sdk-bsp-stm32wl55-rt-thread.git",
     "releases": [
         {
             "version": "1.0.0",
