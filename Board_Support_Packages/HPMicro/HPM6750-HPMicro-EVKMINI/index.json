@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini.git",
     "releases": [
         {
+            "version": "1.1.0",
+            "date": "2023-05-12",
+            "description": "integrated hpm_sdk_v1.1.0, bugfix and feature improvements",
+            "size": "97 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v1.1.0.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2023-01-10",
             "description": "integrated hpm_sdk_v1.0.0, added support for JLink Probe, added audio demo, bugfix and feature improvements",
