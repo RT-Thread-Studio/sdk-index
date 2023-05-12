@@ -1,0 +1,16 @@
+{
+    "name": "HPM6200-HPMicro-EVK",
+    "vendor": "HPMicro",
+    "description": "HPM6200EVK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hpmicro/rtt-bsp-hpm6200evk.git",
+    "releases": [
+        {
+            "version": "1.1.0",
+            "date": "2023-05-12",
+            "description": "integrated hpm_sdk_v1.1.0",
+            "size": "33 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6200evk/archive/v1.1.0.zip"
+        }
+    ]
+}
