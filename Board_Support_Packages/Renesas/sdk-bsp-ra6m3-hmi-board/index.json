@@ -1,0 +1,16 @@
+{
+    "name": "HMI-Board",
+    "vendor": "RealThread",
+    "description": "RA6M3 HMI-Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra6m3-hmi-board.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2023-05-17",
+            "description": "released v1.0.0, support HMI-Board",
+            "size": "62.5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra6m3-hmi-board/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
