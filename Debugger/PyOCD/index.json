@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "0.2.0",
+            "date": "2023-05-17",
+            "description": "add Renesas RA support",
+            "size": "119 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.0.zip"
+        },
+        {
             "version": "0.1.6",
             "date": "2022-07-29",
             "description": "Add geehy apm32f4 support",
