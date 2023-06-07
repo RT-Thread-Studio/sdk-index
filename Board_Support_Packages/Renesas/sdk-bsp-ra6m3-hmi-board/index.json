@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra6m3-hmi-board.git",
     "releases": [
         {
+            "version": "1.0.3",
+            "date": "2023-06-07",
+            "description": "add more example projects",
+            "size": "166 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra6m3-hmi-board/archive/refs/tags/1.0.3.zip"
+        },
+        {
             "version": "1.0.2",
             "date": "2023-05-29",
             "description": "update lvgl files",
