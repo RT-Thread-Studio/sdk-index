@@ -1,0 +1,16 @@
+{
+    "name": "STM32F407-RT-SPARK",
+    "vendor": "RealThread",
+    "description": "STM32F407-RT-SPARK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-spark",
+    "releases": [
+        {
+            "version": "0.1.0",
+            "date": "2023-06-29",
+            "description": "released v0.1.0",
+            "size": "27.2 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f407-spark/archive/refs/tags/0.1.0.zip"
+        }
+    ]
+}
