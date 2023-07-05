@@ -1,0 +1,16 @@
+{
+    "name": "RttAppTemplate",
+    "vendor": "RealThread",
+    "description": "RTThread App Project Template Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-thirdparty-rttapptemplate.git",
+    "releases": [
+        {
+            "version": "0.0.1",
+            "date": "2023-07-05",
+            "description": "RTThread App Project Template, need RT-Thread Studio >= 3.0.0",
+            "size": "24 KB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-thirdparty-rttapptemplate/archive/0.0.1.zip"
+        }
+    ]
+}
