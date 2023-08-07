@@ -1,0 +1,16 @@
+{
+    "name": "NK-980IOTG2D",
+    "vendor": "Nuvoton",
+    "description": "NK-980IOTG2D Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-nk-980iotg2d.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2023-8-7",
+            "description": "released v1.0.0",
+            "size": "35 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-980iotg2d/archive/v1.0.0.zip"
+        }
+    ]
+}
