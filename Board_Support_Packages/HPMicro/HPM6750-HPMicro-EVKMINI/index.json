@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini.git",
     "releases": [
         {
+            "version": "1.2.0",
+            "date": "2023-08-12",
+            "description": "integrated hpm_sdk_v1.2.0, migrated to rt-thread v5.0.1, bugfix and feature improvements",
+            "size": "97 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v1.2.0.zip"
+        },
+        {
             "version": "1.1.0",
             "date": "2023-05-12",
             "description": "integrated hpm_sdk_v1.1.0, bugfix and feature improvements",
