@@ -10,7 +10,7 @@
             "date": "2023-08-19",
             "description": "update hal to verison 1.6.1",
             "size": "23 MB",
-            "url": "https://codeload.github.com/RT-Thread-Studio/sdk-csp-stm32g0/zip/v0.2.0"
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g0/archive/v0.2.0.zip"
         },
         {
             "version": "0.1.8",
