@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-numaker-iot-m487.git",
     "releases": [
         {
+            "version": "1.0.3",
+            "date": "2023-10-26",
+            "description": "Add SVD file",
+            "size": "20.6 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-m487/archive/v1.0.0.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2022-1-14",
             "description": "released v1.0.0",
