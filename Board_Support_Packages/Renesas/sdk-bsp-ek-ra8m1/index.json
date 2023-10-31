@@ -1,0 +1,16 @@
+{
+    "name": "RA8M1-EK",
+    "vendor": "RealThread",
+    "description": "RA8M1-EK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8m1-ek.git",
+    "releases": [
+        {
+            "version": "0.0.2",
+            "date": "2023-10-31",
+            "description": "RA8M1-EK Board Support Packages",
+            "size": "10 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8m1-ek/archive/refs/tags/0.0.2.zip"
+        }
+    ]
+}
