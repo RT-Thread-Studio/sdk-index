@@ -6,6 +6,7 @@
         "sdk-bsp-cpk-ra6m4",
         "sdk-bsp-cpk-ra2l1",
         "sdk-bsp-ek-ra6m3",
-        "sdk-bsp-ra6m3-hmi-board"
+        "sdk-bsp-ra6m3-hmi-board",
+        "sdk-bsp-ek-ra8m1"
     ]
 }
