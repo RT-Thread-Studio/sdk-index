@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m467hj.git",
     "releases": [
         {
+            "version": "1.0.3",
+            "date": "2023-11-1",
+            "description": "Fix issues",
+            "size": "50 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m467hj/archive/v1.0.3.zip"
+        },
+        {
             "version": "1.0.2",
             "date": "2023-05-30",
             "description": "Upgrade debugger version",
