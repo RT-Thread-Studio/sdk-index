@@ -1,12 +1,13 @@
 {
-    "name": "HPM6000 Series Board Support Packages",
+    "name": "HPMicro Board Support Packages",
     "dvendor": "HPMicro",
-    "description": "HPM6000 series Board Support Packages",
+    "description": "HPMicro Board Support Packages",
     "index": [
         "HPM6750-HPMicro-EVKMINI",
         "HPM6750-HPMicro-EVK",
         "HPM6750-HPMicro-EVK2",
         "HPM6300-HPMicro-EVK",
-        "HPM6200-HPMicro-EVK"
+        "HPM6200-HPMicro-EVK",
+        "HPM5300-HPMicro-EVK"
     ]
 }
