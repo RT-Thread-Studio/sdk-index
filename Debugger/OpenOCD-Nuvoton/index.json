@@ -31,13 +31,6 @@
             "description": "Sync to 0.10.022.0",
             "size": "15 MB",
             "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.3.zip"
-        },
-        {
-            "version": "special_for_ma35",
-            "date": "2023-11-8",
-            "description": "New openocd and gdb-multiarch",
-            "size": "80 MB",
-            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/special_for_ma35.zip"
         }
     ]
 }
