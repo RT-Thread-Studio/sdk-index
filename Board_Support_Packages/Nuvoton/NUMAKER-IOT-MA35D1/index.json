@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d1.git",
     "releases": [
         {
+            "version": "1.0.4",
+            "date": "2023-11-15",
+            "description": "Add debugging function",
+            "size": "16 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d1/archive/v1.0.4.zip"
+        },
+        {
             "version": "1.0.2",
             "date": "2022-12-27",
             "description": "Add UART flush",
