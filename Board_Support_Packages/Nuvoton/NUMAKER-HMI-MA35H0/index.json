@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-HMI-MA35H0",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-HMI-MA35H0 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-hmi-ma35h0.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2023-12-29",
+            "description": "released v1.0.0",
+            "size": "78 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-hmi-ma35h0/archive/v1.0.0.zip"
+        }
+    ]
+}
