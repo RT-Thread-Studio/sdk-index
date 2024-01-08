@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-nk-980iotg2d.git",
     "releases": [
         {
+            "version": "1.0.1",
+            "date": "2024-1-8",
+            "description": "Regular update",
+            "size": "35 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-980iotg2d/archive/v1.0.1.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2023-8-7",
             "description": "released v1.0.0",
