@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-nk-rtu980.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2024-1-8",
+            "description": "Regular update",
+            "size": "8 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-nk-rtu980/archive/v1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2022-04-6",
             "description": "update:add jlink svd configuration",
