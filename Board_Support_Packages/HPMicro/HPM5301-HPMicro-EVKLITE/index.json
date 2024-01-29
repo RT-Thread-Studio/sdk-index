@@ -1,0 +1,16 @@
+{
+    "name": "HPM5301EVKLITE",
+    "vendor": "HPMicro",
+    "description": "HPM5301EVKLITE Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hpmicro/rtt-bsp-hpm5301evklite.git",
+    "releases": [
+        {
+            "version": "1.4.0",
+            "date": "2024-01-29",
+            "description": "First RT-Thread BSP for HPM5301EVKLITE",
+            "size": "30 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm5301evklite/archive/v1.4.0.zip"
+        }
+    ]
+}
