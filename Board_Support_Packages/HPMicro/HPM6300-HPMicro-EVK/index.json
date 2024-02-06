@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6300evk.git",
     "releases": [
         {
+            "version": "1.4.1",
+            "date": "2024-02-06",
+            "description": "Bugfix for BSP v1.4.0",
+            "size": "44 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6300evk/archive/v1.4.1.zip"
+        },
+        {
             "version": "1.4.0",
             "date": "2024-01-29",
             "description": "Integrated hpm_sdk v1.4.0, migrated to rt-thread v5.0.2, bugfixes and improvements, bugfixes and driver updates, added new examples",
