@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-IOT-MA35D0",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-IOT-MA35D0 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d0.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2024-2-27",
+            "description": "released v1.0.0",
+            "size": "47 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d0/archive/v1.0.0.zip"
+        }
+    ]
+}
