@@ -1,0 +1,16 @@
+{
+    "name": "Vision-board",
+    "vendor": "RealThread",
+    "description": "RA8D1 Vision-board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8d1-vision-board.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2024-02-28",
+            "description": "Released v1.0.0, support Vision-board",
+            "size": "62.5 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8d1-vision-board/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
