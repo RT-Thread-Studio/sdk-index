@@ -5,6 +5,20 @@
     "license": "",
     "releases": [
         {
+            "version": "0.2.3",
+            "date": "2024-02-26",
+            "description": "add support renesas-ra8 series",
+            "size": "132 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.3.zip"
+        },
+        {
+            "version": "0.2.2",
+            "date": "2023-11-13",
+            "description": "add support at32f402/405 series",
+            "size": "127 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.2.zip"
+        },
+        {
             "version": "0.2.1",
             "date": "2023-09-10",
             "description": "update pyocd to v0.36.0",
