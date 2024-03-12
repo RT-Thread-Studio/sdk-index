@@ -6,6 +6,13 @@
     "repository": "https://github.com/ArteryTek/sdk-csp-at32f4.git",
     "releases": [
         {
+            "version": "0.1.7",
+            "date": "2024-03-11",
+            "description": "released v0.1.7, fixed f403a usart6 error and update usb host driver",
+            "size": "65 MB",
+            "url": "https://github.com/ArteryTek/sdk-csp-at32f4/archive/0.1.7.zip"
+        },
+        {
             "version": "0.1.6",
             "date": "2023-11-16",
             "description": "released v0.1.6, add support at32f402/405 series",
