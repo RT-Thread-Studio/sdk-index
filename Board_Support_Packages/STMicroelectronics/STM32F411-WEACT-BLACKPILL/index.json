@@ -1,0 +1,16 @@
+{
+    "name": "STM32F411-WEACT-BLACKPILL",
+    "vendor": "RealThread",
+    "description": "STM32F411-WEACT-BLACKPILL Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-weact-blackpill.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2024-03-21",
+            "description": "released v1.0.0",
+            "size": "40.1 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32f411-weact-blackpill/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
