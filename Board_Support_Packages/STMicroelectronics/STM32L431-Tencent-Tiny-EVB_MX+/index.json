@@ -1,6 +1,6 @@
 {
     "name": "STM32L431-Tencent-Tiny-EVB_MX+",  
-    "vendor": "IotClub",  
+    "vendor": "Tencent IotClub",
     "description": "STM32L431-Tencent-Tiny-EVB_MX+ Board Support Packages",  
     "license": "",  
     "repository": "https://github.com/WwWangGuan/sdk-bsp-stm32l431-tencentos-tiny-EVB_MX-.git", 
@@ -10,7 +10,7 @@
             "date": "2024-3-20",
             "description": "released v1.0.0",
             "size": "15 MB",
-            "url": "https://github.com/WwWangGuan/sdk-bsp-stm32l431-tencentos-tiny-EVB_MX-/archive/refs/tags/v1.0.0.zip"
+            "url": "https://github.com/WwWangGuan/sdk-bsp-stm32l431-tencentos-tiny-EVB_MX-/archive/refs/tags/1.0.0.zip"
         }
     ]
 }
