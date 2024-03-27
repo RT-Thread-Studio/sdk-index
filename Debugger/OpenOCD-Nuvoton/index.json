@@ -38,6 +38,13 @@
             "description": "Special for ma35 series",
             "size": "80 MB",
             "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/special_for_ma35.zip"
+        },
+        {
+            "version": "1.0.4",
+            "date": "2024-3-27",
+            "description": "Support for M2L31 series",
+            "size": "15 MB",
+            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.4.zip"
         }
     ]
 }
