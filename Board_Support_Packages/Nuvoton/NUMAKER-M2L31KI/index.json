@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M2L31KI",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M2L31KI Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m2l31ki.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2024-3-27",
+            "description": "released preview",
+            "size": "4 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m2l31ki/archive/v1.0.0.zip"
+        }
+    ]
+}
