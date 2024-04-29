@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm5300evk.git",
     "releases": [
         {
+            "version": "1.5.0",
+            "date": "2024-04-29",
+            "description": "RT-Thread BSP v1.5.0 for HPM5300EVK",
+            "size": "87 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm5300evk/archive/v1.5.0.zip"
+        },
+        {
             "version": "1.4.1",
             "date": "2024-02-06",
             "description": "Bugfix for BSP v1.4.0",
