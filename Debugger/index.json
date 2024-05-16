@@ -11,6 +11,7 @@
         "OpenOCD-Nuvoton",
         "OpenOCD-HPMicro",
         "OpenOCD-Nuclei",
-        "OpenOCD-Infineon"
+        "OpenOCD-Infineon",
+        "OpenOCD-RaspberryPi"
     ]
 }
