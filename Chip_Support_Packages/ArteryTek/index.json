@@ -3,6 +3,7 @@
     "dvendor": "ArteryTek",
     "description": "AT32 series Chip Support Packages",
     "index": [
-        "AT32F4"
+        "AT32F4",
+        "AT32A4"
     ]
 }
