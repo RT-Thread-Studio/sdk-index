@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-rp2040-raspberry-pico.git",
     "releases": [
         {
+            "version": "1.0.7",
+            "date": "2024-05-21",
+            "description": "v1.0.7 release：add debug and smp support.",
+            "size": "153 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-rp2040-raspberry-pico/archive/1.0.7.zip"
+        },
+        {
             "version": "1.0.6",
             "date": "2022-01-25",
             "description": "v1.0.6 release：add lvgl support.",
