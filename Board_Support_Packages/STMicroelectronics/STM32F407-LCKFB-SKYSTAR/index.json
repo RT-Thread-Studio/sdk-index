@@ -1,0 +1,16 @@
+{
+    "name": "STM32F407-LCKFB-SKYSTAR",
+    "vendor": "LCKFB",
+    "description": "STM32F407-LCKFB-SKYSTAR Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/zihao-yuan/sdk-bsp-stm32f407-skystar.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2024-06-28",
+            "description": "released v1.0.0",
+            "size": "20 MB",
+            "url": "https://github.com/zihao-yuan/sdk-bsp-stm32f407-skystar/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
