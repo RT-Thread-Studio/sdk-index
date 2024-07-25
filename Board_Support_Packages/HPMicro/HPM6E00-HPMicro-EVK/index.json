@@ -1,0 +1,16 @@
+{
+    "name": "HPM6E00EVK",
+    "vendor": "HPMicro",
+    "description": "HPM6E00EVK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hpmicro/rtt-bsp-hpm6800evk.git",
+    "releases": [
+        {
+            "version": "1.6.0",
+            "date": "2024-07-25",
+            "description": "Rt-Thread BSP v1.6.0 for HPM6E00EVK",
+            "size": "72 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6e00evk/archive/v1.6.0.zip"
+        }
+    ]
+}
