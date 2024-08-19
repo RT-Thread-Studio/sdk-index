@@ -1,0 +1,16 @@
+{
+    "name": "GD32F407V-LCKFB-SKYSTAR",
+    "vendor": "LCKFB",
+    "description": "GD32F407V-LCKFB-SKYSTAR Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/zihao-yuan/sdk-bsp-gd32f407-skystar.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2024-08-19",
+            "description": "released v1.0.0",
+            "size": "16 MB",
+            "url": "https://github.com/zihao-yuan/sdk-bsp-gd32f407-skystar/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
