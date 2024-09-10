@@ -6,6 +6,13 @@
     "repository": "https://github.com/ArteryTek/sdk-csp-at32a4.git",
     "releases": [
         {
+            "version": "0.0.2",
+            "date": "2024-09-10",
+            "description": "released v0.0.2, update drivers",
+            "size": "22 MB",
+            "url": "https://github.com/ArteryTek/sdk-csp-at32a4/archive/0.0.2.zip"
+        },
+        {
             "version": "0.0.1",
             "date": "2024-05-16",
             "description": "released v0.0.1",
