@@ -4,6 +4,7 @@
     "description": "AT32 series Chip Support Packages",
     "index": [
         "AT32F4",
-        "AT32A4"
+        "AT32A4",
+        "AT32M4"
     ]
 }
