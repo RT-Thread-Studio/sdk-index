@@ -1,0 +1,8 @@
+{
+    "name": "HC32 Series Chip Support Packages",
+    "dvendor": "XHSC",
+    "description": "HC32 series Chip Support Packages",
+    "index": [
+        "HC32F4"
+    ]
+}
