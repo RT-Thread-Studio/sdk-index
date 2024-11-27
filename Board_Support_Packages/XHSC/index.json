@@ -5,8 +5,6 @@
     "index": [
         "ev_f4a0_lq176_rev1.0",
         "ev_f460_lq100_rev2.0",
-        "lckfb_f4a0_lq100_skystar",
-        "sdk-bsp-hc32f472-xhsc-ev",
-        "sdk-bsp-hc32f448-xhsc-ev"
+		"lckfb_f4a0_lq100_skystar"
     ]
 }
