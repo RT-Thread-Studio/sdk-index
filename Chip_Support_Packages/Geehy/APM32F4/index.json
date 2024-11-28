@@ -11,20 +11,20 @@
             "description": "released v1.0.3, update standard peripheral library",
             "size": "24 MB",
             "url": "https://github.com/luobeihai/sdk-csp-apm32f4/archive/refs/tags/v1.0.3.zip"
-        }
+        },
         {
             "version": "1.0.2",
             "date": "2023-04-08",
             "description": "released v1.0.2, update rtt drivers",
             "size": "24 MB",
             "url": "https://github.com/luobeihai/sdk-csp-apm32f4/archive/refs/tags/v1.0.2.zip"
-        }
+        },
         {
             "version": "1.0.1",
             "date": "2023-03-10",
             "description": "released v1.0.1, fix some bug, and update rtt driver",
             "size": "24 MB",
             "url": "https://github.com/luobeihai/sdk-csp-apm32f4/archive/refs/tags/v1.0.1.zip"
-        },
+        }
     ]
 }
