@@ -1,0 +1,16 @@
+{
+    "name": "STM32H7R7-RT-ART-Pi2",
+    "vendor": "RealThread",
+    "description": "STM32H7R7-RT-ART-Pi2 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h7r-realthread-artpi2.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2025-02-22",
+            "description": "released v1.0.0",
+            "size": "365 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h7r-realthread-artpi2/archive/1.0.0.zip"
+        }
+    ]
+}
