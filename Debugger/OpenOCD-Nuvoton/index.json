@@ -45,6 +45,13 @@
             "description": "Support for M2L31 series",
             "size": "15 MB",
             "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.4.zip"
+        },
+        {
+            "version": "1.0.5",
+            "date": "2025-3-19",
+            "description": "Support for M55M1 series",
+            "size": "30 MB",
+            "url": "https://github.com/wosayttn/sdk-debugger-openocd-nuvoton/archive/v1.0.5.zip"
         }
     ]
 }
