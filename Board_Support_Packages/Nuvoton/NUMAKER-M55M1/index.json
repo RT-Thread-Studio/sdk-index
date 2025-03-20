@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M55M1",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M55M1 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m55m1.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2025-3-19",
+            "description": "released v1.0.0",
+            "size": "68 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m55m1/archive/v1.0.0.zip"
+        }
+    ]
+}
