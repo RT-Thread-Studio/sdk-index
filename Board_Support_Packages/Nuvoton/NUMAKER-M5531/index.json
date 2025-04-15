@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M5531",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M5531 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m5531.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2025-4-14",
+            "description": "released v1.0.0",
+            "size": "45 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m5531/archive/v1.0.0.zip"
+        }
+    ]
+}
