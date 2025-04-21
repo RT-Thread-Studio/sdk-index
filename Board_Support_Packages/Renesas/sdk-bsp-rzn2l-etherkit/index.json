@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-rzn2l-etherkit.git",
     "releases": [
         {
+            "version": "1.2.1",
+            "date": "2025-04-21",
+            "description": "release v1.2.1, add filesystem projects, fix some existing problems",
+            "size": "243 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-rzn2l-etherkit/archive/refs/tags/1.2.1.zip"
+        },
+        {
             "version": "1.2.0",
             "date": "2025-02-12",
             "description": "release v1.2.0, fixed some problems, new examples of projects such as EIP, hyperram and CoE have been added.",
