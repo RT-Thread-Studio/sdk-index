@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra6m3-hmi-board.git",
     "releases": [
         {
+            "version": "1.2.0",
+            "date": "2025-04-29",
+            "description": "release v1.2.0,add ethercat soem project,fix some bug",
+            "size": "215 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra6m3-hmi-board/archive/refs/tags/1.2.0.zip"
+        },
+        {
             "version": "1.1.1",
             "date": "2023-10-27",
             "description": "release v1.1.1，add ota-boot/app projects",
