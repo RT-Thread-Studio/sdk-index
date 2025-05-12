@@ -30,7 +30,7 @@ def gitee_token():
 def getPkgs2Sync():
     url=INDEX_SERVER_URL+"/pkgs2sync"
     try:
-        response = requests.get(url,timeout=60)
+        response = requests.get(url,timeout=120,verify=False)
         return response.text
     except Exception as e:
         logging.error(e)
@@ -39,7 +39,7 @@ def getPkgs2Sync():
 def onSyncCompelete(repo_name):
     url=INDEX_SERVER_URL+"/aftersync?name="
     try:
-        response = requests.get(url+repo_name,timeout=60)
+        response = requests.get(url+repo_name,timeout=120,verify=False)
         logging.info("update-SdkIndexGitee-Compeleted: {0}.".format(repo_name))
     except Exception as e:
         logging.error(e)
