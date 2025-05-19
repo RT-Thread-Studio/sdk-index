@@ -243,7 +243,7 @@ class SdkSyncPackages:
         try:
             r = requests.post(os.environ["UPDATE_SDK_INDEX_ADDRESS"],
                               data=json.dumps(index),
-                              headers=headers
+                              headers=headers,timeout=120,verify=False
                               )
 
             if r.status_code == requests.codes.ok:
@@ -253,7 +253,7 @@ class SdkSyncPackages:
 
             r = requests.post(os.environ["UPDATE_SDK_ABROAD_INDEX_ADDRESS"],
                               data=json.dumps(index),
-                              headers=headers
+                              headers=headers,timeout=120,verify=False
                               )
 
             if r.status_code == requests.codes.ok:

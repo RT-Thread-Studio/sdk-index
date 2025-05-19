@@ -11,7 +11,7 @@ def submit_index(prIndex):
     try:
         headers={"Content-Type":"application/json; charset=UTF-8"}
         url=INDEX_SERVER_URL+"/merge/"
-        response = requests.post(url,data=json.dumps(prIndex),headers=headers,timeout=60)
+        response = requests.post(url,data=json.dumps(prIndex),headers=headers,timeout=120,verify=False)
         if(response.status_code==404):
             raise Exception(response.status_code)
         else:
