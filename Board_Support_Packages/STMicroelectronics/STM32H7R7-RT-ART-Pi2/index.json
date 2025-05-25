@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h7r-realthread-artpi2.git",
     "releases": [
         {
+            "version": "1.1.0",
+            "date": "2025-05-25",
+            "description": "released v1.1.0,add some new demos",
+            "size": "337 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h7r-realthread-artpi2/archive/v1.1.0.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2025-02-22",
             "description": "released v1.0.0",
