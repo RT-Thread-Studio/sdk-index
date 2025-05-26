@@ -1,0 +1,16 @@
+{
+    "name": "FRDM-MCXN947",
+    "vendor": "RealThread",
+    "description": "FRDM-MCXN947 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-frdm-mcxn947.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2025-05-26",
+            "description": "Support FRDM-MCXN947",
+            "size": "118 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-frdm-mcxn947/archive/refs/tags/1.0.0.zip"
+        }
+    ]
+}
