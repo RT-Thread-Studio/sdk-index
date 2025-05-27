@@ -5,6 +5,34 @@
     "license": "",
     "releases": [
         {
+            "version": "0.2.7",
+            "date": "2025-05-21",
+            "description": "add support for the MCXN947_DFP list",
+            "size": "185 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.7.zip"
+        },
+        {
+            "version": "0.2.6",
+            "date": "2025-04-08",
+            "description": "add support f45x series",
+            "size": "176 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.6.zip"
+        },
+        {
+            "version": "0.2.5",
+            "date": "2024-09-10",
+            "description": "add support m412/416 series",
+            "size": "175 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.5.zip"
+        },
+        {
+            "version": "0.2.4",
+            "date": "2024-05-22",
+            "description": "add support at32a403a and at32a423 series",
+            "size": "174 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.4.zip"
+        },
+        {
             "version": "0.2.3",
             "date": "2024-02-26",
             "description": "add support renesas-ra8 series",
