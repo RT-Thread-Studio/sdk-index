@@ -55,20 +55,21 @@ def packages_info_mirror_register(packages_json_file):
 
             if url.startswith('https://github.com/'):
                 if url.endswith('.git'):
-                    tmp = url.split('/')
-                    repo = tmp[4]
-                    replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
+                    #tmp = url.split('/')
+                    #repo = tmp[4]
+                    #replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
+                    replace_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
                     item['url'] = replace_url
 
-                    if url == "https://github.com/RT-Thread/rt-thread.git":
-                        item['url'] = "https://gitee.com/rtthread/rt-thread.git"
+                    #if url == "https://github.com/RT-Thread/rt-thread.git":
+                    #    item['url'] = "https://gitee.com/rtthread/rt-thread.git"
                 else:
-                    new_zip_url = url.replace('https://github.com', 'https://gitee.com')
-                    tmp = new_zip_url.split('/')
-                    tmp[3] = "RT-Thread-Studio-Mirror"
-                    tmp[5] = 'repository/archive'
-                    file_replace_url = '/'.join(tmp)
-                    item['url'] = file_replace_url
+                    new_zip_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
+                    #tmp = new_zip_url.split('/')
+                    #tmp[3] = "RT-Thread-Studio-Mirror"
+                    #tmp[5] = 'repository/archive'
+                    #file_replace_url = '/'.join(tmp)
+                    item['url'] = new_zip_url
 
         payload_register = {
             "packages": [{}]
