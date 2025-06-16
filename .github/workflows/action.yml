@@ -61,7 +61,7 @@ jobs:
           shell: bash
           env:
             GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-          if: ${{ github.repository == 'RT-Thread-Studio/sdk-index' && github.ref == 'refs/heads/master' && github.event_name == 'push' }} 
+          if: ${{ github.event_name == 'push' }} 
           run: |
             echo ${{ github.repository }}
             cd ${{ github.workspace }}/scripts
