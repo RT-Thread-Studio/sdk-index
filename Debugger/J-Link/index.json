@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "v8.48",
+            "date": "2025-07-05",
+            "description": "Added support J-Link Software V8.48",
+            "size": "96 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debuger-jlink/archive/v8.48.zip"
+        },
+        {
             "version": "v8.24",
             "date": "2025-04-06",
             "description": "Added support J-Link Software V8.24",
