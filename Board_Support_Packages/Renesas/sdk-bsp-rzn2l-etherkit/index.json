@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-rzn2l-etherkit.git",
     "releases": [
         {
+            "version": "2.0.0",
+            "date": "2025-7-16",
+            "description": "release v2.0.0, Update fsp to 2.2.0.",
+            "size": "350 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-rzn2l-etherkit/archive/refs/tags/2.0.0.zip"
+        },
+        {
             "version": "1.2.2",
             "date": "2025-04-29",
             "description": "release v1.2.2, CoE project has added control functions for Xiaomi motors.",
