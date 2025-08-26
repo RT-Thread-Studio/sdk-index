@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm5301evklite.git",
     "releases": [
         {
+            "version": "1.10.0",
+            "date": "2025-08-26",
+            "description": "RT-Thread BSP v1.10.0 for HPM5301EVKLITE",
+            "size": "93 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm5301evklite/archive/v1.10.0.zip"
+        },
+        {
             "version": "1.9.0",
             "date": "2025-04-23",
             "description": "RT-Thread BSP v1.9.0 for HPM5301EVKLITE",

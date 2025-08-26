@@ -1,0 +1,16 @@
+{
+    "name": "HPM5E00EVK",
+    "vendor": "HPMicro",
+    "description": "HPM5E00EVK Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hpmicro/rtt-bsp-hpm5e00evk.git",
+    "releases": [
+        {
+            "version": "1.10.0",
+            "date": "2025-08-26",
+            "description": "Rt-Thread BSP v1.10.0 for HPM5E00EVK",
+            "size": "98 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm5e00evk/archive/v1.10.0.zip"
+        }
+    ]
+}
