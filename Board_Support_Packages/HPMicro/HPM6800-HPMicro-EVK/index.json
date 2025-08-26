@@ -6,6 +6,13 @@
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6800evk.git",
     "releases": [
         {
+            "version": "1.10.0",
+            "date": "2025-08-26",
+            "description": "RT-Thread BSP v1.10.0 for HPM6800EVK",
+            "size": "147 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6800evk/archive/v1.10.0.zip"
+        },
+        {
             "version": "1.9.0",
             "date": "2025-04-23",
             "description": "Rt-Thread BSP v1.9.0 for HPM6800EVK",
