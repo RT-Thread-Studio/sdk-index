@@ -43,47 +43,58 @@ def generate_all_index(index_entry_file):
         return index_entry
 
 def packages_info_mirror_register(packages_json_file):
-        with open(packages_json_file, 'rb') as f:
-            json_content = f.read()
+    with open(packages_json_file, 'rb') as f:
+        json_content = f.read()
 
-        package_json_register = json.loads(json_content.decode('utf-8'))
+    package_json_register = json.loads(json_content.decode('utf-8'))
+    package_json_register["name"] = "RT-Thread_Studio_" + package_json_register["name"]
 
-        package_json_register["name"] = "RT-Thread_Studio_" + package_json_register["name"]
+    for item in package_json_register['releases']:
+        url = item['url']
 
-        for item in package_json_register['releases']:
-            url = item['url']
+        if url.startswith('https://github.com/'):
+            if url.endswith('.git'):
+                # Git 仓库地址
+                replace_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
+                item['url'] = replace_url
+            elif '/releases/download/' in url:
+                # GitHub Releases 附件下载地址
+                # 格式: https://github.com/{owner}/{repo}/releases/download/{tag}/{filename}
+                parts = url.split('/')
+                owner = parts[3]
+                repo = parts[4]
+                tag = parts[7]
+                filename = parts[8]
+                
+                # 转换为归档下载地址（更通用）
+                replace_url = f"http://git-mirror.rt-thread.com:12236/{owner}/{repo}/archive/{tag}/{filename}"
+                item['url'] = replace_url
+                
+            elif '/archive/' in url:
+                # GitHub 源码归档地址（ZIP 格式）
+                # 格式: https://github.com/{owner}/{repo}/archive/{tag}.zip
+                replace_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
+                item['url'] = replace_url
+            else:
+                # 其他类型的 GitHub URL，保持原样或记录警告
+                logging.warning(f"Unhandled GitHub URL pattern: {url}")
+                # 可以选择跳过或者使用默认替换
+                replace_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
+                item['url'] = replace_url
 
-            if url.startswith('https://github.com/'):
-                if url.endswith('.git'):
-                    #tmp = url.split('/')
-                    #repo = tmp[4]
-                    #replace_url = "https://gitee.com/RT-Thread-Studio-Mirror" + '/' + repo
-                    replace_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
-                    item['url'] = replace_url
+    payload_register = {
+        "packages": [{}]
+    }
 
-                    #if url == "https://github.com/RT-Thread/rt-thread.git":
-                    #    item['url'] = "https://gitee.com/rtthread/rt-thread.git"
-                else:
-                    new_zip_url = url.replace('https://github.com', 'http://git-mirror.rt-thread.com:12236')
-                    #tmp = new_zip_url.split('/')
-                    #tmp[3] = "RT-Thread-Studio-Mirror"
-                    #tmp[5] = 'repository/archive'
-                    #file_replace_url = '/'.join(tmp)
-                    item['url'] = new_zip_url
+    payload_register["packages"][0] = package_json_register
 
-        payload_register = {
-            "packages": [{}]
-        }
+    data = json.dumps(payload_register).encode("utf-8")
 
-        payload_register["packages"][0] = package_json_register
-
-        data = json.dumps(payload_register).encode("utf-8")
-
-        headers = {'content-type': 'application/json', 'Rt-Token':os.environ['MIRROR_REG_TOKEN']}
-        request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, headers=headers)
-        response = urllib.request.urlopen(request)
-        resp = response.read()
-        logging.info("{0} register successful.".format(package_json_register["name"]))
+    headers = {'content-type': 'application/json', 'Rt-Token':os.environ['MIRROR_REG_TOKEN']}
+    request = urllib.request.Request(os.environ["MIRROR_REG_URL"], data, headers=headers)
+    response = urllib.request.urlopen(request)
+    resp = response.read()
+    logging.info("{0} register successful.".format(package_json_register["name"]))
         
 
 #for old sync type
