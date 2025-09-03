@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
         {
+            "version": "13.3",
+            "date": "2025-09-03",
+            "description": "released v13.3.rel1",
+            "size": "302 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-toolchain-GNU-ARM-Embedded/archive/13.3.zip"
+        },
+        {
             "version": "13.2.1",
             "date": "2024-04-22",
             "description": "released v13.2.rel1",
