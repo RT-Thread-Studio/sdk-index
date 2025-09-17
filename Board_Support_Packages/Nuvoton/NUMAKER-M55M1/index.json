@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m55m1.git",
     "releases": [
         {
+            "version": "1.0.3",
+            "date": "2025-9-17",
+            "description": "released v1.0.3",
+            "size": "290 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m55m1/archive/v1.0.3.zip"
+        },
+        {
             "version": "1.0.2",
             "date": "2025-4-18",
             "description": "+arm mlevk,+download folder",
