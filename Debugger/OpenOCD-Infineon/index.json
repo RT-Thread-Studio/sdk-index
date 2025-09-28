@@ -3,11 +3,20 @@
     "vendor": "Infineon",
     "description": "OpenOCD-Infineon Debugger only for Infineon",
     "license": "",
-    "releases": [{
+    "releases": [
+        {
         "version": "1.0.0",
         "date": "2022-9-1",
         "description": "Init OpenOCD-Infineon Debugger",
         "size": "3.19 MB",
         "url": "https://github.com/RT-Thread-Studio/sdk-debugger-openocd-infineon/archive/1.0.0.zip"
-    }]
+        },
+        {
+        "version": "2.0.0",
+        "date": "2025-9-28",
+        "description": "Init OpenOCD-Infineon Debugger",
+        "size": "5.87 MB",
+        "url": "https://github.com/RT-Thread-Studio/sdk-debugger-openocd-infineon/archive/2.0.0.zip"
+        }
+    ]
 }
