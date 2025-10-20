@@ -1,5 +1,5 @@
 {
-    "name": "GD32H7",
+    "name": "GD32H7xx",
     "vendor": "RealThread",
     "description": "GD32H7xx Chip Support Packages",
     "license": "",
