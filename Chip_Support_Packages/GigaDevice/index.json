@@ -3,6 +3,6 @@
     "dvendor": "GigaDevice",
     "description": "GD32H7 series Chip Support Packages",
     "index": [
-        "GD32H7"
+        "GD32H7xx"
     ]
 }
