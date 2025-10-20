@@ -1,0 +1,16 @@
+{
+    "name": "GD32H7",
+    "vendor": "RealThread",
+    "description": "GD32H7xx Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-gd32h7.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2025-10-20",
+            "description": "support GD32H7xx pack",
+            "size": "42.1 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-gd32h7/archive/1.0.0.zip"
+        }
+    ]
+}
