@@ -9,6 +9,7 @@
         "sdk-bsp-ra6m3-hmi-board",
         "sdk-bsp-ek-ra8m1",
         "sdk-bsp-ra8d1-vision-board",
-        "sdk-bsp-rzn2l-etherkit"
+        "sdk-bsp-rzn2l-etherkit",
+        "sdk-bsp-ra8p1-titan-board"
     ]
 }
