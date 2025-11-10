@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-gd32h7.git",
     "releases": [
         {
+            "version": "2.0.0",
+            "date": "2025-11-10",
+            "description": "support advanced drivers such as CAN, ETH, USB, and LCD...",
+            "size": "60 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-gd32h7/archive/2.0.0.zip"
+        },
+        {
             "version": "1.0.0",
             "date": "2025-10-20",
             "description": "support GD32H7xx pack",
