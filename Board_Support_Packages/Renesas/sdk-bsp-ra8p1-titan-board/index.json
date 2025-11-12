@@ -6,11 +6,11 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-board.git",
     "releases": [
         {
-            "version": "1.0.0",
-            "date": "2025-10-30",
-            "description": "Released v1.0.0, support Titan-Board",
-            "size": "741 MB",
-            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-board/archive/refs/tags/1.0.0.zip"
+            "version": "1.0.2",
+            "date": "2025-11-12",
+            "description": "release v1.0.2, fix the error problem when creating the repair project.",
+            "size": "752 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-board/archive/refs/tags/1.0.2.zip"
         },
         {
             "version": "1.0.1",
@@ -18,6 +18,13 @@
             "description": "release v1.0.1, fix the error when synchronizing the scons configuration.",
             "size": "751 MB",
             "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-board/archive/refs/tags/1.0.1.zip"
+        },
+        {
+            "version": "1.0.0",
+            "date": "2025-10-30",
+            "description": "Released v1.0.0, support Titan-Board",
+            "size": "741 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-board/archive/refs/tags/1.0.0.zip"
         }
     ]
 }
