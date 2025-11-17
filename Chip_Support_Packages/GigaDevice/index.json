@@ -1,0 +1,8 @@
+{
+    "name": "GD32 Series Chip Support Packages",
+    "dvendor": "GigaDevice",
+    "description": "GD32H7 series Chip Support Packages",
+    "index": [
+        "GD32H7xx"
+    ]
+}

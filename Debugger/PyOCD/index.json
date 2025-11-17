@@ -5,6 +5,20 @@
     "license": "",
     "releases": [
         {
+            "version": "0.2.9",
+            "date": "2025-10-28",
+            "description": "add support for ra8p1",
+            "size": "253 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.9.zip"
+        },
+        {
+            "version": "0.2.8",
+            "date": "2025-10-16",
+            "description": "add support for GD32 F5xx/H7xx/h75e debug",
+            "size": "186 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-debugger-pyocd/archive/0.2.8.zip"
+        },
+        {
             "version": "0.2.7",
             "date": "2025-05-21",
             "description": "add support for the MCXN947_DFP list",
