@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M3334KI",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M3334KI Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m3334ki.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2025-11-18",
+            "description": "released v1.0.0",
+            "size": "23 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m3334ki/archive/v1.0.0.zip"
+        }
+    ]
+}
