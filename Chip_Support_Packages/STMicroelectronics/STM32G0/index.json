@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g0.git",
     "releases": [
         {
+            "version": "0.2.1",
+            "date": "2025-12-04",
+            "description": "release 0.2.1",
+            "size": "23 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32g0/archive/v0.2.1.zip"
+        },
+        {
             "version": "0.2.0",
             "date": "2023-08-19",
             "description": "update hal to verison 1.6.1",

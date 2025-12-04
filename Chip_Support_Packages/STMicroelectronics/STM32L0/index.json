@@ -6,6 +6,20 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0.git",
     "releases": [
         {
+            "version": "0.2.3",
+            "date": "2025-12-04",
+            "description": "release 0.2.3",
+            "size": "75 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0/archive/0.2.3.zip"
+        },
+        {
+            "version": "0.2.2",
+            "date": "2022-01-18",
+            "description": "update HAL v1.12.1",
+            "size": "75 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-stm32l0/archive/0.2.2.zip"
+        },
+        {
             "version": "0.2.1",
             "date": "2020-08-10",
             "description": "Fixed lpuart remap error in drv_usart.c.",
