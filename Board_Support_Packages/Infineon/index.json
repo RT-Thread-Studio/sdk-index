@@ -4,6 +4,7 @@
     "description": "Infineon Board Support Packages",
     "index": [
         "PSOC62-IFX-PROTO-KIT",
-        "PSOC62-IFX-EVAL-KIT"
+        "PSOC62-IFX-EVAL-KIT",
+        "PSOC_E84-EDGI-TALK"
     ]
 }
