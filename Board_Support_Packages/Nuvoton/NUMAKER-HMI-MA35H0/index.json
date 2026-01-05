@@ -6,6 +6,13 @@
     "repository": "https://github.com/wosayttn/sdk-bsp-numaker-hmi-ma35h0.git",
     "releases": [
         {
+            "version": "1.0.2",
+            "date": "2025-12-29",
+            "description": "update drivers.",
+            "size": "144 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-hmi-ma35h0/archive/v1.0.2.zip"
+        },
+        {
             "version": "1.0.1",
             "date": "2024-1-29",
             "description": "Rename series part number.",
