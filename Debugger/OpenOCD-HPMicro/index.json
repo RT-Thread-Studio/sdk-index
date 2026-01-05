@@ -5,6 +5,13 @@
     "license": "",
     "releases": [
     {
+        "version": "0.6.0",
+        "date": "2026-01-05",
+        "description": "OpenOCD-HPMicro Debugger Support v0.6.0",
+        "size": "8 MB",
+        "url": "https://github.com/hpmicro/rtt-debugger-support-package/archive/v0.6.0.zip"
+    },
+    {
         "version": "0.5.0",
         "date": "2025-07-06",
         "description": "OpenOCD-HPMicro Debugger Support v0.5.0",
