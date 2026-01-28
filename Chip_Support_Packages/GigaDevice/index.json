@@ -1,8 +1,9 @@
 {
     "name": "GD32 Series Chip Support Packages",
     "dvendor": "GigaDevice",
-    "description": "GD32H7 series Chip Support Packages",
+    "description": "GD32 series Chip Support Packages",
     "index": [
-        "GD32H7xx"
+        "GD32H7xx",
+        "GD32F5xx"
     ]
 }

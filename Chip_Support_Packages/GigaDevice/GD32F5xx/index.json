@@ -1,0 +1,16 @@
+{
+    "name": "GD32F5xx",
+    "vendor": "RealThread",
+    "description": "GD32F5xx Chip Support Packages",
+    "license": "",
+    "repository": "https://github.com/RT-Thread-Studio/sdk-csp-gd32f5.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2026-01-28",
+            "description": "support GD32F5xx pack",
+            "size": "12.3 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-csp-gd32f5/archive/1.0.0.zip"
+        }
+    ]
+}
