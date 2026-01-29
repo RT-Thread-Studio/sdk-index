@@ -4,6 +4,6 @@
     "description": "GD32 series Chip Support Packages",
     "index": [
         "GD32H7xx",
-        "GD32F5xx"
+        "GD32F527"
     ]
 }
