@@ -5,7 +5,14 @@
     "license": "",
     "repository": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini.git",
     "releases": [
-         {
+        {
+            "version": "1.11.0",
+            "date": "2026-02-03",
+            "description": "RT-Thread BSP v1.11.0 for HPM6750EVKMINI",
+            "size": "168 MB",
+            "url": "https://github.com/hpmicro/rtt-bsp-hpm6750evkmini/archive/v1.11.0.zip"
+        },
+        {
             "version": "1.10.0",
             "date": "2025-08-26",
             "description": "RT-Thread BSP v1.10.0 for HPM6750EVKMINI",
