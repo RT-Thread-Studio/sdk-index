@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-M3351KJ",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-M3351KJ Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-m3351kj.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2026-2-12",
+            "description": "released v1.0.0",
+            "size": "110 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-m3351kj/archive/v1.0.0.zip"
+        }
+    ]
+}
