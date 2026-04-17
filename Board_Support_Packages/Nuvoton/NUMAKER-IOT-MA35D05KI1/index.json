@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-IOT-MA35D05KI1",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-IOT-MA35D05KI1 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d05ki1.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2026-4-17",
+            "description": "released v1.0.0",
+            "size": "53 MB",
+            "url": "https://github.com/wosayttn/sdk-bsp-numaker-iot-ma35d05ki1/archive/v1.0.0.zip"
+        }
+    ]
+}
