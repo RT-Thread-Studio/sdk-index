@@ -1,0 +1,16 @@
+{
+    "name": "NUMAKER-CM3034HS8",
+    "vendor": "Nuvoton",
+    "description": "NUMAKER-CM3034HS8 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/OpenNuvoton/sdk-bsp-numaker-cm3034hs8.git",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2026-07-02",
+            "description": "released v1.0.0",
+            "size": "116 MB",
+            "url": "https://github.com/OpenNuvoton/sdk-bsp-numaker-cm3034hs8/archive/v1.0.0.zip"
+        }
+    ]
+}
