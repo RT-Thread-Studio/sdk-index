@@ -1,0 +1,16 @@
+{
+    "name": "sdk-bsp-hc32f4a2-xhsc-ev",
+    "vendor": "XHSC",
+    "description": "EV_F4A2_LQ176 Board Support Packages",
+    "license": "",
+    "repository": "https://github.com/hdscmcu/sdk-bsp-hc32f4a2-xhsc-ev",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2026-09-18",
+            "description": "released v1.0.0",
+            "size": "14.5 MB",
+            "url": "https://github.com/hdscmcu/sdk-bsp-hc32f4a2-xhsc-ev/archive/refs/tags/v1.0.0.zip"
+        }
+    ]
+}
