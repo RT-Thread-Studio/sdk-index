@@ -85,6 +85,19 @@ def index_schema_check(index_content):
     logging.info("SDK index checking successful.")
 
 
+def release_urls(index_content):
+    urls = set()
+    if isinstance(index_content, dict):
+        urls.update(
+            release["url"]
+            for release in index_content.get("releases", [])
+            if isinstance(release, dict) and "url" in release
+        )
+        for child in index_content.get("children", []):
+            urls.update(release_urls(child))
+    return urls
+
+
 download_dir="/rt-thread/sdk-index/scripts/sdk_check/"
 tempdir_folder="/rt-thread/sdk-index/scripts/temp_sdk/"
 
@@ -245,7 +258,11 @@ def main():
     index_schema_check(index)
     #pr this Index
     changed_pkgs =pr_index(index)
-    removes=changed_pkgs["del"]
+    submitted_release_urls = release_urls(index)
+    removes = [
+        url for url in changed_pkgs["del"]
+        if url not in submitted_release_urls
+    ]
     adds=changed_pkgs["add"]
     if len(removes)==0:
         if len(adds)==0:
