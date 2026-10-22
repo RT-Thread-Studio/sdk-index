@@ -6,6 +6,13 @@
     "repository": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-mini.git",
     "releases": [
         {
+            "version": "1.2.2",
+            "date": "2026-8-20",
+            "description": "Released v1.2.2, add openmv support",
+            "size": "346 MB",
+            "url": "https://github.com/RT-Thread-Studio/sdk-bsp-ra8p1-titan-mini/archive/refs/tags/1.2.2.zip"
+        },
+        {
             "version": "1.2.1",
             "date": "2026-8-20",
             "description": "Released v1.2.1, support Titan-Board-Mini",
