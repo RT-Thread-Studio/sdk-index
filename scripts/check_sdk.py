@@ -1,31 +1,58 @@
-
-import subprocess
-import time
 import logging
+import os
+import shlex
+import shutil
+import subprocess
+import sys
+import tempfile
+
 logging.getLogger().setLevel(logging.INFO)
 
-def execute_command(cmd_string, cwd=None, shell=True):
-    sub = subprocess.Popen(cmd_string, cwd=cwd, stdin=subprocess.PIPE,stderr=subprocess.PIPE,
-                           stdout=subprocess.PIPE, shell=shell, bufsize=4096)
-    stdout_str = ''
-    while sub.poll() is None:
-        err= sub.stderr.read()
-        stdout_str += str(sub.stdout.read(), encoding="UTF-8")
-        if len(err)>0:
-            logging.info(err)
-        time.sleep(0.1)
-    return stdout_str
 
-logging.info(execute_command("apt-get update && apt-get -y upgrade"))
-logging.info(execute_command("python -m pip install --upgrade pip"))
-logging.info(execute_command("pip install requests wget pyyaml jsonschema pytest pytest-sugar pytest-html rt-thread-studio"))
+def prepare_python_environment():
+    logging.info("CI Python: %s (%s)", sys.executable, sys.version.replace("\n", " "))
+    logging.info("Existing SCons command: %s", shutil.which("scons"))
+    # Keep the build dependencies on the interpreter running this script.
+    # SCons 4.8.1 also supports Python 3.6 in older SDK Docker images.
+    subprocess.check_call([
+        sys.executable, "-E", "-m", "pip", "install", "--disable-pip-version-check",
+        "requests", "wget", "pyyaml", "jsonschema", "pytest", "pytest-sugar",
+        "pytest-html", "rt-thread-studio", "scons==4.8.1", "kconfiglib==14.1.0",
+    ])
+
+    # prj_gen calls bare `scons` and bundles its own Python shared libraries.
+    # Restore the original library search path before starting external Python.
+    command_dir = tempfile.TemporaryDirectory(prefix="sdk-index-python-")
+    scons_path = os.path.join(command_dir.name, "scons")
+    wrapper = """#!/bin/sh
+if [ "${LD_LIBRARY_PATH_ORIG+x}" = x ]; then
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH_ORIG"
+else
+    unset LD_LIBRARY_PATH
+fi
+unset PYTHONHOME
+""" + "exec {0} -E -m SCons \"$@\"\n".format(shlex.quote(sys.executable))
+    with open(scons_path, "w", encoding="utf-8", newline="\n") as script:
+        script.write(wrapper)
+    os.chmod(scons_path, 0o755)
+    os.environ["PATH"] = command_dir.name + os.pathsep + os.environ.get("PATH", "")
+    logging.info("CI SCons command: %s", shutil.which("scons"))
+    subprocess.check_call([
+        sys.executable, "-E", "-c",
+        "import SCons, kconfiglib; "
+        "print('SCons:', SCons.__version__, SCons.__file__); "
+        "print('kconfiglib:', kconfiglib.__file__)",
+    ])
+    subprocess.check_call([scons_path, "--version"])
+    return command_dir
 
 
-import os
+# Keep the temporary command directory alive for the generator's child processes.
+_ci_commands = prepare_python_environment()
+
+
 import json
-import logging
 import requests
-import sys
 from jsonschema import RefResolver, Draft7Validator, FormatChecker
 import yaml
 from sdk_index_gen import generate_all_index,get_json_obj_from_file
@@ -199,7 +226,7 @@ def check_csp(csp_dir):
     file_merge_unzip(os.path.join(download_dir,"rt-studio-backend.zip"), csp_dir)
 
     gen_sdk_test_case(csp_dir)
-    subprocess.call("python "+csp_dir+"/sdk_test_case.py", shell=True)
+    subprocess.call([sys.executable, "-E", os.path.join(csp_dir, "sdk_test_case.py")])
     clear_dir(workspace)
     if check_report_html(csp_dir)==1:
         sys.exit(1)
@@ -231,7 +258,7 @@ def check_bsp(temp_bsp_dir,vendor,name,version):
 
     gen_bsp_sdk_json(studio_bsp_dir,workspace)
     gen_sdk_test_case(studio_bsp_dir)
-    subprocess.call("python "+studio_bsp_dir+"/sdk_test_case.py", shell=True)
+    subprocess.call([sys.executable, "-E", os.path.join(studio_bsp_dir, "sdk_test_case.py")])
     clear_dir(workspace)
     if check_report_html(studio_bsp_dir)==1:
         sys.exit(1)
