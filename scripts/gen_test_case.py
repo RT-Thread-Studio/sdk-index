@@ -7,12 +7,21 @@ import random
 import logging
 import textwrap
 import subprocess
-from pathlib import Path
-from common_util import clear_dir, execute_command,do_merge_copy
+from common_util import clear_dir, do_merge_copy
 
 csp_json_name="csp_chips.json"
 bsp_json_name="bsp_chips.json"
 mcu_folder_name="mcu_config"
+
+# The generator can report an internal SCons failure but still exit with zero.
+_GENERATION_ERROR_PATTERN = re.compile(
+    r"^\s*(?:Traceback \(most recent call last\):"
+    r"|(?:[\w.]*Error|Exception):"
+    r"|scons:\s+\*\*\*"
+    r"|(?:ERROR|FATAL|CRITICAL)(?:[:\s]|\[)"
+    r"|\[(?:ERROR|FATAL|CRITICAL)\])",
+    re.MULTILINE,
+)
 def gen_sdk_test_case(sdk_dir):
     generate_and_import_project(sdk_dir)
     mcu_config_path=os.path.join(sdk_dir,mcu_folder_name)
@@ -91,17 +100,41 @@ def generate_and_import_project(sdk_dir):
     logging.info("Project import end. time consuming : {0}.".format(time.time() - begin_time))
 
 
+def _run_generator(command, cwd, log_path):
+    with open(log_path, "w", encoding="utf-8") as log_file:
+        try:
+            result = subprocess.run(
+                command, cwd=cwd, stdout=log_file, stderr=subprocess.STDOUT
+            )
+        except OSError:
+            logging.exception("Cannot run project generator: %s", command)
+            raise
+
+    with open(log_path, "r", encoding="utf-8", errors="replace") as log_file:
+        output = log_file.read()
+
+    if result.returncode != 0 or _GENERATION_ERROR_PATTERN.search(output):
+        reason = ("exit code {0}".format(result.returncode)
+                  if result.returncode else "fatal error in generator output")
+        logging.error(
+            "Project generation failed: %s.\nCommand: %s\nFull log (%s):\n%s",
+            reason, command, log_path, output,
+        )
+        raise RuntimeError("Project generation failed ({0}); see {1}".format(reason, log_path))
+
+    logging.debug("Project generation log (%s):\n%s", log_path, output)
+
+
 def get_generate_result(json_path,sdk_dir):
     # judge sdk update type (csp or bsp)
-    try:
-        check_type = os.environ['SDK_CHECK_TYPE']
-    except Exception as e:
-        logging.error(": {0}".format(e))
+    check_type = os.environ.get('SDK_CHECK_TYPE')
+    json_path = os.path.abspath(json_path)
+    sdk_dir = os.path.abspath(sdk_dir)
 
     logging.debug("project_json_info: {0}".format(check_type))
     logging.debug("json path : {0}".format(json_path))
-    result = execute_command("cat {0}".format(json_path))
-    logging.debug("cat {0} : {1}".format(json_path, result))
+    with open(json_path, "r", encoding="utf-8") as json_file:
+        logging.debug("project parameters: %s", json_file.read())
     log_path = os.path.join(sdk_dir, "generate.log")
     # csp test case
     if check_type == 'csp_check':
@@ -110,27 +143,15 @@ def get_generate_result(json_path,sdk_dir):
         mcu_path=os.path.join(sdk_dir,mcu_folder_name)
         do_merge_copy(default_templates,mcu_path)
         proj_gen=os.path.join(sdk_dir,"prj_gen")
-        execute_command("chmod 777 "+sdk_dir+"/prj_gen")
-        os.chdir(sdk_dir)
-        cmd = r"{0} --csp_project=true --csp_parameter_file={1} -n xxx 2> {2}".format(proj_gen,json_path, log_path)
+        generator_dir = sdk_dir
+        cmd = [proj_gen, "--csp_project=true", "--csp_parameter_file=" + json_path, "-n", "xxx"]
     elif check_type == 'bsp_check':
         proj_gen_path = "/RT-ThreadStudio/plugins/org.rt-thread.studio.project.gener/gener"
         proj_gen=os.path.join(proj_gen_path,"prj_gen")
-        execute_command("chmod 777 "+proj_gen_path+"/prj_gen")
-        os.chdir(Path(proj_gen_path))
-        cmd = r"{0} --bsp_project=true --bsp_parameter_file={1} -n xxx 2> {2}".format(proj_gen,json_path, log_path)
+        generator_dir = proj_gen_path
+        cmd = [proj_gen, "--bsp_project=true", "--bsp_parameter_file=" + json_path, "-n", "xxx"]
     else:
         logging.error("invalid check type")
         sys.exit(1)
-    execute_command(cmd)
-    try:
-        with open(log_path, "r") as f:
-            log_info = f.readlines()
-    except Exception as e:
-        logging.error("Error message : {0}".format(e))
-    else:
-        for line in log_info:
-            if line.find("Error") != -1 or line.find("error") != -1 or line.find("ERROR") != -1:
-                logging.error(line)
-            else:
-                logging.debug(line)
+    os.chmod(proj_gen, 0o777)
+    _run_generator(cmd, generator_dir, log_path)
