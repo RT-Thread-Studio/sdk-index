@@ -13,12 +13,15 @@ csp_json_name="csp_chips.json"
 bsp_json_name="bsp_chips.json"
 mcu_folder_name="mcu_config"
 
+_ANSI_ESCAPE_PATTERN = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+
 # The generator can report an internal SCons failure but still exit with zero.
 _GENERATION_ERROR_PATTERN = re.compile(
     r"^\s*(?:Traceback \(most recent call last\):"
     r"|(?:[\w.]*Error|Exception):"
     r"|scons:\s+\*\*\*"
     r"|(?:ERROR|FATAL|CRITICAL)(?:[:\s]|\[)"
+    r"|\*\*(?:ERROR|FATAL|CRITICAL)\*\*:"
     r"|\[(?:ERROR|FATAL|CRITICAL)\])",
     re.MULTILINE,
 )
@@ -64,7 +67,7 @@ def find_mcu_in_json_file(sdk_dir):
     test_numbers = int(len(parameter_dict))
     if test_numbers > 80:
         test_numbers = 80
-    mcu_dict = dict(random.sample(parameter_dict.items(), test_numbers))
+    mcu_dict = dict(random.sample(list(parameter_dict.items()), test_numbers))
 
     for mcu in mcu_dict:
         bare_metal_list = {"parameter": parameter_dict[mcu]["parameter"]}
@@ -113,7 +116,8 @@ def _run_generator(command, cwd, log_path):
     with open(log_path, "r", encoding="utf-8", errors="replace") as log_file:
         output = log_file.read()
 
-    if result.returncode != 0 or _GENERATION_ERROR_PATTERN.search(output):
+    normalized_output = _ANSI_ESCAPE_PATTERN.sub("", output)
+    if result.returncode != 0 or _GENERATION_ERROR_PATTERN.search(normalized_output):
         reason = ("exit code {0}".format(result.returncode)
                   if result.returncode else "fatal error in generator output")
         logging.error(
