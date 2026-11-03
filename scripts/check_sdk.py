@@ -9,6 +9,25 @@ import tempfile
 logging.getLogger().setLevel(logging.INFO)
 
 
+def _scons_wrapper(python_executable):
+    return """#!/bin/sh
+if [ "${LD_LIBRARY_PATH_ORIG+x}" = x ]; then
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH_ORIG"
+else
+    unset LD_LIBRARY_PATH
+fi
+unset PYTHONHOME
+""" + "{0} -E -m SCons \"$@\"\n".format(shlex.quote(python_executable)) + """scons_exit_code=$?
+if [ "$scons_exit_code" -ne 0 ]; then
+    if [ -n "${SDK_INDEX_SCONS_STATUS_FILE:-}" ]; then
+        printf '%s\\n' "$scons_exit_code" >> "$SDK_INDEX_SCONS_STATUS_FILE"
+    fi
+    printf 'ERROR: SCons exited with code %s\\n' "$scons_exit_code" >&2
+fi
+exit "$scons_exit_code"
+"""
+
+
 def prepare_python_environment():
     logging.info("CI Python: %s (%s)", sys.executable, sys.version.replace("\n", " "))
     logging.info("Existing SCons command: %s", shutil.which("scons"))
@@ -24,14 +43,7 @@ def prepare_python_environment():
     # Restore the original library search path before starting external Python.
     command_dir = tempfile.TemporaryDirectory(prefix="sdk-index-python-")
     scons_path = os.path.join(command_dir.name, "scons")
-    wrapper = """#!/bin/sh
-if [ "${LD_LIBRARY_PATH_ORIG+x}" = x ]; then
-    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH_ORIG"
-else
-    unset LD_LIBRARY_PATH
-fi
-unset PYTHONHOME
-""" + "exec {0} -E -m SCons \"$@\"\n".format(shlex.quote(sys.executable))
+    wrapper = _scons_wrapper(sys.executable)
     with open(scons_path, "w", encoding="utf-8", newline="\n") as script:
         script.write(wrapper)
     os.chmod(scons_path, 0o755)
