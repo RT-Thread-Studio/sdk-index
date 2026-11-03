@@ -6,11 +6,11 @@
     "repository": "https://github.com/hdscmcu/sdk-bsp-hc32f334-xhsc-ev",
     "releases": [
         {
-            "version": "1.0.0",
+            "version": "1.0.1",
             "date": "2026-11-03",
-            "description": "released v1.0.0",
+            "description": "released v1.0.1",
             "size": "28.7 MB",
-            "url": "https://github.com/hdscmcu/sdk-bsp-hc32f334-xhsc-ev/archive/refs/tags/v1.0.0.zip"
+            "url": "https://github.com/hdscmcu/sdk-bsp-hc32f334-xhsc-ev/archive/refs/tags/v1.0.1.zip"
         }
     ]
 }
