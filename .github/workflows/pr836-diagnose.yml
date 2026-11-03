@@ -15,7 +15,7 @@ jobs:
           docker run --rm -v "$GITHUB_WORKSPACE:/rt-thread/sdk-index" realthread/sdk_index@sha256:4516a1a97e814a6c4a2929fd670892a81763d7c42c9877b011bf20e79b0b5a54 bash -c ". /etc/profile && python3 -m unittest discover -s /rt-thread/sdk-index/scripts/tests -v"
       - name: Reproduce package generation and build
         run: |
-          docker run --rm -e EXPECT_GENERATION_FAILURE=true -v "$GITHUB_WORKSPACE:/rt-thread/sdk-index" realthread/sdk_index@sha256:4516a1a97e814a6c4a2929fd670892a81763d7c42c9877b011bf20e79b0b5a54 bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/diagnose_pr836.py"
+          docker run --rm -e BSP_URL=https://github.com/Rbb666/sdk-bsp-hc32f334-xhsc-ev/archive/338345099e6952c4c17802bb7ef4d13e050b17f5.zip -v "$GITHUB_WORKSPACE:/rt-thread/sdk-index" realthread/sdk_index@sha256:4516a1a97e814a6c4a2929fd670892a81763d7c42c9877b011bf20e79b0b5a54 bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/diagnose_pr836.py"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
