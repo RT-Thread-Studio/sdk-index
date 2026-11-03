@@ -7,6 +7,7 @@ import random
 import logging
 import textwrap
 import subprocess
+import tempfile
 from common_util import clear_dir, do_merge_copy
 
 csp_json_name="csp_chips.json"
@@ -104,22 +105,37 @@ def generate_and_import_project(sdk_dir):
 
 
 def _run_generator(command, cwd, log_path):
-    with open(log_path, "w", encoding="utf-8") as log_file:
-        try:
-            result = subprocess.run(
-                command, cwd=cwd, stdout=log_file, stderr=subprocess.STDOUT
-            )
-        except OSError:
-            logging.exception("Cannot run project generator: %s", command)
-            raise
+    # prj_gen can ignore SCons' return code. Give its SCons children a separate
+    # status channel so a silent exit(1) cannot become a successful generation.
+    with tempfile.TemporaryDirectory(prefix="sdk-index-scons-status-") as status_dir:
+        status_path = os.path.join(status_dir, "failures")
+        generator_env = os.environ.copy()
+        generator_env["SDK_INDEX_SCONS_STATUS_FILE"] = status_path
+        with open(log_path, "w", encoding="utf-8") as log_file:
+            try:
+                result = subprocess.run(
+                    command, cwd=cwd, stdout=log_file, stderr=subprocess.STDOUT,
+                    env=generator_env,
+                )
+            except OSError:
+                logging.exception("Cannot run project generator: %s", command)
+                raise
+
+        scons_failures = []
+        if os.path.exists(status_path):
+            with open(status_path, "r", encoding="utf-8") as status_file:
+                scons_failures = [line.strip() for line in status_file if line.strip()]
 
     with open(log_path, "r", encoding="utf-8", errors="replace") as log_file:
         output = log_file.read()
 
     normalized_output = _ANSI_ESCAPE_PATTERN.sub("", output)
-    if result.returncode != 0 or _GENERATION_ERROR_PATTERN.search(normalized_output):
-        reason = ("exit code {0}".format(result.returncode)
-                  if result.returncode else "fatal error in generator output")
+    if scons_failures or result.returncode != 0 or _GENERATION_ERROR_PATTERN.search(normalized_output):
+        if scons_failures:
+            reason = "SCons exit code(s) {0}".format(", ".join(scons_failures))
+        else:
+            reason = ("exit code {0}".format(result.returncode)
+                      if result.returncode else "fatal error in generator output")
         logging.error(
             "Project generation failed: %s.\nCommand: %s\nFull log (%s):\n%s",
             reason, command, log_path, output,
