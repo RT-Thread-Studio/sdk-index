@@ -10,11 +10,16 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+      - name: Test CI helpers with the container Python
+        run: |
+          docker run --rm -v "$GITHUB_WORKSPACE:/rt-thread/sdk-index" realthread/sdk_index@sha256:4516a1a97e814a6c4a2929fd670892a81763d7c42c9877b011bf20e79b0b5a54 bash -c ". /etc/profile && python3 -m unittest discover -s /rt-thread/sdk-index/scripts/tests -v"
       - name: Reproduce package generation and build
         run: |
-          docker run --rm -v "$GITHUB_WORKSPACE:/rt-thread/sdk-index" realthread/sdk_index@sha256:4516a1a97e814a6c4a2929fd670892a81763d7c42c9877b011bf20e79b0b5a54 bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/diagnose_pr836.py"
+          docker run --rm -e EXPECT_GENERATION_FAILURE=true -v "$GITHUB_WORKSPACE:/rt-thread/sdk-index" realthread/sdk_index@sha256:4516a1a97e814a6c4a2929fd670892a81763d7c42c9877b011bf20e79b0b5a54 bash -c ". /etc/profile && python3 /rt-thread/sdk-index/scripts/diagnose_pr836.py"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: pr836-generation
           path: diagnostics
+          include-hidden-files: true
+

@@ -41,6 +41,16 @@ def capture(command, cwd, log_path):
 gen_test_case._run_generator = capture
 check_sdk.init_dir()
 check_sdk.prepare_pkgs([
-    "https://github.com/hdscmcu/sdk-bsp-hc32f334-xhsc-ev/archive/refs/tags/v1.0.1.zip"
+    os.environ.get("BSP_URL", "https://github.com/hdscmcu/sdk-bsp-hc32f334-xhsc-ev/archive/refs/tags/v1.0.1.zip")
 ])
-check_sdk.check_pkgs()
+expect_failure = os.environ.get("EXPECT_GENERATION_FAILURE") == "true"
+try:
+    check_sdk.check_pkgs()
+except RuntimeError as error:
+    if not expect_failure or "SCons exit code(s)" not in str(error):
+        raise
+    print("EXPECTED GENERATION FAILURE: {}".format(error), flush=True)
+else:
+    if expect_failure:
+        raise AssertionError("The broken package was not rejected during generation")
+
